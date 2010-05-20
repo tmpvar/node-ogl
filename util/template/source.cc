@@ -1,12 +1,16 @@
 #include <node.h>
 
-// OpenGl includes
+// Includes
 %_INCLUDES
-// End OpenGl includes
 
 using namespace v8;
 namespace node {
 
-%_NAMESPACE_BODY
+  void %_NAME::Initialize(v8::Handle<v8::Object> target) {
+    HandleScope scope;
 
+    // Constants
+    %_CONSTANTS
+   
+  }
 }  // namespace node
