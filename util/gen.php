@@ -30,14 +30,14 @@ $total = count($matches[1]);
 $constants = array();
 for ($i = 0; $i<$total; $i++)
 {
-  $string = "#ifdef " . $matches[1][$i] . "\n";
-  $string .= 'NODE_DEFINE_CONSTANT(target, ' . $matches[1][$i] . ");\n";
-  $string .= "#endif\n";
+  $string =  "    #ifdef " . $matches[1][$i] . "\n";
+  $string .= '    NODE_DEFINE_CONSTANT(t, ' . $matches[1][$i] . ");\n";
+  $string .= "    #endif\n";
 
   array_push($constants, $string);
 }
 
-$source = str_replace("%_CONSTANTS", implode("\n    ", $constants), $source);
+$source = str_replace("%_CONSTANTS", implode("\n", $constants), $source);
 
 // SECOND PASS: methods
 exec("gcc -E $path > $cwd/tmp/gen.work");

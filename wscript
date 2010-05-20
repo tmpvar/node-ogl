@@ -34,3 +34,5 @@ def copynode(ctx):
   if exists('build/default/node-ogl.node'):
     copy('build/default/node-ogl.node','lib/node-ogl.node')
 
+def test(tst):
+  os.system("node test/sanity.js")
