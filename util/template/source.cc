@@ -8,12 +8,13 @@ namespace node {
 
   Persistent<FunctionTemplate> %_NAME::constructor_template;
 
+%_METHODS
+
   // Constructor
   %_NAME::%_NAME()
   {
   
   }
-
 
   void %_NAME::Initialize(v8::Handle<v8::Object> target) {
     HandleScope scope;
@@ -27,6 +28,10 @@ namespace node {
 %_CONSTANTS
 
     target->Set(String::NewSymbol("%_NAME"), t->GetFunction());
+
+    // Expose this classes methods to v8/javascript
+    %_JSMETHODS
+
   }
 
 
@@ -39,5 +44,8 @@ namespace node {
     instance->Wrap(args.This());
 
     return args.This();
-  }  
+  }
+
+
+ 
 }  // namespace node

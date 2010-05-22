@@ -1,8 +1,4947 @@
-# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
-# 155 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+# 38 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+# 1 "/usr/include/X11/Xlib.h" 1 3 4
+# 41 "/usr/include/X11/Xlib.h" 3 4
+# 1 "/usr/include/sys/types.h" 1 3 4
+# 27 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 313 "/usr/include/features.h" 3 4
+# 1 "/usr/include/bits/predefs.h" 1 3 4
+# 314 "/usr/include/features.h" 2 3 4
+# 346 "/usr/include/features.h" 3 4
+# 1 "/usr/include/sys/cdefs.h" 1 3 4
+# 353 "/usr/include/sys/cdefs.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 354 "/usr/include/sys/cdefs.h" 2 3 4
+# 347 "/usr/include/features.h" 2 3 4
+# 378 "/usr/include/features.h" 3 4
+# 1 "/usr/include/gnu/stubs.h" 1 3 4
+
+
+
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 5 "/usr/include/gnu/stubs.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/gnu/stubs-64.h" 1 3 4
+# 10 "/usr/include/gnu/stubs.h" 2 3 4
+# 379 "/usr/include/features.h" 2 3 4
+# 28 "/usr/include/sys/types.h" 2 3 4
+
+
+
+# 1 "/usr/include/bits/types.h" 1 3 4
+# 28 "/usr/include/bits/types.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 29 "/usr/include/bits/types.h" 2 3 4
+
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+# 131 "/usr/include/bits/types.h" 3 4
+# 1 "/usr/include/bits/typesizes.h" 1 3 4
+# 132 "/usr/include/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef long int __swblk_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+typedef long int __ssize_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef __quad_t *__qaddr_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+# 32 "/usr/include/sys/types.h" 2 3 4
+
+
+
+typedef __u_char u_char;
+typedef __u_short u_short;
+typedef __u_int u_int;
+typedef __u_long u_long;
+typedef __quad_t quad_t;
+typedef __u_quad_t u_quad_t;
+typedef __fsid_t fsid_t;
+
+
+
+
+typedef __loff_t loff_t;
+
+
+
+typedef __ino_t ino_t;
+# 62 "/usr/include/sys/types.h" 3 4
+typedef __dev_t dev_t;
+
+
+
+
+typedef __gid_t gid_t;
+
+
+
+
+typedef __mode_t mode_t;
+
+
+
+
+typedef __nlink_t nlink_t;
+
+
+
+
+typedef __uid_t uid_t;
+
+
+
+
+
+typedef __off_t off_t;
+# 100 "/usr/include/sys/types.h" 3 4
+typedef __pid_t pid_t;
+
+
+
+
+typedef __id_t id_t;
+
+
+
+
+typedef __ssize_t ssize_t;
+
+
+
+
+
+typedef __daddr_t daddr_t;
+typedef __caddr_t caddr_t;
+
+
+
+
+
+typedef __key_t key_t;
+# 133 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/include/time.h" 1 3 4
+# 74 "/usr/include/time.h" 3 4
+
+
+typedef __time_t time_t;
+
+
+
+# 92 "/usr/include/time.h" 3 4
+typedef __clockid_t clockid_t;
+# 104 "/usr/include/time.h" 3 4
+typedef __timer_t timer_t;
+# 134 "/usr/include/sys/types.h" 2 3 4
+# 147 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 1 3 4
+# 211 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
+typedef long unsigned int size_t;
+# 148 "/usr/include/sys/types.h" 2 3 4
+
+
+
+typedef unsigned long int ulong;
+typedef unsigned short int ushort;
+typedef unsigned int uint;
+# 195 "/usr/include/sys/types.h" 3 4
+typedef int int8_t __attribute__ ((__mode__ (__QI__)));
+typedef int int16_t __attribute__ ((__mode__ (__HI__)));
+typedef int int32_t __attribute__ ((__mode__ (__SI__)));
+typedef int int64_t __attribute__ ((__mode__ (__DI__)));
+
+
+typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
+typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
+
+typedef int register_t __attribute__ ((__mode__ (__word__)));
+# 217 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/include/endian.h" 1 3 4
+# 37 "/usr/include/endian.h" 3 4
+# 1 "/usr/include/bits/endian.h" 1 3 4
+# 38 "/usr/include/endian.h" 2 3 4
+# 61 "/usr/include/endian.h" 3 4
+# 1 "/usr/include/bits/byteswap.h" 1 3 4
+# 28 "/usr/include/bits/byteswap.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 29 "/usr/include/bits/byteswap.h" 2 3 4
+# 62 "/usr/include/endian.h" 2 3 4
+# 218 "/usr/include/sys/types.h" 2 3 4
+
+
+# 1 "/usr/include/sys/select.h" 1 3 4
+# 31 "/usr/include/sys/select.h" 3 4
+# 1 "/usr/include/bits/select.h" 1 3 4
+# 23 "/usr/include/bits/select.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 24 "/usr/include/bits/select.h" 2 3 4
+# 32 "/usr/include/sys/select.h" 2 3 4
+
+
+# 1 "/usr/include/bits/sigset.h" 1 3 4
+# 24 "/usr/include/bits/sigset.h" 3 4
+typedef int __sig_atomic_t;
+
+
+
+
+typedef struct
+  {
+    unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
+  } __sigset_t;
+# 35 "/usr/include/sys/select.h" 2 3 4
+
+
+
+typedef __sigset_t sigset_t;
+
+
+
+
+
+# 1 "/usr/include/time.h" 1 3 4
+# 120 "/usr/include/time.h" 3 4
+struct timespec
+  {
+    __time_t tv_sec;
+    long int tv_nsec;
+  };
+# 45 "/usr/include/sys/select.h" 2 3 4
+
+# 1 "/usr/include/bits/time.h" 1 3 4
+# 69 "/usr/include/bits/time.h" 3 4
+struct timeval
+  {
+    __time_t tv_sec;
+    __suseconds_t tv_usec;
+  };
+# 47 "/usr/include/sys/select.h" 2 3 4
+
+
+typedef __suseconds_t suseconds_t;
+
+
+
+
+
+typedef long int __fd_mask;
+# 67 "/usr/include/sys/select.h" 3 4
+typedef struct
+  {
+
+
+
+
+
+
+    __fd_mask __fds_bits[1024 / (8 * (int) sizeof (__fd_mask))];
+
+
+  } fd_set;
+
+
+
+
+
+
+typedef __fd_mask fd_mask;
+# 99 "/usr/include/sys/select.h" 3 4
+
+# 109 "/usr/include/sys/select.h" 3 4
+extern int select (int __nfds, fd_set *__restrict __readfds,
+     fd_set *__restrict __writefds,
+     fd_set *__restrict __exceptfds,
+     struct timeval *__restrict __timeout);
+# 121 "/usr/include/sys/select.h" 3 4
+extern int pselect (int __nfds, fd_set *__restrict __readfds,
+      fd_set *__restrict __writefds,
+      fd_set *__restrict __exceptfds,
+      const struct timespec *__restrict __timeout,
+      const __sigset_t *__restrict __sigmask);
+
+
+
+# 221 "/usr/include/sys/types.h" 2 3 4
+
+
+# 1 "/usr/include/sys/sysmacros.h" 1 3 4
+# 30 "/usr/include/sys/sysmacros.h" 3 4
+__extension__
+extern unsigned int gnu_dev_major (unsigned long long int __dev)
+     __attribute__ ((__nothrow__));
+__extension__
+extern unsigned int gnu_dev_minor (unsigned long long int __dev)
+     __attribute__ ((__nothrow__));
+__extension__
+extern unsigned long long int gnu_dev_makedev (unsigned int __major,
+            unsigned int __minor)
+     __attribute__ ((__nothrow__));
+# 224 "/usr/include/sys/types.h" 2 3 4
+# 235 "/usr/include/sys/types.h" 3 4
+typedef __blkcnt_t blkcnt_t;
+
+
+
+typedef __fsblkcnt_t fsblkcnt_t;
+
+
+
+typedef __fsfilcnt_t fsfilcnt_t;
+# 270 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/include/bits/pthreadtypes.h" 1 3 4
+# 23 "/usr/include/bits/pthreadtypes.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 24 "/usr/include/bits/pthreadtypes.h" 2 3 4
+# 50 "/usr/include/bits/pthreadtypes.h" 3 4
+typedef unsigned long int pthread_t;
+
+
+typedef union
+{
+  char __size[56];
+  long int __align;
+} pthread_attr_t;
+
+
+
+typedef struct __pthread_internal_list
+{
+  struct __pthread_internal_list *__prev;
+  struct __pthread_internal_list *__next;
+} __pthread_list_t;
+# 76 "/usr/include/bits/pthreadtypes.h" 3 4
+typedef union
+{
+  struct __pthread_mutex_s
+  {
+    int __lock;
+    unsigned int __count;
+    int __owner;
+
+    unsigned int __nusers;
+
+
+
+    int __kind;
+
+    int __spins;
+    __pthread_list_t __list;
+# 101 "/usr/include/bits/pthreadtypes.h" 3 4
+  } __data;
+  char __size[40];
+  long int __align;
+} pthread_mutex_t;
+
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_mutexattr_t;
+
+
+
+
+typedef union
+{
+  struct
+  {
+    int __lock;
+    unsigned int __futex;
+    __extension__ unsigned long long int __total_seq;
+    __extension__ unsigned long long int __wakeup_seq;
+    __extension__ unsigned long long int __woken_seq;
+    void *__mutex;
+    unsigned int __nwaiters;
+    unsigned int __broadcast_seq;
+  } __data;
+  char __size[48];
+  __extension__ long long int __align;
+} pthread_cond_t;
+
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_condattr_t;
+
+
+
+typedef unsigned int pthread_key_t;
+
+
+
+typedef int pthread_once_t;
+
+
+
+
+
+typedef union
+{
+
+  struct
+  {
+    int __lock;
+    unsigned int __nr_readers;
+    unsigned int __readers_wakeup;
+    unsigned int __writer_wakeup;
+    unsigned int __nr_readers_queued;
+    unsigned int __nr_writers_queued;
+    int __writer;
+    int __shared;
+    unsigned long int __pad1;
+    unsigned long int __pad2;
+
+
+    unsigned int __flags;
+  } __data;
+# 187 "/usr/include/bits/pthreadtypes.h" 3 4
+  char __size[56];
+  long int __align;
+} pthread_rwlock_t;
+
+typedef union
+{
+  char __size[8];
+  long int __align;
+} pthread_rwlockattr_t;
+
+
+
+
+
+typedef volatile int pthread_spinlock_t;
+
+
+
+
+typedef union
+{
+  char __size[32];
+  long int __align;
+} pthread_barrier_t;
+
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_barrierattr_t;
+# 271 "/usr/include/sys/types.h" 2 3 4
+
+
+
+# 42 "/usr/include/X11/Xlib.h" 2 3 4
+
+
+
+
+
+# 1 "/usr/include/X11/X.h" 1 3 4
+# 66 "/usr/include/X11/X.h" 3 4
+typedef unsigned long XID;
+
+
+
+typedef unsigned long Mask;
+
+
+
+typedef unsigned long Atom;
+
+typedef unsigned long VisualID;
+typedef unsigned long Time;
+# 96 "/usr/include/X11/X.h" 3 4
+typedef XID Window;
+typedef XID Drawable;
+
+
+typedef XID Font;
+
+typedef XID Pixmap;
+typedef XID Cursor;
+typedef XID Colormap;
+typedef XID GContext;
+typedef XID KeySym;
+
+typedef unsigned char KeyCode;
+# 48 "/usr/include/X11/Xlib.h" 2 3 4
+
+
+# 1 "/usr/include/X11/Xfuncproto.h" 1 3 4
+# 51 "/usr/include/X11/Xlib.h" 2 3 4
+# 1 "/usr/include/X11/Xosdefs.h" 1 3 4
+# 52 "/usr/include/X11/Xlib.h" 2 3 4
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 1 3 4
+# 149 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
+typedef long int ptrdiff_t;
+# 323 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
+typedef int wchar_t;
+# 55 "/usr/include/X11/Xlib.h" 2 3 4
+# 72 "/usr/include/X11/Xlib.h" 3 4
+extern int
+_Xmblen(
+
+
+
+
+    char *str,
+    int len
+
+    );
+
+
+
+
+
+typedef char *XPointer;
+# 159 "/usr/include/X11/Xlib.h" 3 4
+typedef struct _XExtData {
+ int number;
+ struct _XExtData *next;
+ int (*free_private)(
+ struct _XExtData *extension
+ );
+ XPointer private_data;
+} XExtData;
+
+
+
+
+typedef struct {
+ int extension;
+ int major_opcode;
+ int first_event;
+ int first_error;
+} XExtCodes;
+
+
+
+
+
+typedef struct {
+    int depth;
+    int bits_per_pixel;
+    int scanline_pad;
+} XPixmapFormatValues;
+
+
+
+
+
+typedef struct {
+ int function;
+ unsigned long plane_mask;
+ unsigned long foreground;
+ unsigned long background;
+ int line_width;
+ int line_style;
+ int cap_style;
+
+ int join_style;
+ int fill_style;
+
+ int fill_rule;
+ int arc_mode;
+ Pixmap tile;
+ Pixmap stipple;
+ int ts_x_origin;
+ int ts_y_origin;
+        Font font;
+ int subwindow_mode;
+ int graphics_exposures;
+ int clip_x_origin;
+ int clip_y_origin;
+ Pixmap clip_mask;
+ int dash_offset;
+ char dashes;
+} XGCValues;
+
+
+
+
+
+
+typedef struct _XGC
+
+
+
+
+
+
+
+*GC;
+
+
+
+
+typedef struct {
+ XExtData *ext_data;
+ VisualID visualid;
+
+
+
+ int class;
+
+ unsigned long red_mask, green_mask, blue_mask;
+ int bits_per_rgb;
+ int map_entries;
+} Visual;
+
+
+
+
+typedef struct {
+ int depth;
+ int nvisuals;
+ Visual *visuals;
+} Depth;
+
+
+
+
+
+
+
+struct _XDisplay;
+
+typedef struct {
+ XExtData *ext_data;
+ struct _XDisplay *display;
+ Window root;
+ int width, height;
+ int mwidth, mheight;
+ int ndepths;
+ Depth *depths;
+ int root_depth;
+ Visual *root_visual;
+ GC default_gc;
+ Colormap cmap;
+ unsigned long white_pixel;
+ unsigned long black_pixel;
+ int max_maps, min_maps;
+ int backing_store;
+ int save_unders;
+ long root_input_mask;
+} Screen;
+
+
+
+
+typedef struct {
+ XExtData *ext_data;
+ int depth;
+ int bits_per_pixel;
+ int scanline_pad;
+} ScreenFormat;
+
+
+
+
+typedef struct {
+    Pixmap background_pixmap;
+    unsigned long background_pixel;
+    Pixmap border_pixmap;
+    unsigned long border_pixel;
+    int bit_gravity;
+    int win_gravity;
+    int backing_store;
+    unsigned long backing_planes;
+    unsigned long backing_pixel;
+    int save_under;
+    long event_mask;
+    long do_not_propagate_mask;
+    int override_redirect;
+    Colormap colormap;
+    Cursor cursor;
+} XSetWindowAttributes;
+
+typedef struct {
+    int x, y;
+    int width, height;
+    int border_width;
+    int depth;
+    Visual *visual;
+    Window root;
+
+
+
+    int class;
+
+    int bit_gravity;
+    int win_gravity;
+    int backing_store;
+    unsigned long backing_planes;
+    unsigned long backing_pixel;
+    int save_under;
+    Colormap colormap;
+    int map_installed;
+    int map_state;
+    long all_event_masks;
+    long your_event_mask;
+    long do_not_propagate_mask;
+    int override_redirect;
+    Screen *screen;
+} XWindowAttributes;
+
+
+
+
+
+
+typedef struct {
+ int family;
+ int length;
+ char *address;
+} XHostAddress;
+
+
+
+
+typedef struct {
+ int typelength;
+ int valuelength;
+ char *type;
+ char *value;
+} XServerInterpretedAddress;
+
+
+
+
+typedef struct _XImage {
+    int width, height;
+    int xoffset;
+    int format;
+    char *data;
+    int byte_order;
+    int bitmap_unit;
+    int bitmap_bit_order;
+    int bitmap_pad;
+    int depth;
+    int bytes_per_line;
+    int bits_per_pixel;
+    unsigned long red_mask;
+    unsigned long green_mask;
+    unsigned long blue_mask;
+    XPointer obdata;
+    struct funcs {
+ struct _XImage *(*create_image)(
+  struct _XDisplay* ,
+  Visual* ,
+  unsigned int ,
+  int ,
+  int ,
+  char* ,
+  unsigned int ,
+  unsigned int ,
+  int ,
+  int );
+ int (*destroy_image) (struct _XImage *);
+ unsigned long (*get_pixel) (struct _XImage *, int, int);
+ int (*put_pixel) (struct _XImage *, int, int, unsigned long);
+ struct _XImage *(*sub_image)(struct _XImage *, int, int, unsigned int, unsigned int);
+ int (*add_pixel) (struct _XImage *, long);
+ } f;
+} XImage;
+
+
+
+
+typedef struct {
+    int x, y;
+    int width, height;
+    int border_width;
+    Window sibling;
+    int stack_mode;
+} XWindowChanges;
+
+
+
+
+typedef struct {
+ unsigned long pixel;
+ unsigned short red, green, blue;
+ char flags;
+ char pad;
+} XColor;
+
+
+
+
+
+
+typedef struct {
+    short x1, y1, x2, y2;
+} XSegment;
+
+typedef struct {
+    short x, y;
+} XPoint;
+
+typedef struct {
+    short x, y;
+    unsigned short width, height;
+} XRectangle;
+
+typedef struct {
+    short x, y;
+    unsigned short width, height;
+    short angle1, angle2;
+} XArc;
+
+
+
+
+typedef struct {
+        int key_click_percent;
+        int bell_percent;
+        int bell_pitch;
+        int bell_duration;
+        int led;
+        int led_mode;
+        int key;
+        int auto_repeat_mode;
+} XKeyboardControl;
+
+
+
+typedef struct {
+        int key_click_percent;
+ int bell_percent;
+ unsigned int bell_pitch, bell_duration;
+ unsigned long led_mask;
+ int global_auto_repeat;
+ char auto_repeats[32];
+} XKeyboardState;
+
+
+
+typedef struct {
+        Time time;
+ short x, y;
+} XTimeCoord;
+
+
+
+typedef struct {
+  int max_keypermod;
+  KeyCode *modifiermap;
+} XModifierKeymap;
+# 498 "/usr/include/X11/Xlib.h" 3 4
+typedef struct _XDisplay Display;
+
+
+struct _XPrivate;
+struct _XrmHashBucketRec;
+
+typedef struct
+
+
+
+{
+ XExtData *ext_data;
+ struct _XPrivate *private1;
+ int fd;
+ int private2;
+ int proto_major_version;
+ int proto_minor_version;
+ char *vendor;
+        XID private3;
+ XID private4;
+ XID private5;
+ int private6;
+ XID (*resource_alloc)(
+  struct _XDisplay*
+ );
+ int byte_order;
+ int bitmap_unit;
+ int bitmap_pad;
+ int bitmap_bit_order;
+ int nformats;
+ ScreenFormat *pixmap_format;
+ int private8;
+ int release;
+ struct _XPrivate *private9, *private10;
+ int qlen;
+ unsigned long last_request_read;
+ unsigned long request;
+ XPointer private11;
+ XPointer private12;
+ XPointer private13;
+ XPointer private14;
+ unsigned max_request_size;
+ struct _XrmHashBucketRec *db;
+ int (*private15)(
+  struct _XDisplay*
+  );
+ char *display_name;
+ int default_screen;
+ int nscreens;
+ Screen *screens;
+ unsigned long motion_buffer;
+ unsigned long private16;
+ int min_keycode;
+ int max_keycode;
+ XPointer private17;
+ XPointer private18;
+ int private19;
+ char *xdefaults;
+
+}
+
+
+
+*_XPrivDisplay;
+
+
+
+
+
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Window root;
+ Window subwindow;
+ Time time;
+ int x, y;
+ int x_root, y_root;
+ unsigned int state;
+ unsigned int keycode;
+ int same_screen;
+} XKeyEvent;
+typedef XKeyEvent XKeyPressedEvent;
+typedef XKeyEvent XKeyReleasedEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Window root;
+ Window subwindow;
+ Time time;
+ int x, y;
+ int x_root, y_root;
+ unsigned int state;
+ unsigned int button;
+ int same_screen;
+} XButtonEvent;
+typedef XButtonEvent XButtonPressedEvent;
+typedef XButtonEvent XButtonReleasedEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Window root;
+ Window subwindow;
+ Time time;
+ int x, y;
+ int x_root, y_root;
+ unsigned int state;
+ char is_hint;
+ int same_screen;
+} XMotionEvent;
+typedef XMotionEvent XPointerMovedEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Window root;
+ Window subwindow;
+ Time time;
+ int x, y;
+ int x_root, y_root;
+ int mode;
+ int detail;
+
+
+
+
+ int same_screen;
+ int focus;
+ unsigned int state;
+} XCrossingEvent;
+typedef XCrossingEvent XEnterWindowEvent;
+typedef XCrossingEvent XLeaveWindowEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ int mode;
+
+ int detail;
+
+
+
+
+
+} XFocusChangeEvent;
+typedef XFocusChangeEvent XFocusInEvent;
+typedef XFocusChangeEvent XFocusOutEvent;
+
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ char key_vector[32];
+} XKeymapEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ int x, y;
+ int width, height;
+ int count;
+} XExposeEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Drawable drawable;
+ int x, y;
+ int width, height;
+ int count;
+ int major_code;
+ int minor_code;
+} XGraphicsExposeEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Drawable drawable;
+ int major_code;
+ int minor_code;
+} XNoExposeEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ int state;
+} XVisibilityEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window parent;
+ Window window;
+ int x, y;
+ int width, height;
+ int border_width;
+ int override_redirect;
+} XCreateWindowEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+} XDestroyWindowEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ int from_configure;
+} XUnmapEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ int override_redirect;
+} XMapEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window parent;
+ Window window;
+} XMapRequestEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ Window parent;
+ int x, y;
+ int override_redirect;
+} XReparentEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ int x, y;
+ int width, height;
+ int border_width;
+ Window above;
+ int override_redirect;
+} XConfigureEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ int x, y;
+} XGravityEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ int width, height;
+} XResizeRequestEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window parent;
+ Window window;
+ int x, y;
+ int width, height;
+ int border_width;
+ Window above;
+ int detail;
+ unsigned long value_mask;
+} XConfigureRequestEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window event;
+ Window window;
+ int place;
+} XCirculateEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window parent;
+ Window window;
+ int place;
+} XCirculateRequestEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Atom atom;
+ Time time;
+ int state;
+} XPropertyEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Atom selection;
+ Time time;
+} XSelectionClearEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window owner;
+ Window requestor;
+ Atom selection;
+ Atom target;
+ Atom property;
+ Time time;
+} XSelectionRequestEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window requestor;
+ Atom selection;
+ Atom target;
+ Atom property;
+ Time time;
+} XSelectionEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Colormap colormap;
+
+
+
+ int new;
+
+ int state;
+} XColormapEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ Atom message_type;
+ int format;
+ union {
+  char b[20];
+  short s[10];
+  long l[5];
+  } data;
+} XClientMessageEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+ int request;
+
+ int first_keycode;
+ int count;
+} XMappingEvent;
+
+typedef struct {
+ int type;
+ Display *display;
+ XID resourceid;
+ unsigned long serial;
+ unsigned char error_code;
+ unsigned char request_code;
+ unsigned char minor_code;
+} XErrorEvent;
+
+typedef struct {
+ int type;
+ unsigned long serial;
+ int send_event;
+ Display *display;
+ Window window;
+} XAnyEvent;
+
+
+
+
+
+
+
+typedef struct
+    {
+    int type;
+    unsigned long serial;
+    int send_event;
+    Display *display;
+    int extension;
+    int evtype;
+    } XGenericEvent;
+
+typedef struct {
+    int type;
+    unsigned long serial;
+    int send_event;
+    Display *display;
+    int extension;
+    int evtype;
+    unsigned int cookie;
+    void *data;
+} XGenericEventCookie;
+
+
+
+
+
+typedef union _XEvent {
+        int type;
+ XAnyEvent xany;
+ XKeyEvent xkey;
+ XButtonEvent xbutton;
+ XMotionEvent xmotion;
+ XCrossingEvent xcrossing;
+ XFocusChangeEvent xfocus;
+ XExposeEvent xexpose;
+ XGraphicsExposeEvent xgraphicsexpose;
+ XNoExposeEvent xnoexpose;
+ XVisibilityEvent xvisibility;
+ XCreateWindowEvent xcreatewindow;
+ XDestroyWindowEvent xdestroywindow;
+ XUnmapEvent xunmap;
+ XMapEvent xmap;
+ XMapRequestEvent xmaprequest;
+ XReparentEvent xreparent;
+ XConfigureEvent xconfigure;
+ XGravityEvent xgravity;
+ XResizeRequestEvent xresizerequest;
+ XConfigureRequestEvent xconfigurerequest;
+ XCirculateEvent xcirculate;
+ XCirculateRequestEvent xcirculaterequest;
+ XPropertyEvent xproperty;
+ XSelectionClearEvent xselectionclear;
+ XSelectionRequestEvent xselectionrequest;
+ XSelectionEvent xselection;
+ XColormapEvent xcolormap;
+ XClientMessageEvent xclient;
+ XMappingEvent xmapping;
+ XErrorEvent xerror;
+ XKeymapEvent xkeymap;
+ XGenericEvent xgeneric;
+ XGenericEventCookie xcookie;
+ long pad[24];
+} XEvent;
+
+
+
+
+
+
+
+typedef struct {
+    short lbearing;
+    short rbearing;
+    short width;
+    short ascent;
+    short descent;
+    unsigned short attributes;
+} XCharStruct;
+
+
+
+
+
+typedef struct {
+    Atom name;
+    unsigned long card32;
+} XFontProp;
+
+typedef struct {
+    XExtData *ext_data;
+    Font fid;
+    unsigned direction;
+    unsigned min_char_or_byte2;
+    unsigned max_char_or_byte2;
+    unsigned min_byte1;
+    unsigned max_byte1;
+    int all_chars_exist;
+    unsigned default_char;
+    int n_properties;
+    XFontProp *properties;
+    XCharStruct min_bounds;
+    XCharStruct max_bounds;
+    XCharStruct *per_char;
+    int ascent;
+    int descent;
+} XFontStruct;
+
+
+
+
+typedef struct {
+    char *chars;
+    int nchars;
+    int delta;
+    Font font;
+} XTextItem;
+
+typedef struct {
+    unsigned char byte1;
+    unsigned char byte2;
+} XChar2b;
+
+typedef struct {
+    XChar2b *chars;
+    int nchars;
+    int delta;
+    Font font;
+} XTextItem16;
+
+
+typedef union { Display *display;
+  GC gc;
+  Visual *visual;
+  Screen *screen;
+  ScreenFormat *pixmap_format;
+  XFontStruct *font; } XEDataObject;
+
+typedef struct {
+    XRectangle max_ink_extent;
+    XRectangle max_logical_extent;
+} XFontSetExtents;
+
+
+
+
+
+typedef struct _XOM *XOM;
+typedef struct _XOC *XOC, *XFontSet;
+
+typedef struct {
+    char *chars;
+    int nchars;
+    int delta;
+    XFontSet font_set;
+} XmbTextItem;
+
+typedef struct {
+    wchar_t *chars;
+    int nchars;
+    int delta;
+    XFontSet font_set;
+} XwcTextItem;
+# 1132 "/usr/include/X11/Xlib.h" 3 4
+typedef struct {
+    int charset_count;
+    char **charset_list;
+} XOMCharSetList;
+
+typedef enum {
+    XOMOrientation_LTR_TTB,
+    XOMOrientation_RTL_TTB,
+    XOMOrientation_TTB_LTR,
+    XOMOrientation_TTB_RTL,
+    XOMOrientation_Context
+} XOrientation;
+
+typedef struct {
+    int num_orientation;
+    XOrientation *orientation;
+} XOMOrientation;
+
+typedef struct {
+    int num_font;
+    XFontStruct **font_struct_list;
+    char **font_name_list;
+} XOMFontInfo;
+
+typedef struct _XIM *XIM;
+typedef struct _XIC *XIC;
+
+typedef void (*XIMProc)(
+    XIM,
+    XPointer,
+    XPointer
+);
+
+typedef int (*XICProc)(
+    XIC,
+    XPointer,
+    XPointer
+);
+
+typedef void (*XIDProc)(
+    Display*,
+    XPointer,
+    XPointer
+);
+
+typedef unsigned long XIMStyle;
+
+typedef struct {
+    unsigned short count_styles;
+    XIMStyle *supported_styles;
+} XIMStyles;
+# 1244 "/usr/include/X11/Xlib.h" 3 4
+typedef void *XVaNestedList;
+
+typedef struct {
+    XPointer client_data;
+    XIMProc callback;
+} XIMCallback;
+
+typedef struct {
+    XPointer client_data;
+    XICProc callback;
+} XICCallback;
+
+typedef unsigned long XIMFeedback;
+# 1268 "/usr/include/X11/Xlib.h" 3 4
+typedef struct _XIMText {
+    unsigned short length;
+    XIMFeedback *feedback;
+    int encoding_is_wchar;
+    union {
+ char *multi_byte;
+ wchar_t *wide_char;
+    } string;
+} XIMText;
+
+typedef unsigned long XIMPreeditState;
+
+
+
+
+
+typedef struct _XIMPreeditStateNotifyCallbackStruct {
+    XIMPreeditState state;
+} XIMPreeditStateNotifyCallbackStruct;
+
+typedef unsigned long XIMResetState;
+
+
+
+
+typedef unsigned long XIMStringConversionFeedback;
+# 1302 "/usr/include/X11/Xlib.h" 3 4
+typedef struct _XIMStringConversionText {
+    unsigned short length;
+    XIMStringConversionFeedback *feedback;
+    int encoding_is_wchar;
+    union {
+ char *mbs;
+ wchar_t *wcs;
+    } string;
+} XIMStringConversionText;
+
+typedef unsigned short XIMStringConversionPosition;
+
+typedef unsigned short XIMStringConversionType;
+
+
+
+
+
+
+typedef unsigned short XIMStringConversionOperation;
+
+
+
+
+typedef enum {
+    XIMForwardChar, XIMBackwardChar,
+    XIMForwardWord, XIMBackwardWord,
+    XIMCaretUp, XIMCaretDown,
+    XIMNextLine, XIMPreviousLine,
+    XIMLineStart, XIMLineEnd,
+    XIMAbsolutePosition,
+    XIMDontChange
+} XIMCaretDirection;
+
+typedef struct _XIMStringConversionCallbackStruct {
+    XIMStringConversionPosition position;
+    XIMCaretDirection direction;
+    XIMStringConversionOperation operation;
+    unsigned short factor;
+    XIMStringConversionText *text;
+} XIMStringConversionCallbackStruct;
+
+typedef struct _XIMPreeditDrawCallbackStruct {
+    int caret;
+    int chg_first;
+    int chg_length;
+    XIMText *text;
+} XIMPreeditDrawCallbackStruct;
+
+typedef enum {
+    XIMIsInvisible,
+    XIMIsPrimary,
+    XIMIsSecondary
+} XIMCaretStyle;
+
+typedef struct _XIMPreeditCaretCallbackStruct {
+    int position;
+    XIMCaretDirection direction;
+    XIMCaretStyle style;
+} XIMPreeditCaretCallbackStruct;
+
+typedef enum {
+    XIMTextType,
+    XIMBitmapType
+} XIMStatusDataType;
+
+typedef struct _XIMStatusDrawCallbackStruct {
+    XIMStatusDataType type;
+    union {
+ XIMText *text;
+ Pixmap bitmap;
+    } data;
+} XIMStatusDrawCallbackStruct;
+
+typedef struct _XIMHotKeyTrigger {
+    KeySym keysym;
+    int modifier;
+    int modifier_mask;
+} XIMHotKeyTrigger;
+
+typedef struct _XIMHotKeyTriggers {
+    int num_hot_key;
+    XIMHotKeyTrigger *key;
+} XIMHotKeyTriggers;
+
+typedef unsigned long XIMHotKeyState;
+
+
+
+
+typedef struct {
+    unsigned short count_values;
+    char **supported_values;
+} XIMValuesList;
+
+
+
+
+
+
+
+extern int _Xdebug;
+
+extern XFontStruct *XLoadQueryFont(
+    Display* ,
+    const char*
+);
+
+extern XFontStruct *XQueryFont(
+    Display* ,
+    XID
+);
+
+
+extern XTimeCoord *XGetMotionEvents(
+    Display* ,
+    Window ,
+    Time ,
+    Time ,
+    int*
+);
+
+extern XModifierKeymap *XDeleteModifiermapEntry(
+    XModifierKeymap* ,
+
+
+
+    KeyCode ,
+
+    int
+);
+
+extern XModifierKeymap *XGetModifierMapping(
+    Display*
+);
+
+extern XModifierKeymap *XInsertModifiermapEntry(
+    XModifierKeymap* ,
+
+
+
+    KeyCode ,
+
+    int
+);
+
+extern XModifierKeymap *XNewModifiermap(
+    int
+);
+
+extern XImage *XCreateImage(
+    Display* ,
+    Visual* ,
+    unsigned int ,
+    int ,
+    int ,
+    char* ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+extern int XInitImage(
+    XImage*
+);
+extern XImage *XGetImage(
+    Display* ,
+    Drawable ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    unsigned long ,
+    int
+);
+extern XImage *XGetSubImage(
+    Display* ,
+    Drawable ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    unsigned long ,
+    int ,
+    XImage* ,
+    int ,
+    int
+);
+
+
+
+
+extern Display *XOpenDisplay(
+    const char*
+);
+
+extern void XrmInitialize(
+    void
+);
+
+extern char *XFetchBytes(
+    Display* ,
+    int*
+);
+extern char *XFetchBuffer(
+    Display* ,
+    int* ,
+    int
+);
+extern char *XGetAtomName(
+    Display* ,
+    Atom
+);
+extern int XGetAtomNames(
+    Display* ,
+    Atom* ,
+    int ,
+    char**
+);
+extern char *XGetDefault(
+    Display* ,
+    const char* ,
+    const char*
+);
+extern char *XDisplayName(
+    const char*
+);
+extern char *XKeysymToString(
+    KeySym
+);
+
+extern int (*XSynchronize(
+    Display* ,
+    int
+))(
+    Display*
+);
+extern int (*XSetAfterFunction(
+    Display* ,
+    int (*) (
+      Display*
+            )
+))(
+    Display*
+);
+extern Atom XInternAtom(
+    Display* ,
+    const char* ,
+    int
+);
+extern int XInternAtoms(
+    Display* ,
+    char** ,
+    int ,
+    int ,
+    Atom*
+);
+extern Colormap XCopyColormapAndFree(
+    Display* ,
+    Colormap
+);
+extern Colormap XCreateColormap(
+    Display* ,
+    Window ,
+    Visual* ,
+    int
+);
+extern Cursor XCreatePixmapCursor(
+    Display* ,
+    Pixmap ,
+    Pixmap ,
+    XColor* ,
+    XColor* ,
+    unsigned int ,
+    unsigned int
+);
+extern Cursor XCreateGlyphCursor(
+    Display* ,
+    Font ,
+    Font ,
+    unsigned int ,
+    unsigned int ,
+    XColor const * ,
+    XColor const *
+);
+extern Cursor XCreateFontCursor(
+    Display* ,
+    unsigned int
+);
+extern Font XLoadFont(
+    Display* ,
+    const char*
+);
+extern GC XCreateGC(
+    Display* ,
+    Drawable ,
+    unsigned long ,
+    XGCValues*
+);
+extern GContext XGContextFromGC(
+    GC
+);
+extern void XFlushGC(
+    Display* ,
+    GC
+);
+extern Pixmap XCreatePixmap(
+    Display* ,
+    Drawable ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int
+);
+extern Pixmap XCreateBitmapFromData(
+    Display* ,
+    Drawable ,
+    const char* ,
+    unsigned int ,
+    unsigned int
+);
+extern Pixmap XCreatePixmapFromBitmapData(
+    Display* ,
+    Drawable ,
+    char* ,
+    unsigned int ,
+    unsigned int ,
+    unsigned long ,
+    unsigned long ,
+    unsigned int
+);
+extern Window XCreateSimpleWindow(
+    Display* ,
+    Window ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int ,
+    unsigned long ,
+    unsigned long
+);
+extern Window XGetSelectionOwner(
+    Display* ,
+    Atom
+);
+extern Window XCreateWindow(
+    Display* ,
+    Window ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    unsigned int ,
+    Visual* ,
+    unsigned long ,
+    XSetWindowAttributes*
+);
+extern Colormap *XListInstalledColormaps(
+    Display* ,
+    Window ,
+    int*
+);
+extern char **XListFonts(
+    Display* ,
+    const char* ,
+    int ,
+    int*
+);
+extern char **XListFontsWithInfo(
+    Display* ,
+    const char* ,
+    int ,
+    int* ,
+    XFontStruct**
+);
+extern char **XGetFontPath(
+    Display* ,
+    int*
+);
+extern char **XListExtensions(
+    Display* ,
+    int*
+);
+extern Atom *XListProperties(
+    Display* ,
+    Window ,
+    int*
+);
+extern XHostAddress *XListHosts(
+    Display* ,
+    int* ,
+    int*
+);
+extern KeySym XKeycodeToKeysym(
+    Display* ,
+
+
+
+    KeyCode ,
+
+    int
+);
+extern KeySym XLookupKeysym(
+    XKeyEvent* ,
+    int
+);
+extern KeySym *XGetKeyboardMapping(
+    Display* ,
+
+
+
+    KeyCode ,
+
+    int ,
+    int*
+);
+extern KeySym XStringToKeysym(
+    const char*
+);
+extern long XMaxRequestSize(
+    Display*
+);
+extern long XExtendedMaxRequestSize(
+    Display*
+);
+extern char *XResourceManagerString(
+    Display*
+);
+extern char *XScreenResourceString(
+ Screen*
+);
+extern unsigned long XDisplayMotionBufferSize(
+    Display*
+);
+extern VisualID XVisualIDFromVisual(
+    Visual*
+);
+
+
+
+extern int XInitThreads(
+    void
+);
+
+extern void XLockDisplay(
+    Display*
+);
+
+extern void XUnlockDisplay(
+    Display*
+);
+
+
+
+extern XExtCodes *XInitExtension(
+    Display* ,
+    const char*
+);
+
+extern XExtCodes *XAddExtension(
+    Display*
+);
+extern XExtData *XFindOnExtensionList(
+    XExtData** ,
+    int
+);
+extern XExtData **XEHeadOfExtensionList(
+    XEDataObject
+);
+
+
+extern Window XRootWindow(
+    Display* ,
+    int
+);
+extern Window XDefaultRootWindow(
+    Display*
+);
+extern Window XRootWindowOfScreen(
+    Screen*
+);
+extern Visual *XDefaultVisual(
+    Display* ,
+    int
+);
+extern Visual *XDefaultVisualOfScreen(
+    Screen*
+);
+extern GC XDefaultGC(
+    Display* ,
+    int
+);
+extern GC XDefaultGCOfScreen(
+    Screen*
+);
+extern unsigned long XBlackPixel(
+    Display* ,
+    int
+);
+extern unsigned long XWhitePixel(
+    Display* ,
+    int
+);
+extern unsigned long XAllPlanes(
+    void
+);
+extern unsigned long XBlackPixelOfScreen(
+    Screen*
+);
+extern unsigned long XWhitePixelOfScreen(
+    Screen*
+);
+extern unsigned long XNextRequest(
+    Display*
+);
+extern unsigned long XLastKnownRequestProcessed(
+    Display*
+);
+extern char *XServerVendor(
+    Display*
+);
+extern char *XDisplayString(
+    Display*
+);
+extern Colormap XDefaultColormap(
+    Display* ,
+    int
+);
+extern Colormap XDefaultColormapOfScreen(
+    Screen*
+);
+extern Display *XDisplayOfScreen(
+    Screen*
+);
+extern Screen *XScreenOfDisplay(
+    Display* ,
+    int
+);
+extern Screen *XDefaultScreenOfDisplay(
+    Display*
+);
+extern long XEventMaskOfScreen(
+    Screen*
+);
+
+extern int XScreenNumberOfScreen(
+    Screen*
+);
+
+typedef int (*XErrorHandler) (
+    Display* ,
+    XErrorEvent*
+);
+
+extern XErrorHandler XSetErrorHandler (
+    XErrorHandler
+);
+
+
+typedef int (*XIOErrorHandler) (
+    Display*
+);
+
+extern XIOErrorHandler XSetIOErrorHandler (
+    XIOErrorHandler
+);
+
+
+extern XPixmapFormatValues *XListPixmapFormats(
+    Display* ,
+    int*
+);
+extern int *XListDepths(
+    Display* ,
+    int ,
+    int*
+);
+
+
+
+extern int XReconfigureWMWindow(
+    Display* ,
+    Window ,
+    int ,
+    unsigned int ,
+    XWindowChanges*
+);
+
+extern int XGetWMProtocols(
+    Display* ,
+    Window ,
+    Atom** ,
+    int*
+);
+extern int XSetWMProtocols(
+    Display* ,
+    Window ,
+    Atom* ,
+    int
+);
+extern int XIconifyWindow(
+    Display* ,
+    Window ,
+    int
+);
+extern int XWithdrawWindow(
+    Display* ,
+    Window ,
+    int
+);
+extern int XGetCommand(
+    Display* ,
+    Window ,
+    char*** ,
+    int*
+);
+extern int XGetWMColormapWindows(
+    Display* ,
+    Window ,
+    Window** ,
+    int*
+);
+extern int XSetWMColormapWindows(
+    Display* ,
+    Window ,
+    Window* ,
+    int
+);
+extern void XFreeStringList(
+    char**
+);
+extern int XSetTransientForHint(
+    Display* ,
+    Window ,
+    Window
+);
+
+
+
+extern int XActivateScreenSaver(
+    Display*
+);
+
+extern int XAddHost(
+    Display* ,
+    XHostAddress*
+);
+
+extern int XAddHosts(
+    Display* ,
+    XHostAddress* ,
+    int
+);
+
+extern int XAddToExtensionList(
+    struct _XExtData** ,
+    XExtData*
+);
+
+extern int XAddToSaveSet(
+    Display* ,
+    Window
+);
+
+extern int XAllocColor(
+    Display* ,
+    Colormap ,
+    XColor*
+);
+
+extern int XAllocColorCells(
+    Display* ,
+    Colormap ,
+    int ,
+    unsigned long* ,
+    unsigned int ,
+    unsigned long* ,
+    unsigned int
+);
+
+extern int XAllocColorPlanes(
+    Display* ,
+    Colormap ,
+    int ,
+    unsigned long* ,
+    int ,
+    int ,
+    int ,
+    int ,
+    unsigned long* ,
+    unsigned long* ,
+    unsigned long*
+);
+
+extern int XAllocNamedColor(
+    Display* ,
+    Colormap ,
+    const char* ,
+    XColor* ,
+    XColor*
+);
+
+extern int XAllowEvents(
+    Display* ,
+    int ,
+    Time
+);
+
+extern int XAutoRepeatOff(
+    Display*
+);
+
+extern int XAutoRepeatOn(
+    Display*
+);
+
+extern int XBell(
+    Display* ,
+    int
+);
+
+extern int XBitmapBitOrder(
+    Display*
+);
+
+extern int XBitmapPad(
+    Display*
+);
+
+extern int XBitmapUnit(
+    Display*
+);
+
+extern int XCellsOfScreen(
+    Screen*
+);
+
+extern int XChangeActivePointerGrab(
+    Display* ,
+    unsigned int ,
+    Cursor ,
+    Time
+);
+
+extern int XChangeGC(
+    Display* ,
+    GC ,
+    unsigned long ,
+    XGCValues*
+);
+
+extern int XChangeKeyboardControl(
+    Display* ,
+    unsigned long ,
+    XKeyboardControl*
+);
+
+extern int XChangeKeyboardMapping(
+    Display* ,
+    int ,
+    int ,
+    KeySym* ,
+    int
+);
+
+extern int XChangePointerControl(
+    Display* ,
+    int ,
+    int ,
+    int ,
+    int ,
+    int
+);
+
+extern int XChangeProperty(
+    Display* ,
+    Window ,
+    Atom ,
+    Atom ,
+    int ,
+    int ,
+    const unsigned char* ,
+    int
+);
+
+extern int XChangeSaveSet(
+    Display* ,
+    Window ,
+    int
+);
+
+extern int XChangeWindowAttributes(
+    Display* ,
+    Window ,
+    unsigned long ,
+    XSetWindowAttributes*
+);
+
+extern int XCheckIfEvent(
+    Display* ,
+    XEvent* ,
+    int (*) (
+        Display* ,
+               XEvent* ,
+               XPointer
+             ) ,
+    XPointer
+);
+
+extern int XCheckMaskEvent(
+    Display* ,
+    long ,
+    XEvent*
+);
+
+extern int XCheckTypedEvent(
+    Display* ,
+    int ,
+    XEvent*
+);
+
+extern int XCheckTypedWindowEvent(
+    Display* ,
+    Window ,
+    int ,
+    XEvent*
+);
+
+extern int XCheckWindowEvent(
+    Display* ,
+    Window ,
+    long ,
+    XEvent*
+);
+
+extern int XCirculateSubwindows(
+    Display* ,
+    Window ,
+    int
+);
+
+extern int XCirculateSubwindowsDown(
+    Display* ,
+    Window
+);
+
+extern int XCirculateSubwindowsUp(
+    Display* ,
+    Window
+);
+
+extern int XClearArea(
+    Display* ,
+    Window ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int
+);
+
+extern int XClearWindow(
+    Display* ,
+    Window
+);
+
+extern int XCloseDisplay(
+    Display*
+);
+
+extern int XConfigureWindow(
+    Display* ,
+    Window ,
+    unsigned int ,
+    XWindowChanges*
+);
+
+extern int XConnectionNumber(
+    Display*
+);
+
+extern int XConvertSelection(
+    Display* ,
+    Atom ,
+    Atom ,
+    Atom ,
+    Window ,
+    Time
+);
+
+extern int XCopyArea(
+    Display* ,
+    Drawable ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+
+extern int XCopyGC(
+    Display* ,
+    GC ,
+    unsigned long ,
+    GC
+);
+
+extern int XCopyPlane(
+    Display* ,
+    Drawable ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int ,
+    unsigned long
+);
+
+extern int XDefaultDepth(
+    Display* ,
+    int
+);
+
+extern int XDefaultDepthOfScreen(
+    Screen*
+);
+
+extern int XDefaultScreen(
+    Display*
+);
+
+extern int XDefineCursor(
+    Display* ,
+    Window ,
+    Cursor
+);
+
+extern int XDeleteProperty(
+    Display* ,
+    Window ,
+    Atom
+);
+
+extern int XDestroyWindow(
+    Display* ,
+    Window
+);
+
+extern int XDestroySubwindows(
+    Display* ,
+    Window
+);
+
+extern int XDoesBackingStore(
+    Screen*
+);
+
+extern int XDoesSaveUnders(
+    Screen*
+);
+
+extern int XDisableAccessControl(
+    Display*
+);
+
+
+extern int XDisplayCells(
+    Display* ,
+    int
+);
+
+extern int XDisplayHeight(
+    Display* ,
+    int
+);
+
+extern int XDisplayHeightMM(
+    Display* ,
+    int
+);
+
+extern int XDisplayKeycodes(
+    Display* ,
+    int* ,
+    int*
+);
+
+extern int XDisplayPlanes(
+    Display* ,
+    int
+);
+
+extern int XDisplayWidth(
+    Display* ,
+    int
+);
+
+extern int XDisplayWidthMM(
+    Display* ,
+    int
+);
+
+extern int XDrawArc(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+
+extern int XDrawArcs(
+    Display* ,
+    Drawable ,
+    GC ,
+    XArc* ,
+    int
+);
+
+extern int XDrawImageString(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern int XDrawImageString16(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    const XChar2b* ,
+    int
+);
+
+extern int XDrawLine(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    int ,
+    int
+);
+
+extern int XDrawLines(
+    Display* ,
+    Drawable ,
+    GC ,
+    XPoint* ,
+    int ,
+    int
+);
+
+extern int XDrawPoint(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int
+);
+
+extern int XDrawPoints(
+    Display* ,
+    Drawable ,
+    GC ,
+    XPoint* ,
+    int ,
+    int
+);
+
+extern int XDrawRectangle(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XDrawRectangles(
+    Display* ,
+    Drawable ,
+    GC ,
+    XRectangle* ,
+    int
+);
+
+extern int XDrawSegments(
+    Display* ,
+    Drawable ,
+    GC ,
+    XSegment* ,
+    int
+);
+
+extern int XDrawString(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern int XDrawString16(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    const XChar2b* ,
+    int
+);
+
+extern int XDrawText(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    XTextItem* ,
+    int
+);
+
+extern int XDrawText16(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    XTextItem16* ,
+    int
+);
+
+extern int XEnableAccessControl(
+    Display*
+);
+
+extern int XEventsQueued(
+    Display* ,
+    int
+);
+
+extern int XFetchName(
+    Display* ,
+    Window ,
+    char**
+);
+
+extern int XFillArc(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+
+extern int XFillArcs(
+    Display* ,
+    Drawable ,
+    GC ,
+    XArc* ,
+    int
+);
+
+extern int XFillPolygon(
+    Display* ,
+    Drawable ,
+    GC ,
+    XPoint* ,
+    int ,
+    int ,
+    int
+);
+
+extern int XFillRectangle(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XFillRectangles(
+    Display* ,
+    Drawable ,
+    GC ,
+    XRectangle* ,
+    int
+);
+
+extern int XFlush(
+    Display*
+);
+
+extern int XForceScreenSaver(
+    Display* ,
+    int
+);
+
+extern int XFree(
+    void*
+);
+
+extern int XFreeColormap(
+    Display* ,
+    Colormap
+);
+
+extern int XFreeColors(
+    Display* ,
+    Colormap ,
+    unsigned long* ,
+    int ,
+    unsigned long
+);
+
+extern int XFreeCursor(
+    Display* ,
+    Cursor
+);
+
+extern int XFreeExtensionList(
+    char**
+);
+
+extern int XFreeFont(
+    Display* ,
+    XFontStruct*
+);
+
+extern int XFreeFontInfo(
+    char** ,
+    XFontStruct* ,
+    int
+);
+
+extern int XFreeFontNames(
+    char**
+);
+
+extern int XFreeFontPath(
+    char**
+);
+
+extern int XFreeGC(
+    Display* ,
+    GC
+);
+
+extern int XFreeModifiermap(
+    XModifierKeymap*
+);
+
+extern int XFreePixmap(
+    Display* ,
+    Pixmap
+);
+
+extern int XGeometry(
+    Display* ,
+    int ,
+    const char* ,
+    const char* ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int ,
+    int* ,
+    int* ,
+    int* ,
+    int*
+);
+
+extern int XGetErrorDatabaseText(
+    Display* ,
+    const char* ,
+    const char* ,
+    const char* ,
+    char* ,
+    int
+);
+
+extern int XGetErrorText(
+    Display* ,
+    int ,
+    char* ,
+    int
+);
+
+extern int XGetFontProperty(
+    XFontStruct* ,
+    Atom ,
+    unsigned long*
+);
+
+extern int XGetGCValues(
+    Display* ,
+    GC ,
+    unsigned long ,
+    XGCValues*
+);
+
+extern int XGetGeometry(
+    Display* ,
+    Drawable ,
+    Window* ,
+    int* ,
+    int* ,
+    unsigned int* ,
+    unsigned int* ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XGetIconName(
+    Display* ,
+    Window ,
+    char**
+);
+
+extern int XGetInputFocus(
+    Display* ,
+    Window* ,
+    int*
+);
+
+extern int XGetKeyboardControl(
+    Display* ,
+    XKeyboardState*
+);
+
+extern int XGetPointerControl(
+    Display* ,
+    int* ,
+    int* ,
+    int*
+);
+
+extern int XGetPointerMapping(
+    Display* ,
+    unsigned char* ,
+    int
+);
+
+extern int XGetScreenSaver(
+    Display* ,
+    int* ,
+    int* ,
+    int* ,
+    int*
+);
+
+extern int XGetTransientForHint(
+    Display* ,
+    Window ,
+    Window*
+);
+
+extern int XGetWindowProperty(
+    Display* ,
+    Window ,
+    Atom ,
+    long ,
+    long ,
+    int ,
+    Atom ,
+    Atom* ,
+    int* ,
+    unsigned long* ,
+    unsigned long* ,
+    unsigned char**
+);
+
+extern int XGetWindowAttributes(
+    Display* ,
+    Window ,
+    XWindowAttributes*
+);
+
+extern int XGrabButton(
+    Display* ,
+    unsigned int ,
+    unsigned int ,
+    Window ,
+    int ,
+    unsigned int ,
+    int ,
+    int ,
+    Window ,
+    Cursor
+);
+
+extern int XGrabKey(
+    Display* ,
+    int ,
+    unsigned int ,
+    Window ,
+    int ,
+    int ,
+    int
+);
+
+extern int XGrabKeyboard(
+    Display* ,
+    Window ,
+    int ,
+    int ,
+    int ,
+    Time
+);
+
+extern int XGrabPointer(
+    Display* ,
+    Window ,
+    int ,
+    unsigned int ,
+    int ,
+    int ,
+    Window ,
+    Cursor ,
+    Time
+);
+
+extern int XGrabServer(
+    Display*
+);
+
+extern int XHeightMMOfScreen(
+    Screen*
+);
+
+extern int XHeightOfScreen(
+    Screen*
+);
+
+extern int XIfEvent(
+    Display* ,
+    XEvent* ,
+    int (*) (
+        Display* ,
+               XEvent* ,
+               XPointer
+             ) ,
+    XPointer
+);
+
+extern int XImageByteOrder(
+    Display*
+);
+
+extern int XInstallColormap(
+    Display* ,
+    Colormap
+);
+
+extern KeyCode XKeysymToKeycode(
+    Display* ,
+    KeySym
+);
+
+extern int XKillClient(
+    Display* ,
+    XID
+);
+
+extern int XLookupColor(
+    Display* ,
+    Colormap ,
+    const char* ,
+    XColor* ,
+    XColor*
+);
+
+extern int XLowerWindow(
+    Display* ,
+    Window
+);
+
+extern int XMapRaised(
+    Display* ,
+    Window
+);
+
+extern int XMapSubwindows(
+    Display* ,
+    Window
+);
+
+extern int XMapWindow(
+    Display* ,
+    Window
+);
+
+extern int XMaskEvent(
+    Display* ,
+    long ,
+    XEvent*
+);
+
+extern int XMaxCmapsOfScreen(
+    Screen*
+);
+
+extern int XMinCmapsOfScreen(
+    Screen*
+);
+
+extern int XMoveResizeWindow(
+    Display* ,
+    Window ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XMoveWindow(
+    Display* ,
+    Window ,
+    int ,
+    int
+);
+
+extern int XNextEvent(
+    Display* ,
+    XEvent*
+);
+
+extern int XNoOp(
+    Display*
+);
+
+extern int XParseColor(
+    Display* ,
+    Colormap ,
+    const char* ,
+    XColor*
+);
+
+extern int XParseGeometry(
+    const char* ,
+    int* ,
+    int* ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XPeekEvent(
+    Display* ,
+    XEvent*
+);
+
+extern int XPeekIfEvent(
+    Display* ,
+    XEvent* ,
+    int (*) (
+        Display* ,
+               XEvent* ,
+               XPointer
+             ) ,
+    XPointer
+);
+
+extern int XPending(
+    Display*
+);
+
+extern int XPlanesOfScreen(
+    Screen*
+);
+
+extern int XProtocolRevision(
+    Display*
+);
+
+extern int XProtocolVersion(
+    Display*
+);
+
+
+extern int XPutBackEvent(
+    Display* ,
+    XEvent*
+);
+
+extern int XPutImage(
+    Display* ,
+    Drawable ,
+    GC ,
+    XImage* ,
+    int ,
+    int ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XQLength(
+    Display*
+);
+
+extern int XQueryBestCursor(
+    Display* ,
+    Drawable ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XQueryBestSize(
+    Display* ,
+    int ,
+    Drawable ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XQueryBestStipple(
+    Display* ,
+    Drawable ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XQueryBestTile(
+    Display* ,
+    Drawable ,
+    unsigned int ,
+    unsigned int ,
+    unsigned int* ,
+    unsigned int*
+);
+
+extern int XQueryColor(
+    Display* ,
+    Colormap ,
+    XColor*
+);
+
+extern int XQueryColors(
+    Display* ,
+    Colormap ,
+    XColor* ,
+    int
+);
+
+extern int XQueryExtension(
+    Display* ,
+    const char* ,
+    int* ,
+    int* ,
+    int*
+);
+
+extern int XQueryKeymap(
+    Display* ,
+    char [32]
+);
+
+extern int XQueryPointer(
+    Display* ,
+    Window ,
+    Window* ,
+    Window* ,
+    int* ,
+    int* ,
+    int* ,
+    int* ,
+    unsigned int*
+);
+
+extern int XQueryTextExtents(
+    Display* ,
+    XID ,
+    const char* ,
+    int ,
+    int* ,
+    int* ,
+    int* ,
+    XCharStruct*
+);
+
+extern int XQueryTextExtents16(
+    Display* ,
+    XID ,
+    const XChar2b* ,
+    int ,
+    int* ,
+    int* ,
+    int* ,
+    XCharStruct*
+);
+
+extern int XQueryTree(
+    Display* ,
+    Window ,
+    Window* ,
+    Window* ,
+    Window** ,
+    unsigned int*
+);
+
+extern int XRaiseWindow(
+    Display* ,
+    Window
+);
+
+extern int XReadBitmapFile(
+    Display* ,
+    Drawable ,
+    const char* ,
+    unsigned int* ,
+    unsigned int* ,
+    Pixmap* ,
+    int* ,
+    int*
+);
+
+extern int XReadBitmapFileData(
+    const char* ,
+    unsigned int* ,
+    unsigned int* ,
+    unsigned char** ,
+    int* ,
+    int*
+);
+
+extern int XRebindKeysym(
+    Display* ,
+    KeySym ,
+    KeySym* ,
+    int ,
+    const unsigned char* ,
+    int
+);
+
+extern int XRecolorCursor(
+    Display* ,
+    Cursor ,
+    XColor* ,
+    XColor*
+);
+
+extern int XRefreshKeyboardMapping(
+    XMappingEvent*
+);
+
+extern int XRemoveFromSaveSet(
+    Display* ,
+    Window
+);
+
+extern int XRemoveHost(
+    Display* ,
+    XHostAddress*
+);
+
+extern int XRemoveHosts(
+    Display* ,
+    XHostAddress* ,
+    int
+);
+
+extern int XReparentWindow(
+    Display* ,
+    Window ,
+    Window ,
+    int ,
+    int
+);
+
+extern int XResetScreenSaver(
+    Display*
+);
+
+extern int XResizeWindow(
+    Display* ,
+    Window ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XRestackWindows(
+    Display* ,
+    Window* ,
+    int
+);
+
+extern int XRotateBuffers(
+    Display* ,
+    int
+);
+
+extern int XRotateWindowProperties(
+    Display* ,
+    Window ,
+    Atom* ,
+    int ,
+    int
+);
+
+extern int XScreenCount(
+    Display*
+);
+
+extern int XSelectInput(
+    Display* ,
+    Window ,
+    long
+);
+
+extern int XSendEvent(
+    Display* ,
+    Window ,
+    int ,
+    long ,
+    XEvent*
+);
+
+extern int XSetAccessControl(
+    Display* ,
+    int
+);
+
+extern int XSetArcMode(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetBackground(
+    Display* ,
+    GC ,
+    unsigned long
+);
+
+extern int XSetClipMask(
+    Display* ,
+    GC ,
+    Pixmap
+);
+
+extern int XSetClipOrigin(
+    Display* ,
+    GC ,
+    int ,
+    int
+);
+
+extern int XSetClipRectangles(
+    Display* ,
+    GC ,
+    int ,
+    int ,
+    XRectangle* ,
+    int ,
+    int
+);
+
+extern int XSetCloseDownMode(
+    Display* ,
+    int
+);
+
+extern int XSetCommand(
+    Display* ,
+    Window ,
+    char** ,
+    int
+);
+
+extern int XSetDashes(
+    Display* ,
+    GC ,
+    int ,
+    const char* ,
+    int
+);
+
+extern int XSetFillRule(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetFillStyle(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetFont(
+    Display* ,
+    GC ,
+    Font
+);
+
+extern int XSetFontPath(
+    Display* ,
+    char** ,
+    int
+);
+
+extern int XSetForeground(
+    Display* ,
+    GC ,
+    unsigned long
+);
+
+extern int XSetFunction(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetGraphicsExposures(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetIconName(
+    Display* ,
+    Window ,
+    const char*
+);
+
+extern int XSetInputFocus(
+    Display* ,
+    Window ,
+    int ,
+    Time
+);
+
+extern int XSetLineAttributes(
+    Display* ,
+    GC ,
+    unsigned int ,
+    int ,
+    int ,
+    int
+);
+
+extern int XSetModifierMapping(
+    Display* ,
+    XModifierKeymap*
+);
+
+extern int XSetPlaneMask(
+    Display* ,
+    GC ,
+    unsigned long
+);
+
+extern int XSetPointerMapping(
+    Display* ,
+    const unsigned char* ,
+    int
+);
+
+extern int XSetScreenSaver(
+    Display* ,
+    int ,
+    int ,
+    int ,
+    int
+);
+
+extern int XSetSelectionOwner(
+    Display* ,
+    Atom ,
+    Window ,
+    Time
+);
+
+extern int XSetState(
+    Display* ,
+    GC ,
+    unsigned long ,
+    unsigned long ,
+    int ,
+    unsigned long
+);
+
+extern int XSetStipple(
+    Display* ,
+    GC ,
+    Pixmap
+);
+
+extern int XSetSubwindowMode(
+    Display* ,
+    GC ,
+    int
+);
+
+extern int XSetTSOrigin(
+    Display* ,
+    GC ,
+    int ,
+    int
+);
+
+extern int XSetTile(
+    Display* ,
+    GC ,
+    Pixmap
+);
+
+extern int XSetWindowBackground(
+    Display* ,
+    Window ,
+    unsigned long
+);
+
+extern int XSetWindowBackgroundPixmap(
+    Display* ,
+    Window ,
+    Pixmap
+);
+
+extern int XSetWindowBorder(
+    Display* ,
+    Window ,
+    unsigned long
+);
+
+extern int XSetWindowBorderPixmap(
+    Display* ,
+    Window ,
+    Pixmap
+);
+
+extern int XSetWindowBorderWidth(
+    Display* ,
+    Window ,
+    unsigned int
+);
+
+extern int XSetWindowColormap(
+    Display* ,
+    Window ,
+    Colormap
+);
+
+extern int XStoreBuffer(
+    Display* ,
+    const char* ,
+    int ,
+    int
+);
+
+extern int XStoreBytes(
+    Display* ,
+    const char* ,
+    int
+);
+
+extern int XStoreColor(
+    Display* ,
+    Colormap ,
+    XColor*
+);
+
+extern int XStoreColors(
+    Display* ,
+    Colormap ,
+    XColor* ,
+    int
+);
+
+extern int XStoreName(
+    Display* ,
+    Window ,
+    const char*
+);
+
+extern int XStoreNamedColor(
+    Display* ,
+    Colormap ,
+    const char* ,
+    unsigned long ,
+    int
+);
+
+extern int XSync(
+    Display* ,
+    int
+);
+
+extern int XTextExtents(
+    XFontStruct* ,
+    const char* ,
+    int ,
+    int* ,
+    int* ,
+    int* ,
+    XCharStruct*
+);
+
+extern int XTextExtents16(
+    XFontStruct* ,
+    const XChar2b* ,
+    int ,
+    int* ,
+    int* ,
+    int* ,
+    XCharStruct*
+);
+
+extern int XTextWidth(
+    XFontStruct* ,
+    const char* ,
+    int
+);
+
+extern int XTextWidth16(
+    XFontStruct* ,
+    const XChar2b* ,
+    int
+);
+
+extern int XTranslateCoordinates(
+    Display* ,
+    Window ,
+    Window ,
+    int ,
+    int ,
+    int* ,
+    int* ,
+    Window*
+);
+
+extern int XUndefineCursor(
+    Display* ,
+    Window
+);
+
+extern int XUngrabButton(
+    Display* ,
+    unsigned int ,
+    unsigned int ,
+    Window
+);
+
+extern int XUngrabKey(
+    Display* ,
+    int ,
+    unsigned int ,
+    Window
+);
+
+extern int XUngrabKeyboard(
+    Display* ,
+    Time
+);
+
+extern int XUngrabPointer(
+    Display* ,
+    Time
+);
+
+extern int XUngrabServer(
+    Display*
+);
+
+extern int XUninstallColormap(
+    Display* ,
+    Colormap
+);
+
+extern int XUnloadFont(
+    Display* ,
+    Font
+);
+
+extern int XUnmapSubwindows(
+    Display* ,
+    Window
+);
+
+extern int XUnmapWindow(
+    Display* ,
+    Window
+);
+
+extern int XVendorRelease(
+    Display*
+);
+
+extern int XWarpPointer(
+    Display* ,
+    Window ,
+    Window ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+
+extern int XWidthMMOfScreen(
+    Screen*
+);
+
+extern int XWidthOfScreen(
+    Screen*
+);
+
+extern int XWindowEvent(
+    Display* ,
+    Window ,
+    long ,
+    XEvent*
+);
+
+extern int XWriteBitmapFile(
+    Display* ,
+    const char* ,
+    Pixmap ,
+    unsigned int ,
+    unsigned int ,
+    int ,
+    int
+);
+
+extern int XSupportsLocale (void);
+
+extern char *XSetLocaleModifiers(
+    const char*
+);
+
+extern XOM XOpenOM(
+    Display* ,
+    struct _XrmHashBucketRec* ,
+    const char* ,
+    const char*
+);
+
+extern int XCloseOM(
+    XOM
+);
+
+extern char *XSetOMValues(
+    XOM ,
+    ...
+) __attribute__ ((__sentinel__(0)));
+
+extern char *XGetOMValues(
+    XOM ,
+    ...
+) __attribute__ ((__sentinel__(0)));
+
+extern Display *XDisplayOfOM(
+    XOM
+);
+
+extern char *XLocaleOfOM(
+    XOM
+);
+
+extern XOC XCreateOC(
+    XOM ,
+    ...
+) __attribute__ ((__sentinel__(0)));
+
+extern void XDestroyOC(
+    XOC
+);
+
+extern XOM XOMOfOC(
+    XOC
+);
+
+extern char *XSetOCValues(
+    XOC ,
+    ...
+) __attribute__ ((__sentinel__(0)));
+
+extern char *XGetOCValues(
+    XOC ,
+    ...
+) __attribute__ ((__sentinel__(0)));
+
+extern XFontSet XCreateFontSet(
+    Display* ,
+    const char* ,
+    char*** ,
+    int* ,
+    char**
+);
+
+extern void XFreeFontSet(
+    Display* ,
+    XFontSet
+);
+
+extern int XFontsOfFontSet(
+    XFontSet ,
+    XFontStruct*** ,
+    char***
+);
+
+extern char *XBaseFontNameListOfFontSet(
+    XFontSet
+);
+
+extern char *XLocaleOfFontSet(
+    XFontSet
+);
+
+extern int XContextDependentDrawing(
+    XFontSet
+);
+
+extern int XDirectionalDependentDrawing(
+    XFontSet
+);
+
+extern int XContextualDrawing(
+    XFontSet
+);
+
+extern XFontSetExtents *XExtentsOfFontSet(
+    XFontSet
+);
+
+extern int XmbTextEscapement(
+    XFontSet ,
+    const char* ,
+    int
+);
+
+extern int XwcTextEscapement(
+    XFontSet ,
+    const wchar_t* ,
+    int
+);
+
+extern int Xutf8TextEscapement(
+    XFontSet ,
+    const char* ,
+    int
+);
+
+extern int XmbTextExtents(
+    XFontSet ,
+    const char* ,
+    int ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern int XwcTextExtents(
+    XFontSet ,
+    const wchar_t* ,
+    int ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern int Xutf8TextExtents(
+    XFontSet ,
+    const char* ,
+    int ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern int XmbTextPerCharExtents(
+    XFontSet ,
+    const char* ,
+    int ,
+    XRectangle* ,
+    XRectangle* ,
+    int ,
+    int* ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern int XwcTextPerCharExtents(
+    XFontSet ,
+    const wchar_t* ,
+    int ,
+    XRectangle* ,
+    XRectangle* ,
+    int ,
+    int* ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern int Xutf8TextPerCharExtents(
+    XFontSet ,
+    const char* ,
+    int ,
+    XRectangle* ,
+    XRectangle* ,
+    int ,
+    int* ,
+    XRectangle* ,
+    XRectangle*
+);
+
+extern void XmbDrawText(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    XmbTextItem* ,
+    int
+);
+
+extern void XwcDrawText(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    XwcTextItem* ,
+    int
+);
+
+extern void Xutf8DrawText(
+    Display* ,
+    Drawable ,
+    GC ,
+    int ,
+    int ,
+    XmbTextItem* ,
+    int
+);
+
+extern void XmbDrawString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern void XwcDrawString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const wchar_t* ,
+    int
+);
+
+extern void Xutf8DrawString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern void XmbDrawImageString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern void XwcDrawImageString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const wchar_t* ,
+    int
+);
+
+extern void Xutf8DrawImageString(
+    Display* ,
+    Drawable ,
+    XFontSet ,
+    GC ,
+    int ,
+    int ,
+    const char* ,
+    int
+);
+
+extern XIM XOpenIM(
+    Display* ,
+    struct _XrmHashBucketRec* ,
+    char* ,
+    char*
+);
+
+extern int XCloseIM(
+    XIM
+);
+
+extern char *XGetIMValues(
+    XIM , ...
+) __attribute__ ((__sentinel__(0)));
+
+extern char *XSetIMValues(
+    XIM , ...
+) __attribute__ ((__sentinel__(0)));
+
+extern Display *XDisplayOfIM(
+    XIM
+);
+
+extern char *XLocaleOfIM(
+    XIM
+);
+
+extern XIC XCreateIC(
+    XIM , ...
+) __attribute__ ((__sentinel__(0)));
+
+extern void XDestroyIC(
+    XIC
+);
+
+extern void XSetICFocus(
+    XIC
+);
+
+extern void XUnsetICFocus(
+    XIC
+);
+
+extern wchar_t *XwcResetIC(
+    XIC
+);
+
+extern char *XmbResetIC(
+    XIC
+);
+
+extern char *Xutf8ResetIC(
+    XIC
+);
+
+extern char *XSetICValues(
+    XIC , ...
+) __attribute__ ((__sentinel__(0)));
+
+extern char *XGetICValues(
+    XIC , ...
+) __attribute__ ((__sentinel__(0)));
+
+extern XIM XIMOfIC(
+    XIC
+);
+
+extern int XFilterEvent(
+    XEvent* ,
+    Window
+);
+
+extern int XmbLookupString(
+    XIC ,
+    XKeyPressedEvent* ,
+    char* ,
+    int ,
+    KeySym* ,
+    int*
+);
+
+extern int XwcLookupString(
+    XIC ,
+    XKeyPressedEvent* ,
+    wchar_t* ,
+    int ,
+    KeySym* ,
+    int*
+);
+
+extern int Xutf8LookupString(
+    XIC ,
+    XKeyPressedEvent* ,
+    char* ,
+    int ,
+    KeySym* ,
+    int*
+);
+
+extern XVaNestedList XVaCreateNestedList(
+    int , ...
+) __attribute__ ((__sentinel__(0)));
+
+
+
+extern int XRegisterIMInstantiateCallback(
+    Display* ,
+    struct _XrmHashBucketRec* ,
+    char* ,
+    char* ,
+    XIDProc ,
+    XPointer
+);
+
+extern int XUnregisterIMInstantiateCallback(
+    Display* ,
+    struct _XrmHashBucketRec* ,
+    char* ,
+    char* ,
+    XIDProc ,
+    XPointer
+);
+
+typedef void (*XConnectionWatchProc)(
+    Display* ,
+    XPointer ,
+    int ,
+    int ,
+    XPointer*
+);
+
+
+extern int XInternalConnectionNumbers(
+    Display* ,
+    int** ,
+    int*
+);
+
+extern void XProcessInternalConnection(
+    Display* ,
+    int
+);
+
+extern int XAddConnectionWatch(
+    Display* ,
+    XConnectionWatchProc ,
+    XPointer
+);
+
+extern void XRemoveConnectionWatch(
+    Display* ,
+    XConnectionWatchProc ,
+    XPointer
+);
+
+extern void XSetAuthorization(
+    char * ,
+    int ,
+    char * ,
+    int
+);
+
+extern int _Xmbtowc(
+    wchar_t * ,
+
+
+
+
+    char * ,
+    int
+
+);
+
+extern int _Xwctomb(
+    char * ,
+    wchar_t
+);
+
+extern int XGetEventData(
+    Display* ,
+    XGenericEventCookie*
+);
+
+extern void XFreeEventData(
+    Display* ,
+    XGenericEventCookie*
+);
+
+
+# 39 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h" 2
+# 1 "/usr/include/X11/Xutil.h" 1 3 4
+# 56 "/usr/include/X11/Xutil.h" 3 4
+# 1 "/usr/include/X11/keysym.h" 1 3 4
+# 72 "/usr/include/X11/keysym.h" 3 4
+# 1 "/usr/include/X11/keysymdef.h" 1 3 4
+# 73 "/usr/include/X11/keysym.h" 2 3 4
+# 57 "/usr/include/X11/Xutil.h" 2 3 4
+# 75 "/usr/include/X11/Xutil.h" 3 4
+typedef struct {
+     long flags;
+ int x, y;
+ int width, height;
+ int min_width, min_height;
+ int max_width, max_height;
+     int width_inc, height_inc;
+ struct {
+  int x;
+  int y;
+ } min_aspect, max_aspect;
+ int base_width, base_height;
+ int win_gravity;
+} XSizeHints;
+# 113 "/usr/include/X11/Xutil.h" 3 4
+typedef struct {
+ long flags;
+ int input;
+
+ int initial_state;
+ Pixmap icon_pixmap;
+ Window icon_window;
+ int icon_x, icon_y;
+ Pixmap icon_mask;
+ XID window_group;
+
+} XWMHints;
+# 157 "/usr/include/X11/Xutil.h" 3 4
+typedef struct {
+    unsigned char *value;
+    Atom encoding;
+    int format;
+    unsigned long nitems;
+} XTextProperty;
+
+
+
+
+
+typedef enum {
+    XStringStyle,
+    XCompoundTextStyle,
+    XTextStyle,
+    XStdICCTextStyle,
+
+    XUTF8StringStyle
+} XICCEncodingStyle;
+
+typedef struct {
+ int min_width, min_height;
+ int max_width, max_height;
+ int width_inc, height_inc;
+} XIconSize;
+
+typedef struct {
+ char *res_name;
+ char *res_class;
+} XClassHint;
+# 225 "/usr/include/X11/Xutil.h" 3 4
+typedef struct _XComposeStatus {
+    XPointer compose_ptr;
+    int chars_matched;
+} XComposeStatus;
+# 267 "/usr/include/X11/Xutil.h" 3 4
+typedef struct _XRegion *Region;
+# 281 "/usr/include/X11/Xutil.h" 3 4
+typedef struct {
+  Visual *visual;
+  VisualID visualid;
+  int screen;
+  int depth;
+
+
+
+  int class;
+
+  unsigned long red_mask;
+  unsigned long green_mask;
+  unsigned long blue_mask;
+  int colormap_size;
+  int bits_per_rgb;
+} XVisualInfo;
+# 314 "/usr/include/X11/Xutil.h" 3 4
+typedef struct {
+ Colormap colormap;
+ unsigned long red_max;
+ unsigned long red_mult;
+ unsigned long green_max;
+ unsigned long green_mult;
+ unsigned long blue_max;
+ unsigned long blue_mult;
+ unsigned long base_pixel;
+ VisualID visualid;
+ XID killid;
+} XStandardColormap;
+# 351 "/usr/include/X11/Xutil.h" 3 4
+typedef int XContext;
+
+
+
+
+
+
+
+
+extern XClassHint *XAllocClassHint (
+    void
+);
+
+extern XIconSize *XAllocIconSize (
+    void
+);
+
+extern XSizeHints *XAllocSizeHints (
+    void
+);
+
+extern XStandardColormap *XAllocStandardColormap (
+    void
+);
+
+extern XWMHints *XAllocWMHints (
+    void
+);
+
+extern int XClipBox(
+    Region ,
+    XRectangle*
+);
+
+extern Region XCreateRegion(
+    void
+);
+
+extern const char *XDefaultString (void);
+
+extern int XDeleteContext(
+    Display* ,
+    XID ,
+    XContext
+);
+
+extern int XDestroyRegion(
+    Region
+);
+
+extern int XEmptyRegion(
+    Region
+);
+
+extern int XEqualRegion(
+    Region ,
+    Region
+);
+
+extern int XFindContext(
+    Display* ,
+    XID ,
+    XContext ,
+    XPointer*
+);
+
+extern int XGetClassHint(
+    Display* ,
+    Window ,
+    XClassHint*
+);
+
+extern int XGetIconSizes(
+    Display* ,
+    Window ,
+    XIconSize** ,
+    int*
+);
+
+extern int XGetNormalHints(
+    Display* ,
+    Window ,
+    XSizeHints*
+);
+
+extern int XGetRGBColormaps(
+    Display* ,
+    Window ,
+    XStandardColormap** ,
+    int* ,
+    Atom
+);
+
+extern int XGetSizeHints(
+    Display* ,
+    Window ,
+    XSizeHints* ,
+    Atom
+);
+
+extern int XGetStandardColormap(
+    Display* ,
+    Window ,
+    XStandardColormap* ,
+    Atom
+);
+
+extern int XGetTextProperty(
+    Display* ,
+    Window ,
+    XTextProperty* ,
+    Atom
+);
+
+extern XVisualInfo *XGetVisualInfo(
+    Display* ,
+    long ,
+    XVisualInfo* ,
+    int*
+);
+
+extern int XGetWMClientMachine(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern XWMHints *XGetWMHints(
+    Display* ,
+    Window
+);
+
+extern int XGetWMIconName(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern int XGetWMName(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern int XGetWMNormalHints(
+    Display* ,
+    Window ,
+    XSizeHints* ,
+    long*
+);
+
+extern int XGetWMSizeHints(
+    Display* ,
+    Window ,
+    XSizeHints* ,
+    long* ,
+    Atom
+);
+
+extern int XGetZoomHints(
+    Display* ,
+    Window ,
+    XSizeHints*
+);
+
+extern int XIntersectRegion(
+    Region ,
+    Region ,
+    Region
+);
+
+extern void XConvertCase(
+    KeySym ,
+    KeySym* ,
+    KeySym*
+);
+
+extern int XLookupString(
+    XKeyEvent* ,
+    char* ,
+    int ,
+    KeySym* ,
+    XComposeStatus*
+);
+
+extern int XMatchVisualInfo(
+    Display* ,
+    int ,
+    int ,
+    int ,
+    XVisualInfo*
+);
+
+extern int XOffsetRegion(
+    Region ,
+    int ,
+    int
+);
+
+extern int XPointInRegion(
+    Region ,
+    int ,
+    int
+);
+
+extern Region XPolygonRegion(
+    XPoint* ,
+    int ,
+    int
+);
+
+extern int XRectInRegion(
+    Region ,
+    int ,
+    int ,
+    unsigned int ,
+    unsigned int
+);
+
+extern int XSaveContext(
+    Display* ,
+    XID ,
+    XContext ,
+    const char*
+);
+
+extern int XSetClassHint(
+    Display* ,
+    Window ,
+    XClassHint*
+);
+
+extern int XSetIconSizes(
+    Display* ,
+    Window ,
+    XIconSize* ,
+    int
+);
+
+extern int XSetNormalHints(
+    Display* ,
+    Window ,
+    XSizeHints*
+);
+
+extern void XSetRGBColormaps(
+    Display* ,
+    Window ,
+    XStandardColormap* ,
+    int ,
+    Atom
+);
+
+extern int XSetSizeHints(
+    Display* ,
+    Window ,
+    XSizeHints* ,
+    Atom
+);
+
+extern int XSetStandardProperties(
+    Display* ,
+    Window ,
+    const char* ,
+    const char* ,
+    Pixmap ,
+    char** ,
+    int ,
+    XSizeHints*
+);
+
+extern void XSetTextProperty(
+    Display* ,
+    Window ,
+    XTextProperty* ,
+    Atom
+);
+
+extern void XSetWMClientMachine(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern int XSetWMHints(
+    Display* ,
+    Window ,
+    XWMHints*
+);
+
+extern void XSetWMIconName(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern void XSetWMName(
+    Display* ,
+    Window ,
+    XTextProperty*
+);
+
+extern void XSetWMNormalHints(
+    Display* ,
+    Window ,
+    XSizeHints*
+);
+
+extern void XSetWMProperties(
+    Display* ,
+    Window ,
+    XTextProperty* ,
+    XTextProperty* ,
+    char** ,
+    int ,
+    XSizeHints* ,
+    XWMHints* ,
+    XClassHint*
+);
+
+extern void XmbSetWMProperties(
+    Display* ,
+    Window ,
+    const char* ,
+    const char* ,
+    char** ,
+    int ,
+    XSizeHints* ,
+    XWMHints* ,
+    XClassHint*
+);
+
+extern void Xutf8SetWMProperties(
+    Display* ,
+    Window ,
+    const char* ,
+    const char* ,
+    char** ,
+    int ,
+    XSizeHints* ,
+    XWMHints* ,
+    XClassHint*
+);
+
+extern void XSetWMSizeHints(
+    Display* ,
+    Window ,
+    XSizeHints* ,
+    Atom
+);
+
+extern int XSetRegion(
+    Display* ,
+    GC ,
+    Region
+);
+
+extern void XSetStandardColormap(
+    Display* ,
+    Window ,
+    XStandardColormap* ,
+    Atom
+);
+
+extern int XSetZoomHints(
+    Display* ,
+    Window ,
+    XSizeHints*
+);
+
+extern int XShrinkRegion(
+    Region ,
+    int ,
+    int
+);
+
+extern int XStringListToTextProperty(
+    char** ,
+    int ,
+    XTextProperty*
+);
+
+extern int XSubtractRegion(
+    Region ,
+    Region ,
+    Region
+);
+
+extern int XmbTextListToTextProperty(
+    Display* display,
+    char** list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty* text_prop_return
+);
+
+extern int XwcTextListToTextProperty(
+    Display* display,
+    wchar_t** list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty* text_prop_return
+);
+
+extern int Xutf8TextListToTextProperty(
+    Display* display,
+    char** list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty* text_prop_return
+);
+
+extern void XwcFreeStringList(
+    wchar_t** list
+);
+
+extern int XTextPropertyToStringList(
+    XTextProperty* ,
+    char*** ,
+    int*
+);
+
+extern int XmbTextPropertyToTextList(
+    Display* display,
+    const XTextProperty* text_prop,
+    char*** list_return,
+    int* count_return
+);
+
+extern int XwcTextPropertyToTextList(
+    Display* display,
+    const XTextProperty* text_prop,
+    wchar_t*** list_return,
+    int* count_return
+);
+
+extern int Xutf8TextPropertyToTextList(
+    Display* display,
+    const XTextProperty* text_prop,
+    char*** list_return,
+    int* count_return
+);
+
+extern int XUnionRectWithRegion(
+    XRectangle* ,
+    Region ,
+    Region
+);
+
+extern int XUnionRegion(
+    Region ,
+    Region ,
+    Region
+);
+
+extern int XWMGeometry(
+    Display* ,
+    int ,
+    const char* ,
+    const char* ,
+    unsigned int ,
+    XSizeHints* ,
+    int* ,
+    int* ,
+    int* ,
+    int* ,
+    int*
+);
+
+extern int XXorRegion(
+    Region ,
+    Region ,
+    Region
+);
+
+
+# 40 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h" 2
+
+
+
+
+
+# 1 "/usr/include/GL/gl.h" 1 3 4
+# 153 "/usr/include/GL/gl.h" 3 4
 typedef unsigned int GLenum;
 typedef unsigned char GLboolean;
 typedef unsigned int GLbitfield;
@@ -18,7 +4957,7 @@ typedef float GLfloat;
 typedef float GLclampf;
 typedef double GLdouble;
 typedef double GLclampd;
-# 782 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 780 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glClearIndex( GLfloat c );
 
 __attribute__((visibility("default"))) void glClearColor( GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha );
@@ -715,7 +5654,7 @@ __attribute__((visibility("default"))) void glLoadName( GLuint name );
 __attribute__((visibility("default"))) void glPushName( GLuint name );
 
 __attribute__((visibility("default"))) void glPopName( void );
-# 1527 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1525 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glDrawRangeElements( GLenum mode, GLuint start,
  GLuint end, GLsizei count, GLenum type, const GLvoid *indices );
 
@@ -743,7 +5682,7 @@ typedef void ( * PFNGLDRAWRANGEELEMENTSPROC) (GLenum mode, GLuint start, GLuint 
 typedef void ( * PFNGLTEXIMAGE3DPROC) (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
 typedef void ( * PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const GLvoid *pixels);
 typedef void ( * PFNGLCOPYTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-# 1637 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1635 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glColorTable( GLenum target, GLenum internalformat,
                                     GLsizei width, GLenum format,
                                     GLenum type, const GLvoid *table );
@@ -854,7 +5793,7 @@ __attribute__((visibility("default"))) void glGetSeparableFilter( GLenum target,
 
 typedef void ( * PFNGLBLENDCOLORPROC) (GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
 typedef void ( * PFNGLBLENDEQUATIONPROC) (GLenum mode);
-# 1859 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1857 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glActiveTexture( GLenum texture );
 
 __attribute__((visibility("default"))) void glClientActiveTexture( GLenum texture );
@@ -958,7 +5897,7 @@ typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) (GLenum target, GLint level, 
 typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, const GLvoid *data);
 typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, const GLvoid *data);
 typedef void ( * PFNGLGETCOMPRESSEDTEXIMAGEPROC) (GLenum target, GLint level, GLvoid *img);
-# 2007 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2005 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glActiveTextureARB(GLenum texture);
 __attribute__((visibility("default"))) void glClientActiveTextureARB(GLenum texture);
 __attribute__((visibility("default"))) void glMultiTexCoord1dARB(GLenum target, GLdouble s);
@@ -1028,16 +5967,10 @@ typedef void ( * PFNGLMULTITEXCOORD4IARBPROC) (GLenum target, GLint s, GLint t, 
 typedef void ( * PFNGLMULTITEXCOORD4IVARBPROC) (GLenum target, const GLint *v);
 typedef void ( * PFNGLMULTITEXCOORD4SARBPROC) (GLenum target, GLshort s, GLshort t, GLshort r, GLshort q);
 typedef void ( * PFNGLMULTITEXCOORD4SVARBPROC) (GLenum target, const GLshort *v);
-# 2091 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2089 "/usr/include/GL/gl.h" 3 4
 # 1 "/usr/include/GL/glext.h" 1 3 4
 # 4399 "/usr/include/GL/glext.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 1 3 4
-# 149 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
-typedef long int ptrdiff_t;
-# 211 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
-typedef long unsigned int size_t;
-# 323 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 3 4
-typedef int wchar_t;
 # 4400 "/usr/include/GL/glext.h" 2 3 4
 
 
@@ -1071,52 +6004,14 @@ typedef unsigned short GLhalfARB;
 typedef unsigned short GLhalfNV;
 # 4466 "/usr/include/GL/glext.h" 3 4
 # 1 "/usr/include/inttypes.h" 1 3 4
-# 26 "/usr/include/inttypes.h" 3 4
-# 1 "/usr/include/features.h" 1 3 4
-# 313 "/usr/include/features.h" 3 4
-# 1 "/usr/include/bits/predefs.h" 1 3 4
-# 314 "/usr/include/features.h" 2 3 4
-# 346 "/usr/include/features.h" 3 4
-# 1 "/usr/include/sys/cdefs.h" 1 3 4
-# 353 "/usr/include/sys/cdefs.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 354 "/usr/include/sys/cdefs.h" 2 3 4
-# 347 "/usr/include/features.h" 2 3 4
-# 378 "/usr/include/features.h" 3 4
-# 1 "/usr/include/gnu/stubs.h" 1 3 4
-
-
-
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 5 "/usr/include/gnu/stubs.h" 2 3 4
-
-
-
-
-# 1 "/usr/include/gnu/stubs-64.h" 1 3 4
-# 10 "/usr/include/gnu/stubs.h" 2 3 4
-# 379 "/usr/include/features.h" 2 3 4
-# 27 "/usr/include/inttypes.h" 2 3 4
-
+# 28 "/usr/include/inttypes.h" 3 4
 # 1 "/usr/include/stdint.h" 1 3 4
 # 27 "/usr/include/stdint.h" 3 4
 # 1 "/usr/include/bits/wchar.h" 1 3 4
 # 28 "/usr/include/stdint.h" 2 3 4
 # 1 "/usr/include/bits/wordsize.h" 1 3 4
 # 29 "/usr/include/stdint.h" 2 3 4
-# 37 "/usr/include/stdint.h" 3 4
-typedef signed char int8_t;
-typedef short int int16_t;
-typedef int int32_t;
-
-typedef long int int64_t;
-
-
-
-
-
-
-
+# 49 "/usr/include/stdint.h" 3 4
 typedef unsigned char uint8_t;
 typedef unsigned short int uint16_t;
 
@@ -3079,29 +7974,445 @@ typedef void ( * PFNGLGETINTEGERUI64I_VNVPROC) (GLenum value, GLuint index, GLui
 
 
 typedef void ( * PFNGLTEXTUREBARRIERNVPROC) (void);
-# 2092 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h" 2
-# 2106 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2090 "/usr/include/GL/gl.h" 2 3 4
+# 2104 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) GLhandleARB glCreateDebugObjectMESA (void);
 __attribute__((visibility("default"))) void glClearDebugLogMESA (GLhandleARB obj, GLenum logType, GLenum shaderType);
 __attribute__((visibility("default"))) void glGetDebugLogMESA (GLhandleARB obj, GLenum logType, GLenum shaderType, GLsizei maxLength,
                                          GLsizei *length, GLcharARB *debugLog);
 __attribute__((visibility("default"))) GLsizei glGetDebugLogLengthMESA (GLhandleARB obj, GLenum logType, GLenum shaderType);
-# 2145 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2143 "/usr/include/GL/gl.h" 3 4
 typedef void (*GLprogramcallbackMESA)(GLenum target, GLvoid *data);
 
 __attribute__((visibility("default"))) void glProgramCallbackMESA(GLenum target, GLprogramcallbackMESA callback, GLvoid *data);
 
 __attribute__((visibility("default"))) void glGetProgramRegisterfvMESA(GLenum target, GLsizei len, const GLubyte *name, GLfloat *v);
-# 2192 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2190 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glBlendEquationSeparateATI( GLenum modeRGB, GLenum modeA );
 typedef void ( * PFNGLBLENDEQUATIONSEPARATEATIPROC) (GLenum modeRGB, GLenum modeA);
+# 46 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h" 2
+# 178 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+typedef struct __GLXcontextRec *GLXContext;
+typedef XID GLXPixmap;
+typedef XID GLXDrawable;
+
+typedef struct __GLXFBConfigRec *GLXFBConfig;
+typedef XID GLXFBConfigID;
+typedef XID GLXContextID;
+typedef XID GLXWindow;
+typedef XID GLXPbuffer;
+# 200 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern XVisualInfo* glXChooseVisual( Display *dpy, int screen,
+         int *attribList );
+
+extern GLXContext glXCreateContext( Display *dpy, XVisualInfo *vis,
+        GLXContext shareList, int direct );
+
+extern void glXDestroyContext( Display *dpy, GLXContext ctx );
+
+extern int glXMakeCurrent( Display *dpy, GLXDrawable drawable,
+       GLXContext ctx);
+
+extern void glXCopyContext( Display *dpy, GLXContext src, GLXContext dst,
+       unsigned long mask );
+
+extern void glXSwapBuffers( Display *dpy, GLXDrawable drawable );
+
+extern GLXPixmap glXCreateGLXPixmap( Display *dpy, XVisualInfo *visual,
+         Pixmap pixmap );
+
+extern void glXDestroyGLXPixmap( Display *dpy, GLXPixmap pixmap );
+
+extern int glXQueryExtension( Display *dpy, int *errorb, int *event );
+
+extern int glXQueryVersion( Display *dpy, int *maj, int *min );
+
+extern int glXIsDirect( Display *dpy, GLXContext ctx );
+
+extern int glXGetConfig( Display *dpy, XVisualInfo *visual,
+    int attrib, int *value );
+
+extern GLXContext glXGetCurrentContext( void );
+
+extern GLXDrawable glXGetCurrentDrawable( void );
+
+extern void glXWaitGL( void );
+
+extern void glXWaitX( void );
+
+extern void glXUseXFont( Font font, int first, int count, int list );
+
+
+
+
+extern const char *glXQueryExtensionsString( Display *dpy, int screen );
+
+extern const char *glXQueryServerString( Display *dpy, int screen, int name );
+
+extern const char *glXGetClientString( Display *dpy, int name );
+
+
+
+extern Display *glXGetCurrentDisplay( void );
+
+
+
+extern GLXFBConfig *glXChooseFBConfig( Display *dpy, int screen,
+                                       const int *attribList, int *nitems );
+
+extern int glXGetFBConfigAttrib( Display *dpy, GLXFBConfig config,
+                                 int attribute, int *value );
+
+extern GLXFBConfig *glXGetFBConfigs( Display *dpy, int screen,
+                                     int *nelements );
+
+extern XVisualInfo *glXGetVisualFromFBConfig( Display *dpy,
+                                              GLXFBConfig config );
+
+extern GLXWindow glXCreateWindow( Display *dpy, GLXFBConfig config,
+                                  Window win, const int *attribList );
+
+extern void glXDestroyWindow( Display *dpy, GLXWindow window );
+
+extern GLXPixmap glXCreatePixmap( Display *dpy, GLXFBConfig config,
+                                  Pixmap pixmap, const int *attribList );
+
+extern void glXDestroyPixmap( Display *dpy, GLXPixmap pixmap );
+
+extern GLXPbuffer glXCreatePbuffer( Display *dpy, GLXFBConfig config,
+                                    const int *attribList );
+
+extern void glXDestroyPbuffer( Display *dpy, GLXPbuffer pbuf );
+
+extern void glXQueryDrawable( Display *dpy, GLXDrawable draw, int attribute,
+                              unsigned int *value );
+
+extern GLXContext glXCreateNewContext( Display *dpy, GLXFBConfig config,
+                                       int renderType, GLXContext shareList,
+                                       int direct );
+
+extern int glXMakeContextCurrent( Display *dpy, GLXDrawable draw,
+                                   GLXDrawable read, GLXContext ctx );
+
+extern GLXDrawable glXGetCurrentReadDrawable( void );
+
+extern int glXQueryContext( Display *dpy, GLXContext ctx, int attribute,
+                            int *value );
+
+extern void glXSelectEvent( Display *dpy, GLXDrawable drawable,
+                            unsigned long mask );
+
+extern void glXGetSelectedEvent( Display *dpy, GLXDrawable drawable,
+                                 unsigned long *mask );
+
+
+typedef GLXFBConfig * (* PFNGLXGETFBCONFIGSPROC) (Display *dpy, int screen, int *nelements);
+typedef GLXFBConfig * (* PFNGLXCHOOSEFBCONFIGPROC) (Display *dpy, int screen, const int *attrib_list, int *nelements);
+typedef int (* PFNGLXGETFBCONFIGATTRIBPROC) (Display *dpy, GLXFBConfig config, int attribute, int *value);
+typedef XVisualInfo * (* PFNGLXGETVISUALFROMFBCONFIGPROC) (Display *dpy, GLXFBConfig config);
+typedef GLXWindow (* PFNGLXCREATEWINDOWPROC) (Display *dpy, GLXFBConfig config, Window win, const int *attrib_list);
+typedef void (* PFNGLXDESTROYWINDOWPROC) (Display *dpy, GLXWindow win);
+typedef GLXPixmap (* PFNGLXCREATEPIXMAPPROC) (Display *dpy, GLXFBConfig config, Pixmap pixmap, const int *attrib_list);
+typedef void (* PFNGLXDESTROYPIXMAPPROC) (Display *dpy, GLXPixmap pixmap);
+typedef GLXPbuffer (* PFNGLXCREATEPBUFFERPROC) (Display *dpy, GLXFBConfig config, const int *attrib_list);
+typedef void (* PFNGLXDESTROYPBUFFERPROC) (Display *dpy, GLXPbuffer pbuf);
+typedef void (* PFNGLXQUERYDRAWABLEPROC) (Display *dpy, GLXDrawable draw, int attribute, unsigned int *value);
+typedef GLXContext (* PFNGLXCREATENEWCONTEXTPROC) (Display *dpy, GLXFBConfig config, int render_type, GLXContext share_list, int direct);
+typedef int (* PFNGLXMAKECONTEXTCURRENTPROC) (Display *dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx);
+typedef GLXDrawable (* PFNGLXGETCURRENTREADDRAWABLEPROC) (void);
+typedef Display * (* PFNGLXGETCURRENTDISPLAYPROC) (void);
+typedef int (* PFNGLXQUERYCONTEXTPROC) (Display *dpy, GLXContext ctx, int attribute, int *value);
+typedef void (* PFNGLXSELECTEVENTPROC) (Display *dpy, GLXDrawable draw, unsigned long event_mask);
+typedef void (* PFNGLXGETSELECTEDEVENTPROC) (Display *dpy, GLXDrawable draw, unsigned long *event_mask);
+# 330 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+typedef void (*__GLXextFuncPtr)(void);
+extern __GLXextFuncPtr glXGetProcAddressARB (const GLubyte *);
 
 
 
 
 
 
-typedef void* GLeglImageOES;
-# 2209 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
-typedef void ( * PFNGLEGLIMAGETARGETTEXTURE2DOESPROC) (GLenum target, GLeglImageOES image);
-typedef void ( * PFNGLEGLIMAGETARGETRENDERBUFFERSTORAGEOESPROC) (GLenum target, GLeglImageOES image);
+extern void (*glXGetProcAddress(const GLubyte *procname))( void );
+
+
+typedef __GLXextFuncPtr (* PFNGLXGETPROCADDRESSPROC) (const GLubyte *procName);
+
+
+
+
+# 1 "/usr/include/GL/glxext.h" 1 3 4
+# 407 "/usr/include/GL/glxext.h" 3 4
+typedef XID GLXVideoSourceSGIX;
+
+
+
+typedef XID GLXFBConfigIDSGIX;
+typedef struct __GLXFBConfigRec *GLXFBConfigSGIX;
+
+
+
+typedef XID GLXPbufferSGIX;
+typedef struct {
+    int type;
+    unsigned long serial;
+    int send_event;
+    Display *display;
+    GLXDrawable drawable;
+    int event_type;
+    int draw_type;
+    unsigned int mask;
+    int x, y;
+    int width, height;
+    int count;
+} GLXBufferClobberEventSGIX;
+
+
+
+typedef unsigned int GLXVideoDeviceNV;
+
+
+
+typedef XID GLXVideoCaptureDeviceNV;
+# 548 "/usr/include/GL/glxext.h" 3 4
+typedef GLXContext ( * PFNGLXCREATECONTEXTATTRIBSARBPROC) (Display *dpy, GLXFBConfig config, GLXContext share_context, int direct, const int *attrib_list);
+# 568 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXSWAPINTERVALSGIPROC) (int interval);
+# 577 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXGETVIDEOSYNCSGIPROC) (unsigned int *count);
+typedef int ( * PFNGLXWAITVIDEOSYNCSGIPROC) (int divisor, int remainder, unsigned int *count);
+# 587 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXMAKECURRENTREADSGIPROC) (Display *dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx);
+typedef GLXDrawable ( * PFNGLXGETCURRENTREADDRAWABLESGIPROC) (void);
+# 616 "/usr/include/GL/glxext.h" 3 4
+typedef Display * ( * PFNGLXGETCURRENTDISPLAYEXTPROC) (void);
+typedef int ( * PFNGLXQUERYCONTEXTINFOEXTPROC) (Display *dpy, GLXContext context, int attribute, int *value);
+typedef GLXContextID ( * PFNGLXGETCONTEXTIDEXTPROC) (const GLXContext context);
+typedef GLXContext ( * PFNGLXIMPORTCONTEXTEXTPROC) (Display *dpy, GLXContextID contextID);
+typedef void ( * PFNGLXFREECONTEXTEXTPROC) (Display *dpy, GLXContext context);
+# 633 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXGETFBCONFIGATTRIBSGIXPROC) (Display *dpy, GLXFBConfigSGIX config, int attribute, int *value);
+typedef GLXFBConfigSGIX * ( * PFNGLXCHOOSEFBCONFIGSGIXPROC) (Display *dpy, int screen, int *attrib_list, int *nelements);
+typedef GLXPixmap ( * PFNGLXCREATEGLXPIXMAPWITHCONFIGSGIXPROC) (Display *dpy, GLXFBConfigSGIX config, Pixmap pixmap);
+typedef GLXContext ( * PFNGLXCREATECONTEXTWITHCONFIGSGIXPROC) (Display *dpy, GLXFBConfigSGIX config, int render_type, GLXContext share_list, int direct);
+typedef XVisualInfo * ( * PFNGLXGETVISUALFROMFBCONFIGSGIXPROC) (Display *dpy, GLXFBConfigSGIX config);
+typedef GLXFBConfigSGIX ( * PFNGLXGETFBCONFIGFROMVISUALSGIXPROC) (Display *dpy, XVisualInfo *vis);
+# 650 "/usr/include/GL/glxext.h" 3 4
+typedef GLXPbufferSGIX ( * PFNGLXCREATEGLXPBUFFERSGIXPROC) (Display *dpy, GLXFBConfigSGIX config, unsigned int width, unsigned int height, int *attrib_list);
+typedef void ( * PFNGLXDESTROYGLXPBUFFERSGIXPROC) (Display *dpy, GLXPbufferSGIX pbuf);
+typedef int ( * PFNGLXQUERYGLXPBUFFERSGIXPROC) (Display *dpy, GLXPbufferSGIX pbuf, int attribute, unsigned int *value);
+typedef void ( * PFNGLXSELECTEVENTSGIXPROC) (Display *dpy, GLXDrawable drawable, unsigned long mask);
+typedef void ( * PFNGLXGETSELECTEDEVENTSGIXPROC) (Display *dpy, GLXDrawable drawable, unsigned long *mask);
+
+
+
+
+
+
+
+typedef void ( * PFNGLXCUSHIONSGIPROC) (Display *dpy, Window window, float cushion);
+# 674 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXBINDCHANNELTOWINDOWSGIXPROC) (Display *display, int screen, int channel, Window window);
+typedef int ( * PFNGLXCHANNELRECTSGIXPROC) (Display *display, int screen, int channel, int x, int y, int w, int h);
+typedef int ( * PFNGLXQUERYCHANNELRECTSGIXPROC) (Display *display, int screen, int channel, int *dx, int *dy, int *dw, int *dh);
+typedef int ( * PFNGLXQUERYCHANNELDELTASSGIXPROC) (Display *display, int screen, int channel, int *x, int *y, int *w, int *h);
+typedef int ( * PFNGLXCHANNELRECTSYNCSGIXPROC) (Display *display, int screen, int channel, GLenum synctype);
+# 696 "/usr/include/GL/glxext.h" 3 4
+typedef void ( * PFNGLXJOINSWAPGROUPSGIXPROC) (Display *dpy, GLXDrawable drawable, GLXDrawable member);
+# 705 "/usr/include/GL/glxext.h" 3 4
+typedef void ( * PFNGLXBINDSWAPBARRIERSGIXPROC) (Display *dpy, GLXDrawable drawable, int barrier);
+typedef int ( * PFNGLXQUERYMAXSWAPBARRIERSSGIXPROC) (Display *dpy, int screen, int *max);
+
+
+
+
+
+
+
+typedef int ( * PFNGLXGETTRANSPARENTINDEXSUNPROC) (Display *dpy, Window overlay, Window underlay, long *pTransparentIndex);
+
+
+
+
+
+
+
+typedef void ( * PFNGLXCOPYSUBBUFFERMESAPROC) (Display *dpy, GLXDrawable drawable, int x, int y, int width, int height);
+
+
+
+
+
+
+
+typedef GLXPixmap ( * PFNGLXCREATEGLXPIXMAPMESAPROC) (Display *dpy, XVisualInfo *visual, Pixmap pixmap, Colormap cmap);
+
+
+
+
+
+
+
+typedef int ( * PFNGLXRELEASEBUFFERSMESAPROC) (Display *dpy, GLXDrawable drawable);
+
+
+
+
+
+
+
+typedef int ( * PFNGLXSET3DFXMODEMESAPROC) (int mode);
+# 766 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXGETSYNCVALUESOMLPROC) (Display *dpy, GLXDrawable drawable, int64_t *ust, int64_t *msc, int64_t *sbc);
+typedef int ( * PFNGLXGETMSCRATEOMLPROC) (Display *dpy, GLXDrawable drawable, int32_t *numerator, int32_t *denominator);
+typedef int64_t ( * PFNGLXSWAPBUFFERSMSCOMLPROC) (Display *dpy, GLXDrawable drawable, int64_t target_msc, int64_t divisor, int64_t remainder);
+typedef int ( * PFNGLXWAITFORMSCOMLPROC) (Display *dpy, GLXDrawable drawable, int64_t target_msc, int64_t divisor, int64_t remainder, int64_t *ust, int64_t *msc, int64_t *sbc);
+typedef int ( * PFNGLXWAITFORSBCOMLPROC) (Display *dpy, GLXDrawable drawable, int64_t target_sbc, int64_t *ust, int64_t *msc, int64_t *sbc);
+# 780 "/usr/include/GL/glxext.h" 3 4
+typedef struct {
+    char pipeName[80];
+    int networkId;
+} GLXHyperpipeNetworkSGIX;
+
+typedef struct {
+    char pipeName[80];
+    int channel;
+    unsigned int
+      participationType;
+    int timeSlice;
+} GLXHyperpipeConfigSGIX;
+
+typedef struct {
+    char pipeName[80];
+    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;
+    int destXOrigin, destYOrigin, destWidth, destHeight;
+} GLXPipeRect;
+
+typedef struct {
+    char pipeName[80];
+    int XOrigin, YOrigin, maxHeight, maxWidth;
+} GLXPipeRectLimits;
+# 814 "/usr/include/GL/glxext.h" 3 4
+typedef GLXHyperpipeNetworkSGIX * ( * PFNGLXQUERYHYPERPIPENETWORKSGIXPROC) (Display *dpy, int *npipes);
+typedef int ( * PFNGLXHYPERPIPECONFIGSGIXPROC) (Display *dpy, int networkId, int npipes, GLXHyperpipeConfigSGIX *cfg, int *hpId);
+typedef GLXHyperpipeConfigSGIX * ( * PFNGLXQUERYHYPERPIPECONFIGSGIXPROC) (Display *dpy, int hpId, int *npipes);
+typedef int ( * PFNGLXDESTROYHYPERPIPECONFIGSGIXPROC) (Display *dpy, int hpId);
+typedef int ( * PFNGLXBINDHYPERPIPESGIXPROC) (Display *dpy, int hpId);
+typedef int ( * PFNGLXQUERYHYPERPIPEBESTATTRIBSGIXPROC) (Display *dpy, int timeSlice, int attrib, int size, void *attribList, void *returnAttribList);
+typedef int ( * PFNGLXHYPERPIPEATTRIBSGIXPROC) (Display *dpy, int timeSlice, int attrib, int size, void *attribList);
+typedef int ( * PFNGLXQUERYHYPERPIPEATTRIBSGIXPROC) (Display *dpy, int timeSlice, int attrib, int size, void *returnAttribList);
+
+
+
+
+
+
+
+typedef unsigned int ( * PFNGLXGETAGPOFFSETMESAPROC) (const void *pointer);
+# 846 "/usr/include/GL/glxext.h" 3 4
+typedef void ( * PFNGLXBINDTEXIMAGEEXTPROC) (Display *dpy, GLXDrawable drawable, int buffer, const int *attrib_list);
+typedef void ( * PFNGLXRELEASETEXIMAGEEXTPROC) (Display *dpy, GLXDrawable drawable, int buffer);
+# 856 "/usr/include/GL/glxext.h" 3 4
+typedef unsigned int * ( * PFNGLXENUMERATEVIDEODEVICESNVPROC) (Display *dpy, int screen, int *nelements);
+typedef int ( * PFNGLXBINDVIDEODEVICENVPROC) (Display *dpy, unsigned int video_slot, unsigned int video_device, const int *attrib_list);
+# 870 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXGETVIDEODEVICENVPROC) (Display *dpy, int screen, int numVideoDevices, GLXVideoDeviceNV *pVideoDevice);
+typedef int ( * PFNGLXRELEASEVIDEODEVICENVPROC) (Display *dpy, int screen, GLXVideoDeviceNV VideoDevice);
+typedef int ( * PFNGLXBINDVIDEOIMAGENVPROC) (Display *dpy, GLXVideoDeviceNV VideoDevice, GLXPbuffer pbuf, int iVideoBuffer);
+typedef int ( * PFNGLXRELEASEVIDEOIMAGENVPROC) (Display *dpy, GLXPbuffer pbuf);
+typedef int ( * PFNGLXSENDPBUFFERTOVIDEONVPROC) (Display *dpy, GLXPbuffer pbuf, int iBufferType, unsigned long *pulCounterPbuffer, GLboolean bBlock);
+typedef int ( * PFNGLXGETVIDEOINFONVPROC) (Display *dpy, int screen, GLXVideoDeviceNV VideoDevice, unsigned long *pulCounterOutputPbuffer, unsigned long *pulCounterOutputVideo);
+# 888 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXJOINSWAPGROUPNVPROC) (Display *dpy, GLXDrawable drawable, GLuint group);
+typedef int ( * PFNGLXBINDSWAPBARRIERNVPROC) (Display *dpy, GLuint group, GLuint barrier);
+typedef int ( * PFNGLXQUERYSWAPGROUPNVPROC) (Display *dpy, GLXDrawable drawable, GLuint *group, GLuint *barrier);
+typedef int ( * PFNGLXQUERYMAXSWAPGROUPSNVPROC) (Display *dpy, int screen, GLuint *maxGroups, GLuint *maxBarriers);
+typedef int ( * PFNGLXQUERYFRAMECOUNTNVPROC) (Display *dpy, int screen, GLuint *count);
+typedef int ( * PFNGLXRESETFRAMECOUNTNVPROC) (Display *dpy, int screen);
+# 905 "/usr/include/GL/glxext.h" 3 4
+typedef int ( * PFNGLXBINDVIDEOCAPTUREDEVICENVPROC) (Display *dpy, unsigned int video_capture_slot, GLXVideoCaptureDeviceNV device);
+typedef GLXVideoCaptureDeviceNV * ( * PFNGLXENUMERATEVIDEOCAPTUREDEVICESNVPROC) (Display *dpy, int screen, int *nelements);
+typedef void ( * PFNGLXLOCKVIDEOCAPTUREDEVICENVPROC) (Display *dpy, GLXVideoCaptureDeviceNV device);
+typedef int ( * PFNGLXQUERYVIDEOCAPTUREDEVICENVPROC) (Display *dpy, GLXVideoCaptureDeviceNV device, int attribute, int *value);
+typedef void ( * PFNGLXRELEASEVIDEOCAPTUREDEVICENVPROC) (Display *dpy, GLXVideoCaptureDeviceNV device);
+
+
+
+
+
+
+
+typedef int ( * PFNGLXSWAPINTERVALEXTPROC) (Display *dpy, GLXDrawable drawable, int interval);
+
+
+
+
+
+
+
+typedef void ( * PFNGLXCOPYIMAGESUBDATANVPROC) (Display *dpy, GLXContext srcCtx, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLXContext dstCtx, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei width, GLsizei height, GLsizei depth);
+# 347 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h" 2
+# 362 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern void *glXAllocateMemoryNV(GLsizei size, GLfloat readfreq, GLfloat writefreq, GLfloat priority);
+extern void glXFreeMemoryNV(GLvoid *pointer);
+typedef void * ( * PFNGLXALLOCATEMEMORYNVPROC) (GLsizei size, GLfloat readfreq, GLfloat writefreq, GLfloat priority);
+typedef void ( * PFNGLXFREEMEMORYNVPROC) (GLvoid *pointer);
+# 376 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern void *glXAllocateMemoryMESA(Display *dpy, int scrn, size_t size, float readfreq, float writefreq, float priority);
+extern void glXFreeMemoryMESA(Display *dpy, int scrn, void *pointer);
+extern GLuint glXGetMemoryOffsetMESA(Display *dpy, int scrn, const void *pointer);
+typedef void * ( * PFNGLXALLOCATEMEMORYMESAPROC) (Display *dpy, int scrn, size_t size, float readfreq, float writefreq, float priority);
+typedef void ( * PFNGLXFREEMEMORYMESAPROC) (Display *dpy, int scrn, void *pointer);
+typedef GLuint (* PFNGLXGETMEMORYOFFSETMESAPROC) (Display *dpy, int scrn, const void *pointer);
+# 393 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern int glXBindTexImageARB(Display *dpy, GLXPbuffer pbuffer, int buffer);
+extern int glXReleaseTexImageARB(Display *dpy, GLXPbuffer pbuffer, int buffer);
+extern int glXDrawableAttribARB(Display *dpy, GLXDrawable draw, const int *attribList);
+# 418 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern int glXGetFrameUsageMESA(Display *dpy, GLXDrawable drawable, float *usage);
+extern int glXBeginFrameTrackingMESA(Display *dpy, GLXDrawable drawable);
+extern int glXEndFrameTrackingMESA(Display *dpy, GLXDrawable drawable);
+extern int glXQueryFrameTrackingMESA(Display *dpy, GLXDrawable drawable, int64_t *swapCount, int64_t *missedFrames, float *lastMissedUsage);
+
+typedef int (*PFNGLXGETFRAMEUSAGEMESAPROC) (Display *dpy, GLXDrawable drawable, float *usage);
+typedef int (*PFNGLXBEGINFRAMETRACKINGMESAPROC)(Display *dpy, GLXDrawable drawable);
+typedef int (*PFNGLXENDFRAMETRACKINGMESAPROC)(Display *dpy, GLXDrawable drawable);
+typedef int (*PFNGLXQUERYFRAMETRACKINGMESAPROC)(Display *dpy, GLXDrawable drawable, int64_t *swapCount, int64_t *missedFrames, float *lastMissedUsage);
+# 438 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+extern int glXSwapIntervalMESA(unsigned int interval);
+extern int glXGetSwapIntervalMESA(void);
+
+typedef int (*PFNGLXSWAPINTERVALMESAPROC)(unsigned int interval);
+typedef int (*PFNGLXGETSWAPINTERVALMESAPROC)(void);
+# 506 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glx.h"
+typedef struct {
+    int event_type;
+    int draw_type;
+    unsigned long serial;
+    int send_event;
+    Display *display;
+    GLXDrawable drawable;
+    unsigned int buffer_mask;
+    unsigned int aux_buffer;
+    int x, y;
+    int width, height;
+    int count;
+} GLXPbufferClobberEvent;
+
+typedef struct {
+    int type;
+    unsigned long serial;
+    int send_event;
+    Display *display;
+    GLXDrawable drawable;
+    int event_type;
+    int64_t ust;
+    int64_t msc;
+    int64_t sbc;
+} GLXBufferSwapComplete;
+
+typedef union __GLXEvent {
+    GLXPbufferClobberEvent glxpbufferclobber;
+    GLXBufferSwapComplete glxbufferswapcomplete;
+    long pad[24];
+} GLXEvent;

@@ -1,4 +1,6 @@
-var gl = require("../lib/node-ogl").gl, sys = require("sys");
+var gl   = require("../lib/node-ogl").gl,
+    glut = require("../lib/node-ogl").glut,
+    sys  = require("sys");
 sys.puts("Module included.");
 
 if (!gl) {
@@ -6,3 +8,5 @@ if (!gl) {
 }
 
 sys.puts("GL_POLYGON_STIPPLE: " + gl.GL_POLYGON_STIPPLE);
+
+sys.puts(sys.inspect(require("../lib/node-ogl")));

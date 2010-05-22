@@ -21,6 +21,7 @@ namespace node {
 
     %_NAME ();
 
+    //%_METHODS
     
   };
 }  // namespace node
