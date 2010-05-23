@@ -1,16 +1,9 @@
-var gl     = require("../lib/node-ogl"),
+var gl     = require(__dirname + "/../../lib/node-ogl"),
     sys    = require("sys"),
     width  = 400,
     height = 400;
-    
-sys.puts("Module included.");
 
-if (!gl) {
-  throw new Error("Environment Is not sane, lib.gl does not exist");
-}
-
-// spawn a window
-sys.puts("Window result: " + gl.OpenWindow(width,height,0,0,0,0,0,0,0));
+gl.OpenWindow(width,height,0,0,0,0,0,0,0);
 
 gl.glShadeModel(gl.GL_SMOOTH);
 gl.glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -24,13 +17,6 @@ gl.glLoadIdentity();
 gl.gluPerspective(45.0, width / height, 0.1, 100.0);
 gl.glMatrixMode(gl.GL_MODELVIEW);
 gl.glFlush();
-
-var frame = 0;
-
-setInterval(function() {
-  sys.puts(frame +" fps");
-  frame=0;
-}, 1000);
 
 setTimeout(function render() {
 
@@ -48,14 +34,17 @@ setTimeout(function render() {
     gl.glVertex3f( 1.0,-1.0, 0.0);				// Bottom Right
   gl.glEnd();
 
+  gl.glTranslatef(3.0,0.0,0.0);
+	gl.glColor3f(0.5,0.5,1.0);				// Set The Color To Blue One Time Only
+	gl.glBegin(gl.GL_QUADS);					// Start Drawing Quads
+		gl.glVertex3f(-1.0, 1.0, 0.0);			// Left And Up 1 Unit (Top Left)
+		gl.glVertex3f( 1.0, 1.0, 0.0);			// Right And Up 1 Unit (Top Right)
+		gl.glVertex3f( 1.0,-1.0, 0.0);			// Right And Down One Unit (Bottom Right)
+		gl.glVertex3f(-1.0,-1.0, 0.0);			// Left And Down One Unit (Bottom Left)
+	gl.glEnd();
+
   gl.SwapBuffers();
-  frame++;
-  setTimeout(render, 0);  
+  setTimeout(render, 10);  
 }, 0);
 
-sys.puts("enabling GL_LINE_SMOOTH (" + gl.GL_LINE_SMOOTH + ")");
-sys.puts("ret: " + gl.glEnable(gl.GL_LINE_SMOOTH));
-var stored = gl.glIsEnabled(gl.GL_LINE_SMOOTH);
-sys.puts("Is GL_LINE_SMOOTH enabled? " + stored);
-sys.puts("Error: " + gl.glGetError());
 

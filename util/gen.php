@@ -173,7 +173,8 @@ foreach ($files as $currentFile)
     }
     else
     {
-      $body .= "\n    return scope.Close(Number::New(123));";
+      $body .= "\n    return ThrowException(Exception::Error(\n"
+            .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
     }
 
     $body .= "\n  }\n\n";

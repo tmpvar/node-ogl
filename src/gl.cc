@@ -208,7 +208,9 @@ namespace node {
   Handle<Value> gl_glPolygonStipple(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glPolygonStipple is not implemented!")));
+
   }
 
 
@@ -221,7 +223,9 @@ namespace node {
   Handle<Value> gl_glGetPolygonStipple(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetPolygonStipple is not implemented!")));
+
   }
 
 
@@ -246,7 +250,9 @@ namespace node {
   Handle<Value> gl_glEdgeFlagv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEdgeFlagv is not implemented!")));
+
   }
 
 
@@ -275,7 +281,9 @@ namespace node {
   Handle<Value> gl_glClipPlane(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glClipPlane is not implemented!")));
+
   }
 
 
@@ -289,7 +297,9 @@ namespace node {
   Handle<Value> gl_glGetClipPlane(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetClipPlane is not implemented!")));
+
   }
 
 
@@ -387,7 +397,9 @@ namespace node {
   Handle<Value> gl_glGetBooleanv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetBooleanv is not implemented!")));
+
   }
 
 
@@ -401,7 +413,9 @@ namespace node {
   Handle<Value> gl_glGetDoublev(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetDoublev is not implemented!")));
+
   }
 
 
@@ -415,7 +429,9 @@ namespace node {
   Handle<Value> gl_glGetFloatv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetFloatv is not implemented!")));
+
   }
 
 
@@ -429,7 +445,9 @@ namespace node {
   Handle<Value> gl_glGetIntegerv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetIntegerv is not implemented!")));
+
   }
 
 
@@ -701,7 +719,9 @@ namespace node {
   Handle<Value> gl_glLoadMatrixd(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLoadMatrixd is not implemented!")));
+
   }
 
 
@@ -714,7 +734,9 @@ namespace node {
   Handle<Value> gl_glLoadMatrixf(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLoadMatrixf is not implemented!")));
+
   }
 
 
@@ -727,7 +749,9 @@ namespace node {
   Handle<Value> gl_glMultMatrixd(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultMatrixd is not implemented!")));
+
   }
 
 
@@ -740,7 +764,9 @@ namespace node {
   Handle<Value> gl_glMultMatrixf(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultMatrixf is not implemented!")));
+
   }
 
 
@@ -912,7 +938,9 @@ namespace node {
   Handle<Value> gl_glCallLists(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCallLists is not implemented!")));
+
   }
 
 
@@ -1126,7 +1154,9 @@ namespace node {
   Handle<Value> gl_glVertex2dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex2dv is not implemented!")));
+
   }
 
 
@@ -1139,7 +1169,9 @@ namespace node {
   Handle<Value> gl_glVertex2fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex2fv is not implemented!")));
+
   }
 
 
@@ -1152,7 +1184,9 @@ namespace node {
   Handle<Value> gl_glVertex2iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex2iv is not implemented!")));
+
   }
 
 
@@ -1165,7 +1199,9 @@ namespace node {
   Handle<Value> gl_glVertex2sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex2sv is not implemented!")));
+
   }
 
 
@@ -1178,7 +1214,9 @@ namespace node {
   Handle<Value> gl_glVertex3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex3dv is not implemented!")));
+
   }
 
 
@@ -1191,7 +1229,9 @@ namespace node {
   Handle<Value> gl_glVertex3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex3fv is not implemented!")));
+
   }
 
 
@@ -1204,7 +1244,9 @@ namespace node {
   Handle<Value> gl_glVertex3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex3iv is not implemented!")));
+
   }
 
 
@@ -1217,7 +1259,9 @@ namespace node {
   Handle<Value> gl_glVertex3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex3sv is not implemented!")));
+
   }
 
 
@@ -1230,7 +1274,9 @@ namespace node {
   Handle<Value> gl_glVertex4dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex4dv is not implemented!")));
+
   }
 
 
@@ -1243,7 +1289,9 @@ namespace node {
   Handle<Value> gl_glVertex4fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex4fv is not implemented!")));
+
   }
 
 
@@ -1256,7 +1304,9 @@ namespace node {
   Handle<Value> gl_glVertex4iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex4iv is not implemented!")));
+
   }
 
 
@@ -1269,7 +1319,9 @@ namespace node {
   Handle<Value> gl_glVertex4sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertex4sv is not implemented!")));
+
   }
 
 
@@ -1352,7 +1404,9 @@ namespace node {
   Handle<Value> gl_glNormal3bv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormal3bv is not implemented!")));
+
   }
 
 
@@ -1365,7 +1419,9 @@ namespace node {
   Handle<Value> gl_glNormal3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormal3dv is not implemented!")));
+
   }
 
 
@@ -1378,7 +1434,9 @@ namespace node {
   Handle<Value> gl_glNormal3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormal3fv is not implemented!")));
+
   }
 
 
@@ -1391,7 +1449,9 @@ namespace node {
   Handle<Value> gl_glNormal3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormal3iv is not implemented!")));
+
   }
 
 
@@ -1404,7 +1464,9 @@ namespace node {
   Handle<Value> gl_glNormal3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormal3sv is not implemented!")));
+
   }
 
 
@@ -1477,7 +1539,9 @@ namespace node {
   Handle<Value> gl_glIndexdv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexdv is not implemented!")));
+
   }
 
 
@@ -1490,7 +1554,9 @@ namespace node {
   Handle<Value> gl_glIndexfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexfv is not implemented!")));
+
   }
 
 
@@ -1503,7 +1569,9 @@ namespace node {
   Handle<Value> gl_glIndexiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexiv is not implemented!")));
+
   }
 
 
@@ -1516,7 +1584,9 @@ namespace node {
   Handle<Value> gl_glIndexsv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexsv is not implemented!")));
+
   }
 
 
@@ -1529,7 +1599,9 @@ namespace node {
   Handle<Value> gl_glIndexubv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexubv is not implemented!")));
+
   }
 
 
@@ -1774,7 +1846,9 @@ namespace node {
   Handle<Value> gl_glColor3bv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3bv is not implemented!")));
+
   }
 
 
@@ -1787,7 +1861,9 @@ namespace node {
   Handle<Value> gl_glColor3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3dv is not implemented!")));
+
   }
 
 
@@ -1800,7 +1876,9 @@ namespace node {
   Handle<Value> gl_glColor3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3fv is not implemented!")));
+
   }
 
 
@@ -1813,7 +1891,9 @@ namespace node {
   Handle<Value> gl_glColor3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3iv is not implemented!")));
+
   }
 
 
@@ -1826,7 +1906,9 @@ namespace node {
   Handle<Value> gl_glColor3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3sv is not implemented!")));
+
   }
 
 
@@ -1839,7 +1921,9 @@ namespace node {
   Handle<Value> gl_glColor3ubv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3ubv is not implemented!")));
+
   }
 
 
@@ -1852,7 +1936,9 @@ namespace node {
   Handle<Value> gl_glColor3uiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3uiv is not implemented!")));
+
   }
 
 
@@ -1865,7 +1951,9 @@ namespace node {
   Handle<Value> gl_glColor3usv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor3usv is not implemented!")));
+
   }
 
 
@@ -1878,7 +1966,9 @@ namespace node {
   Handle<Value> gl_glColor4bv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4bv is not implemented!")));
+
   }
 
 
@@ -1891,7 +1981,9 @@ namespace node {
   Handle<Value> gl_glColor4dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4dv is not implemented!")));
+
   }
 
 
@@ -1904,7 +1996,9 @@ namespace node {
   Handle<Value> gl_glColor4fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4fv is not implemented!")));
+
   }
 
 
@@ -1917,7 +2011,9 @@ namespace node {
   Handle<Value> gl_glColor4iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4iv is not implemented!")));
+
   }
 
 
@@ -1930,7 +2026,9 @@ namespace node {
   Handle<Value> gl_glColor4sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4sv is not implemented!")));
+
   }
 
 
@@ -1943,7 +2041,9 @@ namespace node {
   Handle<Value> gl_glColor4ubv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4ubv is not implemented!")));
+
   }
 
 
@@ -1956,7 +2056,9 @@ namespace node {
   Handle<Value> gl_glColor4uiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4uiv is not implemented!")));
+
   }
 
 
@@ -1969,7 +2071,9 @@ namespace node {
   Handle<Value> gl_glColor4usv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColor4usv is not implemented!")));
+
   }
 
 
@@ -2198,7 +2302,9 @@ namespace node {
   Handle<Value> gl_glTexCoord1dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord1dv is not implemented!")));
+
   }
 
 
@@ -2211,7 +2317,9 @@ namespace node {
   Handle<Value> gl_glTexCoord1fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord1fv is not implemented!")));
+
   }
 
 
@@ -2224,7 +2332,9 @@ namespace node {
   Handle<Value> gl_glTexCoord1iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord1iv is not implemented!")));
+
   }
 
 
@@ -2237,7 +2347,9 @@ namespace node {
   Handle<Value> gl_glTexCoord1sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord1sv is not implemented!")));
+
   }
 
 
@@ -2250,7 +2362,9 @@ namespace node {
   Handle<Value> gl_glTexCoord2dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord2dv is not implemented!")));
+
   }
 
 
@@ -2263,7 +2377,9 @@ namespace node {
   Handle<Value> gl_glTexCoord2fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord2fv is not implemented!")));
+
   }
 
 
@@ -2276,7 +2392,9 @@ namespace node {
   Handle<Value> gl_glTexCoord2iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord2iv is not implemented!")));
+
   }
 
 
@@ -2289,7 +2407,9 @@ namespace node {
   Handle<Value> gl_glTexCoord2sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord2sv is not implemented!")));
+
   }
 
 
@@ -2302,7 +2422,9 @@ namespace node {
   Handle<Value> gl_glTexCoord3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord3dv is not implemented!")));
+
   }
 
 
@@ -2315,7 +2437,9 @@ namespace node {
   Handle<Value> gl_glTexCoord3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord3fv is not implemented!")));
+
   }
 
 
@@ -2328,7 +2452,9 @@ namespace node {
   Handle<Value> gl_glTexCoord3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord3iv is not implemented!")));
+
   }
 
 
@@ -2341,7 +2467,9 @@ namespace node {
   Handle<Value> gl_glTexCoord3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord3sv is not implemented!")));
+
   }
 
 
@@ -2354,7 +2482,9 @@ namespace node {
   Handle<Value> gl_glTexCoord4dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord4dv is not implemented!")));
+
   }
 
 
@@ -2367,7 +2497,9 @@ namespace node {
   Handle<Value> gl_glTexCoord4fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord4fv is not implemented!")));
+
   }
 
 
@@ -2380,7 +2512,9 @@ namespace node {
   Handle<Value> gl_glTexCoord4iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord4iv is not implemented!")));
+
   }
 
 
@@ -2393,7 +2527,9 @@ namespace node {
   Handle<Value> gl_glTexCoord4sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoord4sv is not implemented!")));
+
   }
 
 
@@ -2574,7 +2710,9 @@ namespace node {
   Handle<Value> gl_glRasterPos2dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos2dv is not implemented!")));
+
   }
 
 
@@ -2587,7 +2725,9 @@ namespace node {
   Handle<Value> gl_glRasterPos2fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos2fv is not implemented!")));
+
   }
 
 
@@ -2600,7 +2740,9 @@ namespace node {
   Handle<Value> gl_glRasterPos2iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos2iv is not implemented!")));
+
   }
 
 
@@ -2613,7 +2755,9 @@ namespace node {
   Handle<Value> gl_glRasterPos2sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos2sv is not implemented!")));
+
   }
 
 
@@ -2626,7 +2770,9 @@ namespace node {
   Handle<Value> gl_glRasterPos3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos3dv is not implemented!")));
+
   }
 
 
@@ -2639,7 +2785,9 @@ namespace node {
   Handle<Value> gl_glRasterPos3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos3fv is not implemented!")));
+
   }
 
 
@@ -2652,7 +2800,9 @@ namespace node {
   Handle<Value> gl_glRasterPos3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos3iv is not implemented!")));
+
   }
 
 
@@ -2665,7 +2815,9 @@ namespace node {
   Handle<Value> gl_glRasterPos3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos3sv is not implemented!")));
+
   }
 
 
@@ -2678,7 +2830,9 @@ namespace node {
   Handle<Value> gl_glRasterPos4dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos4dv is not implemented!")));
+
   }
 
 
@@ -2691,7 +2845,9 @@ namespace node {
   Handle<Value> gl_glRasterPos4fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos4fv is not implemented!")));
+
   }
 
 
@@ -2704,7 +2860,9 @@ namespace node {
   Handle<Value> gl_glRasterPos4iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos4iv is not implemented!")));
+
   }
 
 
@@ -2717,7 +2875,9 @@ namespace node {
   Handle<Value> gl_glRasterPos4sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRasterPos4sv is not implemented!")));
+
   }
 
 
@@ -2791,7 +2951,9 @@ namespace node {
   Handle<Value> gl_glRectdv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRectdv is not implemented!")));
+
   }
 
 
@@ -2805,7 +2967,9 @@ namespace node {
   Handle<Value> gl_glRectfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRectfv is not implemented!")));
+
   }
 
 
@@ -2819,7 +2983,9 @@ namespace node {
   Handle<Value> gl_glRectiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRectiv is not implemented!")));
+
   }
 
 
@@ -2833,7 +2999,9 @@ namespace node {
   Handle<Value> gl_glRectsv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glRectsv is not implemented!")));
+
   }
 
 
@@ -2849,7 +3017,9 @@ namespace node {
   Handle<Value> gl_glVertexPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glVertexPointer is not implemented!")));
+
   }
 
 
@@ -2864,7 +3034,9 @@ namespace node {
   Handle<Value> gl_glNormalPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glNormalPointer is not implemented!")));
+
   }
 
 
@@ -2880,7 +3052,9 @@ namespace node {
   Handle<Value> gl_glColorPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColorPointer is not implemented!")));
+
   }
 
 
@@ -2895,7 +3069,9 @@ namespace node {
   Handle<Value> gl_glIndexPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glIndexPointer is not implemented!")));
+
   }
 
 
@@ -2911,7 +3087,9 @@ namespace node {
   Handle<Value> gl_glTexCoordPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexCoordPointer is not implemented!")));
+
   }
 
 
@@ -2925,7 +3103,9 @@ namespace node {
   Handle<Value> gl_glEdgeFlagPointer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEdgeFlagPointer is not implemented!")));
+
   }
 
 
@@ -2939,7 +3119,9 @@ namespace node {
   Handle<Value> gl_glGetPointerv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetPointerv is not implemented!")));
+
   }
 
 
@@ -2981,7 +3163,9 @@ namespace node {
   Handle<Value> gl_glDrawElements(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glDrawElements is not implemented!")));
+
   }
 
 
@@ -2996,7 +3180,9 @@ namespace node {
   Handle<Value> gl_glInterleavedArrays(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glInterleavedArrays is not implemented!")));
+
   }
 
 
@@ -3051,7 +3237,9 @@ namespace node {
   Handle<Value> gl_glLightfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLightfv is not implemented!")));
+
   }
 
 
@@ -3066,7 +3254,9 @@ namespace node {
   Handle<Value> gl_glLightiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLightiv is not implemented!")));
+
   }
 
 
@@ -3081,7 +3271,9 @@ namespace node {
   Handle<Value> gl_glGetLightfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetLightfv is not implemented!")));
+
   }
 
 
@@ -3096,7 +3288,9 @@ namespace node {
   Handle<Value> gl_glGetLightiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetLightiv is not implemented!")));
+
   }
 
 
@@ -3136,7 +3330,9 @@ namespace node {
   Handle<Value> gl_glLightModelfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLightModelfv is not implemented!")));
+
   }
 
 
@@ -3150,7 +3346,9 @@ namespace node {
   Handle<Value> gl_glLightModeliv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLightModeliv is not implemented!")));
+
   }
 
 
@@ -3193,7 +3391,9 @@ namespace node {
   Handle<Value> gl_glMaterialfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMaterialfv is not implemented!")));
+
   }
 
 
@@ -3208,7 +3408,9 @@ namespace node {
   Handle<Value> gl_glMaterialiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMaterialiv is not implemented!")));
+
   }
 
 
@@ -3223,7 +3425,9 @@ namespace node {
   Handle<Value> gl_glGetMaterialfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMaterialfv is not implemented!")));
+
   }
 
 
@@ -3238,7 +3442,9 @@ namespace node {
   Handle<Value> gl_glGetMaterialiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMaterialiv is not implemented!")));
+
   }
 
 
@@ -3331,7 +3537,9 @@ namespace node {
   Handle<Value> gl_glPixelMapfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glPixelMapfv is not implemented!")));
+
   }
 
 
@@ -3346,7 +3554,9 @@ namespace node {
   Handle<Value> gl_glPixelMapuiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glPixelMapuiv is not implemented!")));
+
   }
 
 
@@ -3361,7 +3571,9 @@ namespace node {
   Handle<Value> gl_glPixelMapusv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glPixelMapusv is not implemented!")));
+
   }
 
 
@@ -3375,7 +3587,9 @@ namespace node {
   Handle<Value> gl_glGetPixelMapfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetPixelMapfv is not implemented!")));
+
   }
 
 
@@ -3389,7 +3603,9 @@ namespace node {
   Handle<Value> gl_glGetPixelMapuiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetPixelMapuiv is not implemented!")));
+
   }
 
 
@@ -3403,7 +3619,9 @@ namespace node {
   Handle<Value> gl_glGetPixelMapusv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetPixelMapusv is not implemented!")));
+
   }
 
 
@@ -3422,7 +3640,9 @@ namespace node {
   Handle<Value> gl_glBitmap(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glBitmap is not implemented!")));
+
   }
 
 
@@ -3441,7 +3661,9 @@ namespace node {
   Handle<Value> gl_glReadPixels(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glReadPixels is not implemented!")));
+
   }
 
 
@@ -3458,7 +3680,9 @@ namespace node {
   Handle<Value> gl_glDrawPixels(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glDrawPixels is not implemented!")));
+
   }
 
 
@@ -3583,7 +3807,9 @@ namespace node {
   Handle<Value> gl_glTexGendv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexGendv is not implemented!")));
+
   }
 
 
@@ -3598,7 +3824,9 @@ namespace node {
   Handle<Value> gl_glTexGenfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexGenfv is not implemented!")));
+
   }
 
 
@@ -3613,7 +3841,9 @@ namespace node {
   Handle<Value> gl_glTexGeniv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexGeniv is not implemented!")));
+
   }
 
 
@@ -3628,7 +3858,9 @@ namespace node {
   Handle<Value> gl_glGetTexGendv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexGendv is not implemented!")));
+
   }
 
 
@@ -3643,7 +3875,9 @@ namespace node {
   Handle<Value> gl_glGetTexGenfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexGenfv is not implemented!")));
+
   }
 
 
@@ -3658,7 +3892,9 @@ namespace node {
   Handle<Value> gl_glGetTexGeniv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexGeniv is not implemented!")));
+
   }
 
 
@@ -3701,7 +3937,9 @@ namespace node {
   Handle<Value> gl_glTexEnvfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexEnvfv is not implemented!")));
+
   }
 
 
@@ -3716,7 +3954,9 @@ namespace node {
   Handle<Value> gl_glTexEnviv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexEnviv is not implemented!")));
+
   }
 
 
@@ -3731,7 +3971,9 @@ namespace node {
   Handle<Value> gl_glGetTexEnvfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexEnvfv is not implemented!")));
+
   }
 
 
@@ -3746,7 +3988,9 @@ namespace node {
   Handle<Value> gl_glGetTexEnviv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexEnviv is not implemented!")));
+
   }
 
 
@@ -3789,7 +4033,9 @@ namespace node {
   Handle<Value> gl_glTexParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexParameterfv is not implemented!")));
+
   }
 
 
@@ -3804,7 +4050,9 @@ namespace node {
   Handle<Value> gl_glTexParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexParameteriv is not implemented!")));
+
   }
 
 
@@ -3819,7 +4067,9 @@ namespace node {
   Handle<Value> gl_glGetTexParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexParameterfv is not implemented!")));
+
   }
 
 
@@ -3834,7 +4084,9 @@ namespace node {
   Handle<Value> gl_glGetTexParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexParameteriv is not implemented!")));
+
   }
 
 
@@ -3850,7 +4102,9 @@ namespace node {
   Handle<Value> gl_glGetTexLevelParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexLevelParameterfv is not implemented!")));
+
   }
 
 
@@ -3866,7 +4120,9 @@ namespace node {
   Handle<Value> gl_glGetTexLevelParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexLevelParameteriv is not implemented!")));
+
   }
 
 
@@ -3886,7 +4142,9 @@ namespace node {
   Handle<Value> gl_glTexImage1D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexImage1D is not implemented!")));
+
   }
 
 
@@ -3907,7 +4165,9 @@ namespace node {
   Handle<Value> gl_glTexImage2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexImage2D is not implemented!")));
+
   }
 
 
@@ -3924,7 +4184,9 @@ namespace node {
   Handle<Value> gl_glGetTexImage(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetTexImage is not implemented!")));
+
   }
 
 
@@ -3938,7 +4200,9 @@ namespace node {
   Handle<Value> gl_glGenTextures(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGenTextures is not implemented!")));
+
   }
 
 
@@ -3952,7 +4216,9 @@ namespace node {
   Handle<Value> gl_glDeleteTextures(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glDeleteTextures is not implemented!")));
+
   }
 
 
@@ -3980,7 +4246,9 @@ namespace node {
   Handle<Value> gl_glPrioritizeTextures(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glPrioritizeTextures is not implemented!")));
+
   }
 
 
@@ -3995,7 +4263,9 @@ namespace node {
   Handle<Value> gl_glAreTexturesResident(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glAreTexturesResident is not implemented!")));
+
   }
 
 
@@ -4026,7 +4296,9 @@ namespace node {
   Handle<Value> gl_glTexSubImage1D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexSubImage1D is not implemented!")));
+
   }
 
 
@@ -4047,7 +4319,9 @@ namespace node {
   Handle<Value> gl_glTexSubImage2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexSubImage2D is not implemented!")));
+
   }
 
 
@@ -4138,7 +4412,9 @@ namespace node {
   Handle<Value> gl_glMap1d(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMap1d is not implemented!")));
+
   }
 
 
@@ -4156,7 +4432,9 @@ namespace node {
   Handle<Value> gl_glMap1f(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMap1f is not implemented!")));
+
   }
 
 
@@ -4178,7 +4456,9 @@ namespace node {
   Handle<Value> gl_glMap2d(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMap2d is not implemented!")));
+
   }
 
 
@@ -4200,7 +4480,9 @@ namespace node {
   Handle<Value> gl_glMap2f(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMap2f is not implemented!")));
+
   }
 
 
@@ -4215,7 +4497,9 @@ namespace node {
   Handle<Value> gl_glGetMapdv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMapdv is not implemented!")));
+
   }
 
 
@@ -4230,7 +4514,9 @@ namespace node {
   Handle<Value> gl_glGetMapfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMapfv is not implemented!")));
+
   }
 
 
@@ -4245,7 +4531,9 @@ namespace node {
   Handle<Value> gl_glGetMapiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMapiv is not implemented!")));
+
   }
 
 
@@ -4282,7 +4570,9 @@ namespace node {
   Handle<Value> gl_glEvalCoord1dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEvalCoord1dv is not implemented!")));
+
   }
 
 
@@ -4295,7 +4585,9 @@ namespace node {
   Handle<Value> gl_glEvalCoord1fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEvalCoord1fv is not implemented!")));
+
   }
 
 
@@ -4334,7 +4626,9 @@ namespace node {
   Handle<Value> gl_glEvalCoord2dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEvalCoord2dv is not implemented!")));
+
   }
 
 
@@ -4347,7 +4641,9 @@ namespace node {
   Handle<Value> gl_glEvalCoord2fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glEvalCoord2fv is not implemented!")));
+
   }
 
 
@@ -4504,7 +4800,9 @@ namespace node {
   Handle<Value> gl_glFogfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glFogfv is not implemented!")));
+
   }
 
 
@@ -4518,7 +4816,9 @@ namespace node {
   Handle<Value> gl_glFogiv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glFogiv is not implemented!")));
+
   }
 
 
@@ -4533,7 +4833,9 @@ namespace node {
   Handle<Value> gl_glFeedbackBuffer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glFeedbackBuffer is not implemented!")));
+
   }
 
 
@@ -4559,7 +4861,9 @@ namespace node {
   Handle<Value> gl_glSelectBuffer(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glSelectBuffer is not implemented!")));
+
   }
 
 
@@ -4619,7 +4923,9 @@ namespace node {
   Handle<Value> gl_glDrawRangeElements(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glDrawRangeElements is not implemented!")));
+
   }
 
 
@@ -4641,7 +4947,9 @@ namespace node {
   Handle<Value> gl_glTexImage3D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexImage3D is not implemented!")));
+
   }
 
 
@@ -4664,7 +4972,9 @@ namespace node {
   Handle<Value> gl_glTexSubImage3D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glTexSubImage3D is not implemented!")));
+
   }
 
 
@@ -4702,7 +5012,9 @@ namespace node {
   Handle<Value> gl_glColorTable(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColorTable is not implemented!")));
+
   }
 
 
@@ -4720,7 +5032,9 @@ namespace node {
   Handle<Value> gl_glColorSubTable(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColorSubTable is not implemented!")));
+
   }
 
 
@@ -4735,7 +5049,9 @@ namespace node {
   Handle<Value> gl_glColorTableParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColorTableParameteriv is not implemented!")));
+
   }
 
 
@@ -4750,7 +5066,9 @@ namespace node {
   Handle<Value> gl_glColorTableParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glColorTableParameterfv is not implemented!")));
+
   }
 
 
@@ -4798,7 +5116,9 @@ namespace node {
   Handle<Value> gl_glGetColorTable(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetColorTable is not implemented!")));
+
   }
 
 
@@ -4813,7 +5133,9 @@ namespace node {
   Handle<Value> gl_glGetColorTableParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetColorTableParameterfv is not implemented!")));
+
   }
 
 
@@ -4828,7 +5150,9 @@ namespace node {
   Handle<Value> gl_glGetColorTableParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetColorTableParameteriv is not implemented!")));
+
   }
 
 
@@ -4899,7 +5223,9 @@ namespace node {
   Handle<Value> gl_glGetHistogram(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetHistogram is not implemented!")));
+
   }
 
 
@@ -4914,7 +5240,9 @@ namespace node {
   Handle<Value> gl_glGetHistogramParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetHistogramParameterfv is not implemented!")));
+
   }
 
 
@@ -4929,7 +5257,9 @@ namespace node {
   Handle<Value> gl_glGetHistogramParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetHistogramParameteriv is not implemented!")));
+
   }
 
 
@@ -4972,7 +5302,9 @@ namespace node {
   Handle<Value> gl_glGetMinmax(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMinmax is not implemented!")));
+
   }
 
 
@@ -4987,7 +5319,9 @@ namespace node {
   Handle<Value> gl_glGetMinmaxParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMinmaxParameterfv is not implemented!")));
+
   }
 
 
@@ -5002,7 +5336,9 @@ namespace node {
   Handle<Value> gl_glGetMinmaxParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetMinmaxParameteriv is not implemented!")));
+
   }
 
 
@@ -5020,7 +5356,9 @@ namespace node {
   Handle<Value> gl_glConvolutionFilter1D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glConvolutionFilter1D is not implemented!")));
+
   }
 
 
@@ -5039,7 +5377,9 @@ namespace node {
   Handle<Value> gl_glConvolutionFilter2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glConvolutionFilter2D is not implemented!")));
+
   }
 
 
@@ -5068,7 +5408,9 @@ namespace node {
   Handle<Value> gl_glConvolutionParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glConvolutionParameterfv is not implemented!")));
+
   }
 
 
@@ -5097,7 +5439,9 @@ namespace node {
   Handle<Value> gl_glConvolutionParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glConvolutionParameteriv is not implemented!")));
+
   }
 
 
@@ -5146,7 +5490,9 @@ namespace node {
   Handle<Value> gl_glGetConvolutionFilter(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetConvolutionFilter is not implemented!")));
+
   }
 
 
@@ -5161,7 +5507,9 @@ namespace node {
   Handle<Value> gl_glGetConvolutionParameterfv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetConvolutionParameterfv is not implemented!")));
+
   }
 
 
@@ -5176,7 +5524,9 @@ namespace node {
   Handle<Value> gl_glGetConvolutionParameteriv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetConvolutionParameteriv is not implemented!")));
+
   }
 
 
@@ -5196,7 +5546,9 @@ namespace node {
   Handle<Value> gl_glSeparableFilter2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glSeparableFilter2D is not implemented!")));
+
   }
 
 
@@ -5214,7 +5566,9 @@ namespace node {
   Handle<Value> gl_glGetSeparableFilter(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetSeparableFilter is not implemented!")));
+
   }
 
 
@@ -5257,7 +5611,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexImage1D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexImage1D is not implemented!")));
+
   }
 
 
@@ -5277,7 +5633,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexImage2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexImage2D is not implemented!")));
+
   }
 
 
@@ -5298,7 +5656,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexImage3D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexImage3D is not implemented!")));
+
   }
 
 
@@ -5317,7 +5677,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexSubImage1D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexSubImage1D is not implemented!")));
+
   }
 
 
@@ -5338,7 +5700,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexSubImage2D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexSubImage2D is not implemented!")));
+
   }
 
 
@@ -5361,7 +5725,9 @@ namespace node {
   Handle<Value> gl_glCompressedTexSubImage3D(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glCompressedTexSubImage3D is not implemented!")));
+
   }
 
 
@@ -5376,7 +5742,9 @@ namespace node {
   Handle<Value> gl_glGetCompressedTexImage(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetCompressedTexImage is not implemented!")));
+
   }
 
 
@@ -5403,7 +5771,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1dv is not implemented!")));
+
   }
 
 
@@ -5430,7 +5800,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1fv is not implemented!")));
+
   }
 
 
@@ -5457,7 +5829,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1iv is not implemented!")));
+
   }
 
 
@@ -5484,7 +5858,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1sv is not implemented!")));
+
   }
 
 
@@ -5512,7 +5888,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2dv is not implemented!")));
+
   }
 
 
@@ -5540,7 +5918,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2fv is not implemented!")));
+
   }
 
 
@@ -5568,7 +5948,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2iv is not implemented!")));
+
   }
 
 
@@ -5596,7 +5978,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2sv is not implemented!")));
+
   }
 
 
@@ -5625,7 +6009,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3dv is not implemented!")));
+
   }
 
 
@@ -5654,7 +6040,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3fv is not implemented!")));
+
   }
 
 
@@ -5683,7 +6071,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3iv is not implemented!")));
+
   }
 
 
@@ -5712,7 +6102,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3sv is not implemented!")));
+
   }
 
 
@@ -5742,7 +6134,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4dv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4dv is not implemented!")));
+
   }
 
 
@@ -5772,7 +6166,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4fv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4fv is not implemented!")));
+
   }
 
 
@@ -5802,7 +6198,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4iv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4iv is not implemented!")));
+
   }
 
 
@@ -5832,7 +6230,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4sv(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4sv is not implemented!")));
+
   }
 
 
@@ -5845,7 +6245,9 @@ namespace node {
   Handle<Value> gl_glLoadTransposeMatrixd(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLoadTransposeMatrixd is not implemented!")));
+
   }
 
 
@@ -5858,7 +6260,9 @@ namespace node {
   Handle<Value> gl_glLoadTransposeMatrixf(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glLoadTransposeMatrixf is not implemented!")));
+
   }
 
 
@@ -5871,7 +6275,9 @@ namespace node {
   Handle<Value> gl_glMultTransposeMatrixd(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultTransposeMatrixd is not implemented!")));
+
   }
 
 
@@ -5884,7 +6290,9 @@ namespace node {
   Handle<Value> gl_glMultTransposeMatrixf(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultTransposeMatrixf is not implemented!")));
+
   }
 
 
@@ -5948,7 +6356,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1dvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1dvARB is not implemented!")));
+
   }
 
 
@@ -5975,7 +6385,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1fvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1fvARB is not implemented!")));
+
   }
 
 
@@ -6002,7 +6414,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1ivARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1ivARB is not implemented!")));
+
   }
 
 
@@ -6029,7 +6443,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1svARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord1svARB is not implemented!")));
+
   }
 
 
@@ -6057,7 +6473,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2dvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2dvARB is not implemented!")));
+
   }
 
 
@@ -6085,7 +6503,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2fvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2fvARB is not implemented!")));
+
   }
 
 
@@ -6113,7 +6533,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2ivARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2ivARB is not implemented!")));
+
   }
 
 
@@ -6141,7 +6563,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2svARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord2svARB is not implemented!")));
+
   }
 
 
@@ -6170,7 +6594,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3dvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3dvARB is not implemented!")));
+
   }
 
 
@@ -6199,7 +6625,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3fvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3fvARB is not implemented!")));
+
   }
 
 
@@ -6228,7 +6656,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3ivARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3ivARB is not implemented!")));
+
   }
 
 
@@ -6257,7 +6687,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3svARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord3svARB is not implemented!")));
+
   }
 
 
@@ -6287,7 +6719,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4dvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4dvARB is not implemented!")));
+
   }
 
 
@@ -6317,7 +6751,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4fvARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4fvARB is not implemented!")));
+
   }
 
 
@@ -6347,7 +6783,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4ivARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4ivARB is not implemented!")));
+
   }
 
 
@@ -6377,7 +6815,9 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4svARB(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glMultiTexCoord4svARB is not implemented!")));
+
   }
 
 
@@ -6417,7 +6857,9 @@ namespace node {
   Handle<Value> gl_strtoimax(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("strtoimax is not implemented!")));
+
   }
 
 
@@ -6432,7 +6874,9 @@ namespace node {
   Handle<Value> gl_strtoumax(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("strtoumax is not implemented!")));
+
   }
 
 
@@ -6447,7 +6891,9 @@ namespace node {
   Handle<Value> gl_wcstoimax(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("wcstoimax is not implemented!")));
+
   }
 
 
@@ -6462,7 +6908,9 @@ namespace node {
   Handle<Value> gl_wcstoumax(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("wcstoumax is not implemented!")));
+
   }
 
 
@@ -6503,7 +6951,9 @@ namespace node {
   Handle<Value> gl_glGetDebugLogMESA(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetDebugLogMESA is not implemented!")));
+
   }
 
 
@@ -6532,7 +6982,9 @@ namespace node {
   Handle<Value> gl_glProgramCallbackMESA(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glProgramCallbackMESA is not implemented!")));
+
   }
 
 
@@ -6548,7 +7000,9 @@ namespace node {
   Handle<Value> gl_glGetProgramRegisterfvMESA(const Arguments& args) {
     HandleScope scope;
 
-    return scope.Close(Number::New(123));
+    return ThrowException(Exception::Error(
+    String::New("glGetProgramRegisterfvMESA is not implemented!")));
+
   }
 
 
