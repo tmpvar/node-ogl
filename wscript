@@ -17,6 +17,7 @@ def configure(conf):
   conf.check_tool("compiler_cc")
   conf.check_tool("node_addon")
   conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
+  conf.check_cfg(package='xrandr', mandatory=1, args='--cflags --libs')
 
   conf.env.append_value("LIBPATH_GLFW", abspath("./build/default/lib/"))
   conf.env.append_value("STATICLIB_GLFW",["glfw"])
@@ -24,7 +25,7 @@ def configure(conf):
 
   # TODO: add support for more platforms..
   buildpath = abspath("build/default")
-  cmd = "cd \"deps/glfw\" && PREFIX=%s make x11-dist-install"
+  cmd = "cd \"deps/glfw\" && CFLAGS=-fPIC PREFIX=%s make x11-dist-install"
   if os.system(cmd % (buildpath)) != 0:
     conf.fatal("Building glfw failed.")
 
@@ -47,7 +48,7 @@ def build(bld):
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = ["GL", "GLFW"]
+  node_ogl.uselib = ["GL", "GLFW", "XRANDR"]
   bld.add_post_fun(copynode)
 
 def copynode(ctx):

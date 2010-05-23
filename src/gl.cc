@@ -344,9 +344,7 @@ namespace node {
    */
   Handle<Value> gl_glEnable(const Arguments& args) {
     HandleScope scope;
-
     glEnable(GL_BLEND);
-    assert(glIsEnabled(GL_BLEND));
   }
 
 
