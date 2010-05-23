@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/1128/trunk/support/msvc90
+END
+peter.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/1124/trunk/support/msvc90/peter.vcproj
+END
+mtbench.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/mtbench.vcproj
+END
+joysticks.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/glfw/!svn/ver/1065/trunk/support/msvc90/joysticks.vcproj
+END
+version.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/glfw/!svn/ver/1125/trunk/support/msvc90/version.vcproj
+END
+particles.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/particles.vcproj
+END
+splitview.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/splitview.vcproj
+END
+fsinput.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/glfw/!svn/ver/1128/trunk/support/msvc90/fsinput.vcproj
+END
+GLFW.sln
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/glfw/!svn/ver/1128/trunk/support/msvc90/GLFW.sln
+END
+reopen.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/1124/trunk/support/msvc90/reopen.vcproj
+END
+tearing.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/glfw/!svn/ver/1124/trunk/support/msvc90/tearing.vcproj
+END
+accuracy.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/1109/trunk/support/msvc90/accuracy.vcproj
+END
+pong3d.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/pong3d.vcproj
+END
+GLFWDLL.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/GLFWDLL.vcproj
+END
+boing.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/boing.vcproj
+END
+GLFW.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/GLFW.vcproj
+END
+gears.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/1112/trunk/support/msvc90/gears.vcproj
+END
+wave.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/wave.vcproj
+END
+listmodes.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/listmodes.vcproj
+END
+mthello.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/mthello.vcproj
+END
+events.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/1124/trunk/support/msvc90/events.vcproj
+END
+triangle.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/triangle.vcproj
+END
+mipmaps.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/738/trunk/support/msvc90/mipmaps.vcproj
+END
+defaults.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/1109/trunk/support/msvc90/defaults.vcproj
+END
+fsaa.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/glfw/!svn/ver/1124/trunk/support/msvc90/fsaa.vcproj
+END

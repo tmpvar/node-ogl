@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svnroot/glfw/!svn/ver/1175/trunk/lib/win32
+END
+win32_dllmain.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/glfw/!svn/ver/867/trunk/lib/win32/win32_dllmain.c
+END
+glfwdll_mgw1.def
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/422/trunk/lib/win32/glfwdll_mgw1.def
+END
+glfwdll_mgw2.def
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/422/trunk/lib/win32/glfwdll_mgw2.def
+END
+win32_glext.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/glfw/!svn/ver/867/trunk/lib/win32/win32_glext.c
+END
+glfwdll.def
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/glfw/!svn/ver/422/trunk/lib/win32/glfwdll.def
+END
+win32_enable.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/glfw/!svn/ver/945/trunk/lib/win32/win32_enable.c
+END
+libglfw.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/glfw/!svn/ver/712/trunk/lib/win32/libglfw.pc.in
+END
+Makefile.win32.mingw
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/1075/trunk/lib/win32/Makefile.win32.mingw
+END
+Makefile.win32.cross-mgw
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/glfw/!svn/ver/1139/trunk/lib/win32/Makefile.win32.cross-mgw
+END
+win32_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/712/trunk/lib/win32/win32_time.c
+END
+win32_joystick.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/943/trunk/lib/win32/win32_joystick.c
+END
+Makefile.win32.ow
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/1075/trunk/lib/win32/Makefile.win32.ow
+END
+win32_fullscreen.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/945/trunk/lib/win32/win32_fullscreen.c
+END
+win32_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/943/trunk/lib/win32/win32_init.c
+END
+platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/glfw/!svn/ver/1175/trunk/lib/win32/platform.h
+END
+win32_thread.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/glfw/!svn/ver/712/trunk/lib/win32/win32_thread.c
+END
+win32_window.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/glfw/!svn/ver/1171/trunk/lib/win32/win32_window.c
+END
+Makefile.win32.cygwin
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/glfw/!svn/ver/1073/trunk/lib/win32/Makefile.win32.cygwin
+END
+Makefile.win32.lcc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/glfw/!svn/ver/1075/trunk/lib/win32/Makefile.win32.lcc
+END

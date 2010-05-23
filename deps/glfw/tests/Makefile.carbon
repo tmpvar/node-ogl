@@ -1,0 +1,71 @@
+##########################################################################
+# Makefile for GLFW test programs on Windows using Apple GCC.
+#-------------------------------------------------------------------------
+# To compile the test files using this makefile, run:
+#  make -f Makefile.carbon
+##########################################################################
+
+# Compiler settings
+CC     = gcc
+CFLAGS = -I../include -m32
+
+# Linker settings
+LIB    = ../lib/carbon/libglfw.a
+LFLAGS = $(LIB) -framework AGL -framework OpenGL -framework Carbon -m32
+
+# Default: Build all tests
+all: Accuracy.app/Contents/MacOS/Accuracy \
+     Defaults.app/Contents/MacOS/Defaults \
+     Events.app/Contents/MacOS/Events \
+     FSAA.app/Contents/MacOS/FSAA \
+     FSInput.app/Contents/MacOS/FSInput \
+     Joysticks.app/Contents/MacOS/Joysticks \
+     Peter.app/Contents/MacOS/Peter \
+     ReOpen.app/Contents/MacOS/ReOpen \
+     Tearing.app/Contents/MacOS/Tearing \
+     Version.app/Contents/MacOS/Version
+
+Accuracy.app/Contents/MacOS/Accuracy: accuracy.c $(LIB)
+	/bin/sh bundle.sh Accuracy
+	$(CC) $(CFLAGS) accuracy.c $(LFLAGS) -o Accuracy.app/Contents/MacOS/Accuracy
+
+Defaults.app/Contents/MacOS/Defaults: defaults.c $(LIB)
+	/bin/sh bundle.sh Defaults
+	$(CC) $(CFLAGS) defaults.c $(LFLAGS) -o Defaults.app/Contents/MacOS/Defaults
+
+Events.app/Contents/MacOS/Events: events.c $(LIB)
+	/bin/sh bundle.sh Events
+	$(CC) $(CFLAGS) events.c $(LFLAGS) -o Events.app/Contents/MacOS/Events
+
+FSAA.app/Contents/MacOS/FSAA: fsaa.c $(LIB)
+	/bin/sh bundle.sh FSAA
+	$(CC) $(CFLAGS) fsaa.c $(LFLAGS) -o FSAA.app/Contents/MacOS/FSAA
+
+FSInput.app/Contents/MacOS/FSInput: fsinput.c $(LIB)
+	/bin/sh bundle.sh FSInput
+	$(CC) $(CFLAGS) fsinput.c $(LFLAGS) -o FSInput.app/Contents/MacOS/FSInput
+
+Joysticks.app/Contents/MacOS/Joysticks: joysticks.c $(LIB)
+	/bin/sh bundle.sh Joysticks
+	$(CC) $(CFLAGS) joysticks.c $(LFLAGS) -o Joysticks.app/Contents/MacOS/Joysticks
+
+Peter.app/Contents/MacOS/Peter: peter.c $(LIB)
+	/bin/sh bundle.sh Peter
+	$(CC) $(CFLAGS) peter.c $(LFLAGS) -o Peter.app/Contents/MacOS/Peter
+
+ReOpen.app/Contents/MacOS/ReOpen: reopen.c $(LIB)
+	/bin/sh bundle.sh ReOpen
+	$(CC) $(CFLAGS) reopen.c $(LFLAGS) -o ReOpen.app/Contents/MacOS/ReOpen
+
+Tearing.app/Contents/MacOS/Tearing: tearing.c $(LIB)
+	/bin/sh bundle.sh Tearing
+	$(CC) $(CFLAGS) tearing.c $(LFLAGS) -o Tearing.app/Contents/MacOS/Tearing
+
+Version.app/Contents/MacOS/Version: version.c $(LIB)
+	/bin/sh bundle.sh Version
+	$(CC) $(CFLAGS) version.c $(LFLAGS) -o Version.app/Contents/MacOS/Version
+
+clean:
+	rm -rf Accuracy.app Defaults.app Events.app FSAA.app FSInput.app \
+           Joysticks.app Peter.app ReOpen.app Tearing.app Version.app
+

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/glfw/!svn/ver/1023/trunk/support/d/imports
+END
+glfw.d
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/glfw/!svn/ver/1023/trunk/support/d/imports/glfw.d
+END
+gl.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/455/trunk/support/d/imports/gl.d
+END
+glu.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/glfw/!svn/ver/431/trunk/support/d/imports/glu.d
+END

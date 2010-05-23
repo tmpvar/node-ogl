@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svnroot/glfw/!svn/ver/1182/trunk/docs
+END
+glfwdoc.sty
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/431/trunk/docs/glfwdoc.sty
+END
+glfwug.tex
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/723/trunk/docs/glfwug.tex
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/431/trunk/docs/readme.txt
+END
+cleanup.bat
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/431/trunk/docs/cleanup.bat
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/glfw/!svn/ver/431/trunk/docs/Makefile
+END
+glfwrm.tex
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/1182/trunk/docs/glfwrm.tex
+END

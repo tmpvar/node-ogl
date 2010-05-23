@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svnroot/glfw/!svn/ver/1173/trunk/tests
+END
+Makefile.carbon
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/1134/trunk/tests/Makefile.carbon
+END
+bundle.sh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/1001/trunk/tests/bundle.sh
+END
+getopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/glfw/!svn/ver/910/trunk/tests/getopt.c
+END
+events.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/1127/trunk/tests/events.c
+END
+Makefile.carbon.universal
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/glfw/!svn/ver/1134/trunk/tests/Makefile.carbon.universal
+END
+getopt.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/glfw/!svn/ver/910/trunk/tests/getopt.h
+END
+defaults.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/938/trunk/tests/defaults.c
+END
+Makefile.x11.in
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/1128/trunk/tests/Makefile.x11.in
+END
+fsaa.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/glfw/!svn/ver/1127/trunk/tests/fsaa.c
+END
+Makefile.win32.mingw
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/glfw/!svn/ver/1128/trunk/tests/Makefile.win32.mingw
+END
+Makefile.win32.cross-mgw
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/glfw/!svn/ver/1128/trunk/tests/Makefile.win32.cross-mgw
+END
+Makefile.cocoa
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/glfw/!svn/ver/1142/trunk/tests/Makefile.cocoa
+END
+peter.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/glfw/!svn/ver/1050/trunk/tests/peter.c
+END
+joysticks.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/glfw/!svn/ver/1027/trunk/tests/joysticks.c
+END
+version.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/1173/trunk/tests/version.c
+END
+fsinput.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/glfw/!svn/ver/1128/trunk/tests/fsinput.c
+END
+reopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/1127/trunk/tests/reopen.c
+END
+tearing.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/glfw/!svn/ver/908/trunk/tests/tearing.c
+END
+accuracy.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/glfw/!svn/ver/1160/trunk/tests/accuracy.c
+END
+Makefile.win32.cygwin
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/glfw/!svn/ver/1128/trunk/tests/Makefile.win32.cygwin
+END

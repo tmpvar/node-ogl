@@ -1,0 +1,93 @@
+##########################################################################
+# Makefile for GLFW test programs on Windows using Apple GCC.
+#-------------------------------------------------------------------------
+# To compile the test files using this makefile, run:
+#  make -f Makefile.carbon.universal
+##########################################################################
+
+# Compiler settings
+CC       = gcc
+FATFLAGS = -isysroot /Developer/SDKs/MacOSX10.4u.sdk -arch ppc -arch i386
+CFLAGS   = -I../include $(FATFLAGS)
+
+# Linker settings
+LFLAGS = ../lib/carbon/libglfw.a -framework AGL -framework OpenGL -framework Carbon
+
+# Default: Build all tests
+all: Triangle.app/Contents/MacOS/Triangle \
+     ListModes.app/Contents/MacOS/ListModes \
+     MTHello.app/Contents/MacOS/MTHello \
+     Pong3D.app/Contents/MacOS/Pong3D \
+     MTBench.app/Contents/MacOS/MTBench \
+     Particles.app/Contents/MacOS/Particles \
+     SplitView.app/Contents/MacOS/SplitView \
+     Mipmaps.app/Contents/MacOS/Mipmaps \
+     JoyTest.app/Contents/MacOS/JoyTest \
+     Gears.app/Contents/MacOS/Gears \
+     Boing.app/Contents/MacOS/Boing \
+     Wave.app/Contents/MacOS/Wave
+
+# Rule for triangle
+Triangle.app/Contents/MacOS/GLFWApplication: triangle.c
+	/bin/sh bundle.sh Triangle
+	$(CC) $(CFLAGS) triangle.c $(LFLAGS) -o Triangle.app/Contents/MacOS/Triangle
+
+# Rule for listmodes
+ListModes.app/Contents/MacOS/GLFWApplication: listmodes.c
+	/bin/sh bundle.sh ListModes
+	$(CC) $(CFLAGS) listmodes.c $(LFLAGS) -o ListModes.app/Contents/MacOS/ListModes
+
+# Rule for mthello
+MTHello.app/Contents/MacOS/GLFWApplication: mthello.c
+	/bin/sh bundle.sh MTHello
+	$(CC) $(CFLAGS) mthello.c $(LFLAGS) -o MTHello.app/Contents/MacOS/MTHello
+
+# Rule for pong3d
+Pong3D.app/Contents/MacOS/GLFWApplication: pong3d.c
+	/bin/sh bundle.sh Pong3D
+	cp pong3d_*.tga Pong3D.app/Contents/Resources/
+	$(CC) $(CFLAGS) pong3d.c $(LFLAGS) -o Pong3D.app/Contents/MacOS/Pong3D
+
+# Rule for mtbench
+MTBench.app/Contents/MacOS/GLFWApplication: mtbench.c
+	/bin/sh bundle.sh MTBench
+	$(CC) $(CFLAGS) mtbench.c $(LFLAGS) -o MTBench.app/Contents/MacOS/MTBench
+
+# Rule for particles
+Particles.app/Contents/MacOS/GLFWApplication: particles.c
+	/bin/sh bundle.sh Particles
+	$(CC) $(CFLAGS) particles.c $(LFLAGS) -o Particles.app/Contents/MacOS/Particles
+
+# Rule for splitview
+SplitView.app/Contents/MacOS/GLFWApplication: splitview.c
+	/bin/sh bundle.sh SplitView
+	$(CC) $(CFLAGS) splitview.c $(LFLAGS) -o SplitView.app/Contents/MacOS/SplitView
+
+# Rule for mipmaps
+Mipmaps.app/Contents/MacOS/GLFWApplication: mipmaps.c
+	/bin/sh bundle.sh Mipmaps
+	cp mipmaps.tga Mipmaps.app/Contents/Resources/
+	$(CC) $(CFLAGS) mipmaps.c $(LFLAGS) -o Mipmaps.app/Contents/MacOS/Mipmaps
+
+# Rule for gears
+Gears.app/Contents/MacOS/GLFWApplication: gears.c
+	/bin/sh bundle.sh Gears
+	$(CC) $(CFLAGS) gears.c $(LFLAGS) -o Gears.app/Contents/MacOS/Gears
+
+# Rule for boing
+Boing.app/Contents/MacOS/GLFWApplication: boing.c
+	/bin/sh bundle.sh Boing
+	$(CC) $(CFLAGS) boing.c $(LFLAGS) -o Boing.app/Contents/MacOS/Boing
+
+# Rule for wave
+Wave.app/Contents/MacOS/GLFWApplication: wave.c
+	/bin/sh bundle.sh Wave
+	$(CC) $(CFLAGS) wave.c $(LFLAGS) -o Wave.app/Contents/MacOS/Wave
+
+
+# Clean
+clean:
+	rm -rf JoyTest.app Triangle.app ListModes.app MTHello.app \
+	       Pong3D.app MTBench.app Particles.app SplitView.app \
+	       Mipmaps.app Gears.app Boing.app Wave.app
+

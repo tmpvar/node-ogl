@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/glfw/!svn/ver/270/trunk/support/d/lib
+END
+opengl32.def
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/glfw/!svn/ver/185/trunk/support/d/lib/opengl32.def
+END
+glfwdll.def
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/glfw/!svn/ver/270/trunk/support/d/lib/glfwdll.def
+END
+glu32.def
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/glfw/!svn/ver/185/trunk/support/d/lib/glu32.def
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/glfw/!svn/ver/185/trunk/support/d/lib/makefile
+END
