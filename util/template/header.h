@@ -1,6 +1,6 @@
 // Copyright 2010 Elijah Insua
-#ifndef SRC_%_UNAME_H_
-#define SRC_%_UNAME_H_
+#ifndef NODE_ADDON_SRC_%_UNAME_H_
+#define NODE_ADDON_SRC_%_UNAME_H_
 
 #include <node.h>
 #include <node_events.h>

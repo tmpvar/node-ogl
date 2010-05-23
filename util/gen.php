@@ -5,7 +5,7 @@ echo "converting opengl headers into nodejs classes";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 
-$files = array("gl.h", "glu.h", "glut.h", "glx.h");
+$files = array("gl.h");//, "glu.h", "glut.h", "glx.h");
 foreach ($files as $currentFile)
 {
 

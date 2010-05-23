@@ -16,7 +16,7 @@ def configure(conf):
   conf.check_tool("compiler_cxx")
   conf.check_tool("compiler_cc")
   conf.check_tool("node_addon")
-  conf.check_cfg(package='gl', mandatory=1)
+  conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
 
 def clean(ctx): 
   if exists("lib/node-ogl.node"): unlink("lib/node-ogl.node")
@@ -24,10 +24,11 @@ def clean(ctx):
 
 def build(bld):
   # build node-avro
-  node_avro = bld.new_task_gen("cxx", "shlib", "node_addon")
-  node_avro.source = bld.glob("src/*.cc")
-  node_avro.name = "node-ogl"
-  node_avro.target = "node-ogl"
+  node_ogl = bld.new_task_gen("cxx", "shlib", "node_addon")
+  node_ogl.source = bld.glob("src/*.cc")
+  node_ogl.name = "node-ogl"
+  node_ogl.target = "node-ogl"
+  node_ogl.uselib = "GL"
   bld.add_post_fun(copynode)
 
 def copynode(ctx):

@@ -8,7 +8,6 @@ if (!gl) {
 
 sys.puts("enabling GL_LINE_SMOOTH (" + gl.GL_LINE_SMOOTH + ")");
 sys.puts("ret: " + gl.glEnable(gl.GL_LINE_SMOOTH));
-sys.puts(gl.glIsEnabled(gl.GL_LINE_SMOOTH));
 var stored = gl.glIsEnabled(gl.GL_LINE_SMOOTH);
 sys.puts("Is GL_LINE_SMOOTH enabled? " + stored);
 sys.puts("Error: " + gl.glGetError());
