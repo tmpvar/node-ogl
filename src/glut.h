@@ -1,6 +1,6 @@
 // Copyright 2010 Elijah Insua
-#ifndef SRC_%_UNAME_H_
-#define SRC_%_UNAME_H_
+#ifndef SRC_GLUT_H_
+#define SRC_GLUT_H_
 
 #include <node.h>
 #include <node_events.h>
@@ -11,13 +11,13 @@
 namespace node {
   using namespace v8;
 
-  class %_NAME : ObjectWrap {
+  class glut : ObjectWrap {
     public:
     static void Initialize (v8::Handle<v8::Object> target);
 
     protected:
 
-    %_NAME ();
+    glut ();
 
     //%_METHODS
     

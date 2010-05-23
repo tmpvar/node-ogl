@@ -35,7 +35,7 @@ foreach ($files as $currentFile)
   for ($i = 0; $i<$total; $i++)
   {
     $string =  "    #ifdef " . $matches[1][$i] . "\n";
-    $string .= '    NODE_DEFINE_CONSTANT(t, ' . $matches[1][$i] . ");\n";
+    $string .= '    NODE_DEFINE_CONSTANT(target, ' . $matches[1][$i] . ");\n";
     $string .= "    #endif\n";
 
     array_push($constants, $string);
@@ -65,7 +65,11 @@ foreach ($files as $currentFile)
     $hasArgs = false;
 
 
-    $expose =  "NODE_SET_METHOD(target, \"{$methodParts[2]}\", {$name}_{$methodParts[2]});";
+    //$expose =  "NODE_SET_METHOD(target, \"{$methodParts[2]}\", {$name}_{$methodParts[2]});";
+
+    $expose = "Local<FunctionTemplate> _{$name}_{$methodParts[2]} = FunctionTemplate::New({$name}_{$methodParts[2]});\n";
+    $expose .= "    target->Set(String::New(\"{$methodParts[2]}\"), _{$name}_{$methodParts[2]}->GetFunction());\n";
+        
     array_push($exposed, $expose);
 
     $sig = "    ";
@@ -77,46 +81,41 @@ foreach ($files as $currentFile)
    // }
    // else
    // {
-      $sig = "static Handle<Value> {$name}_";
+      $sig = "  Handle<Value> {$name}_";
       $def = "static Handle<Value> {$name}_";
       $sig .= "{$methodParts[2]}(const Arguments& args) {\n";
       $def .= "{$methodParts[2]}(const Arguments& args);";
    // }
 
-  /*  if (isset($methodParts) && strlen(str_replace(" ", "", $methodParts[3])) > 0) 
+    if (isset($methodParts) && strlen(str_replace(" ", "", $methodParts[3])) > 0) 
     {
       if ($methodParts[3] != 'void' &&  count(explode(" ", $methodParts[3]) > 1))
       {
-        $sig .= "{$methodParts[2]}(const Arguments& args) {\n";
-        $def .= "{$methodParts[2]}(const Arguments& args);";
         $hasArgs = true;
       }
-      else
-      {
-        $def .= "{$methodParts[2]}();";
-        $sig .= "{$methodParts[2]}() {\n";
-      }
-    }*/
+    }
 
     if ($hasArgs) {
-      $comment  = "    /**\n";
-      $comment .= "     *\n";
+      $comment  = "/**\n";
+      $comment .= "   * {$methodParts[2]}\n";
+      $comment .= "   *\n";
 
       $args = explode(",", $methodParts[3]);
       foreach ($args as $arg) {
-        $comment .= "     * @param " . trim($arg) . "\n";
-      
+        $comment .= "   * @param " . trim($arg) . "\n";
       }
-      $comment .= "     */\n";
+      $comment .= "   * @return " . trim($methodParts[1]) . "\n";
+      $comment .= "   */\n";
       $sig = $comment . $sig;
     }
 
-    $sig .= "\n    }\n\n";
+    $sig .= "    HandleScope scope;\n";
+    $sig .= "\n    return scope.Close(Number::New(123));\n  }\n\n";
     array_push($sigs, $sig);
     array_push($defs, $def);
   }
 
-  $source = str_replace("%_METHODS", implode("\n    ", $sigs), $source);
+  $source = str_replace("%_METHODS", implode("\n  ", $sigs), $source);
   $source = str_replace("%_JSMETHODS", implode("\n    ", $exposed), $source);
   //$header = str_replace("%_METHODS", implode("\n    ", $defs), $header);
 

@@ -6,9 +6,7 @@
 using namespace v8;
 namespace node {
 
-  Persistent<FunctionTemplate> %_NAME::constructor_template;
-
-%_METHODS
+  %_METHODS
 
   // Constructor
   %_NAME::%_NAME()
@@ -18,34 +16,20 @@ namespace node {
 
   void %_NAME::Initialize(v8::Handle<v8::Object> target) {
     HandleScope scope;
-    Local<FunctionTemplate> t = FunctionTemplate::New(New);
+   /* Local<FunctionTemplate> t = FunctionTemplate::New(New);
     
     t->InstanceTemplate()->SetInternalFieldCount(1);
     t->SetClassName(String::NewSymbol("%_NAME"));
     t->Inherit(EventEmitter::constructor_template);
-
+*/
     // Constants
 %_CONSTANTS
 
-    target->Set(String::NewSymbol("%_NAME"), t->GetFunction());
+   // target->Set(String::NewSymbol("%_NAME"), t->GetFunction());
 
     // Expose this classes methods to v8/javascript
     %_JSMETHODS
 
   }
 
-
-  Handle<Value> %_NAME::New(const Arguments &args) { 
-
-    // Create a new instance
-    %_NAME *instance = new %_NAME();
-    
-    // wrap avro instance in the v8 object
-    instance->Wrap(args.This());
-
-    return args.This();
-  }
-
-
- 
 }  // namespace node
