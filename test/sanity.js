@@ -27,19 +27,19 @@ gl.glFlush();
 
 setInterval(function() {
 
-	gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
-	gl.glLoadIdentity();
+  gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
+  gl.glLoadIdentity();
 
   gl.glTranslatef(-1.5,0.0,-6.0);
 
   gl.glBegin(gl.GL_TRIANGLES);						// Drawing Using Triangles
     gl.glColor3f(1.0,0.0,0.0);
-		gl.glVertex3f( 0.0, 1.0, 0.0);				// Top
+    gl.glVertex3f( 0.0, 1.0, 0.0);				// Top
     gl.glColor3f(0.0,1.0,0.0);
-		gl.glVertex3f(-1.0,-1.0, 0.0);				// Bottom Left
+    gl.glVertex3f(-1.0,-1.0, 0.0);				// Bottom Left
     gl.glColor3f(0.0,0.0,1.0);
-		gl.glVertex3f( 1.0,-1.0, 0.0);				// Bottom Right
-	gl.glEnd();
+    gl.glVertex3f( 1.0,-1.0, 0.0);				// Bottom Right
+  gl.glEnd();
 
   gl.SwapBuffers();
 }, 10);
