@@ -17,6 +17,7 @@ def configure(conf):
   conf.check_tool("compiler_cc")
   conf.check_tool("node_addon")
   conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
+  conf.check_cfg(package='glu', mandatory=1, args='--cflags --libs')
   conf.check_cfg(package='xrandr', mandatory=1, args='--cflags --libs')
 
   conf.env.append_value("LIBPATH_GLFW", abspath("./build/default/lib/"))
@@ -48,7 +49,7 @@ def build(bld):
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = ["GL", "GLFW", "XRANDR"]
+  node_ogl.uselib = ["GL", "GLU", "GLFW", "XRANDR"]
   bld.add_post_fun(copynode)
 
 def copynode(ctx):

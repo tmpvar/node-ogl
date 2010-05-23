@@ -16,8 +16,7 @@ namespace node {
    */
   Handle<Value> gl_glClearIndex(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClearIndex(args[0]->NumberValue());
   }
 
 
@@ -32,8 +31,7 @@ namespace node {
    */
   Handle<Value> gl_glClearColor(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClearColor(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -45,8 +43,7 @@ namespace node {
    */
   Handle<Value> gl_glClear(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClear(args[0]->NumberValue());
   }
 
 
@@ -58,8 +55,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexMask(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexMask(args[0]->NumberValue());
   }
 
 
@@ -74,8 +70,7 @@ namespace node {
    */
   Handle<Value> gl_glColorMask(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColorMask(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -88,8 +83,7 @@ namespace node {
    */
   Handle<Value> gl_glAlphaFunc(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glAlphaFunc((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -102,8 +96,7 @@ namespace node {
    */
   Handle<Value> gl_glBlendFunc(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBlendFunc((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value());
   }
 
 
@@ -115,8 +108,7 @@ namespace node {
    */
   Handle<Value> gl_glLogicOp(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLogicOp((GLenum) args[0]->Int32Value());
   }
 
 
@@ -128,8 +120,7 @@ namespace node {
    */
   Handle<Value> gl_glCullFace(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCullFace((GLenum) args[0]->Int32Value());
   }
 
 
@@ -141,8 +132,7 @@ namespace node {
    */
   Handle<Value> gl_glFrontFace(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFrontFace((GLenum) args[0]->Int32Value());
   }
 
 
@@ -154,8 +144,7 @@ namespace node {
    */
   Handle<Value> gl_glPointSize(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPointSize(args[0]->NumberValue());
   }
 
 
@@ -167,8 +156,7 @@ namespace node {
    */
   Handle<Value> gl_glLineWidth(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLineWidth(args[0]->NumberValue());
   }
 
 
@@ -181,8 +169,7 @@ namespace node {
    */
   Handle<Value> gl_glLineStipple(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLineStipple((GLint) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -195,8 +182,7 @@ namespace node {
    */
   Handle<Value> gl_glPolygonMode(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPolygonMode((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value());
   }
 
 
@@ -209,8 +195,7 @@ namespace node {
    */
   Handle<Value> gl_glPolygonOffset(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPolygonOffset(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -248,8 +233,7 @@ namespace node {
    */
   Handle<Value> gl_glEdgeFlag(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEdgeFlag(args[0]->NumberValue());
   }
 
 
@@ -277,8 +261,7 @@ namespace node {
    */
   Handle<Value> gl_glScissor(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glScissor((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLsizei) args[2]->Int32Value(), (GLsizei) args[3]->Int32Value());
   }
 
 
@@ -318,8 +301,7 @@ namespace node {
    */
   Handle<Value> gl_glDrawBuffer(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDrawBuffer((GLenum) args[0]->Int32Value());
   }
 
 
@@ -331,8 +313,7 @@ namespace node {
    */
   Handle<Value> gl_glReadBuffer(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glReadBuffer((GLenum) args[0]->Int32Value());
   }
 
 
@@ -344,8 +325,7 @@ namespace node {
    */
   Handle<Value> gl_glEnable(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEnable((GLenum) args[0]->Int32Value());
   }
 
 
@@ -357,8 +337,7 @@ namespace node {
    */
   Handle<Value> gl_glDisable(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDisable((GLenum) args[0]->Int32Value());
   }
 
 
@@ -370,8 +349,7 @@ namespace node {
    */
   Handle<Value> gl_glIsEnabled(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIsEnabled((GLenum) args[0]->Int32Value());
   }
 
 
@@ -383,8 +361,7 @@ namespace node {
    */
   Handle<Value> gl_glEnableClientState(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEnableClientState((GLenum) args[0]->Int32Value());
   }
 
 
@@ -396,8 +373,7 @@ namespace node {
    */
   Handle<Value> gl_glDisableClientState(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDisableClientState((GLenum) args[0]->Int32Value());
   }
 
 
@@ -465,21 +441,16 @@ namespace node {
    */
   Handle<Value> gl_glPushAttrib(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPushAttrib(args[0]->NumberValue());
   }
 
 
   /**
-   * glPopAttrib
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glPopAttrib(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPopAttrib();
   }
 
 
@@ -491,21 +462,16 @@ namespace node {
    */
   Handle<Value> gl_glPushClientAttrib(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPushClientAttrib(args[0]->NumberValue());
   }
 
 
   /**
-   * glPopClientAttrib
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glPopClientAttrib(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPopClientAttrib();
   }
 
 
@@ -517,47 +483,34 @@ namespace node {
    */
   Handle<Value> gl_glRenderMode(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRenderMode((GLenum) args[0]->Int32Value());
   }
 
 
   /**
-   * glGetError
-   *
-   * @param void
    * @return GLenum
    */
   Handle<Value> gl_glGetError(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glGetError();
   }
 
 
   /**
-   * glFinish
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glFinish(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFinish();
   }
 
 
   /**
-   * glFlush
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glFlush(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFlush();
   }
 
 
@@ -570,8 +523,7 @@ namespace node {
    */
   Handle<Value> gl_glHint(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glHint((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value());
   }
 
 
@@ -583,8 +535,7 @@ namespace node {
    */
   Handle<Value> gl_glClearDepth(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClearDepth(args[0]->NumberValue());
   }
 
 
@@ -596,8 +547,7 @@ namespace node {
    */
   Handle<Value> gl_glDepthFunc(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDepthFunc((GLenum) args[0]->Int32Value());
   }
 
 
@@ -609,8 +559,7 @@ namespace node {
    */
   Handle<Value> gl_glDepthMask(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDepthMask(args[0]->NumberValue());
   }
 
 
@@ -623,8 +572,7 @@ namespace node {
    */
   Handle<Value> gl_glDepthRange(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDepthRange(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -639,8 +587,7 @@ namespace node {
    */
   Handle<Value> gl_glClearAccum(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClearAccum(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -653,8 +600,7 @@ namespace node {
    */
   Handle<Value> gl_glAccum(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glAccum((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -666,8 +612,7 @@ namespace node {
    */
   Handle<Value> gl_glMatrixMode(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMatrixMode((GLenum) args[0]->Int32Value());
   }
 
 
@@ -684,8 +629,7 @@ namespace node {
    */
   Handle<Value> gl_glOrtho(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glOrtho(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue(), args[5]->NumberValue());
   }
 
 
@@ -702,8 +646,7 @@ namespace node {
    */
   Handle<Value> gl_glFrustum(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFrustum(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue(), args[5]->NumberValue());
   }
 
 
@@ -718,47 +661,34 @@ namespace node {
    */
   Handle<Value> gl_glViewport(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glViewport((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLsizei) args[2]->Int32Value(), (GLsizei) args[3]->Int32Value());
   }
 
 
   /**
-   * glPushMatrix
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glPushMatrix(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPushMatrix();
   }
 
 
   /**
-   * glPopMatrix
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glPopMatrix(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPopMatrix();
   }
 
 
   /**
-   * glLoadIdentity
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glLoadIdentity(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLoadIdentity();
   }
 
 
@@ -825,8 +755,7 @@ namespace node {
    */
   Handle<Value> gl_glRotated(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRotated(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -841,8 +770,7 @@ namespace node {
    */
   Handle<Value> gl_glRotatef(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRotatef(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -856,8 +784,7 @@ namespace node {
    */
   Handle<Value> gl_glScaled(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glScaled(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -871,8 +798,7 @@ namespace node {
    */
   Handle<Value> gl_glScalef(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glScalef(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -886,8 +812,7 @@ namespace node {
    */
   Handle<Value> gl_glTranslated(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTranslated(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -901,8 +826,7 @@ namespace node {
    */
   Handle<Value> gl_glTranslatef(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTranslatef(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -914,8 +838,7 @@ namespace node {
    */
   Handle<Value> gl_glIsList(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIsList(args[0]->NumberValue());
   }
 
 
@@ -928,8 +851,7 @@ namespace node {
    */
   Handle<Value> gl_glDeleteLists(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDeleteLists(args[0]->NumberValue(), (GLsizei) args[1]->Int32Value());
   }
 
 
@@ -941,8 +863,7 @@ namespace node {
    */
   Handle<Value> gl_glGenLists(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glGenLists((GLsizei) args[0]->Int32Value());
   }
 
 
@@ -955,21 +876,16 @@ namespace node {
    */
   Handle<Value> gl_glNewList(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNewList(args[0]->NumberValue(), (GLenum) args[1]->Int32Value());
   }
 
 
   /**
-   * glEndList
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glEndList(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEndList();
   }
 
 
@@ -981,8 +897,7 @@ namespace node {
    */
   Handle<Value> gl_glCallList(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCallList(args[0]->NumberValue());
   }
 
 
@@ -1009,8 +924,7 @@ namespace node {
    */
   Handle<Value> gl_glListBase(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glListBase(args[0]->NumberValue());
   }
 
 
@@ -1022,21 +936,16 @@ namespace node {
    */
   Handle<Value> gl_glBegin(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBegin((GLenum) args[0]->Int32Value());
   }
 
 
   /**
-   * glEnd
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glEnd(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEnd();
   }
 
 
@@ -1049,8 +958,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex2d(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -1063,8 +971,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex2f(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -1077,8 +984,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex2i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -1091,8 +997,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex2s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value());
   }
 
 
@@ -1106,8 +1011,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex3d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1121,8 +1025,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex3f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1136,8 +1039,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex3i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -1151,8 +1053,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex3s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -1167,8 +1068,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex4d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -1183,8 +1083,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex4f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -1199,8 +1098,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex4i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -1215,8 +1113,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glVertex4s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -1386,8 +1283,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3b(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNormal3b((GLbyte) args[0]->Int32Value(), (GLbyte) args[1]->Int32Value(), (GLbyte) args[2]->Int32Value());
   }
 
 
@@ -1401,8 +1297,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNormal3d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1416,8 +1311,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNormal3f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1431,8 +1325,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNormal3i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -1446,8 +1339,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glNormal3s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -1524,8 +1416,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexd(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexd(args[0]->NumberValue());
   }
 
 
@@ -1537,8 +1428,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexf(args[0]->NumberValue());
   }
 
 
@@ -1550,8 +1440,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexi(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexi((GLint) args[0]->Int32Value());
   }
 
 
@@ -1563,8 +1452,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexs(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexs((GLshort) args[0]->Int32Value());
   }
 
 
@@ -1576,8 +1464,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexub(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIndexub((GLubyte) args[0]->Int32Value());
   }
 
 
@@ -1656,8 +1543,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3b(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3b((GLbyte) args[0]->Int32Value(), (GLbyte) args[1]->Int32Value(), (GLbyte) args[2]->Int32Value());
   }
 
 
@@ -1671,8 +1557,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1686,8 +1571,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1701,8 +1585,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -1716,8 +1599,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -1731,8 +1613,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3ub(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3ub((GLubyte) args[0]->Int32Value(), (GLubyte) args[1]->Int32Value(), (GLubyte) args[2]->Int32Value());
   }
 
 
@@ -1746,8 +1627,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3ui(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3ui(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1761,8 +1641,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3us(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor3us(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -1777,8 +1656,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4b(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4b((GLbyte) args[0]->Int32Value(), (GLbyte) args[1]->Int32Value(), (GLbyte) args[2]->Int32Value(), (GLbyte) args[3]->Int32Value());
   }
 
 
@@ -1793,8 +1671,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -1809,8 +1686,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -1825,8 +1701,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -1841,8 +1716,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -1857,8 +1731,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4ub(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4ub((GLubyte) args[0]->Int32Value(), (GLubyte) args[1]->Int32Value(), (GLubyte) args[2]->Int32Value(), (GLubyte) args[3]->Int32Value());
   }
 
 
@@ -1873,8 +1746,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4ui(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4ui(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -1889,8 +1761,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4us(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColor4us(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2110,8 +1981,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord1d(args[0]->NumberValue());
   }
 
 
@@ -2123,8 +1993,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord1f(args[0]->NumberValue());
   }
 
 
@@ -2136,8 +2005,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord1i((GLint) args[0]->Int32Value());
   }
 
 
@@ -2149,8 +2017,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord1s((GLshort) args[0]->Int32Value());
   }
 
 
@@ -2163,8 +2030,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord2d(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -2177,8 +2043,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord2f(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -2191,8 +2056,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord2i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -2205,8 +2069,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord2s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value());
   }
 
 
@@ -2220,8 +2083,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord3d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -2235,8 +2097,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord3f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -2250,8 +2111,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord3i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -2265,8 +2125,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord3s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -2281,8 +2140,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord4d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2297,8 +2155,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord4f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2313,8 +2170,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord4i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -2329,8 +2185,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexCoord4s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -2551,8 +2406,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos2d(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -2565,8 +2419,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos2f(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -2579,8 +2432,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos2i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -2593,8 +2445,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos2s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value());
   }
 
 
@@ -2608,8 +2459,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos3d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -2623,8 +2473,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos3f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -2638,8 +2487,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos3i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -2653,8 +2501,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos3s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -2669,8 +2516,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos4d(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2685,8 +2531,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos4f(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2701,8 +2546,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos4i((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -2717,8 +2561,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRasterPos4s((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -2889,8 +2732,7 @@ namespace node {
    */
   Handle<Value> gl_glRectd(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRectd(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2905,8 +2747,7 @@ namespace node {
    */
   Handle<Value> gl_glRectf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRectf(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -2921,8 +2762,7 @@ namespace node {
    */
   Handle<Value> gl_glRecti(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRecti((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -2937,8 +2777,7 @@ namespace node {
    */
   Handle<Value> gl_glRects(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glRects((GLshort) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -3112,8 +2951,7 @@ namespace node {
    */
   Handle<Value> gl_glArrayElement(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glArrayElement((GLint) args[0]->Int32Value());
   }
 
 
@@ -3127,8 +2965,7 @@ namespace node {
    */
   Handle<Value> gl_glDrawArrays(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glDrawArrays((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLsizei) args[2]->Int32Value());
   }
 
 
@@ -3171,8 +3008,7 @@ namespace node {
    */
   Handle<Value> gl_glShadeModel(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glShadeModel((GLenum) args[0]->Int32Value());
   }
 
 
@@ -3186,8 +3022,7 @@ namespace node {
    */
   Handle<Value> gl_glLightf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLightf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3201,8 +3036,7 @@ namespace node {
    */
   Handle<Value> gl_glLighti(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLighti((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -3275,8 +3109,7 @@ namespace node {
    */
   Handle<Value> gl_glLightModelf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLightModelf((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -3289,8 +3122,7 @@ namespace node {
    */
   Handle<Value> gl_glLightModeli(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLightModeli((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -3332,8 +3164,7 @@ namespace node {
    */
   Handle<Value> gl_glMaterialf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMaterialf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3347,8 +3178,7 @@ namespace node {
    */
   Handle<Value> gl_glMateriali(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMateriali((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -3421,8 +3251,7 @@ namespace node {
    */
   Handle<Value> gl_glColorMaterial(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glColorMaterial((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value());
   }
 
 
@@ -3435,8 +3264,7 @@ namespace node {
    */
   Handle<Value> gl_glPixelZoom(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPixelZoom(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -3449,8 +3277,7 @@ namespace node {
    */
   Handle<Value> gl_glPixelStoref(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPixelStoref((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -3463,8 +3290,7 @@ namespace node {
    */
   Handle<Value> gl_glPixelStorei(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPixelStorei((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -3477,8 +3303,7 @@ namespace node {
    */
   Handle<Value> gl_glPixelTransferf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPixelTransferf((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -3491,8 +3316,7 @@ namespace node {
    */
   Handle<Value> gl_glPixelTransferi(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPixelTransferi((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -3650,8 +3474,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyPixels(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyPixels((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLsizei) args[2]->Int32Value(), (GLsizei) args[3]->Int32Value(), (GLenum) args[4]->Int32Value());
   }
 
 
@@ -3665,8 +3488,7 @@ namespace node {
    */
   Handle<Value> gl_glStencilFunc(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glStencilFunc((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3678,8 +3500,7 @@ namespace node {
    */
   Handle<Value> gl_glStencilMask(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glStencilMask(args[0]->NumberValue());
   }
 
 
@@ -3693,8 +3514,7 @@ namespace node {
    */
   Handle<Value> gl_glStencilOp(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glStencilOp((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLenum) args[2]->Int32Value());
   }
 
 
@@ -3706,8 +3526,7 @@ namespace node {
    */
   Handle<Value> gl_glClearStencil(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClearStencil((GLint) args[0]->Int32Value());
   }
 
 
@@ -3721,8 +3540,7 @@ namespace node {
    */
   Handle<Value> gl_glTexGend(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexGend((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3736,8 +3554,7 @@ namespace node {
    */
   Handle<Value> gl_glTexGenf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexGenf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3751,8 +3568,7 @@ namespace node {
    */
   Handle<Value> gl_glTexGeni(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexGeni((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -3856,8 +3672,7 @@ namespace node {
    */
   Handle<Value> gl_glTexEnvf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexEnvf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3871,8 +3686,7 @@ namespace node {
    */
   Handle<Value> gl_glTexEnvi(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexEnvi((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -3946,8 +3760,7 @@ namespace node {
    */
   Handle<Value> gl_glTexParameterf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexParameterf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -3961,8 +3774,7 @@ namespace node {
    */
   Handle<Value> gl_glTexParameteri(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glTexParameteri((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -4153,8 +3965,7 @@ namespace node {
    */
   Handle<Value> gl_glBindTexture(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBindTexture((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -4196,8 +4007,7 @@ namespace node {
    */
   Handle<Value> gl_glIsTexture(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glIsTexture(args[0]->NumberValue());
   }
 
 
@@ -4255,8 +4065,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyTexImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyTexImage1D((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLenum) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value(), (GLsizei) args[5]->Int32Value(), (GLint) args[6]->Int32Value());
   }
 
 
@@ -4275,8 +4084,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyTexImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyTexImage2D((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLenum) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value(), (GLsizei) args[5]->Int32Value(), (GLsizei) args[6]->Int32Value(), (GLint) args[7]->Int32Value());
   }
 
 
@@ -4293,8 +4101,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyTexSubImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyTexSubImage1D((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value(), (GLsizei) args[5]->Int32Value());
   }
 
 
@@ -4313,8 +4120,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyTexSubImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyTexSubImage2D((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value(), (GLint) args[5]->Int32Value(), (GLsizei) args[6]->Int32Value(), (GLsizei) args[7]->Int32Value());
   }
 
 
@@ -4451,8 +4257,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord1d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalCoord1d(args[0]->NumberValue());
   }
 
 
@@ -4464,8 +4269,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord1f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalCoord1f(args[0]->NumberValue());
   }
 
 
@@ -4504,8 +4308,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalCoord2d(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -4518,8 +4321,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalCoord2f(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -4559,8 +4361,7 @@ namespace node {
    */
   Handle<Value> gl_glMapGrid1d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMapGrid1d((GLint) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -4574,8 +4375,7 @@ namespace node {
    */
   Handle<Value> gl_glMapGrid1f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMapGrid1f((GLint) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -4592,8 +4392,7 @@ namespace node {
    */
   Handle<Value> gl_glMapGrid2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMapGrid2d((GLint) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), (GLint) args[3]->Int32Value(), args[4]->NumberValue(), args[5]->NumberValue());
   }
 
 
@@ -4610,8 +4409,7 @@ namespace node {
    */
   Handle<Value> gl_glMapGrid2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMapGrid2f((GLint) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), (GLint) args[3]->Int32Value(), args[4]->NumberValue(), args[5]->NumberValue());
   }
 
 
@@ -4623,8 +4421,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalPoint1(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalPoint1((GLint) args[0]->Int32Value());
   }
 
 
@@ -4637,8 +4434,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalPoint2(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalPoint2((GLint) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -4652,8 +4448,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalMesh1(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalMesh1((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -4669,8 +4464,7 @@ namespace node {
    */
   Handle<Value> gl_glEvalMesh2(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glEvalMesh2((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value());
   }
 
 
@@ -4683,8 +4477,7 @@ namespace node {
    */
   Handle<Value> gl_glFogf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFogf((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -4697,8 +4490,7 @@ namespace node {
    */
   Handle<Value> gl_glFogi(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glFogi((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -4753,8 +4545,7 @@ namespace node {
    */
   Handle<Value> gl_glPassThrough(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPassThrough(args[0]->NumberValue());
   }
 
 
@@ -4773,15 +4564,11 @@ namespace node {
 
 
   /**
-   * glInitNames
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glInitNames(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glInitNames();
   }
 
 
@@ -4793,8 +4580,7 @@ namespace node {
    */
   Handle<Value> gl_glLoadName(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glLoadName(args[0]->NumberValue());
   }
 
 
@@ -4806,21 +4592,16 @@ namespace node {
    */
   Handle<Value> gl_glPushName(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPushName(args[0]->NumberValue());
   }
 
 
   /**
-   * glPopName
-   *
-   * @param void
    * @return void
    */
   Handle<Value> gl_glPopName(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glPopName();
   }
 
 
@@ -4903,8 +4684,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyTexSubImage3D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyTexSubImage3D((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value(), (GLint) args[5]->Int32Value(), (GLint) args[6]->Int32Value(), (GLsizei) args[7]->Int32Value(), (GLsizei) args[8]->Int32Value());
   }
 
 
@@ -4986,8 +4766,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyColorSubTable(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyColorSubTable((GLenum) args[0]->Int32Value(), (GLsizei) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLsizei) args[4]->Int32Value());
   }
 
 
@@ -5003,8 +4782,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyColorTable(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyColorTable((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLsizei) args[4]->Int32Value());
   }
 
 
@@ -5062,8 +4840,7 @@ namespace node {
    */
   Handle<Value> gl_glBlendEquation(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBlendEquation((GLenum) args[0]->Int32Value());
   }
 
 
@@ -5078,8 +4855,7 @@ namespace node {
    */
   Handle<Value> gl_glBlendColor(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBlendColor(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -5094,8 +4870,7 @@ namespace node {
    */
   Handle<Value> gl_glHistogram(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glHistogram((GLenum) args[0]->Int32Value(), (GLsizei) args[1]->Int32Value(), (GLenum) args[2]->Int32Value(), args[3]->NumberValue());
   }
 
 
@@ -5107,8 +4882,7 @@ namespace node {
    */
   Handle<Value> gl_glResetHistogram(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glResetHistogram((GLenum) args[0]->Int32Value());
   }
 
 
@@ -5169,8 +4943,7 @@ namespace node {
    */
   Handle<Value> gl_glMinmax(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMinmax((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -5182,8 +4955,7 @@ namespace node {
    */
   Handle<Value> gl_glResetMinmax(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glResetMinmax((GLenum) args[0]->Int32Value());
   }
 
 
@@ -5281,8 +5053,7 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionParameterf(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glConvolutionParameterf((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), args[2]->NumberValue());
   }
 
 
@@ -5311,8 +5082,7 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionParameteri(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glConvolutionParameteri((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -5343,8 +5113,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyConvolutionFilter1D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyConvolutionFilter1D((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLsizei) args[4]->Int32Value());
   }
 
 
@@ -5361,8 +5130,7 @@ namespace node {
    */
   Handle<Value> gl_glCopyConvolutionFilter2D(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glCopyConvolutionFilter2D((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLsizei) args[4]->Int32Value(), (GLsizei) args[5]->Int32Value());
   }
 
 
@@ -5458,8 +5226,7 @@ namespace node {
    */
   Handle<Value> gl_glActiveTexture(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glActiveTexture((GLenum) args[0]->Int32Value());
   }
 
 
@@ -5471,8 +5238,7 @@ namespace node {
    */
   Handle<Value> gl_glClientActiveTexture(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClientActiveTexture((GLenum) args[0]->Int32Value());
   }
 
 
@@ -5623,8 +5389,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1d((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -5651,8 +5416,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1f((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -5679,8 +5443,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1i((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -5707,8 +5470,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1s((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value());
   }
 
 
@@ -5736,8 +5498,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2d((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -5765,8 +5526,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2f((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -5794,8 +5554,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2i((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -5823,8 +5582,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2s((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -5853,8 +5611,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3d((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -5883,8 +5640,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3f((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -5913,8 +5669,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3i((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -5943,8 +5698,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3s((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -5974,8 +5728,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4d(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4d((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue());
   }
 
 
@@ -6005,8 +5758,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4f(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4f((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue());
   }
 
 
@@ -6036,8 +5788,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4i(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4i((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value());
   }
 
 
@@ -6067,8 +5818,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4s(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4s((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value(), (GLshort) args[4]->Int32Value());
   }
 
 
@@ -6147,8 +5897,7 @@ namespace node {
    */
   Handle<Value> gl_glSampleCoverage(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glSampleCoverage(args[0]->NumberValue(), args[1]->NumberValue());
   }
 
 
@@ -6160,8 +5909,7 @@ namespace node {
    */
   Handle<Value> gl_glActiveTextureARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glActiveTextureARB((GLenum) args[0]->Int32Value());
   }
 
 
@@ -6173,8 +5921,7 @@ namespace node {
    */
   Handle<Value> gl_glClientActiveTextureARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glClientActiveTextureARB((GLenum) args[0]->Int32Value());
   }
 
 
@@ -6187,8 +5934,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1dARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1dARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -6215,8 +5961,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1fARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1fARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -6243,8 +5988,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1iARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1iARB((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value());
   }
 
 
@@ -6271,8 +6015,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1sARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord1sARB((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value());
   }
 
 
@@ -6300,8 +6043,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2dARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2dARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -6329,8 +6071,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2fARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2fARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue());
   }
 
 
@@ -6358,8 +6099,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2iARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2iARB((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value());
   }
 
 
@@ -6387,8 +6127,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2sARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord2sARB((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value());
   }
 
 
@@ -6417,8 +6156,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3dARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3dARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -6447,8 +6185,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3fARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3fARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
   }
 
 
@@ -6477,8 +6214,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3iARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3iARB((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value());
   }
 
 
@@ -6507,8 +6243,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3sARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord3sARB((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value());
   }
 
 
@@ -6538,8 +6273,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4dARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4dARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue());
   }
 
 
@@ -6569,8 +6303,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4fARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4fARB((GLenum) args[0]->Int32Value(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue());
   }
 
 
@@ -6600,8 +6333,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4iARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4iARB((GLenum) args[0]->Int32Value(), (GLint) args[1]->Int32Value(), (GLint) args[2]->Int32Value(), (GLint) args[3]->Int32Value(), (GLint) args[4]->Int32Value());
   }
 
 
@@ -6631,8 +6363,7 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4sARB(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glMultiTexCoord4sARB((GLenum) args[0]->Int32Value(), (GLshort) args[1]->Int32Value(), (GLshort) args[2]->Int32Value(), (GLshort) args[3]->Int32Value(), (GLshort) args[4]->Int32Value());
   }
 
 
@@ -6647,6 +6378,146 @@ namespace node {
     HandleScope scope;
 
     return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * imaxabs
+   *
+   * @param intmax_t __n
+   * @return intmax_t
+   */
+  Handle<Value> gl_imaxabs(const Arguments& args) {
+    HandleScope scope;
+    imaxabs(args[0]->NumberValue());
+  }
+
+
+  /**
+   * imaxdiv
+   *
+   * @param intmax_t __numer
+   * @param intmax_t __denom
+   * @return imaxdiv_t
+   */
+  Handle<Value> gl_imaxdiv(const Arguments& args) {
+    HandleScope scope;
+    imaxdiv(args[0]->NumberValue(), args[1]->NumberValue());
+  }
+
+
+  /**
+   * strtoimax
+   *
+   * @param __const char *__restrict __nptr
+   * @param char **__restrict __endptr
+   * @param int __base
+   * @return intmax_t
+   */
+  Handle<Value> gl_strtoimax(const Arguments& args) {
+    HandleScope scope;
+
+    return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * strtoumax
+   *
+   * @param __const char *__restrict __nptr
+   * @param char ** __restrict __endptr
+   * @param int __base
+   * @return uintmax_t
+   */
+  Handle<Value> gl_strtoumax(const Arguments& args) {
+    HandleScope scope;
+
+    return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * wcstoimax
+   *
+   * @param __const __gwchar_t *__restrict __nptr
+   * @param __gwchar_t **__restrict __endptr
+   * @param int __base
+   * @return intmax_t
+   */
+  Handle<Value> gl_wcstoimax(const Arguments& args) {
+    HandleScope scope;
+
+    return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * wcstoumax
+   *
+   * @param __const __gwchar_t *__restrict __nptr
+   * @param __gwchar_t ** __restrict __endptr
+   * @param int __base
+   * @return uintmax_t
+   */
+  Handle<Value> gl_wcstoumax(const Arguments& args) {
+    HandleScope scope;
+
+    return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * @return GLhandleARB
+   */
+  Handle<Value> gl_glCreateDebugObjectMESA(const Arguments& args) {
+    HandleScope scope;
+    glCreateDebugObjectMESA();
+  }
+
+
+  /**
+   * glClearDebugLogMESA
+   *
+   * @param GLhandleARB obj
+   * @param GLenum logType
+   * @param GLenum shaderType
+   * @return void
+   */
+  Handle<Value> gl_glClearDebugLogMESA(const Arguments& args) {
+    HandleScope scope;
+    glClearDebugLogMESA(args[0]->NumberValue(), (GLenum) args[1]->Int32Value(), (GLenum) args[2]->Int32Value());
+  }
+
+
+  /**
+   * glGetDebugLogMESA
+   *
+   * @param GLhandleARB obj
+   * @param GLenum logType
+   * @param GLenum shaderType
+   * @param GLsizei maxLength
+   * @param GLsizei *length
+   * @param GLcharARB *debugLog
+   * @return void
+   */
+  Handle<Value> gl_glGetDebugLogMESA(const Arguments& args) {
+    HandleScope scope;
+
+    return scope.Close(Number::New(123));
+  }
+
+
+  /**
+   * glGetDebugLogLengthMESA
+   *
+   * @param GLhandleARB obj
+   * @param GLenum logType
+   * @param GLenum shaderType
+   * @return GLsizei
+   */
+  Handle<Value> gl_glGetDebugLogLengthMESA(const Arguments& args) {
+    HandleScope scope;
+    glGetDebugLogLengthMESA(args[0]->NumberValue(), (GLenum) args[1]->Int32Value(), (GLenum) args[2]->Int32Value());
   }
 
 
@@ -6690,8 +6561,7 @@ namespace node {
    */
   Handle<Value> gl_glBlendEquationSeparateATI(const Arguments& args) {
     HandleScope scope;
-
-    return scope.Close(Number::New(123));
+    glBlendEquationSeparateATI((GLenum) args[0]->Int32Value(), (GLenum) args[1]->Int32Value());
   }
 
 
@@ -11321,6 +11191,36 @@ namespace node {
 
     Local<FunctionTemplate> _gl_glMultiTexCoord4svARB = FunctionTemplate::New(gl_glMultiTexCoord4svARB);
     target->Set(String::New("glMultiTexCoord4svARB"), _gl_glMultiTexCoord4svARB->GetFunction());
+
+    Local<FunctionTemplate> _gl_imaxabs = FunctionTemplate::New(gl_imaxabs);
+    target->Set(String::New("imaxabs"), _gl_imaxabs->GetFunction());
+
+    Local<FunctionTemplate> _gl_imaxdiv = FunctionTemplate::New(gl_imaxdiv);
+    target->Set(String::New("imaxdiv"), _gl_imaxdiv->GetFunction());
+
+    Local<FunctionTemplate> _gl_strtoimax = FunctionTemplate::New(gl_strtoimax);
+    target->Set(String::New("strtoimax"), _gl_strtoimax->GetFunction());
+
+    Local<FunctionTemplate> _gl_strtoumax = FunctionTemplate::New(gl_strtoumax);
+    target->Set(String::New("strtoumax"), _gl_strtoumax->GetFunction());
+
+    Local<FunctionTemplate> _gl_wcstoimax = FunctionTemplate::New(gl_wcstoimax);
+    target->Set(String::New("wcstoimax"), _gl_wcstoimax->GetFunction());
+
+    Local<FunctionTemplate> _gl_wcstoumax = FunctionTemplate::New(gl_wcstoumax);
+    target->Set(String::New("wcstoumax"), _gl_wcstoumax->GetFunction());
+
+    Local<FunctionTemplate> _gl_glCreateDebugObjectMESA = FunctionTemplate::New(gl_glCreateDebugObjectMESA);
+    target->Set(String::New("glCreateDebugObjectMESA"), _gl_glCreateDebugObjectMESA->GetFunction());
+
+    Local<FunctionTemplate> _gl_glClearDebugLogMESA = FunctionTemplate::New(gl_glClearDebugLogMESA);
+    target->Set(String::New("glClearDebugLogMESA"), _gl_glClearDebugLogMESA->GetFunction());
+
+    Local<FunctionTemplate> _gl_glGetDebugLogMESA = FunctionTemplate::New(gl_glGetDebugLogMESA);
+    target->Set(String::New("glGetDebugLogMESA"), _gl_glGetDebugLogMESA->GetFunction());
+
+    Local<FunctionTemplate> _gl_glGetDebugLogLengthMESA = FunctionTemplate::New(gl_glGetDebugLogLengthMESA);
+    target->Set(String::New("glGetDebugLogLengthMESA"), _gl_glGetDebugLogLengthMESA->GetFunction());
 
     Local<FunctionTemplate> _gl_glProgramCallbackMESA = FunctionTemplate::New(gl_glProgramCallbackMESA);
     target->Set(String::New("glProgramCallbackMESA"), _gl_glProgramCallbackMESA->GetFunction());

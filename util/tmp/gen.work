@@ -1,8 +1,10 @@
-# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glu.h"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
-# 155 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glu.h"
+# 38 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glu.h"
+# 1 "/usr/include/GL/gl.h" 1 3 4
+# 153 "/usr/include/GL/gl.h" 3 4
 typedef unsigned int GLenum;
 typedef unsigned char GLboolean;
 typedef unsigned int GLbitfield;
@@ -18,7 +20,7 @@ typedef float GLfloat;
 typedef float GLclampf;
 typedef double GLdouble;
 typedef double GLclampd;
-# 782 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 780 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glClearIndex( GLfloat c );
 
 __attribute__((visibility("default"))) void glClearColor( GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha );
@@ -715,7 +717,7 @@ __attribute__((visibility("default"))) void glLoadName( GLuint name );
 __attribute__((visibility("default"))) void glPushName( GLuint name );
 
 __attribute__((visibility("default"))) void glPopName( void );
-# 1527 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1525 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glDrawRangeElements( GLenum mode, GLuint start,
  GLuint end, GLsizei count, GLenum type, const GLvoid *indices );
 
@@ -743,7 +745,7 @@ typedef void ( * PFNGLDRAWRANGEELEMENTSPROC) (GLenum mode, GLuint start, GLuint 
 typedef void ( * PFNGLTEXIMAGE3DPROC) (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
 typedef void ( * PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const GLvoid *pixels);
 typedef void ( * PFNGLCOPYTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-# 1637 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1635 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glColorTable( GLenum target, GLenum internalformat,
                                     GLsizei width, GLenum format,
                                     GLenum type, const GLvoid *table );
@@ -854,7 +856,7 @@ __attribute__((visibility("default"))) void glGetSeparableFilter( GLenum target,
 
 typedef void ( * PFNGLBLENDCOLORPROC) (GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
 typedef void ( * PFNGLBLENDEQUATIONPROC) (GLenum mode);
-# 1859 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 1857 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glActiveTexture( GLenum texture );
 
 __attribute__((visibility("default"))) void glClientActiveTexture( GLenum texture );
@@ -958,7 +960,7 @@ typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) (GLenum target, GLint level, 
 typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, const GLvoid *data);
 typedef void ( * PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, const GLvoid *data);
 typedef void ( * PFNGLGETCOMPRESSEDTEXIMAGEPROC) (GLenum target, GLint level, GLvoid *img);
-# 2007 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2005 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glActiveTextureARB(GLenum texture);
 __attribute__((visibility("default"))) void glClientActiveTextureARB(GLenum texture);
 __attribute__((visibility("default"))) void glMultiTexCoord1dARB(GLenum target, GLdouble s);
@@ -1028,7 +1030,7 @@ typedef void ( * PFNGLMULTITEXCOORD4IARBPROC) (GLenum target, GLint s, GLint t, 
 typedef void ( * PFNGLMULTITEXCOORD4IVARBPROC) (GLenum target, const GLint *v);
 typedef void ( * PFNGLMULTITEXCOORD4SARBPROC) (GLenum target, GLshort s, GLshort t, GLshort r, GLshort q);
 typedef void ( * PFNGLMULTITEXCOORD4SVARBPROC) (GLenum target, const GLshort *v);
-# 2091 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2089 "/usr/include/GL/gl.h" 3 4
 # 1 "/usr/include/GL/glext.h" 1 3 4
 # 4399 "/usr/include/GL/glext.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.3/include/stddef.h" 1 3 4
@@ -3079,29 +3081,95 @@ typedef void ( * PFNGLGETINTEGERUI64I_VNVPROC) (GLenum value, GLuint index, GLui
 
 
 typedef void ( * PFNGLTEXTUREBARRIERNVPROC) (void);
-# 2092 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h" 2
-# 2106 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2090 "/usr/include/GL/gl.h" 2 3 4
+# 2104 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) GLhandleARB glCreateDebugObjectMESA (void);
 __attribute__((visibility("default"))) void glClearDebugLogMESA (GLhandleARB obj, GLenum logType, GLenum shaderType);
 __attribute__((visibility("default"))) void glGetDebugLogMESA (GLhandleARB obj, GLenum logType, GLenum shaderType, GLsizei maxLength,
                                          GLsizei *length, GLcharARB *debugLog);
 __attribute__((visibility("default"))) GLsizei glGetDebugLogLengthMESA (GLhandleARB obj, GLenum logType, GLenum shaderType);
-# 2145 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2143 "/usr/include/GL/gl.h" 3 4
 typedef void (*GLprogramcallbackMESA)(GLenum target, GLvoid *data);
 
 __attribute__((visibility("default"))) void glProgramCallbackMESA(GLenum target, GLprogramcallbackMESA callback, GLvoid *data);
 
 __attribute__((visibility("default"))) void glGetProgramRegisterfvMESA(GLenum target, GLsizei len, const GLubyte *name, GLfloat *v);
-# 2192 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
+# 2190 "/usr/include/GL/gl.h" 3 4
 __attribute__((visibility("default"))) void glBlendEquationSeparateATI( GLenum modeRGB, GLenum modeA );
 typedef void ( * PFNGLBLENDEQUATIONSEPARATEATIPROC) (GLenum modeRGB, GLenum modeA);
+# 39 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glu.h" 2
+# 274 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/glu.h"
+typedef struct GLUnurbs GLUnurbs;
+typedef struct GLUquadric GLUquadric;
+typedef struct GLUtesselator GLUtesselator;
+
+
+typedef GLUnurbs GLUnurbsObj;
+typedef GLUquadric GLUquadricObj;
+typedef GLUtesselator GLUtesselatorObj;
+typedef GLUtesselator GLUtriangulatorObj;
 
 
 
 
+typedef void ( * _GLUfuncptr)();
 
-
-typedef void* GLeglImageOES;
-# 2209 "/home/tmpvar/work/javascript/node-ogl/util/in/GL/gl.h"
-typedef void ( * PFNGLEGLIMAGETARGETTEXTURE2DOESPROC) (GLenum target, GLeglImageOES image);
-typedef void ( * PFNGLEGLIMAGETARGETRENDERBUFFERSTORAGEOESPROC) (GLenum target, GLeglImageOES image);
+__attribute__((visibility("default"))) void gluBeginCurve (GLUnurbs* nurb);
+__attribute__((visibility("default"))) void gluBeginPolygon (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluBeginSurface (GLUnurbs* nurb);
+__attribute__((visibility("default"))) void gluBeginTrim (GLUnurbs* nurb);
+__attribute__((visibility("default"))) GLint gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
+__attribute__((visibility("default"))) GLint gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
+__attribute__((visibility("default"))) GLint gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
+__attribute__((visibility("default"))) GLint gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
+__attribute__((visibility("default"))) GLint gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
+__attribute__((visibility("default"))) GLint gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
+__attribute__((visibility("default"))) GLboolean gluCheckExtension (const GLubyte *extName, const GLubyte *extString);
+__attribute__((visibility("default"))) void gluCylinder (GLUquadric* quad, GLdouble base, GLdouble top, GLdouble height, GLint slices, GLint stacks);
+__attribute__((visibility("default"))) void gluDeleteNurbsRenderer (GLUnurbs* nurb);
+__attribute__((visibility("default"))) void gluDeleteQuadric (GLUquadric* quad);
+__attribute__((visibility("default"))) void gluDeleteTess (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluDisk (GLUquadric* quad, GLdouble inner, GLdouble outer, GLint slices, GLint loops);
+__attribute__((visibility("default"))) void gluEndCurve (GLUnurbs* nurb);
+__attribute__((visibility("default"))) void gluEndPolygon (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluEndSurface (GLUnurbs* nurb);
+__attribute__((visibility("default"))) void gluEndTrim (GLUnurbs* nurb);
+__attribute__((visibility("default"))) const GLubyte * gluErrorString (GLenum error);
+__attribute__((visibility("default"))) void gluGetNurbsProperty (GLUnurbs* nurb, GLenum property, GLfloat* data);
+__attribute__((visibility("default"))) const GLubyte * gluGetString (GLenum name);
+__attribute__((visibility("default"))) void gluGetTessProperty (GLUtesselator* tess, GLenum which, GLdouble* data);
+__attribute__((visibility("default"))) void gluLoadSamplingMatrices (GLUnurbs* nurb, const GLfloat *model, const GLfloat *perspective, const GLint *view);
+__attribute__((visibility("default"))) void gluLookAt (GLdouble eyeX, GLdouble eyeY, GLdouble eyeZ, GLdouble centerX, GLdouble centerY, GLdouble centerZ, GLdouble upX, GLdouble upY, GLdouble upZ);
+__attribute__((visibility("default"))) GLUnurbs* gluNewNurbsRenderer (void);
+__attribute__((visibility("default"))) GLUquadric* gluNewQuadric (void);
+__attribute__((visibility("default"))) GLUtesselator* gluNewTess (void);
+__attribute__((visibility("default"))) void gluNextContour (GLUtesselator* tess, GLenum type);
+__attribute__((visibility("default"))) void gluNurbsCallback (GLUnurbs* nurb, GLenum which, _GLUfuncptr CallBackFunc);
+__attribute__((visibility("default"))) void gluNurbsCallbackData (GLUnurbs* nurb, GLvoid* userData);
+__attribute__((visibility("default"))) void gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
+__attribute__((visibility("default"))) void gluNurbsCurve (GLUnurbs* nurb, GLint knotCount, GLfloat *knots, GLint stride, GLfloat *control, GLint order, GLenum type);
+__attribute__((visibility("default"))) void gluNurbsProperty (GLUnurbs* nurb, GLenum property, GLfloat value);
+__attribute__((visibility("default"))) void gluNurbsSurface (GLUnurbs* nurb, GLint sKnotCount, GLfloat* sKnots, GLint tKnotCount, GLfloat* tKnots, GLint sStride, GLint tStride, GLfloat* control, GLint sOrder, GLint tOrder, GLenum type);
+__attribute__((visibility("default"))) void gluOrtho2D (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top);
+__attribute__((visibility("default"))) void gluPartialDisk (GLUquadric* quad, GLdouble inner, GLdouble outer, GLint slices, GLint loops, GLdouble start, GLdouble sweep);
+__attribute__((visibility("default"))) void gluPerspective (GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar);
+__attribute__((visibility("default"))) void gluPickMatrix (GLdouble x, GLdouble y, GLdouble delX, GLdouble delY, GLint *viewport);
+__attribute__((visibility("default"))) GLint gluProject (GLdouble objX, GLdouble objY, GLdouble objZ, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble* winX, GLdouble* winY, GLdouble* winZ);
+__attribute__((visibility("default"))) void gluPwlCurve (GLUnurbs* nurb, GLint count, GLfloat* data, GLint stride, GLenum type);
+__attribute__((visibility("default"))) void gluQuadricCallback (GLUquadric* quad, GLenum which, _GLUfuncptr CallBackFunc);
+__attribute__((visibility("default"))) void gluQuadricDrawStyle (GLUquadric* quad, GLenum draw);
+__attribute__((visibility("default"))) void gluQuadricNormals (GLUquadric* quad, GLenum normal);
+__attribute__((visibility("default"))) void gluQuadricOrientation (GLUquadric* quad, GLenum orientation);
+__attribute__((visibility("default"))) void gluQuadricTexture (GLUquadric* quad, GLboolean texture);
+__attribute__((visibility("default"))) GLint gluScaleImage (GLenum format, GLsizei wIn, GLsizei hIn, GLenum typeIn, const void *dataIn, GLsizei wOut, GLsizei hOut, GLenum typeOut, GLvoid* dataOut);
+__attribute__((visibility("default"))) void gluSphere (GLUquadric* quad, GLdouble radius, GLint slices, GLint stacks);
+__attribute__((visibility("default"))) void gluTessBeginContour (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluTessBeginPolygon (GLUtesselator* tess, GLvoid* data);
+__attribute__((visibility("default"))) void gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+__attribute__((visibility("default"))) void gluTessEndContour (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluTessEndPolygon (GLUtesselator* tess);
+__attribute__((visibility("default"))) void gluTessNormal (GLUtesselator* tess, GLdouble valueX, GLdouble valueY, GLdouble valueZ);
+__attribute__((visibility("default"))) void gluTessProperty (GLUtesselator* tess, GLenum which, GLdouble data);
+__attribute__((visibility("default"))) void gluTessVertex (GLUtesselator* tess, GLdouble *location, GLvoid* data);
+__attribute__((visibility("default"))) GLint gluUnProject (GLdouble winX, GLdouble winY, GLdouble winZ, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble* objX, GLdouble* objY, GLdouble* objZ);
+__attribute__((visibility("default"))) GLint gluUnProject4 (GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW);

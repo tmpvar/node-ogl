@@ -5,7 +5,7 @@ echo "converting opengl headers into nodejs classes";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 
-$files = array("gl.h");//, "glu.h", "glut.h", "glx.h");
+$files = array("gl.h", "glu.h");//, "glut.h", "glx.h");
 foreach ($files as $currentFile)
 {
 
@@ -26,9 +26,6 @@ foreach ($files as $currentFile)
   $source = str_replace("%_NAME", $name, $source);
   $header = str_replace("%_NAME", $name, $header);
 
-
-
-
   $total = count($matches[1]);
 
   $constants = array();
@@ -47,45 +44,41 @@ foreach ($files as $currentFile)
   exec("gcc -E $path > $cwd/tmp/gen.work");
   $preproc = str_replace(",\n",", ", file_get_contents($cwd . "/tmp/gen.work"));
   $preproc = str_replace('__attribute__((visibility("default")))', '', $preproc);
-  echo $preproc;
+
   $old = "";
   while ($old!=$preproc)
   {
     $old = $preproc;
     $preproc = str_replace("  ", " ", $preproc);
   }
-  preg_match_all("/ ?([\w]+ [\w\d]+\([^\)]+[\)]+).*/", $preproc, $methodMatches);
+  preg_match_all("/ ?([\w]+ [\w\d]+ ?\([^\)]+[\)]+).*/", $preproc, $methodMatches);
 
-  $sigs = array();
+  $bodys = array();
   $defs = array();
   $exposed = array();
   foreach ($methodMatches[0] as $method)
   {
-    preg_match("/ ?([\w]+) ([\w\d]+)\(([^\)]+)[\)]+.*/", $method, $methodParts);
+    $method = trim($method);
+    $count = preg_match("/ ?([\w]+) ([\w\d]+) ?\(([^\)]+)[\)]+.*/", $method, $methodParts);
+    if (!$count || strpos($method, "typedef") !== FALSE) {
+      continue;
+    }
+    print_r($methodParts);
+    echo $method . "\n";
     $hasArgs = false;
 
-
-    //$expose =  "NODE_SET_METHOD(target, \"{$methodParts[2]}\", {$name}_{$methodParts[2]});";
 
     $expose = "Local<FunctionTemplate> _{$name}_{$methodParts[2]} = FunctionTemplate::New({$name}_{$methodParts[2]});\n";
     $expose .= "    target->Set(String::New(\"{$methodParts[2]}\"), _{$name}_{$methodParts[2]}->GetFunction());\n";
         
     array_push($exposed, $expose);
 
-    $sig = "    ";
-    $def = "    ";
-   // if ($methodParts[1] == 'void') {
+    $body = "  Handle<Value> {$name}_";
+    $def = "static Handle<Value> {$name}_";
+    $body .= "{$methodParts[2]}(const Arguments& args) {\n";
+    $def .= "{$methodParts[2]}(const Arguments& args);";
 
-   //   $sig = "void $name::";
-   //   $def = "void ";
-   // }
-   // else
-   // {
-      $sig = "  Handle<Value> {$name}_";
-      $def = "static Handle<Value> {$name}_";
-      $sig .= "{$methodParts[2]}(const Arguments& args) {\n";
-      $def .= "{$methodParts[2]}(const Arguments& args);";
-   // }
+    $methodParts[3] = trim($methodParts[3]);
 
     if (isset($methodParts) && strlen(str_replace(" ", "", $methodParts[3])) > 0) 
     {
@@ -95,58 +88,100 @@ foreach ($files as $currentFile)
       }
     }
 
-    $args = array();
+    $args = explode(",", $methodParts[3]);
+    $comment  = "/**\n";
+
     if ($hasArgs) {
-      $comment  = "/**\n";
       $comment .= "   * {$methodParts[2]}\n";
       $comment .= "   *\n";
-
-      $args = explode(",", $methodParts[3]);
+      
       foreach ($args as $arg) {
         $comment .= "   * @param " . trim($arg) . "\n";
       }
-      $comment .= "   * @return " . trim($methodParts[1]) . "\n";
-      $comment .= "   */\n";
-      $sig = $comment . $sig;
     }
 
-    $sig .= "    HandleScope scope;\n";
+    $comment .= "   * @return " . trim($methodParts[1]) . "\n";
+    $comment .= "   */\n";
+    $body = $comment . $body;
+
+    $body .= "    HandleScope scope;\n";
 
 
     if ($methodParts[1] == "void" && count($args) == 0) {
-      $sig .= "    {$methodParts[2]}();";
+      $body .= "    {$methodParts[2]}();";
     } 
-    else if ($methodParts[3] == "void")
+    else if (count($args) > 0 && 
+             strpos($methodParts[3], "*") === false &&
+             strpos($methodParts[3], "[") === false)
     {
+
       $params = array();
       // generate params, and pass them
 
       foreach ($args as $idx=>$arg)
       {
-
-        list($type, $name) = explode(" ", $arg);
-
-        // convert types to v8.
-        if (substr($type, -1) == 'f')
-        {
-          array_push($params, "args[$idx]->NumberValue();");
+        $arg = trim($arg);
+        $type = "void";
+        $argument = "";
+        if (strpos($arg, " ") !== false) {
+          list($type, $argument) = explode(" ", $arg);
         }
-        else if ($type == "GLenum") {
-          array_push($params, "args[$idx]->Int32Value();");
+        
+        // convert types to v8.
+        if ($type == "GLbyte" || $type == "GLshort" ||
+                 $type == "GLint"  || $type == "GLubyte" ||
+                 $type == "GLsizei" || $type == "GLenum")
+        {
+          array_push($params, "($type) args[$idx]->Int32Value()");
+        }
+        else if ($argument)
+        {
+          array_push($params, "args[$idx]->NumberValue()");
         }
       }
-      $sig .= "    {$methodParts[2]}(" + implode(", ", $params) + ");";
+      $body .= "    {$methodParts[2]}(" . implode(", ", $params) . ");";
     }
-    else {
-      $sig .= "\n    return scope.Close(Number::New(123));";
+    else if ($methodParts[1] != "void" && 
+             strpos($methodParts[3], "*") === false &&
+             strpos($methodParts[3], "[") === false)
+    {
+
+      $body .= "\n    return scope.Close(";
+      $inner = "";
+      foreach ($args as $idx=>$arg)
+      {
+        list($type, $argument) = explode(" ", $arg);
+        if ($type == "GLbyte" || $type == "GLshort" ||
+            $type == "GLint" || $type == "GLubyte" ||
+            $type == "GLsizei")
+        {
+          $inner .= "Integer::New({$methodParts[2]});";
+        }
+        else if ($type == "GLboolean") {
+          $inner .= "Boolean::New({$methodParts[2]});";
+        }
+        else 
+        {
+          $inner .= "Number::New({$argument})";
+        }
+      }
+      if (!trim($inner)) {
+        $inner .= "Number::New(123)";
+      }
+      
+      $body .= $inner . ");";
+    }
+    else
+    {
+      $body .= "\n    return scope.Close(Number::New(123));";
     }
 
-    $sig .= "\n  }\n\n";
-    array_push($sigs, $sig);
+    $body .= "\n  }\n\n";
+    array_push($bodys, $body);
     array_push($defs, $def);
   }
 
-  $source = str_replace("%_METHODS", implode("\n  ", $sigs), $source);
+  $source = str_replace("%_METHODS", implode("\n  ", $bodys), $source);
   $source = str_replace("%_JSMETHODS", implode("\n    ", $exposed), $source);
   //$header = str_replace("%_METHODS", implode("\n    ", $defs), $header);
 
