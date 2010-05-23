@@ -1,6 +1,6 @@
 // Copyright 2010 Elijah Insua
-#ifndef SRC_GL_H_
-#define SRC_GL_H_
+#ifndef NODE_ADDON_SRC_GL_H_
+#define NODE_ADDON_SRC_GL_H_
 
 #include <node.h>
 #include <node_events.h>

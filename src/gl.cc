@@ -344,7 +344,8 @@ namespace node {
    */
   Handle<Value> gl_glEnable(const Arguments& args) {
     HandleScope scope;
-    glEnable(GL_BLEND);
+
+    return scope.Close(Number::New(123));
   }
 
 
@@ -369,7 +370,8 @@ namespace node {
    */
   Handle<Value> gl_glIsEnabled(const Arguments& args) {
     HandleScope scope;
-    return scope.Close(Boolean::New(glIsEnabled(GL_LINE_SMOOTH)));
+
+    return scope.Close(Number::New(123));
   }
 
 
@@ -528,7 +530,8 @@ namespace node {
    */
   Handle<Value> gl_glGetError(const Arguments& args) {
     HandleScope scope;
-    return scope.Close(Number::New(glGetError()));
+
+    return scope.Close(Number::New(123));
   }
 
 

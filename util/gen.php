@@ -95,6 +95,7 @@ foreach ($files as $currentFile)
       }
     }
 
+    $args = array();
     if ($hasArgs) {
       $comment  = "/**\n";
       $comment .= "   * {$methodParts[2]}\n";
@@ -110,7 +111,37 @@ foreach ($files as $currentFile)
     }
 
     $sig .= "    HandleScope scope;\n";
-    $sig .= "\n    return scope.Close(Number::New(123));\n  }\n\n";
+
+
+    if ($methodParts[1] == "void" && count($args) == 0) {
+      $sig .= "    {$methodParts[2]}();";
+    } 
+    else if ($methodParts[3] == "void")
+    {
+      $params = array();
+      // generate params, and pass them
+
+      foreach ($args as $idx=>$arg)
+      {
+
+        list($type, $name) = explode(" ", $arg);
+
+        // convert types to v8.
+        if (substr($type, -1) == 'f')
+        {
+          array_push($params, "args[$idx]->NumberValue();");
+        }
+        else if ($type == "GLenum") {
+          array_push($params, "args[$idx]->Int32Value();");
+        }
+      }
+      $sig .= "    {$methodParts[2]}(" + implode(", ", $params) + ");";
+    }
+    else {
+      $sig .= "\n    return scope.Close(Number::New(123));";
+    }
+
+    $sig .= "\n  }\n\n";
     array_push($sigs, $sig);
     array_push($defs, $def);
   }
