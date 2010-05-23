@@ -18,9 +18,28 @@ def configure(conf):
   conf.check_tool("node_addon")
   conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
 
+  conf.env.append_value("LIBPATH_GLFW", abspath("./build/default/lib/"))
+  conf.env.append_value("STATICLIB_GLFW",["glfw"])
+  conf.env.append_value("CPPPATH_GLFW", abspath("./build/default/include/"))  
+
+  # TODO: add support for more platforms..
+  buildpath = abspath("build/default")
+  cmd = "cd \"deps/glfw\" && PREFIX=%s make x11-dist-install"
+  if os.system(cmd % (buildpath)) != 0:
+    conf.fatal("Building glfw failed.")
+
+
+
 def clean(ctx): 
   if exists("lib/node-ogl.node"): unlink("lib/node-ogl.node")
   if exists("build"): rmtree("build")
+
+  # TODO: add support for more platforms..
+  buildpath = abspath("build/default")
+  cmd = "cd \"deps/glfw\" && PREFIX=%s make x11-dist-clean"
+  if os.system(cmd % (buildpath)) != 0:
+    conf.fatal("Building glfw failed.")
+  
 
 def build(bld):
   # build node-avro
@@ -28,7 +47,7 @@ def build(bld):
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = "GL"
+  node_ogl.uselib = ["GL", "GLFW"]
   bld.add_post_fun(copynode)
 
 def copynode(ctx):
