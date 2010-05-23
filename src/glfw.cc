@@ -8,6 +8,10 @@ namespace node {
     HandleScope scope;
     Local<FunctionTemplate> _OpenWindow = FunctionTemplate::New(glfw::OpenWindow);
     target->Set(String::New("OpenWindow"), _OpenWindow->GetFunction());
+
+    Local<FunctionTemplate> _SwapBuffers = FunctionTemplate::New(glfw::SwapBuffers);
+    target->Set(String::New("SwapBuffers"), _SwapBuffers->GetFunction());
+    
   }
 
   // Constructor
@@ -49,6 +53,12 @@ namespace node {
                               GLFW_WINDOW);
 
     return scope.Close(Boolean::New(res));
+  }
+
+  Handle<Value> glfw::SwapBuffers(const Arguments& args)
+  {
+    HandleScope scope;
+    glfwSwapBuffers();
   }
 
   Handle<Value> glfw::New(const Arguments &args)

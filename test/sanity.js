@@ -41,8 +41,7 @@ setInterval(function() {
 		gl.glVertex3f( 1.0,-1.0, 0.0);				// Bottom Right
 	gl.glEnd();
 
-  sys.puts("Error: " + gl.glGetError());
-
+  gl.SwapBuffers();
 }, 10);
 
 sys.puts("enabling GL_LINE_SMOOTH (" + gl.GL_LINE_SMOOTH + ")");

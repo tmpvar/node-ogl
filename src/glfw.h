@@ -20,6 +20,7 @@ namespace node {
     glfw();
     ~glfw();
     static Handle<Value> OpenWindow(const Arguments& args);
+    static Handle<Value> SwapBuffers(const Arguments& args);
     Handle<Value> New(const Arguments &args);
   };
 }  // namespace node
