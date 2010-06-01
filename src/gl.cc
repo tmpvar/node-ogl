@@ -207,9 +207,9 @@ namespace node {
    */
   Handle<Value> gl_glPolygonStipple(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glPolygonStipple is not implemented!")));
+    const GLubyte _mask = (GLubyte)args[0]->Int32Value();
+    glPolygonStipple(&_mask);
+    args[0] = Number::New(_mask);
 
   }
 
@@ -222,9 +222,9 @@ namespace node {
    */
   Handle<Value> gl_glGetPolygonStipple(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetPolygonStipple is not implemented!")));
+    GLubyte _mask = (GLubyte)args[0]->Int32Value();
+    glGetPolygonStipple(&_mask);
+    args[0] = Number::New(_mask);
 
   }
 
@@ -249,9 +249,9 @@ namespace node {
    */
   Handle<Value> gl_glEdgeFlagv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEdgeFlagv is not implemented!")));
+    const GLboolean _flag = (GLboolean)args[0]->Int32Value();
+    glEdgeFlagv(&_flag);
+    args[0] = Number::New(_flag);
 
   }
 
@@ -396,9 +396,10 @@ namespace node {
    */
   Handle<Value> gl_glGetBooleanv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetBooleanv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLboolean _params = (GLboolean)args[1]->Int32Value();
+    glGetBooleanv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -444,9 +445,10 @@ namespace node {
    */
   Handle<Value> gl_glGetIntegerv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetIntegerv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLint _params = (GLint)args[1]->Int32Value();
+    glGetIntegerv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -937,10 +939,16 @@ namespace node {
    */
   Handle<Value> gl_glCallLists(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCallLists is not implemented!")));
-
+    GLsizei _n = (GLsizei)args[0]->Int32Value();
+    GLenum _type = (GLenum)args[1]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[2])) {
+        return ThrowException(Exception::Error(
+                              String::New("2nth argument needs to be a buffer")));
+    }
+    Buffer * lists_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
+    const GLvoid *_lists = (GLvoid *)lists_buffer->data();
+    glCallLists(_n, _type, &_lists);
   }
 
 
@@ -1183,9 +1191,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex2iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex2iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glVertex2iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1198,9 +1206,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex2sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex2sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glVertex2sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1243,9 +1251,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex3iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glVertex3iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1258,9 +1266,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex3sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glVertex3sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1303,9 +1311,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex4iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex4iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glVertex4iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1318,9 +1326,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex4sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex4sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glVertex4sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1403,9 +1411,9 @@ namespace node {
    */
   Handle<Value> gl_glNormal3bv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormal3bv is not implemented!")));
+    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    glNormal3bv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1448,9 +1456,9 @@ namespace node {
    */
   Handle<Value> gl_glNormal3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormal3iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glNormal3iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1463,9 +1471,9 @@ namespace node {
    */
   Handle<Value> gl_glNormal3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormal3sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glNormal3sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1568,9 +1576,9 @@ namespace node {
    */
   Handle<Value> gl_glIndexiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexiv is not implemented!")));
+    const GLint _c = (GLint)args[0]->Int32Value();
+    glIndexiv(&_c);
+    args[0] = Number::New(_c);
 
   }
 
@@ -1583,9 +1591,9 @@ namespace node {
    */
   Handle<Value> gl_glIndexsv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexsv is not implemented!")));
+    const GLshort _c = (GLshort)args[0]->Int32Value();
+    glIndexsv(&_c);
+    args[0] = Number::New(_c);
 
   }
 
@@ -1598,9 +1606,9 @@ namespace node {
    */
   Handle<Value> gl_glIndexubv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexubv is not implemented!")));
+    const GLubyte _c = (GLubyte)args[0]->Int32Value();
+    glIndexubv(&_c);
+    args[0] = Number::New(_c);
 
   }
 
@@ -1845,9 +1853,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3bv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3bv is not implemented!")));
+    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    glColor3bv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1890,9 +1898,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glColor3iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1905,9 +1913,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glColor3sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1920,9 +1928,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3ubv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3ubv is not implemented!")));
+    const GLubyte _v = (GLubyte)args[0]->Int32Value();
+    glColor3ubv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1935,9 +1943,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3uiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3uiv is not implemented!")));
+    const GLuint _v = (GLuint)args[0]->Uint32Value();
+    glColor3uiv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1965,9 +1973,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4bv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4bv is not implemented!")));
+    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    glColor4bv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2010,9 +2018,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glColor4iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2025,9 +2033,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glColor4sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2040,9 +2048,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4ubv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4ubv is not implemented!")));
+    const GLubyte _v = (GLubyte)args[0]->Int32Value();
+    glColor4ubv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2055,9 +2063,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4uiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4uiv is not implemented!")));
+    const GLuint _v = (GLuint)args[0]->Uint32Value();
+    glColor4uiv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2331,9 +2339,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord1iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glTexCoord1iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2346,9 +2354,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord1sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glTexCoord1sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2391,9 +2399,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord2iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glTexCoord2iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2406,9 +2414,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord2sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glTexCoord2sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2451,9 +2459,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord3iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glTexCoord3iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2466,9 +2474,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord3sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glTexCoord3sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2511,9 +2519,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord4iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glTexCoord4iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2526,9 +2534,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord4sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glTexCoord4sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2739,9 +2747,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos2iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glRasterPos2iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2754,9 +2762,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos2sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glRasterPos2sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2799,9 +2807,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos3iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glRasterPos3iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2814,9 +2822,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos3sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glRasterPos3sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2859,9 +2867,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos4iv is not implemented!")));
+    const GLint _v = (GLint)args[0]->Int32Value();
+    glRasterPos4iv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2874,9 +2882,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos4sv is not implemented!")));
+    const GLshort _v = (GLshort)args[0]->Int32Value();
+    glRasterPos4sv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2982,9 +2990,12 @@ namespace node {
    */
   Handle<Value> gl_glRectiv(const Arguments& args) {
     HandleScope scope;
+    const GLint _v1 = (GLint)args[0]->Int32Value();
+    const GLint _v2 = (GLint)args[1]->Int32Value();
+    glRectiv(&_v1, &_v2);
+    args[0] = Number::New(_v1);
 
-    return ThrowException(Exception::Error(
-    String::New("glRectiv is not implemented!")));
+    args[1] = Number::New(_v2);
 
   }
 
@@ -2998,9 +3009,12 @@ namespace node {
    */
   Handle<Value> gl_glRectsv(const Arguments& args) {
     HandleScope scope;
+    const GLshort _v1 = (GLshort)args[0]->Int32Value();
+    const GLshort _v2 = (GLshort)args[1]->Int32Value();
+    glRectsv(&_v1, &_v2);
+    args[0] = Number::New(_v1);
 
-    return ThrowException(Exception::Error(
-    String::New("glRectsv is not implemented!")));
+    args[1] = Number::New(_v2);
 
   }
 
@@ -3016,10 +3030,17 @@ namespace node {
    */
   Handle<Value> gl_glVertexPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertexPointer is not implemented!")));
-
+    GLint _size = (GLint)args[0]->Int32Value();
+    GLenum _type = (GLenum)args[1]->Int32Value();
+    GLsizei _stride = (GLsizei)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glVertexPointer(_size, _type, _stride, &_ptr);
   }
 
 
@@ -3033,10 +3054,16 @@ namespace node {
    */
   Handle<Value> gl_glNormalPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormalPointer is not implemented!")));
-
+    GLenum _type = (GLenum)args[0]->Int32Value();
+    GLsizei _stride = (GLsizei)args[1]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[2])) {
+        return ThrowException(Exception::Error(
+                              String::New("2nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glNormalPointer(_type, _stride, &_ptr);
   }
 
 
@@ -3051,10 +3078,17 @@ namespace node {
    */
   Handle<Value> gl_glColorPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColorPointer is not implemented!")));
-
+    GLint _size = (GLint)args[0]->Int32Value();
+    GLenum _type = (GLenum)args[1]->Int32Value();
+    GLsizei _stride = (GLsizei)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glColorPointer(_size, _type, _stride, &_ptr);
   }
 
 
@@ -3068,10 +3102,16 @@ namespace node {
    */
   Handle<Value> gl_glIndexPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexPointer is not implemented!")));
-
+    GLenum _type = (GLenum)args[0]->Int32Value();
+    GLsizei _stride = (GLsizei)args[1]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[2])) {
+        return ThrowException(Exception::Error(
+                              String::New("2nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glIndexPointer(_type, _stride, &_ptr);
   }
 
 
@@ -3086,10 +3126,17 @@ namespace node {
    */
   Handle<Value> gl_glTexCoordPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoordPointer is not implemented!")));
-
+    GLint _size = (GLint)args[0]->Int32Value();
+    GLenum _type = (GLenum)args[1]->Int32Value();
+    GLsizei _stride = (GLsizei)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glTexCoordPointer(_size, _type, _stride, &_ptr);
   }
 
 
@@ -3102,10 +3149,15 @@ namespace node {
    */
   Handle<Value> gl_glEdgeFlagPointer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEdgeFlagPointer is not implemented!")));
-
+    GLsizei _stride = (GLsizei)args[0]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[1])) {
+        return ThrowException(Exception::Error(
+                              String::New("1nth argument needs to be a buffer")));
+    }
+    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[1]->ToObject());
+    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glEdgeFlagPointer(_stride, &_ptr);
   }
 
 
@@ -3118,10 +3170,15 @@ namespace node {
    */
   Handle<Value> gl_glGetPointerv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetPointerv is not implemented!")));
-
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[1])) {
+        return ThrowException(Exception::Error(
+                              String::New("1nth argument needs to be a buffer")));
+    }
+    Buffer * params_buffer = ObjectWrap::Unwrap<Buffer>(args[1]->ToObject());
+    GLvoid *_params = (GLvoid *)params_buffer->data();
+    glGetPointerv(_pname, &_params);
   }
 
 
@@ -3162,10 +3219,17 @@ namespace node {
    */
   Handle<Value> gl_glDrawElements(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glDrawElements is not implemented!")));
-
+    GLenum _mode = (GLenum)args[0]->Int32Value();
+    GLsizei _count = (GLsizei)args[1]->Int32Value();
+    GLenum _type = (GLenum)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    const GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    glDrawElements(_mode, _count, _type, &_indices);
   }
 
 
@@ -3179,10 +3243,16 @@ namespace node {
    */
   Handle<Value> gl_glInterleavedArrays(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glInterleavedArrays is not implemented!")));
-
+    GLenum _format = (GLenum)args[0]->Int32Value();
+    GLsizei _stride = (GLsizei)args[1]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[2])) {
+        return ThrowException(Exception::Error(
+                              String::New("2nth argument needs to be a buffer")));
+    }
+    Buffer * pointer_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
+    const GLvoid *_pointer = (GLvoid *)pointer_buffer->data();
+    glInterleavedArrays(_format, _stride, &_pointer);
   }
 
 
@@ -3253,9 +3323,11 @@ namespace node {
    */
   Handle<Value> gl_glLightiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLightiv is not implemented!")));
+    GLenum _light = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glLightiv(_light, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3287,9 +3359,11 @@ namespace node {
    */
   Handle<Value> gl_glGetLightiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetLightiv is not implemented!")));
+    GLenum _light = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetLightiv(_light, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3345,9 +3419,10 @@ namespace node {
    */
   Handle<Value> gl_glLightModeliv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLightModeliv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    const GLint _params = (GLint)args[1]->Int32Value();
+    glLightModeliv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -3407,9 +3482,11 @@ namespace node {
    */
   Handle<Value> gl_glMaterialiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMaterialiv is not implemented!")));
+    GLenum _face = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glMaterialiv(_face, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3441,9 +3518,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMaterialiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMaterialiv is not implemented!")));
+    GLenum _face = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetMaterialiv(_face, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3553,9 +3632,11 @@ namespace node {
    */
   Handle<Value> gl_glPixelMapuiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glPixelMapuiv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLsizei _mapsize = (GLsizei)args[1]->Int32Value();
+    const GLuint _values = (GLuint)args[2]->Uint32Value();
+    glPixelMapuiv(_map, _mapsize, &_values);
+    args[2] = Number::New(_values);
 
   }
 
@@ -3602,9 +3683,10 @@ namespace node {
    */
   Handle<Value> gl_glGetPixelMapuiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetPixelMapuiv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLuint _values = (GLuint)args[1]->Uint32Value();
+    glGetPixelMapuiv(_map, &_values);
+    args[1] = Number::New(_values);
 
   }
 
@@ -3660,10 +3742,20 @@ namespace node {
    */
   Handle<Value> gl_glReadPixels(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glReadPixels is not implemented!")));
-
+    GLint _x = (GLint)args[0]->Int32Value();
+    GLint _y = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glReadPixels(_x, _y, _width, _height, _format, _type, &_pixels);
   }
 
 
@@ -3679,10 +3771,18 @@ namespace node {
    */
   Handle<Value> gl_glDrawPixels(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glDrawPixels is not implemented!")));
-
+    GLsizei _width = (GLsizei)args[0]->Int32Value();
+    GLsizei _height = (GLsizei)args[1]->Int32Value();
+    GLenum _format = (GLenum)args[2]->Int32Value();
+    GLenum _type = (GLenum)args[3]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glDrawPixels(_width, _height, _format, _type, &_pixels);
   }
 
 
@@ -3840,9 +3940,11 @@ namespace node {
    */
   Handle<Value> gl_glTexGeniv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexGeniv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glTexGeniv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3891,9 +3993,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexGeniv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexGeniv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetTexGeniv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3953,9 +4057,11 @@ namespace node {
    */
   Handle<Value> gl_glTexEnviv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexEnviv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glTexEnviv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3987,9 +4093,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexEnviv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexEnviv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetTexEnviv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4049,9 +4157,11 @@ namespace node {
    */
   Handle<Value> gl_glTexParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glTexParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4083,9 +4193,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetTexParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4119,9 +4231,12 @@ namespace node {
    */
   Handle<Value> gl_glGetTexLevelParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexLevelParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _pname = (GLenum)args[2]->Int32Value();
+    GLint _params = (GLint)args[3]->Int32Value();
+    glGetTexLevelParameteriv(_target, _level, _pname, &_params);
+    args[3] = Number::New(_params);
 
   }
 
@@ -4141,10 +4256,21 @@ namespace node {
    */
   Handle<Value> gl_glTexImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexImage1D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _internalFormat = (GLint)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLint _border = (GLint)args[4]->Int32Value();
+    GLenum _format = (GLenum)args[5]->Int32Value();
+    GLenum _type = (GLenum)args[6]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[7])) {
+        return ThrowException(Exception::Error(
+                              String::New("7nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage1D(_target, _level, _internalFormat, _width, _border, _format, _type, &_pixels);
   }
 
 
@@ -4164,10 +4290,22 @@ namespace node {
    */
   Handle<Value> gl_glTexImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexImage2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _internalFormat = (GLint)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLsizei _height = (GLsizei)args[4]->Int32Value();
+    GLint _border = (GLint)args[5]->Int32Value();
+    GLenum _format = (GLenum)args[6]->Int32Value();
+    GLenum _type = (GLenum)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage2D(_target, _level, _internalFormat, _width, _height, _border, _format, _type, &_pixels);
   }
 
 
@@ -4183,10 +4321,18 @@ namespace node {
    */
   Handle<Value> gl_glGetTexImage(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexImage is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _format = (GLenum)args[2]->Int32Value();
+    GLenum _type = (GLenum)args[3]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glGetTexImage(_target, _level, _format, _type, &_pixels);
   }
 
 
@@ -4199,9 +4345,10 @@ namespace node {
    */
   Handle<Value> gl_glGenTextures(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGenTextures is not implemented!")));
+    GLsizei _n = (GLsizei)args[0]->Int32Value();
+    GLuint _textures = (GLuint)args[1]->Uint32Value();
+    glGenTextures(_n, &_textures);
+    args[1] = Number::New(_textures);
 
   }
 
@@ -4215,9 +4362,10 @@ namespace node {
    */
   Handle<Value> gl_glDeleteTextures(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glDeleteTextures is not implemented!")));
+    GLsizei _n = (GLsizei)args[0]->Int32Value();
+    const GLuint _textures = (GLuint)args[1]->Uint32Value();
+    glDeleteTextures(_n, &_textures);
+    args[1] = Number::New(_textures);
 
   }
 
@@ -4262,9 +4410,13 @@ namespace node {
    */
   Handle<Value> gl_glAreTexturesResident(const Arguments& args) {
     HandleScope scope;
+    GLsizei _n = (GLsizei)args[0]->Int32Value();
+    const GLuint _textures = (GLuint)args[1]->Uint32Value();
+    GLboolean _residences = (GLboolean)args[2]->Int32Value();
+    glAreTexturesResident(_n, &_textures, &_residences);
+    args[1] = Number::New(_textures);
 
-    return ThrowException(Exception::Error(
-    String::New("glAreTexturesResident is not implemented!")));
+    args[2] = Number::New(_residences);
 
   }
 
@@ -4295,10 +4447,20 @@ namespace node {
    */
   Handle<Value> gl_glTexSubImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexSubImage1D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage1D(_target, _level, _xoffset, _width, _format, _type, &_pixels);
   }
 
 
@@ -4318,10 +4480,22 @@ namespace node {
    */
   Handle<Value> gl_glTexSubImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexSubImage2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLint _yoffset = (GLint)args[3]->Int32Value();
+    GLsizei _width = (GLsizei)args[4]->Int32Value();
+    GLsizei _height = (GLsizei)args[5]->Int32Value();
+    GLenum _format = (GLenum)args[6]->Int32Value();
+    GLenum _type = (GLenum)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _type, &_pixels);
   }
 
 
@@ -4530,9 +4704,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMapiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMapiv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _query = (GLenum)args[1]->Int32Value();
+    GLint _v = (GLint)args[2]->Int32Value();
+    glGetMapiv(_target, _query, &_v);
+    args[2] = Number::New(_v);
 
   }
 
@@ -4815,9 +4991,10 @@ namespace node {
    */
   Handle<Value> gl_glFogiv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glFogiv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    const GLint _params = (GLint)args[1]->Int32Value();
+    glFogiv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -4860,9 +5037,10 @@ namespace node {
    */
   Handle<Value> gl_glSelectBuffer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glSelectBuffer is not implemented!")));
+    GLsizei _size = (GLsizei)args[0]->Int32Value();
+    GLuint _buffer = (GLuint)args[1]->Uint32Value();
+    glSelectBuffer(_size, &_buffer);
+    args[1] = Number::New(_buffer);
 
   }
 
@@ -4922,10 +5100,19 @@ namespace node {
    */
   Handle<Value> gl_glDrawRangeElements(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glDrawRangeElements is not implemented!")));
-
+    GLenum _mode = (GLenum)args[0]->Int32Value();
+    GLuint _start = (GLuint)args[1]->Uint32Value();
+    GLuint _end = (GLuint)args[2]->Uint32Value();
+    GLsizei _count = (GLsizei)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    const GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    glDrawRangeElements(_mode, _start, _end, _count, _type, &_indices);
   }
 
 
@@ -4946,10 +5133,23 @@ namespace node {
    */
   Handle<Value> gl_glTexImage3D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexImage3D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _internalFormat = (GLint)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLsizei _height = (GLsizei)args[4]->Int32Value();
+    GLsizei _depth = (GLsizei)args[5]->Int32Value();
+    GLint _border = (GLint)args[6]->Int32Value();
+    GLenum _format = (GLenum)args[7]->Int32Value();
+    GLenum _type = (GLenum)args[8]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[9])) {
+        return ThrowException(Exception::Error(
+                              String::New("9nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage3D(_target, _level, _internalFormat, _width, _height, _depth, _border, _format, _type, &_pixels);
   }
 
 
@@ -4971,10 +5171,24 @@ namespace node {
    */
   Handle<Value> gl_glTexSubImage3D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexSubImage3D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLint _yoffset = (GLint)args[3]->Int32Value();
+    GLint _zoffset = (GLint)args[4]->Int32Value();
+    GLsizei _width = (GLsizei)args[5]->Int32Value();
+    GLsizei _height = (GLsizei)args[6]->Int32Value();
+    GLsizei _depth = (GLsizei)args[7]->Int32Value();
+    GLenum _format = (GLenum)args[8]->Int32Value();
+    GLenum _type = (GLenum)args[9]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[10])) {
+        return ThrowException(Exception::Error(
+                              String::New("10nth argument needs to be a buffer")));
+    }
+    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
+    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _type, &_pixels);
   }
 
 
@@ -5011,10 +5225,19 @@ namespace node {
    */
   Handle<Value> gl_glColorTable(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColorTable is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _internalformat = (GLenum)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLenum _format = (GLenum)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    const GLvoid *_table = (GLvoid *)table_buffer->data();
+    glColorTable(_target, _internalformat, _width, _format, _type, &_table);
   }
 
 
@@ -5031,10 +5254,19 @@ namespace node {
    */
   Handle<Value> gl_glColorSubTable(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColorSubTable is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLsizei _start = (GLsizei)args[1]->Int32Value();
+    GLsizei _count = (GLsizei)args[2]->Int32Value();
+    GLenum _format = (GLenum)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glColorSubTable(_target, _start, _count, _format, _type, &_data);
   }
 
 
@@ -5048,9 +5280,11 @@ namespace node {
    */
   Handle<Value> gl_glColorTableParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColorTableParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glColorTableParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5115,10 +5349,17 @@ namespace node {
    */
   Handle<Value> gl_glGetColorTable(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetColorTable is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _format = (GLenum)args[1]->Int32Value();
+    GLenum _type = (GLenum)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    GLvoid *_table = (GLvoid *)table_buffer->data();
+    glGetColorTable(_target, _format, _type, &_table);
   }
 
 
@@ -5149,9 +5390,11 @@ namespace node {
    */
   Handle<Value> gl_glGetColorTableParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetColorTableParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetColorTableParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5222,10 +5465,18 @@ namespace node {
    */
   Handle<Value> gl_glGetHistogram(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetHistogram is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLboolean _reset = (GLboolean)args[1]->Int32Value();
+    GLenum _format = (GLenum)args[2]->Int32Value();
+    GLenum _type = (GLenum)args[3]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    GLvoid *_values = (GLvoid *)values_buffer->data();
+    glGetHistogram(_target, _reset, _format, _type, &_values);
   }
 
 
@@ -5256,9 +5507,11 @@ namespace node {
    */
   Handle<Value> gl_glGetHistogramParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetHistogramParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetHistogramParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5301,10 +5554,18 @@ namespace node {
    */
   Handle<Value> gl_glGetMinmax(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMinmax is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLboolean _reset = (GLboolean)args[1]->Int32Value();
+    GLenum _format = (GLenum)args[2]->Int32Value();
+    GLenum _types = (GLenum)args[3]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    GLvoid *_values = (GLvoid *)values_buffer->data();
+    glGetMinmax(_target, _reset, _format, _types, &_values);
   }
 
 
@@ -5335,9 +5596,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMinmaxParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMinmaxParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetMinmaxParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5355,10 +5618,19 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionFilter1D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glConvolutionFilter1D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _internalformat = (GLenum)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLenum _format = (GLenum)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    const GLvoid *_image = (GLvoid *)image_buffer->data();
+    glConvolutionFilter1D(_target, _internalformat, _width, _format, _type, &_image);
   }
 
 
@@ -5376,10 +5648,20 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionFilter2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glConvolutionFilter2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _internalformat = (GLenum)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    const GLvoid *_image = (GLvoid *)image_buffer->data();
+    glConvolutionFilter2D(_target, _internalformat, _width, _height, _format, _type, &_image);
   }
 
 
@@ -5438,9 +5720,11 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glConvolutionParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    const GLint _params = (GLint)args[2]->Int32Value();
+    glConvolutionParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5489,10 +5773,17 @@ namespace node {
    */
   Handle<Value> gl_glGetConvolutionFilter(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetConvolutionFilter is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _format = (GLenum)args[1]->Int32Value();
+    GLenum _type = (GLenum)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    GLvoid *_image = (GLvoid *)image_buffer->data();
+    glGetConvolutionFilter(_target, _format, _type, &_image);
   }
 
 
@@ -5523,9 +5814,11 @@ namespace node {
    */
   Handle<Value> gl_glGetConvolutionParameteriv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetConvolutionParameteriv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
+    glGetConvolutionParameteriv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5545,10 +5838,27 @@ namespace node {
    */
   Handle<Value> gl_glSeparableFilter2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glSeparableFilter2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _internalformat = (GLenum)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * row_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    const GLvoid *_row = (GLvoid *)row_buffer->data();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[7])) {
+        return ThrowException(Exception::Error(
+                              String::New("7nth argument needs to be a buffer")));
+    }
+    Buffer * column_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
+    const GLvoid *_column = (GLvoid *)column_buffer->data();
+    glSeparableFilter2D(_target, _internalformat, _width, _height, _format, _type, &_row, &_column);
   }
 
 
@@ -5565,10 +5875,31 @@ namespace node {
    */
   Handle<Value> gl_glGetSeparableFilter(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetSeparableFilter is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _format = (GLenum)args[1]->Int32Value();
+    GLenum _type = (GLenum)args[2]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[3])) {
+        return ThrowException(Exception::Error(
+                              String::New("3nth argument needs to be a buffer")));
+    }
+    Buffer * row_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
+    GLvoid *_row = (GLvoid *)row_buffer->data();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * column_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    GLvoid *_column = (GLvoid *)column_buffer->data();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * span_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    GLvoid *_span = (GLvoid *)span_buffer->data();
+    glGetSeparableFilter(_target, _format, _type, &_row, &_column, &_span);
   }
 
 
@@ -5610,10 +5941,20 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexImage1D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _internalformat = (GLenum)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLint _border = (GLint)args[4]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage1D(_target, _level, _internalformat, _width, _border, _imageSize, &_data);
   }
 
 
@@ -5632,10 +5973,21 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexImage2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _internalformat = (GLenum)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLsizei _height = (GLsizei)args[4]->Int32Value();
+    GLint _border = (GLint)args[5]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[6]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[7])) {
+        return ThrowException(Exception::Error(
+                              String::New("7nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage2D(_target, _level, _internalformat, _width, _height, _border, _imageSize, &_data);
   }
 
 
@@ -5655,10 +6007,22 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexImage3D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexImage3D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _internalformat = (GLenum)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLsizei _height = (GLsizei)args[4]->Int32Value();
+    GLsizei _depth = (GLsizei)args[5]->Int32Value();
+    GLint _border = (GLint)args[6]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage3D(_target, _level, _internalformat, _width, _height, _depth, _border, _imageSize, &_data);
   }
 
 
@@ -5676,10 +6040,20 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexSubImage1D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexSubImage1D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLsizei _width = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage1D(_target, _level, _xoffset, _width, _format, _imageSize, &_data);
   }
 
 
@@ -5699,10 +6073,22 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexSubImage2D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexSubImage2D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLint _yoffset = (GLint)args[3]->Int32Value();
+    GLsizei _width = (GLsizei)args[4]->Int32Value();
+    GLsizei _height = (GLsizei)args[5]->Int32Value();
+    GLenum _format = (GLenum)args[6]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _imageSize, &_data);
   }
 
 
@@ -5724,10 +6110,24 @@ namespace node {
    */
   Handle<Value> gl_glCompressedTexSubImage3D(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glCompressedTexSubImage3D is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLint _xoffset = (GLint)args[2]->Int32Value();
+    GLint _yoffset = (GLint)args[3]->Int32Value();
+    GLint _zoffset = (GLint)args[4]->Int32Value();
+    GLsizei _width = (GLsizei)args[5]->Int32Value();
+    GLsizei _height = (GLsizei)args[6]->Int32Value();
+    GLsizei _depth = (GLsizei)args[7]->Int32Value();
+    GLenum _format = (GLenum)args[8]->Int32Value();
+    GLsizei _imageSize = (GLsizei)args[9]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[10])) {
+        return ThrowException(Exception::Error(
+                              String::New("10nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
+    const GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _imageSize, &_data);
   }
 
 
@@ -5741,10 +6141,16 @@ namespace node {
    */
   Handle<Value> gl_glGetCompressedTexImage(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetCompressedTexImage is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _lod = (GLint)args[1]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[2])) {
+        return ThrowException(Exception::Error(
+                              String::New("2nth argument needs to be a buffer")));
+    }
+    Buffer * img_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
+    GLvoid *_img = (GLvoid *)img_buffer->data();
+    glGetCompressedTexImage(_target, _lod, &_img);
   }
 
 
@@ -5828,9 +6234,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1iv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord1iv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -5857,9 +6264,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1sv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord1sv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -5947,9 +6355,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2iv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord2iv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -5977,9 +6386,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2sv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord2sv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6070,9 +6480,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3iv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord3iv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6101,9 +6512,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3sv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord3sv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6197,9 +6609,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4iv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4iv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord4iv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6229,9 +6642,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4sv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4sv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord4sv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6413,9 +6827,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1ivARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1ivARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord1ivARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6442,9 +6857,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1svARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1svARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord1svARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6532,9 +6948,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2ivARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2ivARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord2ivARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6562,9 +6979,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2svARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2svARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord2svARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6655,9 +7073,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3ivARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3ivARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord3ivARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6686,9 +7105,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3svARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3svARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord3svARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6782,9 +7202,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4ivARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4ivARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLint _v = (GLint)args[1]->Int32Value();
+    glMultiTexCoord4ivARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6814,9 +7235,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4svARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4svARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    const GLshort _v = (GLshort)args[1]->Int32Value();
+    glMultiTexCoord4svARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 

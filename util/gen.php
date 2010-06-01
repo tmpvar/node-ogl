@@ -1,7 +1,6 @@
 <?php
 
-echo "converting opengl headers into nodejs classes";
-
+echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 
@@ -14,7 +13,7 @@ foreach ($files as $currentFile)
   $file = basename($path);
   $name = str_replace(".h", "", $file);
   $uname = strtoupper($name);
-
+  echo "Processing $uname...\n";
 
   $contents = file_get_contents($path);
   preg_match_all("/#define[ ]*(GL_[^ \t]+)[\t ]*(.*)/", $contents, $matches);
@@ -63,10 +62,7 @@ foreach ($files as $currentFile)
     if (!$count || strpos($method, "typedef") !== FALSE) {
       continue;
     }
-    print_r($methodParts);
-    echo $method . "\n";
     $hasArgs = false;
-
 
     $expose = "Local<FunctionTemplate> _{$name}_{$methodParts[2]} = FunctionTemplate::New({$name}_{$methodParts[2]});\n";
     $expose .= "    target->Set(String::New(\"{$methodParts[2]}\"), _{$name}_{$methodParts[2]}->GetFunction());\n";
@@ -150,7 +146,11 @@ foreach ($files as $currentFile)
       $inner = "";
       foreach ($args as $idx=>$arg)
       {
-        list($type, $argument) = explode(" ", $arg);
+        $parts = explode(" ", $arg);
+        $type = "";
+        $argument = "";
+
+        
         if ($type == "GLbyte" || $type == "GLshort" ||
             $type == "GLint" || $type == "GLubyte" ||
             $type == "GLsizei")
@@ -173,8 +173,86 @@ foreach ($files as $currentFile)
     }
     else
     {
-      $body .= "\n    return ThrowException(Exception::Error(\n"
-            .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
+      $params = array();
+      $inner  = "";
+      $after  = "";
+      $implemented = true;
+
+      foreach ($args as $idx=>$arg)
+      {
+        $implemented = true;
+        $pointer = (strpos($arg, "*") !== false);
+
+        $arg = str_replace("*", "", $arg);
+
+        $type = "";
+        $argument = "";
+        $ex = explode(" ", str_replace("  ", " ", trim($arg)));
+
+        // check for consts
+        $prefix = (count($ex) > 2) ? "  " . array_shift($ex) : " ";
+        $type = trim($ex[0]);
+        $argument = trim($ex[1]);
+
+        $variable = "  $prefix $type _$argument = ($type)";
+
+        if ($type == "GLbyte"  ||
+            $type == "GLshort" ||
+            $type == "GLint"   ||
+            $type == "GLubyte" ||
+            $type == "GLsizei" ||
+            $type == "GLenum"  || 
+            $type == "GLboolean")
+        {
+
+          
+          $inner .= $variable . "args[$idx]->Int32Value();\n";
+          if ($pointer) {
+            array_push($params, "&_$argument");
+            $after .= "\n    args[$idx] = Number::New(_$argument);\n";  
+          } else {
+            array_push($params, "_$argument");
+          }
+          
+        }
+        else if ($type == "GLuint")
+        {
+          $inner .= $variable . "args[$idx]->Uint32Value();\n";
+          if ($pointer) {
+            array_push($params, "&_$argument");
+            $after .= "\n    args[$idx] = Number::New(_$argument);\n";  
+          } else {
+            array_push($params, "_$argument");
+          }
+        }        
+        else if ($type == "GLvoid")
+        {
+          $inner .= "    // must be a pointer to a buffer.\n";
+          $inner .= "    if (!Buffer::HasInstance(args[{$idx}])) {\n";
+          $inner .= "        return ThrowException(Exception::Error(\n";
+          $inner .= "                              String::New(\"{$idx}nth argument needs to be a buffer\")));\n";
+          $inner .= "    }\n";
+          $inner .= "    Buffer * {$argument}_buffer = ObjectWrap::Unwrap<Buffer>(args[{$idx}]->ToObject());\n";
+          $inner .= "  $prefix $type *_$argument = ($type *){$argument}_buffer->data();\n";
+          if ($pointer) {
+            array_push($params, "&_$argument");
+          } else {
+            array_push($params, "_$argument");
+          }
+        }
+        else
+        {
+          $implemented = false;
+          $body .= "\n    return ThrowException(Exception::Error(\n"
+                .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
+          break;
+        }
+      }
+
+      if ($implemented) {
+        $body .= $inner . "    " . $methodParts[2] . 
+                 "(" . implode(", ", $params) . ");" . $after;
+      }
     }
 
     $body .= "\n  }\n\n";
@@ -201,9 +279,12 @@ foreach ($files as $currentFile)
     }
   }
 
+  echo "render templates: $name\n";
   $source = str_replace("%_INCLUDES", implode("\n", $includes), $source);
   $header = str_replace("%_UNAME", $uname, $header);
 
+  echo "saving templates: $name\n";
   file_put_contents($cwd . "/../src/$name.cc", $source);
   file_put_contents($cwd . "/../src/$name.h", $header);
+  echo "-------------------------\n\n";
 }
