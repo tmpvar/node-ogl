@@ -1,4 +1,5 @@
 #include <node.h>
+#include "common.h"
 
 // Includes
 %_INCLUDES

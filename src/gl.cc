@@ -1,9 +1,9 @@
 #include <node.h>
+#include "common.h"
 
 // Includes
 #include "gl.h"
 #include <GL/gl.h>
-#include <GL/glext.h>
 
 using namespace v8;
 namespace node {

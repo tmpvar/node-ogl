@@ -265,7 +265,7 @@ foreach ($files as $currentFile)
   //$header = str_replace("%_METHODS", implode("\n    ", $defs), $header);
 
   // THIRD PASS: includes
-  preg_match_all("/#include[ ]*.(.+)./", $contents, $includeMatches);
+  //preg_match_all("/#include[ ]*.(.+)./", $contents, $includeMatches);
 
   $includes = array("#include \"$name.h\"",
                     "#include <" . str_replace($base,"",$path) . ">");

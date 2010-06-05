@@ -28,7 +28,7 @@ for (var i=0;i<image.size;i+=3) { // reverse all of the colors. (bgr -> rgb)
 var asdf;
 sys.puts("ret'd: " + gl.glGenTextures(1, asdf));// Create Texture	
 sys.puts("ret'd: " + gl.glGenTextures(1, image.texture));
-
+sys.puts(sys.inspect(asdf));
 sys.puts(sys.inspect(image.texture));
 
 gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture[0]);   // 2d texture (x and y size)
