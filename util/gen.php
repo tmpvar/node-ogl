@@ -1,16 +1,10 @@
 <?php
 /**
-
  TODO: Pointers
-
     value_symbol = Persistent<String>::New(String::NewSymbol("value"));
     Local<Object> arg1 = args[1]->ToObject();
     arg1->Set(value_symbol, Number::New(_textures));
-
-
-
 **/
-
 
 echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);
@@ -72,7 +66,8 @@ foreach ($files as $currentFile)
   $exposed = array();
   foreach ($methodMatches[0] as $method)
   {
-    $method = trim($method);
+    $implemented = true;
+    $method = trim(str_replace("const" , "", $method));
     if (in_array($method, $matchedMethods)) {
       continue;
     }
@@ -95,22 +90,26 @@ foreach ($files as $currentFile)
     $def .= "{$methodParts[2]}(const Arguments& args);";
 
     $methodParts[3] = trim($methodParts[3]);
-
-    if (isset($methodParts) && strlen(str_replace(" ", "", $methodParts[3])) > 0) 
+    $args = array();
+    if (isset($methodParts) && strlen(str_replace(" ", "", $methodParts[3])) > 1) 
     {
       if ($methodParts[3] != 'void' &&  count(explode(" ", $methodParts[3]) > 1))
       {
         $hasArgs = true;
+        $args = explode(",", trim($methodParts[3]));
+      } 
+      else
+      {
+        $methodParts[3] = "";
       }
     }
 
-    $args = explode(",", $methodParts[3]);
+
     $comment  = "/**\n";
+    $comment .= "   * {$methodParts[2]}\n";
+    $comment .= "   *\n";
 
     if ($hasArgs) {
-      $comment .= "   * {$methodParts[2]}\n";
-      $comment .= "   *\n";
-      
       foreach ($args as $arg) {
         $comment .= "   * @param " . trim($arg) . "\n";
       }
@@ -124,72 +123,14 @@ foreach ($files as $currentFile)
 
 
     if ($methodParts[1] == "void" && count($args) == 0) {
-      $body .= "    {$methodParts[2]}();";
+      $body .= "    {$methodParts[2]}();\n";
     } 
-    else if (count($args) > 0 && 
-             strpos($methodParts[3], "*") === false &&
-             strpos($methodParts[3], "[") === false)
-    {
-
-      $params = array();
-      // generate params, and pass them
-
-      foreach ($args as $idx=>$arg)
-      {
-        $arg = trim($arg);
-        $type = "void";
-        $argument = "";
-        if (strpos($arg, " ") !== false) {
-          list($type, $argument) = explode(" ", $arg);
-        }
-        
-        // convert types to v8.
-        if ($type == "GLbyte" || $type == "GLshort" ||
-            $type == "GLint"  || $type == "GLubyte" ||
-            $type == "GLsizei" || $type == "GLenum")
-        {
-          array_push($params, "($type) args[$idx]->Int32Value()");
-        }
-        else if ($argument)
-        {
-          array_push($params, "args[$idx]->NumberValue()");
-        }
-      }
-      $body .= "    {$methodParts[2]}(" . implode(", ", $params) . ");";
-    }
-    else if ($methodParts[1] != "void" && 
-             strpos($methodParts[3], "*") === false &&
-             strpos($methodParts[3], "[") === false)
-    {
-
-      $body .= "\n    return scope.Close(";
-      $inner = "";
-      foreach ($args as $idx=>$arg)
-      {
-        $parts = explode(" ", $arg);
-        $type = "";
-        $argument = "";
-
-        if ($type == "GLboolean") {
-          $inner .= "Boolean::New({$methodParts[2]});";
-        }
-        else 
-        {
-          $inner .= "Number::New({$argument})";
-        }
-      }
-      if (!trim($inner)) {
-        $inner .= "Number::New(123)";
-      }
-      
-      $body .= $inner . ");";
-    }
     else
     {
       $params = array();
       $inner  = "";
       $after  = "";
-      $implemented = true;
+      
 
       foreach ($args as $idx=>$arg)
       {
@@ -200,7 +141,6 @@ foreach ($files as $currentFile)
         $pointer = ($pointer || strpos($arg, "[") !== false);
 
         $arg = str_replace("*", "", $arg);
-        $arg = str_replace("const ", "", $arg);
         $type = "";
         $argument = "";
         $ex = explode(" ", str_replace("  ", " ", trim($arg)));
@@ -212,13 +152,6 @@ foreach ($files as $currentFile)
 
         $variable = "  $prefix $type _$argument = ($type)";
 
-/*
-    Local<Object> arg1 = args[1]->ToObject();
-    arg1->Set(String::NewSymbol("value"), Number::New(_textures));
-
-
-*/
-
         // TODO TODO TODO TODO
         if (strpos($arg, "[") !== false) {
           $methodsNotImplemented++;
@@ -227,7 +160,6 @@ foreach ($files as $currentFile)
                 .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
           break;
         }
-
 
         if ($type == "GLbyte"  ||
             $type == "GLshort" ||
@@ -249,7 +181,8 @@ foreach ($files as $currentFile)
         }
         else if ($type == "GLuint" ||
                  $type == "GLubyte" || 
-                 $type == "GLushort")
+                 $type == "GLushort" ||
+                 $type == "GLbitfield")
         {
           $inner .= $variable . "args[$idx]->Uint32Value();\n";
           if ($pointer) {
@@ -272,8 +205,8 @@ foreach ($files as $currentFile)
             array_push($params, "_$argument");
           }
         }
-        else if ($type == "GLvoid" ||
-                 $type == "void")
+        else if ($type === "GLvoid" ||
+                 $type === "void")
         {
           $inner .= "    // must be a pointer to a buffer.\n";
           $inner .= "    if (!Buffer::HasInstance(args[{$idx}])) {\n";
@@ -300,12 +233,26 @@ foreach ($files as $currentFile)
       }
 
       if ($implemented) {
-        $body .= $inner . "    " . $methodParts[2] . 
-                 "(" . implode(", ", $params) . ");" . $after;
+        $retType = trim($methodParts[1]);
+        $return = "";
+        if ($retType !== "void" && $retType !== "GLvoid") {
+          $return = trim($methodParts[1]) . " _ret = ";
+        }
+      
+        $body .= $inner . "    " . $return . $methodParts[2] . 
+                 "(" . implode(", ", $params) . ");\n" . $after;
+
+        $v8type = (stripos($methodParts[1], "bool") !== false) ? "Boolean" : "Number";
+        
+        if ($return && in_array($retType, array('GLenum','GLboolean','GLbitfield','GLvoid','GLbyte','GLshort',
+               'GLint','GLubyte','GLushort','GLuint','GLsizei','GLfloat',
+               'GLclampf','GLdouble','GLclampd', 'GLint'))) {
+          // check the type and close the scope
+          $body .= "\n    return scope.Close({$v8type}::New(_ret));\n";
+        }
       }
     }
-
-    $body .= "\n  }\n\n";
+    $body .= "  }\n\n";
     array_push($bodys, $body);
     array_push($defs, $def);
   }
@@ -315,19 +262,10 @@ foreach ($files as $currentFile)
   //$header = str_replace("%_METHODS", implode("\n    ", $defs), $header);
 
   // THIRD PASS: includes
-  //preg_match_all("/#include[ ]*.(.+)./", $contents, $includeMatches);
+
 
   $includes = array("#include \"$name.h\"",
                     "#include <" . str_replace($base,"",$path) . ">");
-  if (isset($includeMatches[1]))
-  {
-    foreach ($includeMatches[1] as $index=>$include)
-    {
-      if (stripos($preproc, $include) != false) {
-        array_push($includes, $includeMatches[0][$index]);
-      }
-    }
-  }
 
   echo "render templates: $name\n";
   $source = str_replace("%_INCLUDES", implode("\n", $includes), $source);

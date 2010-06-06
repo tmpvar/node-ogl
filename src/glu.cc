@@ -19,7 +19,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluBeginCurve is not implemented!")));
-
   }
 
 
@@ -34,7 +33,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluBeginPolygon is not implemented!")));
-
   }
 
 
@@ -49,7 +47,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluBeginSurface is not implemented!")));
-
   }
 
 
@@ -64,7 +61,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluBeginTrim is not implemented!")));
-
   }
 
 
@@ -79,7 +75,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild1DMipmapLevels(const Arguments& args) {
@@ -99,7 +95,9 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild1DMipmapLevels(_target, _internalFormat, _width, _format, _type, _level, _base, _max, _data);
+    GLint _ret = gluBuild1DMipmapLevels(_target, _internalFormat, _width, _format, _type, _level, _base, _max, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -111,7 +109,7 @@ namespace node {
    * @param GLsizei width
    * @param GLenum format
    * @param GLenum type
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild1DMipmaps(const Arguments& args) {
@@ -128,7 +126,9 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild1DMipmaps(_target, _internalFormat, _width, _format, _type, _data);
+    GLint _ret = gluBuild1DMipmaps(_target, _internalFormat, _width, _format, _type, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -144,7 +144,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild2DMipmapLevels(const Arguments& args) {
@@ -165,7 +165,9 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild2DMipmapLevels(_target, _internalFormat, _width, _height, _format, _type, _level, _base, _max, _data);
+    GLint _ret = gluBuild2DMipmapLevels(_target, _internalFormat, _width, _height, _format, _type, _level, _base, _max, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -178,7 +180,7 @@ namespace node {
    * @param GLsizei height
    * @param GLenum format
    * @param GLenum type
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild2DMipmaps(const Arguments& args) {
@@ -196,7 +198,9 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild2DMipmaps(_target, _internalFormat, _width, _height, _format, _type, _data);
+    GLint _ret = gluBuild2DMipmaps(_target, _internalFormat, _width, _height, _format, _type, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -213,7 +217,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild3DMipmapLevels(const Arguments& args) {
@@ -235,7 +239,9 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild3DMipmapLevels(_target, _internalFormat, _width, _height, _depth, _format, _type, _level, _base, _max, _data);
+    GLint _ret = gluBuild3DMipmapLevels(_target, _internalFormat, _width, _height, _depth, _format, _type, _level, _base, _max, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -249,7 +255,7 @@ namespace node {
    * @param GLsizei depth
    * @param GLenum format
    * @param GLenum type
-   * @param const void *data
+   * @param void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild3DMipmaps(const Arguments& args) {
@@ -268,26 +274,30 @@ namespace node {
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
     void *_data = (void *)data_buffer->data();
-    gluBuild3DMipmaps(_target, _internalFormat, _width, _height, _depth, _format, _type, _data);
+    GLint _ret = gluBuild3DMipmaps(_target, _internalFormat, _width, _height, _depth, _format, _type, _data);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
   /**
    * gluCheckExtension
    *
-   * @param const GLubyte *extName
-   * @param const GLubyte *extString
+   * @param GLubyte *extName
+   * @param GLubyte *extString
    * @return GLboolean
    */
   Handle<Value> glu_gluCheckExtension(const Arguments& args) {
     HandleScope scope;
     GLubyte _extName = (GLubyte)args[0]->Int32Value();
     GLubyte _extString = (GLubyte)args[1]->Int32Value();
-    gluCheckExtension(&_extName, &_extString);
+    GLboolean _ret = gluCheckExtension(&_extName, &_extString);
+
     args[0] = Number::New(_extName);
 
     args[1] = Number::New(_extString);
 
+    return scope.Close(Boolean::New(_ret));
   }
 
 
@@ -307,7 +317,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluCylinder is not implemented!")));
-
   }
 
 
@@ -322,7 +331,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluDeleteNurbsRenderer is not implemented!")));
-
   }
 
 
@@ -337,7 +345,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluDeleteQuadric is not implemented!")));
-
   }
 
 
@@ -352,7 +359,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluDeleteTess is not implemented!")));
-
   }
 
 
@@ -371,7 +377,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluDisk is not implemented!")));
-
   }
 
 
@@ -386,7 +391,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluEndCurve is not implemented!")));
-
   }
 
 
@@ -401,7 +405,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluEndPolygon is not implemented!")));
-
   }
 
 
@@ -416,7 +419,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluEndSurface is not implemented!")));
-
   }
 
 
@@ -431,7 +433,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluEndTrim is not implemented!")));
-
   }
 
 
@@ -448,7 +449,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluGetNurbsProperty is not implemented!")));
-
   }
 
 
@@ -465,7 +465,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluGetTessProperty is not implemented!")));
-
   }
 
 
@@ -473,9 +472,9 @@ namespace node {
    * gluLoadSamplingMatrices
    *
    * @param GLUnurbs* nurb
-   * @param const GLfloat *model
-   * @param const GLfloat *perspective
-   * @param const GLint *view
+   * @param GLfloat *model
+   * @param GLfloat *perspective
+   * @param GLint *view
    * @return void
    */
   Handle<Value> glu_gluLoadSamplingMatrices(const Arguments& args) {
@@ -483,7 +482,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluLoadSamplingMatrices is not implemented!")));
-
   }
 
 
@@ -503,7 +501,16 @@ namespace node {
    */
   Handle<Value> glu_gluLookAt(const Arguments& args) {
     HandleScope scope;
-    gluLookAt(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue(), args[4]->NumberValue(), args[5]->NumberValue(), args[6]->NumberValue(), args[7]->NumberValue(), args[8]->NumberValue());
+    GLdouble _eyeX = (GLdouble)args[0]->NumberValue();
+    GLdouble _eyeY = (GLdouble)args[1]->NumberValue();
+    GLdouble _eyeZ = (GLdouble)args[2]->NumberValue();
+    GLdouble _centerX = (GLdouble)args[3]->NumberValue();
+    GLdouble _centerY = (GLdouble)args[4]->NumberValue();
+    GLdouble _centerZ = (GLdouble)args[5]->NumberValue();
+    GLdouble _upX = (GLdouble)args[6]->NumberValue();
+    GLdouble _upY = (GLdouble)args[7]->NumberValue();
+    GLdouble _upZ = (GLdouble)args[8]->NumberValue();
+    gluLookAt(_eyeX, _eyeY, _eyeZ, _centerX, _centerY, _centerZ, _upX, _upY, _upZ);
   }
 
 
@@ -519,7 +526,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNextContour is not implemented!")));
-
   }
 
 
@@ -536,7 +542,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsCallback is not implemented!")));
-
   }
 
 
@@ -552,7 +557,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsCallbackData is not implemented!")));
-
   }
 
 
@@ -568,7 +572,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsCallbackDataEXT is not implemented!")));
-
   }
 
 
@@ -589,7 +592,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsCurve is not implemented!")));
-
   }
 
 
@@ -606,7 +608,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsProperty is not implemented!")));
-
   }
 
 
@@ -631,7 +632,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluNurbsSurface is not implemented!")));
-
   }
 
 
@@ -646,7 +646,11 @@ namespace node {
    */
   Handle<Value> glu_gluOrtho2D(const Arguments& args) {
     HandleScope scope;
-    gluOrtho2D(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
+    GLdouble _left = (GLdouble)args[0]->NumberValue();
+    GLdouble _right = (GLdouble)args[1]->NumberValue();
+    GLdouble _bottom = (GLdouble)args[2]->NumberValue();
+    GLdouble _top = (GLdouble)args[3]->NumberValue();
+    gluOrtho2D(_left, _right, _bottom, _top);
   }
 
 
@@ -667,7 +671,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluPartialDisk is not implemented!")));
-
   }
 
 
@@ -682,7 +685,11 @@ namespace node {
    */
   Handle<Value> glu_gluPerspective(const Arguments& args) {
     HandleScope scope;
-    gluPerspective(args[0]->NumberValue(), args[1]->NumberValue(), args[2]->NumberValue(), args[3]->NumberValue());
+    GLdouble _fovy = (GLdouble)args[0]->NumberValue();
+    GLdouble _aspect = (GLdouble)args[1]->NumberValue();
+    GLdouble _zNear = (GLdouble)args[2]->NumberValue();
+    GLdouble _zFar = (GLdouble)args[3]->NumberValue();
+    gluPerspective(_fovy, _aspect, _zNear, _zFar);
   }
 
 
@@ -704,8 +711,8 @@ namespace node {
     GLdouble _delY = (GLdouble)args[3]->NumberValue();
     GLint _viewport = (GLint)args[4]->Int32Value();
     gluPickMatrix(_x, _y, _delX, _delY, &_viewport);
-    args[4] = Number::New(_viewport);
 
+    args[4] = Number::New(_viewport);
   }
 
 
@@ -715,9 +722,9 @@ namespace node {
    * @param GLdouble objX
    * @param GLdouble objY
    * @param GLdouble objZ
-   * @param const GLdouble *model
-   * @param const GLdouble *proj
-   * @param const GLint *view
+   * @param GLdouble *model
+   * @param GLdouble *proj
+   * @param GLint *view
    * @param GLdouble* winX
    * @param GLdouble* winY
    * @param GLdouble* winZ
@@ -734,7 +741,8 @@ namespace node {
     GLdouble _winX = (GLdouble)args[6]->NumberValue();
     GLdouble _winY = (GLdouble)args[7]->NumberValue();
     GLdouble _winZ = (GLdouble)args[8]->NumberValue();
-    gluProject(_objX, _objY, _objZ, &_model, &_proj, &_view, &_winX, &_winY, &_winZ);
+    GLint _ret = gluProject(_objX, _objY, _objZ, &_model, &_proj, &_view, &_winX, &_winY, &_winZ);
+
     args[3] = Number::New(_model);
 
     args[4] = Number::New(_proj);
@@ -747,6 +755,7 @@ namespace node {
 
     args[8] = Number::New(_winZ);
 
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -765,7 +774,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluPwlCurve is not implemented!")));
-
   }
 
 
@@ -782,7 +790,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluQuadricCallback is not implemented!")));
-
   }
 
 
@@ -798,7 +805,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluQuadricDrawStyle is not implemented!")));
-
   }
 
 
@@ -814,7 +820,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluQuadricNormals is not implemented!")));
-
   }
 
 
@@ -830,7 +835,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluQuadricOrientation is not implemented!")));
-
   }
 
 
@@ -846,7 +850,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluQuadricTexture is not implemented!")));
-
   }
 
 
@@ -857,7 +860,7 @@ namespace node {
    * @param GLsizei wIn
    * @param GLsizei hIn
    * @param GLenum typeIn
-   * @param const void *dataIn
+   * @param void *dataIn
    * @param GLsizei wOut
    * @param GLsizei hOut
    * @param GLenum typeOut
@@ -887,7 +890,9 @@ namespace node {
     }
     Buffer * dataOut_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
     GLvoid *_dataOut = (GLvoid *)dataOut_buffer->data();
-    gluScaleImage(_format, _wIn, _hIn, _typeIn, _dataIn, _wOut, _hOut, _typeOut, _dataOut);
+    GLint _ret = gluScaleImage(_format, _wIn, _hIn, _typeIn, _dataIn, _wOut, _hOut, _typeOut, _dataOut);
+
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -905,7 +910,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluSphere is not implemented!")));
-
   }
 
 
@@ -920,7 +924,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessBeginContour is not implemented!")));
-
   }
 
 
@@ -936,7 +939,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessBeginPolygon is not implemented!")));
-
   }
 
 
@@ -953,7 +955,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessCallback is not implemented!")));
-
   }
 
 
@@ -968,7 +969,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessEndContour is not implemented!")));
-
   }
 
 
@@ -983,7 +983,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessEndPolygon is not implemented!")));
-
   }
 
 
@@ -1001,7 +1000,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessNormal is not implemented!")));
-
   }
 
 
@@ -1018,7 +1016,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessProperty is not implemented!")));
-
   }
 
 
@@ -1035,7 +1032,6 @@ namespace node {
 
     return ThrowException(Exception::Error(
     String::New("gluTessVertex is not implemented!")));
-
   }
 
 
@@ -1045,9 +1041,9 @@ namespace node {
    * @param GLdouble winX
    * @param GLdouble winY
    * @param GLdouble winZ
-   * @param const GLdouble *model
-   * @param const GLdouble *proj
-   * @param const GLint *view
+   * @param GLdouble *model
+   * @param GLdouble *proj
+   * @param GLint *view
    * @param GLdouble* objX
    * @param GLdouble* objY
    * @param GLdouble* objZ
@@ -1064,7 +1060,8 @@ namespace node {
     GLdouble _objX = (GLdouble)args[6]->NumberValue();
     GLdouble _objY = (GLdouble)args[7]->NumberValue();
     GLdouble _objZ = (GLdouble)args[8]->NumberValue();
-    gluUnProject(_winX, _winY, _winZ, &_model, &_proj, &_view, &_objX, &_objY, &_objZ);
+    GLint _ret = gluUnProject(_winX, _winY, _winZ, &_model, &_proj, &_view, &_objX, &_objY, &_objZ);
+
     args[3] = Number::New(_model);
 
     args[4] = Number::New(_proj);
@@ -1077,6 +1074,7 @@ namespace node {
 
     args[8] = Number::New(_objZ);
 
+    return scope.Close(Number::New(_ret));
   }
 
 
@@ -1087,9 +1085,9 @@ namespace node {
    * @param GLdouble winY
    * @param GLdouble winZ
    * @param GLdouble clipW
-   * @param const GLdouble *model
-   * @param const GLdouble *proj
-   * @param const GLint *view
+   * @param GLdouble *model
+   * @param GLdouble *proj
+   * @param GLint *view
    * @param GLdouble nearVal
    * @param GLdouble farVal
    * @param GLdouble* objX
@@ -1113,7 +1111,8 @@ namespace node {
     GLdouble _objY = (GLdouble)args[10]->NumberValue();
     GLdouble _objZ = (GLdouble)args[11]->NumberValue();
     GLdouble _objW = (GLdouble)args[12]->NumberValue();
-    gluUnProject4(_winX, _winY, _winZ, _clipW, &_model, &_proj, &_view, _nearVal, _farVal, &_objX, &_objY, &_objZ, &_objW);
+    GLint _ret = gluUnProject4(_winX, _winY, _winZ, _clipW, &_model, &_proj, &_view, _nearVal, _farVal, &_objX, &_objY, &_objZ, &_objW);
+
     args[4] = Number::New(_model);
 
     args[5] = Number::New(_proj);
@@ -1128,6 +1127,7 @@ namespace node {
 
     args[12] = Number::New(_objW);
 
+    return scope.Close(Number::New(_ret));
   }
 
 
