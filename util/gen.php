@@ -4,6 +4,7 @@ echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 
+$matchedMethods = array();
 $files = array("gl.h", "glu.h");//, "glut.h", "glx.h");
 foreach ($files as $currentFile)
 {
@@ -50,6 +51,8 @@ foreach ($files as $currentFile)
     $old = $preproc;
     $preproc = str_replace("  ", " ", $preproc);
   }
+
+  $methodMatches = array();
   preg_match_all("/ ?([\w]+ [\w\d]+ ?\([^\)]+[\)]+).*/", $preproc, $methodMatches);
 
   $bodys = array();
@@ -58,6 +61,11 @@ foreach ($files as $currentFile)
   foreach ($methodMatches[0] as $method)
   {
     $method = trim($method);
+    if (in_array($method, $matchedMethods)) {
+      continue;
+    }
+    array_push($matchedMethods, $method);
+
     $count = preg_match("/ ?([\w]+) ([\w\d]+) ?\(([^\)]+)[\)]+.*/", $method, $methodParts);
     if (!$count || strpos($method, "typedef") !== FALSE) {
       continue;
