@@ -1,4 +1,4 @@
-var gl     = require(__dirname + "/../../lib/node-ogl"),
+var gl     = require(__dirname + "/../../lib/OpenGL"),
     sys    = require("sys"),
     fs     = require("fs"),
     Buffer = require('buffer').Buffer,
