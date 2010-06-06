@@ -22,5 +22,7 @@ function add10(ref) {
 }
 
 var delta = gl.GLfloat(0.11);
+
+sys.puts(sys.inspect(delta, true));
 add10(delta);
 sys.puts("delta is now: " + delta.value);
