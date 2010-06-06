@@ -9,13 +9,11 @@ var gl     = require(__dirname + "/../../lib/OpenGL"),
     zrot   = 0,
     file   = __dirname + "/lesson6/NeHe.bmp",
     textureBuffer,
-    image = { width: 256, height: 256, size: 256*265*3, texture: -1};
+    image = { width: 64, height: 64, size: 256*256*3, texture: -1};
 
 gl.OpenWindow(width,height,0,0,0,0,0,0,0);
 
 textureBuffer = fs.readFileSync(file, "binary");
-image.width  = (textureBuffer.charCodeAt(19)*256) + textureBuffer.charCodeAt(20);
-image.height = (textureBuffer.charCodeAt(21)*256) + textureBuffer.charCodeAt(22);
 image.buffer = new Buffer(image.size);
 image.buffer.write(textureBuffer.slice(24,textureBuffer.length));
 
@@ -25,13 +23,11 @@ for (var i=0;i<image.size;i+=3) { // reverse all of the colors. (bgr -> rgb)
   image.buffer[i+2] = temp;
 }
 
-var asdf;
-sys.puts("ret'd: " + gl.glGenTextures(1, asdf));// Create Texture	
-sys.puts("ret'd: " + gl.glGenTextures(1, image.texture));
-sys.puts(sys.inspect(asdf));
-sys.puts(sys.inspect(image.texture));
+var texture = gl.GLuint();
+gl.glGenTextures(1, texture);
+image.texture = texture.value;
 
-gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture[0]);   // 2d texture (x and y size)
+gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);   // 2d texture (x and y size)
 
 // scale linearly when image bigger than texture
 gl.glTexParameteri(gl.GL_TEXTURE_2D,gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
@@ -63,10 +59,8 @@ gl.glMatrixMode(gl.GL_PROJECTION);
 gl.glLoadIdentity();
 gl.gluPerspective(45.0, width / height, 0.1, 100.0);
 gl.glMatrixMode(gl.GL_MODELVIEW);
-//gl.glFlush();
+gl.glFlush();
 
-
-//gl.glFlush();
 setInterval(function() {
   gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);		// Clear The Screen And The Depth Buffer
   gl.glLoadIdentity();				// Reset The View
@@ -77,45 +71,44 @@ setInterval(function() {
   gl.glRotatef(yrot,0.0,1.0,0.0);		// Rotate On The Y Axis
   gl.glRotatef(zrot,0.0,0.0,1.0);		// Rotate On The Z Axis
 
-  gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture[0]);   // choose the texture to use.
+  gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);   // choose the texture to use.
 
   gl.glBegin(gl.GL_QUADS);		                // begin drawing a cube
-  
-  // Front Face (note that the texture's corners have to match the quad's corners)
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
-  
-  // Back Face
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Bottom Left Of The Texture and Quad
+    // Front Face (note that the texture's corners have to match the quad's corners)
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
+    
+    // Back Face
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Bottom Left Of The Texture and Quad
 
-  // Top Face
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Bottom Left Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Bottom Right Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
-  
-  // Bottom Face       
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Top Right Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Top Left Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
-  
-  // Right face
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
-  
-  // Left Face
-  gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Left Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
-  gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
-  gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
+    // Top Face
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Bottom Left Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Bottom Right Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
+    
+    // Bottom Face       
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Top Right Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Top Left Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
+    
+    // Right face
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
+    
+    // Left Face
+    gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Left Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
+    gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
+    gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
   
   gl.glEnd();                                    // done with the polygon.
   gl.SwapBuffers();

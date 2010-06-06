@@ -1,4 +1,16 @@
 <?php
+/**
+
+ TODO: Pointers
+
+    value_symbol = Persistent<String>::New(String::NewSymbol("value"));
+    Local<Object> arg1 = args[1]->ToObject();
+    arg1->Set(value_symbol, Number::New(_textures));
+
+
+
+**/
+
 
 echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);

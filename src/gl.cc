@@ -512,7 +512,7 @@ namespace node {
    */
   Handle<Value> gl_glGetError(const Arguments& args) {
     HandleScope scope;
-    glGetError();
+    return scope.Close(Number::New(glGetError()));
   }
 
 
@@ -4336,6 +4336,7 @@ namespace node {
   }
 
 
+  static Persistent<String> value_symbol;
   /**
    * glGenTextures
    *
@@ -4346,10 +4347,12 @@ namespace node {
   Handle<Value> gl_glGenTextures(const Arguments& args) {
     HandleScope scope;
     GLsizei _n = (GLsizei)args[0]->Int32Value();
-    GLuint _textures = (GLuint)args[1]->Uint32Value();
+    GLuint _textures;
     glGenTextures(_n, &_textures);
-    args[1] = Number::New(_textures);
 
+    value_symbol = Persistent<String>::New(String::NewSymbol("value"));
+    Local<Object> arg1 = args[1]->ToObject();
+    arg1->Set(value_symbol, Number::New(_textures));
   }
 
 
@@ -4379,7 +4382,8 @@ namespace node {
    */
   Handle<Value> gl_glBindTexture(const Arguments& args) {
     HandleScope scope;
-    glBindTexture((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
+    glBindTexture(GL_TEXTURE_2D, 1);
+    //glBindTexture((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
