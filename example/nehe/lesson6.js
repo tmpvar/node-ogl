@@ -9,43 +9,34 @@ var gl     = require(__dirname + "/../../lib/OpenGL"),
     zrot   = 0,
     file   = __dirname + "/lesson6/NeHe.bmp",
     textureBuffer,
-    image = { width: 64, height: 64, size: 256*256*3, texture: -1};
+    image = { width: 256, height: 256, size: 256*256*3, texture: -1};
 
 gl.OpenWindow(width,height,0,0,0,0,0,0,0);
 
-textureBuffer = fs.readFileSync(file, "binary");
-image.buffer = new Buffer(image.size);
-image.buffer.write(textureBuffer.slice(24,textureBuffer.length));
+textureBuffer = fs.readFileSync(file);
+image.buffer = textureBuffer.slice(54, textureBuffer.length);
 
-for (var i=0;i<image.size;i+=3) { // reverse all of the colors. (bgr -> rgb)
+// reverse all of the colors. (bgr -> rgb)
+for (var i=0;i<image.buffer.length;i+=3) {
   var temp = image.buffer[i];
   image.buffer[i] = image.buffer[i+2];
   image.buffer[i+2] = temp;
 }
 
-var texture = gl.GLuint();
-gl.glGenTextures(1, texture);
-image.texture = texture.value;
+gl.glGenTextures(1, image.texture);
+gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);
 
-gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);   // 2d texture (x and y size)
-
-// scale linearly when image bigger than texture
-gl.glTexParameteri(gl.GL_TEXTURE_2D,gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
-// scale linearly when image smalled than texture 
 gl.glTexParameteri(gl.GL_TEXTURE_2D,gl.GL_TEXTURE_MIN_FILTER,gl.GL_LINEAR);
 
 gl.glTexImage2D(gl.GL_TEXTURE_2D,         // 2d texture
-                   0,                     // level of detail 0 (normal)
-                   3,                     // 3 components (red green blue)
-                   image.width,           // x size from image
-                   image.height,          // y size from image
-                   0,                     // border 0 (normal)
-                   gl.GL_RGB,             // rgb color data
-                   gl.GL_UNSIGNED_BYTE,   // unsigned byte data
-                   image.buffer);         // the actual data
-
-
-
+                         0,                     // level of detail 0 (normal)
+                         3,                     // 3 components (red green blue)
+                         image.width,           // x size from image
+                         image.height,          // y size from image
+                         0,                     // border 0 (normal)
+                         gl.GL_RGB,             // rgb color data
+                         gl.GL_UNSIGNED_BYTE,   // unsigned byte data
+                         image.buffer);         // the actual data
 
 gl.glShadeModel(gl.GL_SMOOTH);
 gl.glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -115,4 +106,4 @@ setInterval(function() {
   xrot+=15.0;		                // X Axis Rotation	
   yrot+=15.0;		                // Y Axis Rotation
   zrot+=15.0;		                // Z Axis Rotation
-}, 30);
+}, 1000/20)

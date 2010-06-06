@@ -15,7 +15,7 @@
 echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
-
+$methodsNotImplemented = 0;
 $matchedMethods = array();
 $files = array("gl.h", "glu.h");//, "glut.h", "glx.h");
 foreach ($files as $currentFile)
@@ -145,8 +145,8 @@ foreach ($files as $currentFile)
         
         // convert types to v8.
         if ($type == "GLbyte" || $type == "GLshort" ||
-                 $type == "GLint"  || $type == "GLubyte" ||
-                 $type == "GLsizei" || $type == "GLenum")
+            $type == "GLint"  || $type == "GLubyte" ||
+            $type == "GLsizei" || $type == "GLenum")
         {
           array_push($params, "($type) args[$idx]->Int32Value()");
         }
@@ -170,14 +170,7 @@ foreach ($files as $currentFile)
         $type = "";
         $argument = "";
 
-        
-        if ($type == "GLbyte" || $type == "GLshort" ||
-            $type == "GLint" || $type == "GLubyte" ||
-            $type == "GLsizei")
-        {
-          $inner .= "Integer::New({$methodParts[2]});";
-        }
-        else if ($type == "GLboolean") {
+        if ($type == "GLboolean") {
           $inner .= "Boolean::New({$methodParts[2]});";
         }
         else 
@@ -201,10 +194,13 @@ foreach ($files as $currentFile)
       foreach ($args as $idx=>$arg)
       {
         $implemented = true;
+        $doublePointer = (strpos($arg, "**") !== false);
         $pointer = (strpos($arg, "*") !== false);
 
-        $arg = str_replace("*", "", $arg);
+        $pointer = ($pointer || strpos($arg, "[") !== false);
 
+        $arg = str_replace("*", "", $arg);
+        $arg = str_replace("const ", "", $arg);
         $type = "";
         $argument = "";
         $ex = explode(" ", str_replace("  ", " ", trim($arg)));
@@ -216,16 +212,32 @@ foreach ($files as $currentFile)
 
         $variable = "  $prefix $type _$argument = ($type)";
 
+/*
+    Local<Object> arg1 = args[1]->ToObject();
+    arg1->Set(String::NewSymbol("value"), Number::New(_textures));
+
+
+*/
+
+        // TODO TODO TODO TODO
+        if (strpos($arg, "[") !== false) {
+          $methodsNotImplemented++;
+          $implemented = false;
+          $body .= "\n    return ThrowException(Exception::Error(\n"
+                .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
+          break;
+        }
+
+
         if ($type == "GLbyte"  ||
             $type == "GLshort" ||
             $type == "GLint"   ||
             $type == "GLubyte" ||
             $type == "GLsizei" ||
             $type == "GLenum"  || 
-            $type == "GLboolean")
+            $type == "GLboolean"
+            )
         {
-
-          
           $inner .= $variable . "args[$idx]->Int32Value();\n";
           if ($pointer) {
             array_push($params, "&_$argument");
@@ -235,7 +247,9 @@ foreach ($files as $currentFile)
           }
           
         }
-        else if ($type == "GLuint")
+        else if ($type == "GLuint" ||
+                 $type == "GLubyte" || 
+                 $type == "GLushort")
         {
           $inner .= $variable . "args[$idx]->Uint32Value();\n";
           if ($pointer) {
@@ -244,8 +258,22 @@ foreach ($files as $currentFile)
           } else {
             array_push($params, "_$argument");
           }
-        }        
-        else if ($type == "GLvoid")
+        }
+        else if ($type == "GLclampf" || 
+                 $type == "GLfloat"  ||
+                 $type == "GLdouble" ||
+                 $type == "GLclampd") 
+        {
+          $inner .= $variable . "args[$idx]->NumberValue();\n";
+          if ($pointer) {
+            array_push($params, "&_$argument");
+            $after .= "\n    args[$idx] = Number::New(_$argument);\n";  
+          } else {
+            array_push($params, "_$argument");
+          }
+        }
+        else if ($type == "GLvoid" ||
+                 $type == "void")
         {
           $inner .= "    // must be a pointer to a buffer.\n";
           $inner .= "    if (!Buffer::HasInstance(args[{$idx}])) {\n";
@@ -254,14 +282,16 @@ foreach ($files as $currentFile)
           $inner .= "    }\n";
           $inner .= "    Buffer * {$argument}_buffer = ObjectWrap::Unwrap<Buffer>(args[{$idx}]->ToObject());\n";
           $inner .= "  $prefix $type *_$argument = ($type *){$argument}_buffer->data();\n";
-          if ($pointer) {
-            array_push($params, "&_$argument");
-          } else {
+          if (!$doublePointer) {
             array_push($params, "_$argument");
+          } else {
+            array_push($params, "&_$argument");
           }
         }
         else
         {
+          echo " - {$methodParts[2]} is not implemented\n";
+          $methodsNotImplemented++;
           $implemented = false;
           $body .= "\n    return ThrowException(Exception::Error(\n"
                 .  "    String::New(\"{$methodParts[2]} is not implemented!\")));\n";
@@ -308,3 +338,5 @@ foreach ($files as $currentFile)
   file_put_contents($cwd . "/../src/$name.h", $header);
   echo "-------------------------\n\n";
 }
+
+echo "$methodsNotImplemented of " . count($matchedMethods) .  " methods not implemented\n\n";

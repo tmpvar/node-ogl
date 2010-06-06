@@ -207,7 +207,7 @@ namespace node {
    */
   Handle<Value> gl_glPolygonStipple(const Arguments& args) {
     HandleScope scope;
-    const GLubyte _mask = (GLubyte)args[0]->Int32Value();
+    GLubyte _mask = (GLubyte)args[0]->Int32Value();
     glPolygonStipple(&_mask);
     args[0] = Number::New(_mask);
 
@@ -249,7 +249,7 @@ namespace node {
    */
   Handle<Value> gl_glEdgeFlagv(const Arguments& args) {
     HandleScope scope;
-    const GLboolean _flag = (GLboolean)args[0]->Int32Value();
+    GLboolean _flag = (GLboolean)args[0]->Int32Value();
     glEdgeFlagv(&_flag);
     args[0] = Number::New(_flag);
 
@@ -280,9 +280,10 @@ namespace node {
    */
   Handle<Value> gl_glClipPlane(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glClipPlane is not implemented!")));
+    GLenum _plane = (GLenum)args[0]->Int32Value();
+    GLdouble _equation = (GLdouble)args[1]->NumberValue();
+    glClipPlane(_plane, &_equation);
+    args[1] = Number::New(_equation);
 
   }
 
@@ -296,9 +297,10 @@ namespace node {
    */
   Handle<Value> gl_glGetClipPlane(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetClipPlane is not implemented!")));
+    GLenum _plane = (GLenum)args[0]->Int32Value();
+    GLdouble _equation = (GLdouble)args[1]->NumberValue();
+    glGetClipPlane(_plane, &_equation);
+    args[1] = Number::New(_equation);
 
   }
 
@@ -413,9 +415,10 @@ namespace node {
    */
   Handle<Value> gl_glGetDoublev(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetDoublev is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLdouble _params = (GLdouble)args[1]->NumberValue();
+    glGetDoublev(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -429,9 +432,10 @@ namespace node {
    */
   Handle<Value> gl_glGetFloatv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetFloatv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLfloat _params = (GLfloat)args[1]->NumberValue();
+    glGetFloatv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -512,7 +516,7 @@ namespace node {
    */
   Handle<Value> gl_glGetError(const Arguments& args) {
     HandleScope scope;
-    return scope.Close(Number::New(glGetError()));
+    glGetError();
   }
 
 
@@ -720,9 +724,9 @@ namespace node {
    */
   Handle<Value> gl_glLoadMatrixd(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLoadMatrixd is not implemented!")));
+    GLdouble _m = (GLdouble)args[0]->NumberValue();
+    glLoadMatrixd(&_m);
+    args[0] = Number::New(_m);
 
   }
 
@@ -735,9 +739,9 @@ namespace node {
    */
   Handle<Value> gl_glLoadMatrixf(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLoadMatrixf is not implemented!")));
+    GLfloat _m = (GLfloat)args[0]->NumberValue();
+    glLoadMatrixf(&_m);
+    args[0] = Number::New(_m);
 
   }
 
@@ -750,9 +754,9 @@ namespace node {
    */
   Handle<Value> gl_glMultMatrixd(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultMatrixd is not implemented!")));
+    GLdouble _m = (GLdouble)args[0]->NumberValue();
+    glMultMatrixd(&_m);
+    args[0] = Number::New(_m);
 
   }
 
@@ -765,9 +769,9 @@ namespace node {
    */
   Handle<Value> gl_glMultMatrixf(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultMatrixf is not implemented!")));
+    GLfloat _m = (GLfloat)args[0]->NumberValue();
+    glMultMatrixf(&_m);
+    args[0] = Number::New(_m);
 
   }
 
@@ -947,8 +951,8 @@ namespace node {
                               String::New("2nth argument needs to be a buffer")));
     }
     Buffer * lists_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    const GLvoid *_lists = (GLvoid *)lists_buffer->data();
-    glCallLists(_n, _type, &_lists);
+    GLvoid *_lists = (GLvoid *)lists_buffer->data();
+    glCallLists(_n, _type, _lists);
   }
 
 
@@ -1161,9 +1165,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex2dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex2dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glVertex2dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1176,9 +1180,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex2fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex2fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glVertex2fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1191,7 +1195,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glVertex2iv(&_v);
     args[0] = Number::New(_v);
 
@@ -1206,7 +1210,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex2sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glVertex2sv(&_v);
     args[0] = Number::New(_v);
 
@@ -1221,9 +1225,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex3dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glVertex3dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1236,9 +1240,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex3fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glVertex3fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1251,7 +1255,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glVertex3iv(&_v);
     args[0] = Number::New(_v);
 
@@ -1266,7 +1270,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex3sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glVertex3sv(&_v);
     args[0] = Number::New(_v);
 
@@ -1281,9 +1285,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex4dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex4dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glVertex4dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1296,9 +1300,9 @@ namespace node {
    */
   Handle<Value> gl_glVertex4fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glVertex4fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glVertex4fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1311,7 +1315,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glVertex4iv(&_v);
     args[0] = Number::New(_v);
 
@@ -1326,7 +1330,7 @@ namespace node {
    */
   Handle<Value> gl_glVertex4sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glVertex4sv(&_v);
     args[0] = Number::New(_v);
 
@@ -1411,7 +1415,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3bv(const Arguments& args) {
     HandleScope scope;
-    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    GLbyte _v = (GLbyte)args[0]->Int32Value();
     glNormal3bv(&_v);
     args[0] = Number::New(_v);
 
@@ -1426,9 +1430,9 @@ namespace node {
    */
   Handle<Value> gl_glNormal3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormal3dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glNormal3dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1441,9 +1445,9 @@ namespace node {
    */
   Handle<Value> gl_glNormal3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glNormal3fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glNormal3fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1456,7 +1460,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glNormal3iv(&_v);
     args[0] = Number::New(_v);
 
@@ -1471,7 +1475,7 @@ namespace node {
    */
   Handle<Value> gl_glNormal3sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glNormal3sv(&_v);
     args[0] = Number::New(_v);
 
@@ -1546,9 +1550,9 @@ namespace node {
    */
   Handle<Value> gl_glIndexdv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexdv is not implemented!")));
+    GLdouble _c = (GLdouble)args[0]->NumberValue();
+    glIndexdv(&_c);
+    args[0] = Number::New(_c);
 
   }
 
@@ -1561,9 +1565,9 @@ namespace node {
    */
   Handle<Value> gl_glIndexfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glIndexfv is not implemented!")));
+    GLfloat _c = (GLfloat)args[0]->NumberValue();
+    glIndexfv(&_c);
+    args[0] = Number::New(_c);
 
   }
 
@@ -1576,7 +1580,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexiv(const Arguments& args) {
     HandleScope scope;
-    const GLint _c = (GLint)args[0]->Int32Value();
+    GLint _c = (GLint)args[0]->Int32Value();
     glIndexiv(&_c);
     args[0] = Number::New(_c);
 
@@ -1591,7 +1595,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexsv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _c = (GLshort)args[0]->Int32Value();
+    GLshort _c = (GLshort)args[0]->Int32Value();
     glIndexsv(&_c);
     args[0] = Number::New(_c);
 
@@ -1606,7 +1610,7 @@ namespace node {
    */
   Handle<Value> gl_glIndexubv(const Arguments& args) {
     HandleScope scope;
-    const GLubyte _c = (GLubyte)args[0]->Int32Value();
+    GLubyte _c = (GLubyte)args[0]->Int32Value();
     glIndexubv(&_c);
     args[0] = Number::New(_c);
 
@@ -1853,7 +1857,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3bv(const Arguments& args) {
     HandleScope scope;
-    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    GLbyte _v = (GLbyte)args[0]->Int32Value();
     glColor3bv(&_v);
     args[0] = Number::New(_v);
 
@@ -1868,9 +1872,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glColor3dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1883,9 +1887,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glColor3fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1898,7 +1902,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glColor3iv(&_v);
     args[0] = Number::New(_v);
 
@@ -1913,7 +1917,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glColor3sv(&_v);
     args[0] = Number::New(_v);
 
@@ -1928,7 +1932,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3ubv(const Arguments& args) {
     HandleScope scope;
-    const GLubyte _v = (GLubyte)args[0]->Int32Value();
+    GLubyte _v = (GLubyte)args[0]->Int32Value();
     glColor3ubv(&_v);
     args[0] = Number::New(_v);
 
@@ -1943,7 +1947,7 @@ namespace node {
    */
   Handle<Value> gl_glColor3uiv(const Arguments& args) {
     HandleScope scope;
-    const GLuint _v = (GLuint)args[0]->Uint32Value();
+    GLuint _v = (GLuint)args[0]->Uint32Value();
     glColor3uiv(&_v);
     args[0] = Number::New(_v);
 
@@ -1958,9 +1962,9 @@ namespace node {
    */
   Handle<Value> gl_glColor3usv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor3usv is not implemented!")));
+    GLushort _v = (GLushort)args[0]->Uint32Value();
+    glColor3usv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -1973,7 +1977,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4bv(const Arguments& args) {
     HandleScope scope;
-    const GLbyte _v = (GLbyte)args[0]->Int32Value();
+    GLbyte _v = (GLbyte)args[0]->Int32Value();
     glColor4bv(&_v);
     args[0] = Number::New(_v);
 
@@ -1988,9 +1992,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glColor4dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2003,9 +2007,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glColor4fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2018,7 +2022,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glColor4iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2033,7 +2037,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glColor4sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2048,7 +2052,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4ubv(const Arguments& args) {
     HandleScope scope;
-    const GLubyte _v = (GLubyte)args[0]->Int32Value();
+    GLubyte _v = (GLubyte)args[0]->Int32Value();
     glColor4ubv(&_v);
     args[0] = Number::New(_v);
 
@@ -2063,7 +2067,7 @@ namespace node {
    */
   Handle<Value> gl_glColor4uiv(const Arguments& args) {
     HandleScope scope;
-    const GLuint _v = (GLuint)args[0]->Uint32Value();
+    GLuint _v = (GLuint)args[0]->Uint32Value();
     glColor4uiv(&_v);
     args[0] = Number::New(_v);
 
@@ -2078,9 +2082,9 @@ namespace node {
    */
   Handle<Value> gl_glColor4usv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColor4usv is not implemented!")));
+    GLushort _v = (GLushort)args[0]->Uint32Value();
+    glColor4usv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2309,9 +2313,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord1dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glTexCoord1dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2324,9 +2328,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord1fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glTexCoord1fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2339,7 +2343,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glTexCoord1iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2354,7 +2358,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord1sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glTexCoord1sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2369,9 +2373,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord2dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glTexCoord2dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2384,9 +2388,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord2fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glTexCoord2fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2399,7 +2403,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glTexCoord2iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2414,7 +2418,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord2sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glTexCoord2sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2429,9 +2433,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord3dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glTexCoord3dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2444,9 +2448,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord3fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glTexCoord3fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2459,7 +2463,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glTexCoord3iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2474,7 +2478,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord3sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glTexCoord3sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2489,9 +2493,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord4dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glTexCoord4dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2504,9 +2508,9 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexCoord4fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glTexCoord4fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2519,7 +2523,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glTexCoord4iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2534,7 +2538,7 @@ namespace node {
    */
   Handle<Value> gl_glTexCoord4sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glTexCoord4sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2717,9 +2721,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos2dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glRasterPos2dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2732,9 +2736,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos2fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glRasterPos2fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2747,7 +2751,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glRasterPos2iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2762,7 +2766,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos2sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glRasterPos2sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2777,9 +2781,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos3dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glRasterPos3dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2792,9 +2796,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos3fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glRasterPos3fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2807,7 +2811,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glRasterPos3iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2822,7 +2826,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos3sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glRasterPos3sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2837,9 +2841,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos4dv is not implemented!")));
+    GLdouble _v = (GLdouble)args[0]->NumberValue();
+    glRasterPos4dv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2852,9 +2856,9 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glRasterPos4fv is not implemented!")));
+    GLfloat _v = (GLfloat)args[0]->NumberValue();
+    glRasterPos4fv(&_v);
+    args[0] = Number::New(_v);
 
   }
 
@@ -2867,7 +2871,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4iv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v = (GLint)args[0]->Int32Value();
+    GLint _v = (GLint)args[0]->Int32Value();
     glRasterPos4iv(&_v);
     args[0] = Number::New(_v);
 
@@ -2882,7 +2886,7 @@ namespace node {
    */
   Handle<Value> gl_glRasterPos4sv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v = (GLshort)args[0]->Int32Value();
+    GLshort _v = (GLshort)args[0]->Int32Value();
     glRasterPos4sv(&_v);
     args[0] = Number::New(_v);
 
@@ -2958,9 +2962,12 @@ namespace node {
    */
   Handle<Value> gl_glRectdv(const Arguments& args) {
     HandleScope scope;
+    GLdouble _v1 = (GLdouble)args[0]->NumberValue();
+    GLdouble _v2 = (GLdouble)args[1]->NumberValue();
+    glRectdv(&_v1, &_v2);
+    args[0] = Number::New(_v1);
 
-    return ThrowException(Exception::Error(
-    String::New("glRectdv is not implemented!")));
+    args[1] = Number::New(_v2);
 
   }
 
@@ -2974,9 +2981,12 @@ namespace node {
    */
   Handle<Value> gl_glRectfv(const Arguments& args) {
     HandleScope scope;
+    GLfloat _v1 = (GLfloat)args[0]->NumberValue();
+    GLfloat _v2 = (GLfloat)args[1]->NumberValue();
+    glRectfv(&_v1, &_v2);
+    args[0] = Number::New(_v1);
 
-    return ThrowException(Exception::Error(
-    String::New("glRectfv is not implemented!")));
+    args[1] = Number::New(_v2);
 
   }
 
@@ -2990,8 +3000,8 @@ namespace node {
    */
   Handle<Value> gl_glRectiv(const Arguments& args) {
     HandleScope scope;
-    const GLint _v1 = (GLint)args[0]->Int32Value();
-    const GLint _v2 = (GLint)args[1]->Int32Value();
+    GLint _v1 = (GLint)args[0]->Int32Value();
+    GLint _v2 = (GLint)args[1]->Int32Value();
     glRectiv(&_v1, &_v2);
     args[0] = Number::New(_v1);
 
@@ -3009,8 +3019,8 @@ namespace node {
    */
   Handle<Value> gl_glRectsv(const Arguments& args) {
     HandleScope scope;
-    const GLshort _v1 = (GLshort)args[0]->Int32Value();
-    const GLshort _v2 = (GLshort)args[1]->Int32Value();
+    GLshort _v1 = (GLshort)args[0]->Int32Value();
+    GLshort _v2 = (GLshort)args[1]->Int32Value();
     glRectsv(&_v1, &_v2);
     args[0] = Number::New(_v1);
 
@@ -3039,8 +3049,8 @@ namespace node {
                               String::New("3nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glVertexPointer(_size, _type, _stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glVertexPointer(_size, _type, _stride, _ptr);
   }
 
 
@@ -3062,8 +3072,8 @@ namespace node {
                               String::New("2nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glNormalPointer(_type, _stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glNormalPointer(_type, _stride, _ptr);
   }
 
 
@@ -3087,8 +3097,8 @@ namespace node {
                               String::New("3nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glColorPointer(_size, _type, _stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glColorPointer(_size, _type, _stride, _ptr);
   }
 
 
@@ -3110,8 +3120,8 @@ namespace node {
                               String::New("2nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glIndexPointer(_type, _stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glIndexPointer(_type, _stride, _ptr);
   }
 
 
@@ -3135,8 +3145,8 @@ namespace node {
                               String::New("3nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glTexCoordPointer(_size, _type, _stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glTexCoordPointer(_size, _type, _stride, _ptr);
   }
 
 
@@ -3156,8 +3166,8 @@ namespace node {
                               String::New("1nth argument needs to be a buffer")));
     }
     Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[1]->ToObject());
-    const GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
-    glEdgeFlagPointer(_stride, &_ptr);
+    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    glEdgeFlagPointer(_stride, _ptr);
   }
 
 
@@ -3228,8 +3238,8 @@ namespace node {
                               String::New("3nth argument needs to be a buffer")));
     }
     Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    const GLvoid *_indices = (GLvoid *)indices_buffer->data();
-    glDrawElements(_mode, _count, _type, &_indices);
+    GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    glDrawElements(_mode, _count, _type, _indices);
   }
 
 
@@ -3251,8 +3261,8 @@ namespace node {
                               String::New("2nth argument needs to be a buffer")));
     }
     Buffer * pointer_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    const GLvoid *_pointer = (GLvoid *)pointer_buffer->data();
-    glInterleavedArrays(_format, _stride, &_pointer);
+    GLvoid *_pointer = (GLvoid *)pointer_buffer->data();
+    glInterleavedArrays(_format, _stride, _pointer);
   }
 
 
@@ -3306,9 +3316,11 @@ namespace node {
    */
   Handle<Value> gl_glLightfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLightfv is not implemented!")));
+    GLenum _light = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glLightfv(_light, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3325,7 +3337,7 @@ namespace node {
     HandleScope scope;
     GLenum _light = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glLightiv(_light, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -3342,9 +3354,11 @@ namespace node {
    */
   Handle<Value> gl_glGetLightfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetLightfv is not implemented!")));
+    GLenum _light = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetLightfv(_light, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3403,9 +3417,10 @@ namespace node {
    */
   Handle<Value> gl_glLightModelfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glLightModelfv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLfloat _params = (GLfloat)args[1]->NumberValue();
+    glLightModelfv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -3420,7 +3435,7 @@ namespace node {
   Handle<Value> gl_glLightModeliv(const Arguments& args) {
     HandleScope scope;
     GLenum _pname = (GLenum)args[0]->Int32Value();
-    const GLint _params = (GLint)args[1]->Int32Value();
+    GLint _params = (GLint)args[1]->Int32Value();
     glLightModeliv(_pname, &_params);
     args[1] = Number::New(_params);
 
@@ -3465,9 +3480,11 @@ namespace node {
    */
   Handle<Value> gl_glMaterialfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMaterialfv is not implemented!")));
+    GLenum _face = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glMaterialfv(_face, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3484,7 +3501,7 @@ namespace node {
     HandleScope scope;
     GLenum _face = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glMaterialiv(_face, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -3501,9 +3518,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMaterialfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMaterialfv is not implemented!")));
+    GLenum _face = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetMaterialfv(_face, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3615,9 +3634,11 @@ namespace node {
    */
   Handle<Value> gl_glPixelMapfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glPixelMapfv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLsizei _mapsize = (GLsizei)args[1]->Int32Value();
+    GLfloat _values = (GLfloat)args[2]->NumberValue();
+    glPixelMapfv(_map, _mapsize, &_values);
+    args[2] = Number::New(_values);
 
   }
 
@@ -3634,7 +3655,7 @@ namespace node {
     HandleScope scope;
     GLenum _map = (GLenum)args[0]->Int32Value();
     GLsizei _mapsize = (GLsizei)args[1]->Int32Value();
-    const GLuint _values = (GLuint)args[2]->Uint32Value();
+    GLuint _values = (GLuint)args[2]->Uint32Value();
     glPixelMapuiv(_map, _mapsize, &_values);
     args[2] = Number::New(_values);
 
@@ -3651,9 +3672,11 @@ namespace node {
    */
   Handle<Value> gl_glPixelMapusv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glPixelMapusv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLsizei _mapsize = (GLsizei)args[1]->Int32Value();
+    GLushort _values = (GLushort)args[2]->Uint32Value();
+    glPixelMapusv(_map, _mapsize, &_values);
+    args[2] = Number::New(_values);
 
   }
 
@@ -3667,9 +3690,10 @@ namespace node {
    */
   Handle<Value> gl_glGetPixelMapfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetPixelMapfv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLfloat _values = (GLfloat)args[1]->NumberValue();
+    glGetPixelMapfv(_map, &_values);
+    args[1] = Number::New(_values);
 
   }
 
@@ -3700,9 +3724,10 @@ namespace node {
    */
   Handle<Value> gl_glGetPixelMapusv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetPixelMapusv is not implemented!")));
+    GLenum _map = (GLenum)args[0]->Int32Value();
+    GLushort _values = (GLushort)args[1]->Uint32Value();
+    glGetPixelMapusv(_map, &_values);
+    args[1] = Number::New(_values);
 
   }
 
@@ -3721,9 +3746,15 @@ namespace node {
    */
   Handle<Value> gl_glBitmap(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glBitmap is not implemented!")));
+    GLsizei _width = (GLsizei)args[0]->Int32Value();
+    GLsizei _height = (GLsizei)args[1]->Int32Value();
+    GLfloat _xorig = (GLfloat)args[2]->NumberValue();
+    GLfloat _yorig = (GLfloat)args[3]->NumberValue();
+    GLfloat _xmove = (GLfloat)args[4]->NumberValue();
+    GLfloat _ymove = (GLfloat)args[5]->NumberValue();
+    GLubyte _bitmap = (GLubyte)args[6]->Int32Value();
+    glBitmap(_width, _height, _xorig, _yorig, _xmove, _ymove, &_bitmap);
+    args[6] = Number::New(_bitmap);
 
   }
 
@@ -3755,7 +3786,7 @@ namespace node {
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
     GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glReadPixels(_x, _y, _width, _height, _format, _type, &_pixels);
+    glReadPixels(_x, _y, _width, _height, _format, _type, _pixels);
   }
 
 
@@ -3781,8 +3812,8 @@ namespace node {
                               String::New("4nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glDrawPixels(_width, _height, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glDrawPixels(_width, _height, _format, _type, _pixels);
   }
 
 
@@ -3906,9 +3937,11 @@ namespace node {
    */
   Handle<Value> gl_glTexGendv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexGendv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLdouble _params = (GLdouble)args[2]->NumberValue();
+    glTexGendv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3923,9 +3956,11 @@ namespace node {
    */
   Handle<Value> gl_glTexGenfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexGenfv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glTexGenfv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3942,7 +3977,7 @@ namespace node {
     HandleScope scope;
     GLenum _coord = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glTexGeniv(_coord, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -3959,9 +3994,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexGendv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexGendv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLdouble _params = (GLdouble)args[2]->NumberValue();
+    glGetTexGendv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -3976,9 +4013,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexGenfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexGenfv is not implemented!")));
+    GLenum _coord = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetTexGenfv(_coord, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4040,9 +4079,11 @@ namespace node {
    */
   Handle<Value> gl_glTexEnvfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexEnvfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glTexEnvfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4059,7 +4100,7 @@ namespace node {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glTexEnviv(_target, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -4076,9 +4117,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexEnvfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexEnvfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetTexEnvfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4140,9 +4183,11 @@ namespace node {
    */
   Handle<Value> gl_glTexParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glTexParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glTexParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4159,7 +4204,7 @@ namespace node {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glTexParameteriv(_target, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -4176,9 +4221,11 @@ namespace node {
    */
   Handle<Value> gl_glGetTexParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetTexParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -4213,9 +4260,12 @@ namespace node {
    */
   Handle<Value> gl_glGetTexLevelParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetTexLevelParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _level = (GLint)args[1]->Int32Value();
+    GLenum _pname = (GLenum)args[2]->Int32Value();
+    GLfloat _params = (GLfloat)args[3]->NumberValue();
+    glGetTexLevelParameterfv(_target, _level, _pname, &_params);
+    args[3] = Number::New(_params);
 
   }
 
@@ -4269,8 +4319,8 @@ namespace node {
                               String::New("7nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexImage1D(_target, _level, _internalFormat, _width, _border, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage1D(_target, _level, _internalFormat, _width, _border, _format, _type, _pixels);
   }
 
 
@@ -4304,8 +4354,8 @@ namespace node {
                               String::New("8nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexImage2D(_target, _level, _internalFormat, _width, _height, _border, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage2D(_target, _level, _internalFormat, _width, _height, _border, _format, _type, _pixels);
   }
 
 
@@ -4332,11 +4382,10 @@ namespace node {
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
     GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glGetTexImage(_target, _level, _format, _type, &_pixels);
+    glGetTexImage(_target, _level, _format, _type, _pixels);
   }
 
 
-  static Persistent<String> value_symbol;
   /**
    * glGenTextures
    *
@@ -4347,12 +4396,10 @@ namespace node {
   Handle<Value> gl_glGenTextures(const Arguments& args) {
     HandleScope scope;
     GLsizei _n = (GLsizei)args[0]->Int32Value();
-    GLuint _textures;
+    GLuint _textures = (GLuint)args[1]->Uint32Value();
     glGenTextures(_n, &_textures);
+    args[1] = Number::New(_textures);
 
-    value_symbol = Persistent<String>::New(String::NewSymbol("value"));
-    Local<Object> arg1 = args[1]->ToObject();
-    arg1->Set(value_symbol, Number::New(_textures));
   }
 
 
@@ -4366,7 +4413,7 @@ namespace node {
   Handle<Value> gl_glDeleteTextures(const Arguments& args) {
     HandleScope scope;
     GLsizei _n = (GLsizei)args[0]->Int32Value();
-    const GLuint _textures = (GLuint)args[1]->Uint32Value();
+    GLuint _textures = (GLuint)args[1]->Uint32Value();
     glDeleteTextures(_n, &_textures);
     args[1] = Number::New(_textures);
 
@@ -4382,8 +4429,7 @@ namespace node {
    */
   Handle<Value> gl_glBindTexture(const Arguments& args) {
     HandleScope scope;
-    glBindTexture(GL_TEXTURE_2D, 1);
-    //glBindTexture((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
+    glBindTexture((GLenum) args[0]->Int32Value(), args[1]->NumberValue());
   }
 
 
@@ -4397,9 +4443,13 @@ namespace node {
    */
   Handle<Value> gl_glPrioritizeTextures(const Arguments& args) {
     HandleScope scope;
+    GLsizei _n = (GLsizei)args[0]->Int32Value();
+    GLuint _textures = (GLuint)args[1]->Uint32Value();
+    GLclampf _priorities = (GLclampf)args[2]->NumberValue();
+    glPrioritizeTextures(_n, &_textures, &_priorities);
+    args[1] = Number::New(_textures);
 
-    return ThrowException(Exception::Error(
-    String::New("glPrioritizeTextures is not implemented!")));
+    args[2] = Number::New(_priorities);
 
   }
 
@@ -4415,7 +4465,7 @@ namespace node {
   Handle<Value> gl_glAreTexturesResident(const Arguments& args) {
     HandleScope scope;
     GLsizei _n = (GLsizei)args[0]->Int32Value();
-    const GLuint _textures = (GLuint)args[1]->Uint32Value();
+    GLuint _textures = (GLuint)args[1]->Uint32Value();
     GLboolean _residences = (GLboolean)args[2]->Int32Value();
     glAreTexturesResident(_n, &_textures, &_residences);
     args[1] = Number::New(_textures);
@@ -4463,8 +4513,8 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexSubImage1D(_target, _level, _xoffset, _width, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage1D(_target, _level, _xoffset, _width, _format, _type, _pixels);
   }
 
 
@@ -4498,8 +4548,8 @@ namespace node {
                               String::New("8nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _type, _pixels);
   }
 
 
@@ -4589,9 +4639,14 @@ namespace node {
    */
   Handle<Value> gl_glMap1d(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMap1d is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _u1 = (GLdouble)args[1]->NumberValue();
+    GLdouble _u2 = (GLdouble)args[2]->NumberValue();
+    GLint _stride = (GLint)args[3]->Int32Value();
+    GLint _order = (GLint)args[4]->Int32Value();
+    GLdouble _points = (GLdouble)args[5]->NumberValue();
+    glMap1d(_target, _u1, _u2, _stride, _order, &_points);
+    args[5] = Number::New(_points);
 
   }
 
@@ -4609,9 +4664,14 @@ namespace node {
    */
   Handle<Value> gl_glMap1f(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMap1f is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _u1 = (GLfloat)args[1]->NumberValue();
+    GLfloat _u2 = (GLfloat)args[2]->NumberValue();
+    GLint _stride = (GLint)args[3]->Int32Value();
+    GLint _order = (GLint)args[4]->Int32Value();
+    GLfloat _points = (GLfloat)args[5]->NumberValue();
+    glMap1f(_target, _u1, _u2, _stride, _order, &_points);
+    args[5] = Number::New(_points);
 
   }
 
@@ -4633,9 +4693,18 @@ namespace node {
    */
   Handle<Value> gl_glMap2d(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMap2d is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _u1 = (GLdouble)args[1]->NumberValue();
+    GLdouble _u2 = (GLdouble)args[2]->NumberValue();
+    GLint _ustride = (GLint)args[3]->Int32Value();
+    GLint _uorder = (GLint)args[4]->Int32Value();
+    GLdouble _v1 = (GLdouble)args[5]->NumberValue();
+    GLdouble _v2 = (GLdouble)args[6]->NumberValue();
+    GLint _vstride = (GLint)args[7]->Int32Value();
+    GLint _vorder = (GLint)args[8]->Int32Value();
+    GLdouble _points = (GLdouble)args[9]->NumberValue();
+    glMap2d(_target, _u1, _u2, _ustride, _uorder, _v1, _v2, _vstride, _vorder, &_points);
+    args[9] = Number::New(_points);
 
   }
 
@@ -4657,9 +4726,18 @@ namespace node {
    */
   Handle<Value> gl_glMap2f(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMap2f is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _u1 = (GLfloat)args[1]->NumberValue();
+    GLfloat _u2 = (GLfloat)args[2]->NumberValue();
+    GLint _ustride = (GLint)args[3]->Int32Value();
+    GLint _uorder = (GLint)args[4]->Int32Value();
+    GLfloat _v1 = (GLfloat)args[5]->NumberValue();
+    GLfloat _v2 = (GLfloat)args[6]->NumberValue();
+    GLint _vstride = (GLint)args[7]->Int32Value();
+    GLint _vorder = (GLint)args[8]->Int32Value();
+    GLfloat _points = (GLfloat)args[9]->NumberValue();
+    glMap2f(_target, _u1, _u2, _ustride, _uorder, _v1, _v2, _vstride, _vorder, &_points);
+    args[9] = Number::New(_points);
 
   }
 
@@ -4674,9 +4752,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMapdv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMapdv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _query = (GLenum)args[1]->Int32Value();
+    GLdouble _v = (GLdouble)args[2]->NumberValue();
+    glGetMapdv(_target, _query, &_v);
+    args[2] = Number::New(_v);
 
   }
 
@@ -4691,9 +4771,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMapfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMapfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _query = (GLenum)args[1]->Int32Value();
+    GLfloat _v = (GLfloat)args[2]->NumberValue();
+    glGetMapfv(_target, _query, &_v);
+    args[2] = Number::New(_v);
 
   }
 
@@ -4749,9 +4831,9 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord1dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEvalCoord1dv is not implemented!")));
+    GLdouble _u = (GLdouble)args[0]->NumberValue();
+    glEvalCoord1dv(&_u);
+    args[0] = Number::New(_u);
 
   }
 
@@ -4764,9 +4846,9 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord1fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEvalCoord1fv is not implemented!")));
+    GLfloat _u = (GLfloat)args[0]->NumberValue();
+    glEvalCoord1fv(&_u);
+    args[0] = Number::New(_u);
 
   }
 
@@ -4805,9 +4887,9 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord2dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEvalCoord2dv is not implemented!")));
+    GLdouble _u = (GLdouble)args[0]->NumberValue();
+    glEvalCoord2dv(&_u);
+    args[0] = Number::New(_u);
 
   }
 
@@ -4820,9 +4902,9 @@ namespace node {
    */
   Handle<Value> gl_glEvalCoord2fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glEvalCoord2fv is not implemented!")));
+    GLfloat _u = (GLfloat)args[0]->NumberValue();
+    glEvalCoord2fv(&_u);
+    args[0] = Number::New(_u);
 
   }
 
@@ -4979,9 +5061,10 @@ namespace node {
    */
   Handle<Value> gl_glFogfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glFogfv is not implemented!")));
+    GLenum _pname = (GLenum)args[0]->Int32Value();
+    GLfloat _params = (GLfloat)args[1]->NumberValue();
+    glFogfv(_pname, &_params);
+    args[1] = Number::New(_params);
 
   }
 
@@ -4996,7 +5079,7 @@ namespace node {
   Handle<Value> gl_glFogiv(const Arguments& args) {
     HandleScope scope;
     GLenum _pname = (GLenum)args[0]->Int32Value();
-    const GLint _params = (GLint)args[1]->Int32Value();
+    GLint _params = (GLint)args[1]->Int32Value();
     glFogiv(_pname, &_params);
     args[1] = Number::New(_params);
 
@@ -5013,9 +5096,11 @@ namespace node {
    */
   Handle<Value> gl_glFeedbackBuffer(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glFeedbackBuffer is not implemented!")));
+    GLsizei _size = (GLsizei)args[0]->Int32Value();
+    GLenum _type = (GLenum)args[1]->Int32Value();
+    GLfloat _buffer = (GLfloat)args[2]->NumberValue();
+    glFeedbackBuffer(_size, _type, &_buffer);
+    args[2] = Number::New(_buffer);
 
   }
 
@@ -5115,8 +5200,8 @@ namespace node {
                               String::New("5nth argument needs to be a buffer")));
     }
     Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    const GLvoid *_indices = (GLvoid *)indices_buffer->data();
-    glDrawRangeElements(_mode, _start, _end, _count, _type, &_indices);
+    GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    glDrawRangeElements(_mode, _start, _end, _count, _type, _indices);
   }
 
 
@@ -5152,8 +5237,8 @@ namespace node {
                               String::New("9nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexImage3D(_target, _level, _internalFormat, _width, _height, _depth, _border, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexImage3D(_target, _level, _internalFormat, _width, _height, _depth, _border, _format, _type, _pixels);
   }
 
 
@@ -5191,8 +5276,8 @@ namespace node {
                               String::New("10nth argument needs to be a buffer")));
     }
     Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    const GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
-    glTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _type, &_pixels);
+    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    glTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _type, _pixels);
   }
 
 
@@ -5240,8 +5325,8 @@ namespace node {
                               String::New("5nth argument needs to be a buffer")));
     }
     Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    const GLvoid *_table = (GLvoid *)table_buffer->data();
-    glColorTable(_target, _internalformat, _width, _format, _type, &_table);
+    GLvoid *_table = (GLvoid *)table_buffer->data();
+    glColorTable(_target, _internalformat, _width, _format, _type, _table);
   }
 
 
@@ -5269,8 +5354,8 @@ namespace node {
                               String::New("5nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glColorSubTable(_target, _start, _count, _format, _type, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glColorSubTable(_target, _start, _count, _format, _type, _data);
   }
 
 
@@ -5286,7 +5371,7 @@ namespace node {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glColorTableParameteriv(_target, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -5303,9 +5388,11 @@ namespace node {
    */
   Handle<Value> gl_glColorTableParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glColorTableParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glColorTableParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5363,7 +5450,7 @@ namespace node {
     }
     Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
     GLvoid *_table = (GLvoid *)table_buffer->data();
-    glGetColorTable(_target, _format, _type, &_table);
+    glGetColorTable(_target, _format, _type, _table);
   }
 
 
@@ -5377,9 +5464,11 @@ namespace node {
    */
   Handle<Value> gl_glGetColorTableParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetColorTableParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetColorTableParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5480,7 +5569,7 @@ namespace node {
     }
     Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
     GLvoid *_values = (GLvoid *)values_buffer->data();
-    glGetHistogram(_target, _reset, _format, _type, &_values);
+    glGetHistogram(_target, _reset, _format, _type, _values);
   }
 
 
@@ -5494,9 +5583,11 @@ namespace node {
    */
   Handle<Value> gl_glGetHistogramParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetHistogramParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetHistogramParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5569,7 +5660,7 @@ namespace node {
     }
     Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
     GLvoid *_values = (GLvoid *)values_buffer->data();
-    glGetMinmax(_target, _reset, _format, _types, &_values);
+    glGetMinmax(_target, _reset, _format, _types, _values);
   }
 
 
@@ -5583,9 +5674,11 @@ namespace node {
    */
   Handle<Value> gl_glGetMinmaxParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetMinmaxParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetMinmaxParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5633,8 +5726,8 @@ namespace node {
                               String::New("5nth argument needs to be a buffer")));
     }
     Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    const GLvoid *_image = (GLvoid *)image_buffer->data();
-    glConvolutionFilter1D(_target, _internalformat, _width, _format, _type, &_image);
+    GLvoid *_image = (GLvoid *)image_buffer->data();
+    glConvolutionFilter1D(_target, _internalformat, _width, _format, _type, _image);
   }
 
 
@@ -5664,8 +5757,8 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    const GLvoid *_image = (GLvoid *)image_buffer->data();
-    glConvolutionFilter2D(_target, _internalformat, _width, _height, _format, _type, &_image);
+    GLvoid *_image = (GLvoid *)image_buffer->data();
+    glConvolutionFilter2D(_target, _internalformat, _width, _height, _format, _type, _image);
   }
 
 
@@ -5693,9 +5786,11 @@ namespace node {
    */
   Handle<Value> gl_glConvolutionParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glConvolutionParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glConvolutionParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5726,7 +5821,7 @@ namespace node {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
     GLenum _pname = (GLenum)args[1]->Int32Value();
-    const GLint _params = (GLint)args[2]->Int32Value();
+    GLint _params = (GLint)args[2]->Int32Value();
     glConvolutionParameteriv(_target, _pname, &_params);
     args[2] = Number::New(_params);
 
@@ -5787,7 +5882,7 @@ namespace node {
     }
     Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
     GLvoid *_image = (GLvoid *)image_buffer->data();
-    glGetConvolutionFilter(_target, _format, _type, &_image);
+    glGetConvolutionFilter(_target, _format, _type, _image);
   }
 
 
@@ -5801,9 +5896,11 @@ namespace node {
    */
   Handle<Value> gl_glGetConvolutionParameterfv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glGetConvolutionParameterfv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLenum _pname = (GLenum)args[1]->Int32Value();
+    GLfloat _params = (GLfloat)args[2]->NumberValue();
+    glGetConvolutionParameterfv(_target, _pname, &_params);
+    args[2] = Number::New(_params);
 
   }
 
@@ -5854,15 +5951,15 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * row_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    const GLvoid *_row = (GLvoid *)row_buffer->data();
+    GLvoid *_row = (GLvoid *)row_buffer->data();
     // must be a pointer to a buffer.
     if (!Buffer::HasInstance(args[7])) {
         return ThrowException(Exception::Error(
                               String::New("7nth argument needs to be a buffer")));
     }
     Buffer * column_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    const GLvoid *_column = (GLvoid *)column_buffer->data();
-    glSeparableFilter2D(_target, _internalformat, _width, _height, _format, _type, &_row, &_column);
+    GLvoid *_column = (GLvoid *)column_buffer->data();
+    glSeparableFilter2D(_target, _internalformat, _width, _height, _format, _type, _row, _column);
   }
 
 
@@ -5903,7 +6000,7 @@ namespace node {
     }
     Buffer * span_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
     GLvoid *_span = (GLvoid *)span_buffer->data();
-    glGetSeparableFilter(_target, _format, _type, &_row, &_column, &_span);
+    glGetSeparableFilter(_target, _format, _type, _row, _column, _span);
   }
 
 
@@ -5957,8 +6054,8 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexImage1D(_target, _level, _internalformat, _width, _border, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage1D(_target, _level, _internalformat, _width, _border, _imageSize, _data);
   }
 
 
@@ -5990,8 +6087,8 @@ namespace node {
                               String::New("7nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexImage2D(_target, _level, _internalformat, _width, _height, _border, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage2D(_target, _level, _internalformat, _width, _height, _border, _imageSize, _data);
   }
 
 
@@ -6025,8 +6122,8 @@ namespace node {
                               String::New("8nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexImage3D(_target, _level, _internalformat, _width, _height, _depth, _border, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexImage3D(_target, _level, _internalformat, _width, _height, _depth, _border, _imageSize, _data);
   }
 
 
@@ -6056,8 +6153,8 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexSubImage1D(_target, _level, _xoffset, _width, _format, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage1D(_target, _level, _xoffset, _width, _format, _imageSize, _data);
   }
 
 
@@ -6091,8 +6188,8 @@ namespace node {
                               String::New("8nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _imageSize, _data);
   }
 
 
@@ -6130,8 +6227,8 @@ namespace node {
                               String::New("10nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    const GLvoid *_data = (GLvoid *)data_buffer->data();
-    glCompressedTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _imageSize, &_data);
+    GLvoid *_data = (GLvoid *)data_buffer->data();
+    glCompressedTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _imageSize, _data);
   }
 
 
@@ -6154,7 +6251,7 @@ namespace node {
     }
     Buffer * img_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
     GLvoid *_img = (GLvoid *)img_buffer->data();
-    glGetCompressedTexImage(_target, _lod, &_img);
+    glGetCompressedTexImage(_target, _lod, _img);
   }
 
 
@@ -6180,9 +6277,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1dv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord1dv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6209,9 +6307,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1fv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord1fv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6239,7 +6338,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1iv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord1iv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6269,7 +6368,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1sv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord1sv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6299,9 +6398,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2dv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord2dv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6329,9 +6429,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2fv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord2fv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6360,7 +6461,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2iv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord2iv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6391,7 +6492,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2sv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord2sv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6422,9 +6523,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3dv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord3dv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6453,9 +6555,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3fv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord3fv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6485,7 +6588,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3iv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord3iv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6517,7 +6620,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3sv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord3sv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6549,9 +6652,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4dv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4dv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord4dv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6581,9 +6685,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4fv(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4fv is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord4fv(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6614,7 +6719,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4iv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord4iv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6647,7 +6752,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4sv(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord4sv(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6773,9 +6878,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1dvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1dvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord1dvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6802,9 +6908,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord1fvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord1fvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord1fvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6832,7 +6939,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1ivARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord1ivARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6862,7 +6969,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord1svARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord1svARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6892,9 +6999,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2dvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2dvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord2dvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6922,9 +7030,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord2fvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord2fvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord2fvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -6953,7 +7062,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2ivARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord2ivARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -6984,7 +7093,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord2svARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord2svARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -7015,9 +7124,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3dvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3dvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord3dvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -7046,9 +7156,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord3fvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord3fvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord3fvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -7078,7 +7189,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3ivARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord3ivARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -7110,7 +7221,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord3svARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord3svARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -7142,9 +7253,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4dvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4dvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLdouble _v = (GLdouble)args[1]->NumberValue();
+    glMultiTexCoord4dvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -7174,9 +7286,10 @@ namespace node {
    */
   Handle<Value> gl_glMultiTexCoord4fvARB(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("glMultiTexCoord4fvARB is not implemented!")));
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLfloat _v = (GLfloat)args[1]->NumberValue();
+    glMultiTexCoord4fvARB(_target, &_v);
+    args[1] = Number::New(_v);
 
   }
 
@@ -7207,7 +7320,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4ivARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLint _v = (GLint)args[1]->Int32Value();
+    GLint _v = (GLint)args[1]->Int32Value();
     glMultiTexCoord4ivARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -7240,7 +7353,7 @@ namespace node {
   Handle<Value> gl_glMultiTexCoord4svARB(const Arguments& args) {
     HandleScope scope;
     GLenum _target = (GLenum)args[0]->Int32Value();
-    const GLshort _v = (GLshort)args[1]->Int32Value();
+    GLshort _v = (GLshort)args[1]->Int32Value();
     glMultiTexCoord4svARB(_target, &_v);
     args[1] = Number::New(_v);
 
@@ -7425,9 +7538,14 @@ namespace node {
    */
   Handle<Value> gl_glGetProgramRegisterfvMESA(const Arguments& args) {
     HandleScope scope;
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLsizei _len = (GLsizei)args[1]->Int32Value();
+    GLubyte _name = (GLubyte)args[2]->Int32Value();
+    GLfloat _v = (GLfloat)args[3]->NumberValue();
+    glGetProgramRegisterfvMESA(_target, _len, &_name, &_v);
+    args[2] = Number::New(_name);
 
-    return ThrowException(Exception::Error(
-    String::New("glGetProgramRegisterfvMESA is not implemented!")));
+    args[3] = Number::New(_v);
 
   }
 
@@ -7447,19 +7565,11 @@ namespace node {
 
 
   // Constructor
-  gl::gl()
-  {
-  
-  }
+  gl::gl() { }
 
   void gl::Initialize(v8::Handle<v8::Object> target) {
     HandleScope scope;
-   /* Local<FunctionTemplate> t = FunctionTemplate::New(New);
-    
-    t->InstanceTemplate()->SetInternalFieldCount(1);
-    t->SetClassName(String::NewSymbol("gl"));
-    t->Inherit(EventEmitter::constructor_template);
-*/
+
     // Constants
     #ifdef GL_VERSION_1_1
     NODE_DEFINE_CONSTANT(target, GL_VERSION_1_1);
@@ -10710,8 +10820,6 @@ namespace node {
     #endif
 
 
-   // target->Set(String::NewSymbol("gl"), t->GetFunction());
-
     // Expose this classes methods to v8/javascript
     Local<FunctionTemplate> _gl_glClearIndex = FunctionTemplate::New(gl_glClearIndex);
     target->Set(String::New("glClearIndex"), _gl_glClearIndex->GetFunction());
@@ -12113,5 +12221,4 @@ namespace node {
 
 
   }
-
 }  // namespace node

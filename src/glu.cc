@@ -84,10 +84,22 @@ namespace node {
    */
   Handle<Value> glu_gluBuild1DMipmapLevels(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild1DMipmapLevels is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLenum _format = (GLenum)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    GLint _level = (GLint)args[5]->Int32Value();
+    GLint _base = (GLint)args[6]->Int32Value();
+    GLint _max = (GLint)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild1DMipmapLevels(_target, _internalFormat, _width, _format, _type, _level, _base, _max, _data);
   }
 
 
@@ -104,10 +116,19 @@ namespace node {
    */
   Handle<Value> glu_gluBuild1DMipmaps(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild1DMipmaps is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLenum _format = (GLenum)args[3]->Int32Value();
+    GLenum _type = (GLenum)args[4]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[5])) {
+        return ThrowException(Exception::Error(
+                              String::New("5nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild1DMipmaps(_target, _internalFormat, _width, _format, _type, _data);
   }
 
 
@@ -128,10 +149,23 @@ namespace node {
    */
   Handle<Value> glu_gluBuild2DMipmapLevels(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild2DMipmapLevels is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    GLint _level = (GLint)args[6]->Int32Value();
+    GLint _base = (GLint)args[7]->Int32Value();
+    GLint _max = (GLint)args[8]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[9])) {
+        return ThrowException(Exception::Error(
+                              String::New("9nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild2DMipmapLevels(_target, _internalFormat, _width, _height, _format, _type, _level, _base, _max, _data);
   }
 
 
@@ -149,10 +183,20 @@ namespace node {
    */
   Handle<Value> glu_gluBuild2DMipmaps(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild2DMipmaps is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLenum _format = (GLenum)args[4]->Int32Value();
+    GLenum _type = (GLenum)args[5]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[6])) {
+        return ThrowException(Exception::Error(
+                              String::New("6nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild2DMipmaps(_target, _internalFormat, _width, _height, _format, _type, _data);
   }
 
 
@@ -174,10 +218,24 @@ namespace node {
    */
   Handle<Value> glu_gluBuild3DMipmapLevels(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild3DMipmapLevels is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLsizei _depth = (GLsizei)args[4]->Int32Value();
+    GLenum _format = (GLenum)args[5]->Int32Value();
+    GLenum _type = (GLenum)args[6]->Int32Value();
+    GLint _level = (GLint)args[7]->Int32Value();
+    GLint _base = (GLint)args[8]->Int32Value();
+    GLint _max = (GLint)args[9]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[10])) {
+        return ThrowException(Exception::Error(
+                              String::New("10nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild3DMipmapLevels(_target, _internalFormat, _width, _height, _depth, _format, _type, _level, _base, _max, _data);
   }
 
 
@@ -196,10 +254,21 @@ namespace node {
    */
   Handle<Value> glu_gluBuild3DMipmaps(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluBuild3DMipmaps is not implemented!")));
-
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLint _internalFormat = (GLint)args[1]->Int32Value();
+    GLsizei _width = (GLsizei)args[2]->Int32Value();
+    GLsizei _height = (GLsizei)args[3]->Int32Value();
+    GLsizei _depth = (GLsizei)args[4]->Int32Value();
+    GLenum _format = (GLenum)args[5]->Int32Value();
+    GLenum _type = (GLenum)args[6]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[7])) {
+        return ThrowException(Exception::Error(
+                              String::New("7nth argument needs to be a buffer")));
+    }
+    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
+    void *_data = (void *)data_buffer->data();
+    gluBuild3DMipmaps(_target, _internalFormat, _width, _height, _depth, _format, _type, _data);
   }
 
 
@@ -212,8 +281,8 @@ namespace node {
    */
   Handle<Value> glu_gluCheckExtension(const Arguments& args) {
     HandleScope scope;
-    const GLubyte _extName = (GLubyte)args[0]->Int32Value();
-    const GLubyte _extString = (GLubyte)args[1]->Int32Value();
+    GLubyte _extName = (GLubyte)args[0]->Int32Value();
+    GLubyte _extString = (GLubyte)args[1]->Int32Value();
     gluCheckExtension(&_extName, &_extString);
     args[0] = Number::New(_extName);
 
@@ -629,9 +698,13 @@ namespace node {
    */
   Handle<Value> glu_gluPickMatrix(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluPickMatrix is not implemented!")));
+    GLdouble _x = (GLdouble)args[0]->NumberValue();
+    GLdouble _y = (GLdouble)args[1]->NumberValue();
+    GLdouble _delX = (GLdouble)args[2]->NumberValue();
+    GLdouble _delY = (GLdouble)args[3]->NumberValue();
+    GLint _viewport = (GLint)args[4]->Int32Value();
+    gluPickMatrix(_x, _y, _delX, _delY, &_viewport);
+    args[4] = Number::New(_viewport);
 
   }
 
@@ -652,9 +725,27 @@ namespace node {
    */
   Handle<Value> glu_gluProject(const Arguments& args) {
     HandleScope scope;
+    GLdouble _objX = (GLdouble)args[0]->NumberValue();
+    GLdouble _objY = (GLdouble)args[1]->NumberValue();
+    GLdouble _objZ = (GLdouble)args[2]->NumberValue();
+    GLdouble _model = (GLdouble)args[3]->NumberValue();
+    GLdouble _proj = (GLdouble)args[4]->NumberValue();
+    GLint _view = (GLint)args[5]->Int32Value();
+    GLdouble _winX = (GLdouble)args[6]->NumberValue();
+    GLdouble _winY = (GLdouble)args[7]->NumberValue();
+    GLdouble _winZ = (GLdouble)args[8]->NumberValue();
+    gluProject(_objX, _objY, _objZ, &_model, &_proj, &_view, &_winX, &_winY, &_winZ);
+    args[3] = Number::New(_model);
 
-    return ThrowException(Exception::Error(
-    String::New("gluProject is not implemented!")));
+    args[4] = Number::New(_proj);
+
+    args[5] = Number::New(_view);
+
+    args[6] = Number::New(_winX);
+
+    args[7] = Number::New(_winY);
+
+    args[8] = Number::New(_winZ);
 
   }
 
@@ -775,10 +866,28 @@ namespace node {
    */
   Handle<Value> glu_gluScaleImage(const Arguments& args) {
     HandleScope scope;
-
-    return ThrowException(Exception::Error(
-    String::New("gluScaleImage is not implemented!")));
-
+    GLenum _format = (GLenum)args[0]->Int32Value();
+    GLsizei _wIn = (GLsizei)args[1]->Int32Value();
+    GLsizei _hIn = (GLsizei)args[2]->Int32Value();
+    GLenum _typeIn = (GLenum)args[3]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[4])) {
+        return ThrowException(Exception::Error(
+                              String::New("4nth argument needs to be a buffer")));
+    }
+    Buffer * dataIn_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
+    void *_dataIn = (void *)dataIn_buffer->data();
+    GLsizei _wOut = (GLsizei)args[5]->Int32Value();
+    GLsizei _hOut = (GLsizei)args[6]->Int32Value();
+    GLenum _typeOut = (GLenum)args[7]->Int32Value();
+    // must be a pointer to a buffer.
+    if (!Buffer::HasInstance(args[8])) {
+        return ThrowException(Exception::Error(
+                              String::New("8nth argument needs to be a buffer")));
+    }
+    Buffer * dataOut_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
+    GLvoid *_dataOut = (GLvoid *)dataOut_buffer->data();
+    gluScaleImage(_format, _wIn, _hIn, _typeIn, _dataIn, _wOut, _hOut, _typeOut, _dataOut);
   }
 
 
@@ -946,9 +1055,27 @@ namespace node {
    */
   Handle<Value> glu_gluUnProject(const Arguments& args) {
     HandleScope scope;
+    GLdouble _winX = (GLdouble)args[0]->NumberValue();
+    GLdouble _winY = (GLdouble)args[1]->NumberValue();
+    GLdouble _winZ = (GLdouble)args[2]->NumberValue();
+    GLdouble _model = (GLdouble)args[3]->NumberValue();
+    GLdouble _proj = (GLdouble)args[4]->NumberValue();
+    GLint _view = (GLint)args[5]->Int32Value();
+    GLdouble _objX = (GLdouble)args[6]->NumberValue();
+    GLdouble _objY = (GLdouble)args[7]->NumberValue();
+    GLdouble _objZ = (GLdouble)args[8]->NumberValue();
+    gluUnProject(_winX, _winY, _winZ, &_model, &_proj, &_view, &_objX, &_objY, &_objZ);
+    args[3] = Number::New(_model);
 
-    return ThrowException(Exception::Error(
-    String::New("gluUnProject is not implemented!")));
+    args[4] = Number::New(_proj);
+
+    args[5] = Number::New(_view);
+
+    args[6] = Number::New(_objX);
+
+    args[7] = Number::New(_objY);
+
+    args[8] = Number::New(_objZ);
 
   }
 
@@ -973,32 +1100,46 @@ namespace node {
    */
   Handle<Value> glu_gluUnProject4(const Arguments& args) {
     HandleScope scope;
+    GLdouble _winX = (GLdouble)args[0]->NumberValue();
+    GLdouble _winY = (GLdouble)args[1]->NumberValue();
+    GLdouble _winZ = (GLdouble)args[2]->NumberValue();
+    GLdouble _clipW = (GLdouble)args[3]->NumberValue();
+    GLdouble _model = (GLdouble)args[4]->NumberValue();
+    GLdouble _proj = (GLdouble)args[5]->NumberValue();
+    GLint _view = (GLint)args[6]->Int32Value();
+    GLdouble _nearVal = (GLdouble)args[7]->NumberValue();
+    GLdouble _farVal = (GLdouble)args[8]->NumberValue();
+    GLdouble _objX = (GLdouble)args[9]->NumberValue();
+    GLdouble _objY = (GLdouble)args[10]->NumberValue();
+    GLdouble _objZ = (GLdouble)args[11]->NumberValue();
+    GLdouble _objW = (GLdouble)args[12]->NumberValue();
+    gluUnProject4(_winX, _winY, _winZ, _clipW, &_model, &_proj, &_view, _nearVal, _farVal, &_objX, &_objY, &_objZ, &_objW);
+    args[4] = Number::New(_model);
 
-    return ThrowException(Exception::Error(
-    String::New("gluUnProject4 is not implemented!")));
+    args[5] = Number::New(_proj);
+
+    args[6] = Number::New(_view);
+
+    args[9] = Number::New(_objX);
+
+    args[10] = Number::New(_objY);
+
+    args[11] = Number::New(_objZ);
+
+    args[12] = Number::New(_objW);
 
   }
 
 
 
   // Constructor
-  glu::glu()
-  {
-  
-  }
+  glu::glu() { }
 
   void glu::Initialize(v8::Handle<v8::Object> target) {
     HandleScope scope;
-   /* Local<FunctionTemplate> t = FunctionTemplate::New(New);
-    
-    t->InstanceTemplate()->SetInternalFieldCount(1);
-    t->SetClassName(String::NewSymbol("glu"));
-    t->Inherit(EventEmitter::constructor_template);
-*/
+
     // Constants
 
-
-   // target->Set(String::NewSymbol("glu"), t->GetFunction());
 
     // Expose this classes methods to v8/javascript
     Local<FunctionTemplate> _glu_gluBeginCurve = FunctionTemplate::New(glu_gluBeginCurve);
@@ -1165,5 +1306,4 @@ namespace node {
 
 
   }
-
 }  // namespace node
