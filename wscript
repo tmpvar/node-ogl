@@ -16,9 +16,11 @@ def configure(conf):
   conf.check_tool("compiler_cxx")
   conf.check_tool("compiler_cc")
   conf.check_tool("node_addon")
-  conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
-  conf.check_cfg(package='glu', mandatory=1, args='--cflags --libs')
-  conf.check_cfg(package='xrandr', mandatory=1, args='--cflags --libs')
+
+  #TODO: wrap with os checks
+  #conf.check_cfg(package='gl', mandatory=1, args='--cflags --libs')
+  #conf.check_cfg(package='glu', mandatory=1, args='--cflags --libs')
+  #conf.check_cfg(package='xrandr', mandatory=1, args='--cflags --libs')
 
   conf.env.append_value("LIBPATH_GLFW", abspath("./build/default/lib/"))
   conf.env.append_value("STATICLIB_GLFW",["glfw"])
@@ -26,7 +28,7 @@ def configure(conf):
 
   # TODO: add support for more platforms..
   buildpath = abspath("build/default")
-  cmd = "cd \"deps/glfw\" && CFLAGS=-fPIC PREFIX=%s make x11-dist-install"
+  cmd = "cd \"deps/glfw\" && CFLAGS=-fPIC PREFIX=%s make cocoa"
   if os.system(cmd % (buildpath)) != 0:
     conf.fatal("Building glfw failed.")
 
@@ -38,18 +40,28 @@ def clean(ctx):
 
   # TODO: add support for more platforms..
   buildpath = abspath("build/default")
-  cmd = "cd \"deps/glfw\" && PREFIX=%s make x11-dist-clean"
+  cmd = "cd \"deps/glfw\" && PREFIX=%s make cocoa-clean"
   if os.system(cmd % (buildpath)) != 0:
     conf.fatal("Building glfw failed.")
   
 
 def build(bld):
+  if not exists('build/default/lib'):
+    os.mkdir('build/default/lib/')
+  if not exists('build/default/include'):
+    os.mkdir('build/default/include/')
+    os.mkdir('build/default/include/GL/')
+  if not exists('build/default/include/GL/glfw.h'):
+    copy('deps/glfw/include/GL/glfw.h','build/default/include/GL/glfw.h')
+  if not exists('build/default/lib/libglfw.dylib'):
+    copy('deps/glfw/lib/cocoa/libglfw.dylib','build/default/lib/libglfw.dylib')
   # build node-avro
   node_ogl = bld.new_task_gen("cxx", "shlib", "node_addon")
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = ["GL", "GLU", "GLFW", "XRANDR"]
+  node_ogl.uselib = ["GL", "GLU", "GLFW"]
+  node_ogl.linkflags = ['-framework OpenGL','-framework Cocoa']
   bld.add_post_fun(copynode)
 
 def copynode(ctx):
