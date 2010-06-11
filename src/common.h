@@ -13,8 +13,9 @@
 #include <sys/time.h>
 
 // OpenGL Includes
-#include <GL/gl.h>
-#include <GL/glu.h>
+  #include <OpenGL/gl.h>
+  #include <OpenGL/glu.h>
+
 
 //TODO: Add osx headers
 
