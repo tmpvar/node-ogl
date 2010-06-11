@@ -13,11 +13,13 @@
 #include <sys/time.h>
 
 // OpenGL Includes
-  #include <OpenGL/gl.h>
-  #include <OpenGL/glu.h>
-
-
-//TODO: Add osx headers
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#else  // Other than __APPLE__
+#include <GL/gl.h>
+#include <GL/glu.h>
+#endif
 
 // Binding includes
 #include "gl.h"
