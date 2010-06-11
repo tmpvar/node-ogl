@@ -7,7 +7,7 @@ var gl     = require(__dirname + "/../../lib/OpenGL"),
     xrot   = 0,
     yrot   = 0,
     zrot   = 0,
-    file   = __dirname + "/lesson6/NeHe.bmp",
+    file   = __dirname + "/data/NeHe.bmp",
     textureBuffer,
     image = { width: 256, height: 256, size: 256*256*3, texture: -1};
 
@@ -57,7 +57,7 @@ setInterval(function() {
   gl.glLoadIdentity();				// Reset The View
 
   gl.glTranslatef(0.0,0.0,-5.0);              // move 5 units into the screen.
-  
+
   gl.glRotatef(xrot,1.0,0.0,0.0);		// Rotate On The X Axis
   gl.glRotatef(yrot,0.0,1.0,0.0);		// Rotate On The Y Axis
   gl.glRotatef(zrot,0.0,0.0,1.0);		// Rotate On The Z Axis
@@ -70,7 +70,7 @@ setInterval(function() {
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
     gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
-    
+
     // Back Face
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
@@ -82,28 +82,28 @@ setInterval(function() {
     gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Bottom Left Of The Texture and Quad
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Bottom Right Of The Texture and Quad
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
-    
-    // Bottom Face       
+
+    // Bottom Face
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Top Right Of The Texture and Quad
     gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Top Left Of The Texture and Quad
     gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
-    
+
     // Right face
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f( 1.0, -1.0, -1.0);	// Bottom Right Of The Texture and Quad
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f( 1.0,  1.0, -1.0);	// Top Right Of The Texture and Quad
     gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f( 1.0,  1.0,  1.0);	// Top Left Of The Texture and Quad
     gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f( 1.0, -1.0,  1.0);	// Bottom Left Of The Texture and Quad
-    
+
     // Left Face
     gl.glTexCoord2f(0.0, 0.0); gl.glVertex3f(-1.0, -1.0, -1.0);	// Bottom Left Of The Texture and Quad
     gl.glTexCoord2f(1.0, 0.0); gl.glVertex3f(-1.0, -1.0,  1.0);	// Bottom Right Of The Texture and Quad
     gl.glTexCoord2f(1.0, 1.0); gl.glVertex3f(-1.0,  1.0,  1.0);	// Top Right Of The Texture and Quad
     gl.glTexCoord2f(0.0, 1.0); gl.glVertex3f(-1.0,  1.0, -1.0);	// Top Left Of The Texture and Quad
-  
+
   gl.glEnd();                                    // done with the polygon.
   gl.SwapBuffers();
-  xrot+=15.0;		                // X Axis Rotation	
+  xrot+=15.0;		                // X Axis Rotation
   yrot+=15.0;		                // Y Axis Rotation
   zrot+=15.0;		                // Z Axis Rotation
 }, 1000/20)
