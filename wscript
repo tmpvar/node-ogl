@@ -53,8 +53,8 @@ def build(bld):
     os.mkdir('build/default/include/GL/')
   if not exists('build/default/include/GL/glfw.h'):
     copy('deps/glfw/include/GL/glfw.h','build/default/include/GL/glfw.h')
-  if not exists('build/default/lib/libglfw.dylib'):
-    copy('deps/glfw/lib/cocoa/libglfw.dylib','build/default/lib/libglfw.dylib')
+  if not exists('build/default/lib/libglfw.a'):
+    copy('deps/glfw/lib/cocoa/libglfw.a','build/default/lib/libglfw.a')
   # build node-avro
   node_ogl = bld.new_task_gen("cxx", "shlib", "node_addon")
   node_ogl.source = bld.glob("src/*.cc")
