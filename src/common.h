@@ -16,11 +16,6 @@
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
-#endif // __APPLE__
-
-#ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
 #else  // Other than __APPLE__
 #include <GL/gl.h>
 #include <GL/glu.h>
