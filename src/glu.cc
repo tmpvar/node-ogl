@@ -3,7 +3,6 @@
 
 // Includes
 #include "glu.h"
-#include <GL/glu.h>
 
 using namespace v8;
 namespace node {
