@@ -61,7 +61,7 @@ def build(bld):
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
   node_ogl.uselib = ["GL", "GLU", "GLFW"]
-  node_ogl.linkflags = ['-framework OpenGL','-framework Cocoa']
+  node_ogl.framework = ['OpenGL','Cocoa']
   bld.add_post_fun(copynode)
 
 def copynode(ctx):
