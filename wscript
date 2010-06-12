@@ -34,8 +34,8 @@ def build(bld):
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = ["GL", "GLU"]
-  node_ogl.linkflags = ['-framework','OpenGL']
+  node_ogl.uselib = ["GL", "GLU", "GLUT"]
+  node_ogl.framework = ['OpenGL','GLUT','Cocoa']
   bld.add_post_fun(copynode)
 
 def copynode(ctx):
