@@ -1,22 +1,16 @@
 <?php
-/**
- TODO: Pointers
-    value_symbol = Persistent<String>::New(String::NewSymbol("value"));
-    Local<Object> arg1 = args[1]->ToObject();
-    arg1->Set(value_symbol, Number::New(_textures));
-**/
 
 echo "converting opengl headers into nodejs classes\n";
 $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 $methodsNotImplemented = 0;
 $matchedMethods = array();
-$files = array("gl.h", "glu.h");//, "glut.h", "glx.h");
+$files = array("/System/Library/Frameworks/OpenGL.framework/Headers/gl.h");//, "glu.h");//, "glut.h", "glx.h");
 foreach ($files as $currentFile)
 {
 
   // First pass, #defines
-  $path = $base . "GL/{$currentFile}";
+  $path = "{$currentFile}";
   $file = basename($path);
   $name = str_replace(".h", "", $file);
   $uname = strtoupper($name);
@@ -67,7 +61,7 @@ foreach ($files as $currentFile)
   foreach ($methodMatches[0] as $method)
   {
     $implemented = true;
-    $method = trim(str_replace("const" , "", $method));
+    $method = trim($method);//str_replace("const" , "", $method));
     if (in_array($method, $matchedMethods)) {
       continue;
     }
@@ -135,8 +129,12 @@ foreach ($files as $currentFile)
       foreach ($args as $idx=>$arg)
       {
         $implemented = true;
-        $doublePointer = (strpos($arg, "**") !== false);
-        $pointer = (strpos($arg, "*") !== false);
+        
+        $firstPointer = strpos($arg, "*");
+        $secondPointer = strrchr($arg, "*");
+
+        $doublePointer = ($firstPointer !== false && $secondPointer !== false && $firstPointer !== $secondPointer);
+        $pointer = ($firstPointer !== false);
 
         $pointer = ($pointer || strpos($arg, "[") !== false);
 
@@ -144,11 +142,18 @@ foreach ($files as $currentFile)
         $type = "";
         $argument = "";
         $ex = explode(" ", str_replace("  ", " ", trim($arg)));
-
-        // check for consts
-        $prefix = (count($ex) > 2) ? "  " . array_shift($ex) : " ";
+        print_r($ex);
+        echo "\n\n";
+        $prefix = " ";
+        if (trim($ex[0]) == "const") {
+          $prefix = "  const";
+        } else {
+          // check for consts
+          $prefix = (count($ex) > 2) ? "  " . array_shift($ex) : " ";
+        }
         $type = trim($ex[0]);
         $argument = trim($ex[1]);
+        $argument = ($argument) ? $argument : "arg" . $idx;
 
         $variable = "  $prefix $type _$argument = ($type)";
 
