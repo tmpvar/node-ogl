@@ -1,4 +1,3 @@
-
 # Installation
 
 ## Building
@@ -10,9 +9,13 @@ node-waf configure build test
 
 # Status
 
- * No textures, many methods not implemented
+ * works on linux
+ * nehe tutorials 3-5 have been ported
+ * osx port on its way (works, but segfaults randomly)
 
 Somewhat working!
+
+
 <a href="http://tmpvar.com/node-ogl-triangle.png">
 <img src="http://tmpvar.com/node-ogl-triangle.png" width="200" />
 </a>
