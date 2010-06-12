@@ -256,6 +256,8 @@ foreach ($files as $currentFile)
                'GLclampf','GLdouble','GLclampd', 'GLint'))) {
           // check the type and close the scope
           $body .= "\n    return scope.Close({$v8type}::New(_ret));\n";
+        } else {
+          $body .= "\n    return Undefined();\n";
         }
       }
     }
