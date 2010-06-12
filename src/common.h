@@ -16,14 +16,15 @@
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
+#include <GLUT/glut.h>
 #else  // Other than __APPLE__
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <GL/glut.h>
 #endif
 
 // Binding includes
 #include "gl.h"
-#include "glfw.h"
 #include "glu.h"
 
 namespace node {

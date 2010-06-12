@@ -9,7 +9,6 @@ init (Handle<Object> target)
   HandleScope scope;
 
   // Initialize
-  glfw::Initialize(target);
   gl::Initialize(target);
   glu::Initialize(target);
 }

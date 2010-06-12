@@ -22,46 +22,20 @@ def configure(conf):
   #conf.check_cfg(package='glu', mandatory=1, args='--cflags --libs')
   #conf.check_cfg(package='xrandr', mandatory=1, args='--cflags --libs')
 
-  conf.env.append_value("LIBPATH_GLFW", abspath("./build/default/lib/"))
-  conf.env.append_value("STATICLIB_GLFW",["glfw"])
-  conf.env.append_value("CPPPATH_GLFW", abspath("./build/default/include/"))  
-
-  # TODO: add support for more platforms..
-  buildpath = abspath("build/default")
-  cmd = "cd \"deps/glfw\" && CFLAGS=-fPIC PREFIX=%s make cocoa"
-  if os.system(cmd % (buildpath)) != 0:
-    conf.fatal("Building glfw failed.")
-
-
 
 def clean(ctx): 
   if exists("lib/node-ogl.node"): unlink("lib/node-ogl.node")
   if exists("build"): rmtree("build")
-
-  # TODO: add support for more platforms..
-  buildpath = abspath("build/default")
-  cmd = "cd \"deps/glfw\" && PREFIX=%s make cocoa-clean"
-  if os.system(cmd % (buildpath)) != 0:
-    conf.fatal("Building glfw failed.")
   
 
 def build(bld):
-  if not exists('build/default/lib'):
-    os.mkdir('build/default/lib/')
-  if not exists('build/default/include'):
-    os.mkdir('build/default/include/')
-    os.mkdir('build/default/include/GL/')
-  if not exists('build/default/include/GL/glfw.h'):
-    copy('deps/glfw/include/GL/glfw.h','build/default/include/GL/glfw.h')
-  if not exists('build/default/lib/libglfw.a'):
-    copy('deps/glfw/lib/cocoa/libglfw.a','build/default/lib/libglfw.a')
   # build node-avro
   node_ogl = bld.new_task_gen("cxx", "shlib", "node_addon")
   node_ogl.source = bld.glob("src/*.cc")
   node_ogl.name = "node-ogl"
   node_ogl.target = "node-ogl"
-  node_ogl.uselib = ["GL", "GLU", "GLFW"]
-  node_ogl.linkflags = ['-framework OpenGL','-framework Cocoa']
+  node_ogl.uselib = ["GL", "GLU"]
+  node_ogl.linkflags = ['-framework','OpenGL']
   bld.add_post_fun(copynode)
 
 def copynode(ctx):
