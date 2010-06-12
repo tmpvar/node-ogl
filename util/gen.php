@@ -5,7 +5,8 @@ $cwd = dirname(__FILE__);
 $base = $cwd . "/in/";
 $methodsNotImplemented = 0;
 $matchedMethods = array();
-$files = array("/System/Library/Frameworks/OpenGL.framework/Headers/gl.h");//, "glu.h");//, "glut.h", "glx.h");
+$files = array("/System/Library/Frameworks/OpenGL.framework/Headers/gl.h",
+               "/System/Library/Frameworks/OpenGL.framework/Headers/glu.h");//, "glu.h");//, "glut.h", "glx.h");
 foreach ($files as $currentFile)
 {
 
@@ -17,7 +18,7 @@ foreach ($files as $currentFile)
   echo "Processing $uname...\n";
 
   $contents = file_get_contents($path);
-  preg_match_all("/#define[ ]*(GL_[^ \t]+)[\t ]*(.*)/", $contents, $matches);
+  preg_match_all("/#define[\t ]+(GL_[^ \t]+)[\t ]+[xA-Z0-9]+/", $contents, $matches);
 
   $source = file_get_contents($cwd . "/template/source.cc");
   $header = file_get_contents($cwd . "/template/header.h");
@@ -29,12 +30,12 @@ foreach ($files as $currentFile)
   $total = count($matches[1]);
 
   $constants = array();
+
   for ($i = 0; $i<$total; $i++)
   {
-    $string =  "    #ifdef " . $matches[1][$i] . "\n";
-    $string .= '    NODE_DEFINE_CONSTANT(target, ' . $matches[1][$i] . ");\n";
+    $string =  "    #ifdef " . trim($matches[1][$i]) . "\n";
+    $string .= '    NODE_DEFINE_CONSTANT(target, ' . trim($matches[1][$i]) . ");\n";
     $string .= "    #endif\n";
-
     array_push($constants, $string);
   }
 
@@ -113,14 +114,16 @@ foreach ($files as $currentFile)
     $comment .= "   */\n";
     $body = $comment . $body;
 
-    $body .= "    HandleScope scope;\n";
+    
 
 
     if ($methodParts[1] == "void" && count($args) == 0) {
       $body .= "    {$methodParts[2]}();\n";
+      $body .= "    return Undefined();\n";
     } 
     else
     {
+      $body .= "    HandleScope scope;\n";
       $params = array();
       $inner  = "";
       $after  = "";
@@ -142,11 +145,10 @@ foreach ($files as $currentFile)
         $type = "";
         $argument = "";
         $ex = explode(" ", str_replace("  ", " ", trim($arg)));
-        print_r($ex);
-        echo "\n\n";
         $prefix = " ";
         if (trim($ex[0]) == "const") {
           $prefix = "  const";
+          array_shift($ex);
         } else {
           // check for consts
           $prefix = (count($ex) > 2) ? "  " . array_shift($ex) : " ";
@@ -228,7 +230,7 @@ foreach ($files as $currentFile)
         }
         else
         {
-          echo " - {$methodParts[2]} is not implemented\n";
+          echo " - {$methodParts[2]} is not implemented because of $type\n";
           $methodsNotImplemented++;
           $implemented = false;
           $body .= "\n    return ThrowException(Exception::Error(\n"
