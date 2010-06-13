@@ -48,7 +48,7 @@ namespace node {
                               0,
                               0,
                               0,
-                              0,
+                              16,
                               0,
                               GLFW_WINDOW);
 
