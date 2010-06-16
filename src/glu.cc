@@ -3,6 +3,7 @@
 
 // Includes
 #include "glu.h"
+#include </System/Library/Frameworks/OpenGL.framework/Headers/glu.h>
 
 using namespace v8;
 namespace node {
@@ -74,7 +75,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild1DMipmapLevels(const Arguments& args) {
@@ -93,7 +94,7 @@ namespace node {
                               String::New("8nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild1DMipmapLevels(_target, _internalFormat, _width, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -108,7 +109,7 @@ namespace node {
    * @param GLsizei width
    * @param GLenum format
    * @param GLenum type
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild1DMipmaps(const Arguments& args) {
@@ -124,7 +125,7 @@ namespace node {
                               String::New("5nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild1DMipmaps(_target, _internalFormat, _width, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -143,7 +144,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild2DMipmapLevels(const Arguments& args) {
@@ -163,7 +164,7 @@ namespace node {
                               String::New("9nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild2DMipmapLevels(_target, _internalFormat, _width, _height, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -179,7 +180,7 @@ namespace node {
    * @param GLsizei height
    * @param GLenum format
    * @param GLenum type
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild2DMipmaps(const Arguments& args) {
@@ -196,7 +197,7 @@ namespace node {
                               String::New("6nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild2DMipmaps(_target, _internalFormat, _width, _height, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -216,7 +217,7 @@ namespace node {
    * @param GLint level
    * @param GLint base
    * @param GLint max
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild3DMipmapLevels(const Arguments& args) {
@@ -237,7 +238,7 @@ namespace node {
                               String::New("10nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild3DMipmapLevels(_target, _internalFormat, _width, _height, _depth, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -254,7 +255,7 @@ namespace node {
    * @param GLsizei depth
    * @param GLenum format
    * @param GLenum type
-   * @param void *data
+   * @param const void *data
    * @return GLint
    */
   Handle<Value> glu_gluBuild3DMipmaps(const Arguments& args) {
@@ -272,7 +273,7 @@ namespace node {
                               String::New("7nth argument needs to be a buffer")));
     }
     Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    const void *_data = (void *)data_buffer->data();
     GLint _ret = gluBuild3DMipmaps(_target, _internalFormat, _width, _height, _depth, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -282,14 +283,14 @@ namespace node {
   /**
    * gluCheckExtension
    *
-   * @param GLubyte *extName
-   * @param GLubyte *extString
+   * @param const GLubyte *extName
+   * @param const GLubyte *extString
    * @return GLboolean
    */
   Handle<Value> glu_gluCheckExtension(const Arguments& args) {
     HandleScope scope;
-    GLubyte _extName = (GLubyte)args[0]->Int32Value();
-    GLubyte _extString = (GLubyte)args[1]->Int32Value();
+    const GLubyte _extName = (GLubyte)args[0]->Int32Value();
+    const GLubyte _extString = (GLubyte)args[1]->Int32Value();
     GLboolean _ret = gluCheckExtension(&_extName, &_extString);
 
     args[0] = Number::New(_extName);
@@ -471,9 +472,9 @@ namespace node {
    * gluLoadSamplingMatrices
    *
    * @param GLUnurbs* nurb
-   * @param GLfloat *model
-   * @param GLfloat *perspective
-   * @param GLint *view
+   * @param const GLfloat *model
+   * @param const GLfloat *perspective
+   * @param const GLint *view
    * @return void
    */
   Handle<Value> glu_gluLoadSamplingMatrices(const Arguments& args) {
@@ -510,6 +511,8 @@ namespace node {
     GLdouble _upY = (GLdouble)args[7]->NumberValue();
     GLdouble _upZ = (GLdouble)args[8]->NumberValue();
     gluLookAt(_eyeX, _eyeY, _eyeZ, _centerX, _centerY, _centerZ, _upX, _upY, _upZ);
+
+    return Undefined();
   }
 
 
@@ -533,7 +536,7 @@ namespace node {
    *
    * @param GLUnurbs* nurb
    * @param GLenum which
-   * @param _GLUfuncptr CallBackFunc
+   * @param GLvoid (*CallBackFunc
    * @return void
    */
   Handle<Value> glu_gluNurbsCallback(const Arguments& args) {
@@ -650,6 +653,8 @@ namespace node {
     GLdouble _bottom = (GLdouble)args[2]->NumberValue();
     GLdouble _top = (GLdouble)args[3]->NumberValue();
     gluOrtho2D(_left, _right, _bottom, _top);
+
+    return Undefined();
   }
 
 
@@ -689,6 +694,8 @@ namespace node {
     GLdouble _zNear = (GLdouble)args[2]->NumberValue();
     GLdouble _zFar = (GLdouble)args[3]->NumberValue();
     gluPerspective(_fovy, _aspect, _zNear, _zFar);
+
+    return Undefined();
   }
 
 
@@ -712,6 +719,8 @@ namespace node {
     gluPickMatrix(_x, _y, _delX, _delY, &_viewport);
 
     args[4] = Number::New(_viewport);
+
+    return Undefined();
   }
 
 
@@ -721,9 +730,9 @@ namespace node {
    * @param GLdouble objX
    * @param GLdouble objY
    * @param GLdouble objZ
-   * @param GLdouble *model
-   * @param GLdouble *proj
-   * @param GLint *view
+   * @param const GLdouble *model
+   * @param const GLdouble *proj
+   * @param const GLint *view
    * @param GLdouble* winX
    * @param GLdouble* winY
    * @param GLdouble* winZ
@@ -734,9 +743,9 @@ namespace node {
     GLdouble _objX = (GLdouble)args[0]->NumberValue();
     GLdouble _objY = (GLdouble)args[1]->NumberValue();
     GLdouble _objZ = (GLdouble)args[2]->NumberValue();
-    GLdouble _model = (GLdouble)args[3]->NumberValue();
-    GLdouble _proj = (GLdouble)args[4]->NumberValue();
-    GLint _view = (GLint)args[5]->Int32Value();
+    const GLdouble _model = (GLdouble)args[3]->NumberValue();
+    const GLdouble _proj = (GLdouble)args[4]->NumberValue();
+    const GLint _view = (GLint)args[5]->Int32Value();
     GLdouble _winX = (GLdouble)args[6]->NumberValue();
     GLdouble _winY = (GLdouble)args[7]->NumberValue();
     GLdouble _winZ = (GLdouble)args[8]->NumberValue();
@@ -781,7 +790,7 @@ namespace node {
    *
    * @param GLUquadric* quad
    * @param GLenum which
-   * @param _GLUfuncptr CallBackFunc
+   * @param GLvoid (*CallBackFunc
    * @return void
    */
   Handle<Value> glu_gluQuadricCallback(const Arguments& args) {
@@ -859,7 +868,7 @@ namespace node {
    * @param GLsizei wIn
    * @param GLsizei hIn
    * @param GLenum typeIn
-   * @param void *dataIn
+   * @param const void *dataIn
    * @param GLsizei wOut
    * @param GLsizei hOut
    * @param GLenum typeOut
@@ -878,7 +887,7 @@ namespace node {
                               String::New("4nth argument needs to be a buffer")));
     }
     Buffer * dataIn_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    void *_dataIn = (void *)dataIn_buffer->data();
+    const void *_dataIn = (void *)dataIn_buffer->data();
     GLsizei _wOut = (GLsizei)args[5]->Int32Value();
     GLsizei _hOut = (GLsizei)args[6]->Int32Value();
     GLenum _typeOut = (GLenum)args[7]->Int32Value();
@@ -946,7 +955,7 @@ namespace node {
    *
    * @param GLUtesselator* tess
    * @param GLenum which
-   * @param _GLUfuncptr CallBackFunc
+   * @param GLvoid (*CallBackFunc
    * @return void
    */
   Handle<Value> glu_gluTessCallback(const Arguments& args) {
@@ -1040,9 +1049,9 @@ namespace node {
    * @param GLdouble winX
    * @param GLdouble winY
    * @param GLdouble winZ
-   * @param GLdouble *model
-   * @param GLdouble *proj
-   * @param GLint *view
+   * @param const GLdouble *model
+   * @param const GLdouble *proj
+   * @param const GLint *view
    * @param GLdouble* objX
    * @param GLdouble* objY
    * @param GLdouble* objZ
@@ -1053,9 +1062,9 @@ namespace node {
     GLdouble _winX = (GLdouble)args[0]->NumberValue();
     GLdouble _winY = (GLdouble)args[1]->NumberValue();
     GLdouble _winZ = (GLdouble)args[2]->NumberValue();
-    GLdouble _model = (GLdouble)args[3]->NumberValue();
-    GLdouble _proj = (GLdouble)args[4]->NumberValue();
-    GLint _view = (GLint)args[5]->Int32Value();
+    const GLdouble _model = (GLdouble)args[3]->NumberValue();
+    const GLdouble _proj = (GLdouble)args[4]->NumberValue();
+    const GLint _view = (GLint)args[5]->Int32Value();
     GLdouble _objX = (GLdouble)args[6]->NumberValue();
     GLdouble _objY = (GLdouble)args[7]->NumberValue();
     GLdouble _objZ = (GLdouble)args[8]->NumberValue();
@@ -1084,11 +1093,11 @@ namespace node {
    * @param GLdouble winY
    * @param GLdouble winZ
    * @param GLdouble clipW
-   * @param GLdouble *model
-   * @param GLdouble *proj
-   * @param GLint *view
-   * @param GLdouble nearVal
-   * @param GLdouble farVal
+   * @param const GLdouble *model
+   * @param const GLdouble *proj
+   * @param const GLint *view
+   * @param GLdouble nearPlane
+   * @param GLdouble farPlane
    * @param GLdouble* objX
    * @param GLdouble* objY
    * @param GLdouble* objZ
@@ -1101,16 +1110,16 @@ namespace node {
     GLdouble _winY = (GLdouble)args[1]->NumberValue();
     GLdouble _winZ = (GLdouble)args[2]->NumberValue();
     GLdouble _clipW = (GLdouble)args[3]->NumberValue();
-    GLdouble _model = (GLdouble)args[4]->NumberValue();
-    GLdouble _proj = (GLdouble)args[5]->NumberValue();
-    GLint _view = (GLint)args[6]->Int32Value();
-    GLdouble _nearVal = (GLdouble)args[7]->NumberValue();
-    GLdouble _farVal = (GLdouble)args[8]->NumberValue();
+    const GLdouble _model = (GLdouble)args[4]->NumberValue();
+    const GLdouble _proj = (GLdouble)args[5]->NumberValue();
+    const GLint _view = (GLint)args[6]->Int32Value();
+    GLdouble _nearPlane = (GLdouble)args[7]->NumberValue();
+    GLdouble _farPlane = (GLdouble)args[8]->NumberValue();
     GLdouble _objX = (GLdouble)args[9]->NumberValue();
     GLdouble _objY = (GLdouble)args[10]->NumberValue();
     GLdouble _objZ = (GLdouble)args[11]->NumberValue();
     GLdouble _objW = (GLdouble)args[12]->NumberValue();
-    GLint _ret = gluUnProject4(_winX, _winY, _winZ, _clipW, &_model, &_proj, &_view, _nearVal, _farVal, &_objX, &_objY, &_objZ, &_objW);
+    GLint _ret = gluUnProject4(_winX, _winY, _winZ, _clipW, &_model, &_proj, &_view, _nearPlane, _farPlane, &_objX, &_objY, &_objZ, &_objW);
 
     args[4] = Number::New(_model);
 
