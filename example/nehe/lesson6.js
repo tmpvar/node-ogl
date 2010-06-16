@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var gl     = require(__dirname + "/../../lib/OpenGL"),
     sys    = require("sys"),
     fs     = require("fs"),
@@ -17,24 +19,24 @@ textureBuffer = fs.readFileSync(file);
 image.buffer = textureBuffer.slice(54, textureBuffer.length);
 
 // reverse all of the colors. (bgr -> rgb)
-for (var i=0;i<image.buffer.length;i+=3) {
+/*for (var i=0;i<image.buffer.length;i+=3) {
   var temp = image.buffer[i];
   image.buffer[i] = image.buffer[i+2];
   image.buffer[i+2] = temp;
-}
+}*/
 
 gl.glGenTextures(1, image.texture);
-gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);
+gl.glBindTexture(gl.GL_TEXTURE_2D, 1);
 
 gl.glTexParameteri(gl.GL_TEXTURE_2D,gl.GL_TEXTURE_MIN_FILTER,gl.GL_LINEAR);
 
 gl.glTexImage2D(gl.GL_TEXTURE_2D,         // 2d texture
                          0,                     // level of detail 0 (normal)
-                         3,                     // 3 components (red green blue)
+                         gl.GL_RGB,                     // 3 components (red green blue)
                          image.width,           // x size from image
                          image.height,          // y size from image
                          0,                     // border 0 (normal)
-                         gl.GL_RGB,             // rgb color data
+                         gl.GL_BGR,             // rgb color data
                          gl.GL_UNSIGNED_BYTE,   // unsigned byte data
                          image.buffer);         // the actual data
 
@@ -62,7 +64,7 @@ setInterval(function() {
   gl.glRotatef(yrot,0.0,1.0,0.0);		// Rotate On The Y Axis
   gl.glRotatef(zrot,0.0,0.0,1.0);		// Rotate On The Z Axis
 
-  gl.glBindTexture(gl.GL_TEXTURE_2D, image.texture);   // choose the texture to use.
+  gl.glBindTexture(gl.GL_TEXTURE_2D, 1);   // choose the texture to use.
 
   gl.glBegin(gl.GL_QUADS);		                // begin drawing a cube
     // Front Face (note that the texture's corners have to match the quad's corners)
