@@ -136,7 +136,7 @@ foreach ($files as $currentFile)
         $firstPointer = strpos($arg, "*");
         $secondPointer = strrchr($arg, "*");
 
-        $doublePointer = ($firstPointer !== false && $secondPointer !== false && $firstPointer !== $secondPointer);
+        $doublePointer = (substr_count($arg, "*") > 1);
         $pointer = ($firstPointer !== false);
 
         $pointer = ($pointer || strpos($arg, "[") !== false);
@@ -222,6 +222,7 @@ foreach ($files as $currentFile)
           $inner .= "    }\n";
           $inner .= "    Buffer * {$argument}_buffer = ObjectWrap::Unwrap<Buffer>(args[{$idx}]->ToObject());\n";
           $inner .= "  $prefix $type *_$argument = ($type *){$argument}_buffer->data();\n";
+          
           if (!$doublePointer) {
             array_push($params, "_$argument");
           } else {
