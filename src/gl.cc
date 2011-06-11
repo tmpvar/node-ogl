@@ -3,6 +3,7 @@
 
 // Includes
 #include "gl.h"
+#include <GL/gl.h>
 
 using namespace v8;
 namespace node {
@@ -1075,8 +1076,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("2nth argument needs to be a buffer")));
     }
-    Buffer * lists_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    GLvoid *_lists = (GLvoid *)lists_buffer->data();
+    GLvoid *_lists = (GLvoid *)BufferData(args[2]);
     glCallLists(_n, _type, _lists);
   }
 
@@ -3381,8 +3381,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[3]);
     glVertexPointer(_size, _type, _stride, _ptr);
   }
 
@@ -3404,8 +3403,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("2nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[2]);
     glNormalPointer(_type, _stride, _ptr);
   }
 
@@ -3429,8 +3427,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[3]);
     glColorPointer(_size, _type, _stride, _ptr);
   }
 
@@ -3452,8 +3449,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("2nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[2]);
     glIndexPointer(_type, _stride, _ptr);
   }
 
@@ -3477,8 +3473,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[3]);
     glTexCoordPointer(_size, _type, _stride, _ptr);
   }
 
@@ -3498,8 +3493,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("1nth argument needs to be a buffer")));
     }
-    Buffer * ptr_buffer = ObjectWrap::Unwrap<Buffer>(args[1]->ToObject());
-    GLvoid *_ptr = (GLvoid *)ptr_buffer->data();
+    GLvoid *_ptr = (GLvoid *)BufferData(args[1]);
     glEdgeFlagPointer(_stride, _ptr);
   }
 
@@ -3519,8 +3513,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("1nth argument needs to be a buffer")));
     }
-    Buffer * params_buffer = ObjectWrap::Unwrap<Buffer>(args[1]->ToObject());
-    GLvoid *_params = (GLvoid *)params_buffer->data();
+    GLvoid *_params = (GLvoid *)BufferData(args[1]);
     glGetPointerv(_pname, &_params);
   }
 
@@ -3574,8 +3567,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    GLvoid *_indices = (GLvoid *)BufferData(args[3]);
     glDrawElements(_mode, _count, _type, _indices);
   }
 
@@ -3597,8 +3589,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("2nth argument needs to be a buffer")));
     }
-    Buffer * pointer_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    GLvoid *_pointer = (GLvoid *)pointer_buffer->data();
+    GLvoid *_pointer = (GLvoid *)BufferData(args[2]);
     glInterleavedArrays(_format, _stride, _pointer);
   }
 
@@ -4150,8 +4141,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[6]);
     glReadPixels(_x, _y, _width, _height, _format, _type, _pixels);
   }
 
@@ -4177,8 +4167,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[4]);
     glDrawPixels(_width, _height, _format, _type, _pixels);
   }
 
@@ -4718,8 +4707,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("7nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[7]);
     glTexImage1D(_target, _level, _internalFormat, _width, _border, _format, _type, _pixels);
   }
 
@@ -4753,8 +4741,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[8]);
     glTexImage2D(_target, _level, _internalFormat, _width, _height, _border, _format, _type, _pixels);
   }
 
@@ -4780,8 +4767,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[4]);
     glGetTexImage(_target, _level, _format, _type, _pixels);
   }
 
@@ -4919,8 +4905,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[6]);
     glTexSubImage1D(_target, _level, _xoffset, _width, _format, _type, _pixels);
   }
 
@@ -4954,8 +4939,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[8]);
     glTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _type, _pixels);
   }
 
@@ -5681,8 +5665,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * indices_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    GLvoid *_indices = (GLvoid *)indices_buffer->data();
+    GLvoid *_indices = (GLvoid *)BufferData(args[5]);
     glDrawRangeElements(_mode, _start, _end, _count, _type, _indices);
   }
 
@@ -5718,8 +5701,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("9nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[9]);
     glTexImage3D(_target, _level, _internalFormat, _width, _height, _depth, _border, _format, _type, _pixels);
   }
 
@@ -5757,8 +5739,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("10nth argument needs to be a buffer")));
     }
-    Buffer * pixels_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    GLvoid *_pixels = (GLvoid *)pixels_buffer->data();
+    GLvoid *_pixels = (GLvoid *)BufferData(args[10]);
     glTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _type, _pixels);
   }
 
@@ -5815,8 +5796,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    GLvoid *_table = (GLvoid *)table_buffer->data();
+    GLvoid *_table = (GLvoid *)BufferData(args[5]);
     glColorTable(_target, _internalformat, _width, _format, _type, _table);
   }
 
@@ -5844,8 +5824,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[5]);
     glColorSubTable(_target, _start, _count, _format, _type, _data);
   }
 
@@ -5949,8 +5928,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * table_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_table = (GLvoid *)table_buffer->data();
+    GLvoid *_table = (GLvoid *)BufferData(args[3]);
     glGetColorTable(_target, _format, _type, _table);
   }
 
@@ -6078,8 +6056,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    GLvoid *_values = (GLvoid *)values_buffer->data();
+    GLvoid *_values = (GLvoid *)BufferData(args[4]);
     glGetHistogram(_target, _reset, _format, _type, _values);
   }
 
@@ -6173,8 +6150,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * values_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    GLvoid *_values = (GLvoid *)values_buffer->data();
+    GLvoid *_values = (GLvoid *)BufferData(args[4]);
     glGetMinmax(_target, _reset, _format, _types, _values);
   }
 
@@ -6240,8 +6216,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    GLvoid *_image = (GLvoid *)image_buffer->data();
+    GLvoid *_image = (GLvoid *)BufferData(args[5]);
     glConvolutionFilter1D(_target, _internalformat, _width, _format, _type, _image);
   }
 
@@ -6271,8 +6246,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_image = (GLvoid *)image_buffer->data();
+    GLvoid *_image = (GLvoid *)BufferData(args[6]);
     glConvolutionFilter2D(_target, _internalformat, _width, _height, _format, _type, _image);
   }
 
@@ -6412,8 +6386,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * image_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_image = (GLvoid *)image_buffer->data();
+    GLvoid *_image = (GLvoid *)BufferData(args[3]);
     glGetConvolutionFilter(_target, _format, _type, _image);
   }
 
@@ -6482,15 +6455,13 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * row_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_row = (GLvoid *)row_buffer->data();
+    GLvoid *_row = (GLvoid *)BufferData(args[6]);
     // must be a pointer to a buffer.
     if (!Buffer::HasInstance(args[7])) {
         return ThrowException(Exception::Error(
                               String::New("7nth argument needs to be a buffer")));
     }
-    Buffer * column_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    GLvoid *_column = (GLvoid *)column_buffer->data();
+    GLvoid *_column = (GLvoid *)BufferData(args[7]);
     glSeparableFilter2D(_target, _internalformat, _width, _height, _format, _type, _row, _column);
   }
 
@@ -6516,22 +6487,19 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("3nth argument needs to be a buffer")));
     }
-    Buffer * row_buffer = ObjectWrap::Unwrap<Buffer>(args[3]->ToObject());
-    GLvoid *_row = (GLvoid *)row_buffer->data();
+    GLvoid *_row = (GLvoid *)BufferData(args[3]);
     // must be a pointer to a buffer.
     if (!Buffer::HasInstance(args[4])) {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * column_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    GLvoid *_column = (GLvoid *)column_buffer->data();
+    GLvoid *_column = (GLvoid *)BufferData(args[4]);
     // must be a pointer to a buffer.
     if (!Buffer::HasInstance(args[5])) {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * span_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    GLvoid *_span = (GLvoid *)span_buffer->data();
+    GLvoid *_span = (GLvoid *)BufferData(args[5]);
     glGetSeparableFilter(_target, _format, _type, _row, _column, _span);
   }
 
@@ -6587,8 +6555,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[6]);
     glCompressedTexImage1D(_target, _level, _internalformat, _width, _border, _imageSize, _data);
   }
 
@@ -6620,8 +6587,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("7nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[7]);
     glCompressedTexImage2D(_target, _level, _internalformat, _width, _height, _border, _imageSize, _data);
   }
 
@@ -6655,8 +6621,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[8]);
     glCompressedTexImage3D(_target, _level, _internalformat, _width, _height, _depth, _border, _imageSize, _data);
   }
 
@@ -6686,8 +6651,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[6]);
     glCompressedTexSubImage1D(_target, _level, _xoffset, _width, _format, _imageSize, _data);
   }
 
@@ -6721,8 +6685,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[8]);
     glCompressedTexSubImage2D(_target, _level, _xoffset, _yoffset, _width, _height, _format, _imageSize, _data);
   }
 
@@ -6760,8 +6723,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("10nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    GLvoid *_data = (GLvoid *)data_buffer->data();
+    GLvoid *_data = (GLvoid *)BufferData(args[10]);
     glCompressedTexSubImage3D(_target, _level, _xoffset, _yoffset, _zoffset, _width, _height, _depth, _format, _imageSize, _data);
   }
 
@@ -6783,8 +6745,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("2nth argument needs to be a buffer")));
     }
-    Buffer * img_buffer = ObjectWrap::Unwrap<Buffer>(args[2]->ToObject());
-    GLvoid *_img = (GLvoid *)img_buffer->data();
+    GLvoid *_img = (GLvoid *)BufferData(args[2]);
     glGetCompressedTexImage(_target, _lod, _img);
   }
 
@@ -8003,6 +7964,60 @@ namespace node {
     glMultiTexCoord4svARB(_target, &_v);
 
     args[1] = Number::New(_v);
+  }
+
+
+  /**
+   * glProgramCallbackMESA
+   *
+   * @param GLenum target
+   * @param GLprogramcallbackMESA callback
+   * @param GLvoid *data
+   * @return void
+   */
+  Handle<Value> gl_glProgramCallbackMESA(const Arguments& args) {
+    HandleScope scope;
+
+    return ThrowException(Exception::Error(
+    String::New("glProgramCallbackMESA is not implemented!")));
+  }
+
+
+  /**
+   * glGetProgramRegisterfvMESA
+   *
+   * @param GLenum target
+   * @param GLsizei len
+   * @param GLubyte *name
+   * @param GLfloat *v
+   * @return void
+   */
+  Handle<Value> gl_glGetProgramRegisterfvMESA(const Arguments& args) {
+    HandleScope scope;
+    GLenum _target = (GLenum)args[0]->Int32Value();
+    GLsizei _len = (GLsizei)args[1]->Int32Value();
+    GLubyte _name = (GLubyte)args[2]->Int32Value();
+    GLfloat _v = (GLfloat)args[3]->NumberValue();
+    glGetProgramRegisterfvMESA(_target, _len, &_name, &_v);
+
+    args[2] = Number::New(_name);
+
+    args[3] = Number::New(_v);
+  }
+
+
+  /**
+   * glBlendEquationSeparateATI
+   *
+   * @param GLenum modeRGB
+   * @param GLenum modeA
+   * @return void
+   */
+  Handle<Value> gl_glBlendEquationSeparateATI(const Arguments& args) {
+    HandleScope scope;
+    GLenum _modeRGB = (GLenum)args[0]->Int32Value();
+    GLenum _modeA = (GLenum)args[1]->Int32Value();
+    glBlendEquationSeparateATI(_modeRGB, _modeA);
   }
 
 
@@ -12622,6 +12637,16 @@ namespace node {
 
     Local<FunctionTemplate> _gl_glMultiTexCoord4svARB = FunctionTemplate::New(gl_glMultiTexCoord4svARB);
     target->Set(String::New("glMultiTexCoord4svARB"), _gl_glMultiTexCoord4svARB->GetFunction());
+
+    Local<FunctionTemplate> _gl_glProgramCallbackMESA = FunctionTemplate::New(gl_glProgramCallbackMESA);
+    target->Set(String::New("glProgramCallbackMESA"), _gl_glProgramCallbackMESA->GetFunction());
+
+    Local<FunctionTemplate> _gl_glGetProgramRegisterfvMESA = FunctionTemplate::New(gl_glGetProgramRegisterfvMESA);
+    target->Set(String::New("glGetProgramRegisterfvMESA"), _gl_glGetProgramRegisterfvMESA->GetFunction());
+
+    Local<FunctionTemplate> _gl_glBlendEquationSeparateATI = FunctionTemplate::New(gl_glBlendEquationSeparateATI);
+    target->Set(String::New("glBlendEquationSeparateATI"), _gl_glBlendEquationSeparateATI->GetFunction());
+
 
   }
 }  // namespace node

@@ -3,6 +3,7 @@
 
 // Includes
 #include "glu.h"
+#include <GL/glu.h>
 
 using namespace v8;
 namespace node {
@@ -92,8 +93,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[8]);
     GLint _ret = gluBuild1DMipmapLevels(_target, _internalFormat, _width, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -123,8 +123,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("5nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[5]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[5]);
     GLint _ret = gluBuild1DMipmaps(_target, _internalFormat, _width, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -162,8 +161,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("9nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[9]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[9]);
     GLint _ret = gluBuild2DMipmapLevels(_target, _internalFormat, _width, _height, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -195,8 +193,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("6nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[6]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[6]);
     GLint _ret = gluBuild2DMipmaps(_target, _internalFormat, _width, _height, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -236,8 +233,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("10nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[10]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[10]);
     GLint _ret = gluBuild3DMipmapLevels(_target, _internalFormat, _width, _height, _depth, _format, _type, _level, _base, _max, _data);
 
     return scope.Close(Number::New(_ret));
@@ -271,8 +267,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("7nth argument needs to be a buffer")));
     }
-    Buffer * data_buffer = ObjectWrap::Unwrap<Buffer>(args[7]->ToObject());
-    void *_data = (void *)data_buffer->data();
+    void *_data = (void *)BufferData(args[7]);
     GLint _ret = gluBuild3DMipmaps(_target, _internalFormat, _width, _height, _depth, _format, _type, _data);
 
     return scope.Close(Number::New(_ret));
@@ -877,8 +872,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("4nth argument needs to be a buffer")));
     }
-    Buffer * dataIn_buffer = ObjectWrap::Unwrap<Buffer>(args[4]->ToObject());
-    void *_dataIn = (void *)dataIn_buffer->data();
+    void *_dataIn = (void *)BufferData(args[4]);
     GLsizei _wOut = (GLsizei)args[5]->Int32Value();
     GLsizei _hOut = (GLsizei)args[6]->Int32Value();
     GLenum _typeOut = (GLenum)args[7]->Int32Value();
@@ -887,8 +881,7 @@ namespace node {
         return ThrowException(Exception::Error(
                               String::New("8nth argument needs to be a buffer")));
     }
-    Buffer * dataOut_buffer = ObjectWrap::Unwrap<Buffer>(args[8]->ToObject());
-    GLvoid *_dataOut = (GLvoid *)dataOut_buffer->data();
+    GLvoid *_dataOut = (GLvoid *)BufferData(args[8]);
     GLint _ret = gluScaleImage(_format, _wIn, _hIn, _typeIn, _dataIn, _wOut, _hOut, _typeOut, _dataOut);
 
     return scope.Close(Number::New(_ret));
