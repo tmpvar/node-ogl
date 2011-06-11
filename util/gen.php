@@ -214,8 +214,8 @@ foreach ($files as $currentFile)
           $inner .= "                              String::New(\"{$idx}nth argument needs to be a buffer\")));\n";
           $inner .= "    }\n";
 
-          $inner .= "  Buffer* _buffer_$idx = ObjectWrap::Unwrap<Buffer>(args[$idx]->ToObject());";
-          $inner .= "  $prefix $type *_$argument = ($type *)Buffer::Data(_buffer_$idx);\n";
+          $inner .= "  Local<Object>  _buffer_$idx = args[$idx]->ToObject();";
+          $inner .= "  $prefix $type *_$argument = ($type *)Buffer::Data(_buffer_{$idx});\n";
 
           if (!$doublePointer) {
             array_push($params, "_$argument");
