@@ -213,8 +213,8 @@ foreach ($files as $currentFile)
           $inner .= "        return ThrowException(Exception::Error(\n";
           $inner .= "                              String::New(\"{$idx}nth argument needs to be a buffer\")));\n";
           $inner .= "    }\n";
-          $inner .= "    Buffer * {$argument}_buffer = ObjectWrap::Unwrap<Buffer>(args[{$idx}]->ToObject());\n";
-          $inner .= "  $prefix $type *_$argument = ($type *){$argument}_buffer->Data();\n";
+          $inner .= "  $prefix $type *_$argument = ($type *)BufferData(args[$idx]);\n";
+
           if (!$doublePointer) {
             array_push($params, "_$argument");
           } else {
